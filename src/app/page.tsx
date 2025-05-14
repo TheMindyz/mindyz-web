@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo'
+    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv'
   >('inicio')
   const [nome, setNome] = useState('')
   const [cpf, setCpf] = useState('')
@@ -240,3 +240,15 @@ export default function Home() {
     </main>
   )
 }
+{step === 'cvv' && (
+  <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-2xl text-left space-y-6">
+    <BotaoVoltar voltarPara="home" />
+    <h2 className="text-3xl font-bold text-red-500 text-center">CVV - Centro de Valorização da Vida</h2>
+    <p className="text-zinc-300">
+      Fundado em São Paulo em 1962, o CVV é um serviço voluntário gratuito de apoio emocional e prevenção do suicídio para todas as pessoas que querem e precisam conversar, sob total sigilo e anonimato.
+    </p>
+    <p className="text-zinc-300">
+      Disponível 24 horas por dia, pelo telefone 188 ou pelo site <a href="https://www.cvv.org.br" target="_blank" className="text-green-400 underline">cvv.org.br</a>.
+    </p>
+  </section>
+)}
