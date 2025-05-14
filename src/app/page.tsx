@@ -70,12 +70,13 @@ export default function Home() {
     </button>
   )
 
-  //const Dica = ({ titulo, conteudo }: { titulo: string, conteudo: string }) => (
-    <div className="bg-zinc-800 p-4 rounded-lg shadow-md">
-      <h4 className="text-green-400 font-semibold text-lg">{titulo}</h4>
-      <p className="text-zinc-300">{conteudo}</p>
-    </div>
-  )
+  // const Dica = ({ titulo, conteudo }: { titulo: string, conteudo: string }) => (
+//   <div className="bg-zinc-800 p-4 rounded-lg shadow-md">
+//     <h4 className="text-green-400 font-semibold text-lg">{titulo}</h4>
+//     <p className="text-zinc-300">{conteudo}</p>
+//   </div>
+// )
+
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white">
