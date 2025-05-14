@@ -70,7 +70,7 @@ export default function Home() {
     </button>
   )
 
-  const Dica = ({ titulo, conteudo }: { titulo: string, conteudo: string }) => (
+  //const Dica = ({ titulo, conteudo }: { titulo: string, conteudo: string }) => (
     <div className="bg-zinc-800 p-4 rounded-lg shadow-md">
       <h4 className="text-green-400 font-semibold text-lg">{titulo}</h4>
       <p className="text-zinc-300">{conteudo}</p>
