@@ -126,16 +126,24 @@ export default function Home() {
       )}
 
       {step === 'resultado' && perfil && (
-        <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-4">
-          <BotaoVoltar voltarPara="autoconhecimento" />
-          <h2 className="text-3xl font-bold text-green-400">Olá, {nome}!</h2>
-          <p className="text-xl text-white">Seu perfil é: <span className="text-green-400 font-semibold">{perfil}</span></p>
-          <p className="text-zinc-300">{getDescricaoPerfil(perfil)}</p>
-          <button onClick={() => setStep('boasVindas')} className="mt-4 bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition">
-            Acessar Funções Especiais
-          </button>
-        </section>
-      )}
+  <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-4">
+    <BotaoVoltar voltarPara="autoconhecimento" />
+    <h2 className="text-3xl font-bold text-green-400">Olá, {nome}!</h2>
+    <p className="text-xl text-white">Seu perfil é: <span className="text-green-400 font-semibold">{perfil}</span></p>
+    <p className="text-zinc-300">{getDescricaoPerfil(perfil)}</p>
+
+    {/* Aqui está o Dica sendo usado */}
+    <Dica 
+      titulo="O que fazer agora?" 
+      conteudo="Você pode acessar funções exclusivas baseadas no seu perfil. Clique abaixo para começar!"
+    />
+
+    <button onClick={() => setStep('boasVindas')} className="mt-4 bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition">
+      Acessar Funções Especiais
+    </button>
+  </section>
+)}
+
 
       {step === 'boasVindas' && perfil && (
         <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6">
