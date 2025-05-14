@@ -6,6 +6,7 @@ export default function Home() {
   const [step, setStep] = useState<
     'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv'
   >('inicio')
+
   const [nome, setNome] = useState('')
   const [cpf, setCpf] = useState('')
   const [email, setEmail] = useState('')
@@ -82,9 +83,12 @@ export default function Home() {
         <section className="text-center space-y-6">
           <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
           <p className="text-zinc-300 text-xl font-medium">Onde cada geração encontra seu propósito.</p>
-          <button onClick={() => setStep('cadastro')} className="bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-6 rounded transition">
-  Entrar com convite / Pedir acesso
-</button>
+          <button
+            onClick={() => setStep('cadastro')}
+            className="bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-6 rounded transition"
+          >
+            Entrar com convite / Pedir acesso
+          </button>
           <div className="mt-6 flex justify-center gap-4 text-sm text-zinc-400">
             <a href="https://www.instagram.com/themindyz/" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">Instagram</a>
             <a href="https://youtube.com/@thejovify" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">YouTube</a>
@@ -171,98 +175,23 @@ export default function Home() {
               <h3 className="text-green-400 font-semibold text-lg">Sessões com Psicólogos</h3>
               <p>Agende conversas com nossos especialistas parceiros para cuidar da sua mente.</p>
             </div>
+            <div onClick={() => setStep('cvv')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer col-span-full">
+              <h3 className="text-green-400 font-semibold text-lg">Falar com o CVV</h3>
+              <p>Ajuda emocional gratuita 24h pelo 188 com o Centro de Valorização da Vida.</p>
+            </div>
           </div>
-          <div onClick={() => setStep('cvv')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
-  <h3 className="text-green-400 font-semibold text-lg">Ajuda Emocional - CVV</h3>
-  <p>Converse com alguém gratuitamente e de forma sigilosa.</p>
-</div>
-  </section>
-      )}
-
-      {step === 'trilhas' && (
-        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center">
-          <BotaoVoltar voltarPara="home" />
-          <h2 className="text-3xl font-bold text-green-400">Trilhas de Autodesenvolvimento</h2>
-          <p className="text-zinc-300">Explore conteúdos e dicas personalizados para seu perfil.</p>
-          <button onClick={() => setStep('trilhaDetalhes')} className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 w-full rounded transition">
-            Ver Dicas Personalizadas
-          </button>
         </section>
       )}
 
-      {step === 'trilhaDetalhes' && perfil && (
-        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
-          <BotaoVoltar voltarPara="trilhas" />
-          <h2 className="text-3xl font-bold text-green-400 text-center">Dicas para o perfil: {perfil}</h2>
-          <p className="text-zinc-300 text-center">Inspire-se com recomendações feitas sob medida para seu estilo único.</p>
-
-          {/* Dicas específicas para cada perfil aqui */}
-          {perfil === 'Empático' && (
-            <>
-              <Dica titulo="Hobbies Recomendados" conteudo="Escrever um diário, voluntariado, arte-terapia, meditação guiada, yoga." />
-              <Dica titulo="Evite Ansiedade" conteudo="Estabeleça limites emocionais e pratique o autocuidado diariamente." />
-              <Dica titulo="Gerencie o Cansaço" conteudo="Priorize o descanso e evite absorver os problemas dos outros." />
-              <Dica titulo="Lidando com Estresse" conteudo="Use técnicas de respiração e reserve momentos para solitude restauradora." />
-            </>
-          )}
-          {perfil === 'Guardião' && (
-            <>
-              <Dica titulo="Hobbies Recomendados" conteudo="Jardinagem, quebra-cabeças, leitura tranquila, culinária estruturada." />
-              <Dica titulo="Evite Ansiedade" conteudo="Não se sobrecarregue tentando controlar tudo. Confie no processo." />
-              <Dica titulo="Gerencie o Cansaço" conteudo="Crie rotinas de sono e momentos de pausa real durante o dia." />
-              <Dica titulo="Lidando com Estresse" conteudo="Organize suas tarefas em prioridades e diga não quando necessário." />
-            </>
-          )}
-          {perfil === 'Estratégico' && (
-            <>
-              <Dica titulo="Hobbies Recomendados" conteudo="Xadrez, leitura de não-ficção, programação, jogos de lógica, planejamento de projetos." />
-              <Dica titulo="Evite Ansiedade" conteudo="Aceite que nem tudo pode ser previsto — abrace a adaptabilidade." />
-              <Dica titulo="Gerencie o Cansaço" conteudo="Descanse entre metas e foque na qualidade, não só na performance." />
-              <Dica titulo="Lidando com Estresse" conteudo="Meditação com foco, journaling de prioridades e pausas programadas ajudam." />
-            </>
-          )}
-          {perfil === 'Pioneiro' && (
-            <>
-              <Dica titulo="Hobbies Recomendados" conteudo="Startups, marcenaria criativa, inovação em games, aventuras ao ar livre." />
-              <Dica titulo="Evite Ansiedade" conteudo="Não assuma todas as responsabilidades ao mesmo tempo. Delegue e compartilhe ideias." />
-              <Dica titulo="Gerencie o Cansaço" conteudo="Evite o burnout intercalando momentos de criação com relaxamento." />
-              <Dica titulo="Lidando com Estresse" conteudo="Atividades físicas e novos desafios ajudam a canalizar a tensão criativa." />
-            </>
-          )}
-        </section>
-      )}
-
-      {step === 'psicologo' && (
-        <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-xl shadow-xl text-center space-y-6">
+      {step === 'cvv' && (
+        <section className="w-full max-w-lg bg-zinc-900 p-8 rounded-xl shadow-xl text-center space-y-6">
           <BotaoVoltar voltarPara="home" />
-          <h2 className="text-3xl font-bold text-green-400">Sessões com Psicólogos</h2>
-          <p className="text-zinc-300">Estamos montando uma rede de psicólogos parceiros da Mindyz.</p>
-          <p className="text-zinc-300">Se você é psicólogo(a) e tem interesse em fazer parte, envie um e-mail para:</p>
-          <a href="mailto:equipemindyz@gmail.com" className="text-green-400 underline">equipemindyz@gmail.com</a>
-        </section>
-      )}
-    </main>
-  )
-}
-{step === 'cvv' && (
-        <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-xl shadow-xl text-center space-y-6">
-          <BotaoVoltar voltarPara="home" />
-          <h2 className="text-3xl font-bold text-green-400">Ajuda Emocional - CVV</h2>
-          <p className="text-zinc-300">
-            O <span className="text-green-400 font-semibold">CVV (Centro de Valorização da Vida)</span> é um serviço gratuito de apoio emocional e prevenção do suicídio, com total sigilo e anonimato.
-          </p>
-          <p className="text-zinc-300">
-            Fundado em São Paulo em 1962, o CVV atende 24 horas pelo telefone <span className="text-green-400 font-bold">188</span>, sem custo de ligação.
-          </p>
-          <p className="text-zinc-300">
-            Mais de 3.300 voluntários realizam mais de 2,7 milhões de atendimentos por ano em todo o Brasil.
-          </p>
-          <p className="text-zinc-300">
-            Também é possível conversar por chat, e-mail ou presencialmente. Acesse:
-            <a href="https://cvv.org.br/o-cvv/" target="_blank" rel="noopener noreferrer" className="text-green-400 underline ml-1">cvv.org.br</a>
-          </p>
-          <a href="tel:188" className="inline-block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-6 rounded transition">
-            Ligar para 188
+          <h2 className="text-3xl font-bold text-green-400">CVV - Apoio Emocional</h2>
+          <p className="text-zinc-300">Se você está passando por um momento difícil, saiba que não está sozinho.</p>
+          <p className="text-zinc-300">Ligue gratuitamente para <span className="text-green-400 font-bold text-xl">188</span></p>
+          <p className="text-zinc-300">O Centro de Valorização da Vida (CVV) oferece escuta qualificada 24h por dia, todos os dias.</p>
+          <a href="https://www.cvv.org.br" target="_blank" rel="noopener noreferrer" className="text-green-400 underline">
+            Acesse o site oficial
           </a>
         </section>
       )}
