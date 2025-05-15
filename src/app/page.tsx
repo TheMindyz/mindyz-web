@@ -7,13 +7,13 @@ const [step, setStep] = useState<
   'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv'
 >('inicio');
 
-const [nome, setNome] = useState('')
-> const [cpf, setCpf] = useState('')
-> const [email, setEmail] = useState('')
-> const [dataNascimento, setDataNascimento] = useState('')
-> const [senha, setSenha] = useState('')
-> const [respostas, setRespostas] = useState<number[]>(Array(8).fill(0))
-> const [perfil, setPerfil] = useState<string | null>(null)
+ const [nome, setNome] = useState('')
+ const [cpf, setCpf] = useState('')
+ const [email, setEmail] = useState('')
+ const [dataNascimento, setDataNascimento] = useState('')
+ const [senha, setSenha] = useState('')
+ const [respostas, setRespostas] = useState<number[]>(Array(8).fill(0))
+ const [perfil, setPerfil] = useState<string | null>(null)
 
 const handleChange = (index: number, value: number) => {
 const novasRespostas = \[...respostas]
