@@ -3,76 +3,82 @@
 import React, { useState } from 'react';
 
 export default function Home() {
-const [step, setStep] = useState<
-  'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv'
->('inicio');
+  const [step, setStep] = useState<
+    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv'
+  >('inicio');
 
- const [nome, setNome] = useState('')
- const [cpf, setCpf] = useState('')
- const [email, setEmail] = useState('')
- const [dataNascimento, setDataNascimento] = useState('')
- const [senha, setSenha] = useState('')
- const [respostas, setRespostas] = useState<number[]>(Array(8).fill(0))
- const [perfil, setPerfil] = useState<string | null>(null)
+  const [nome, setNome] = useState('');
+  const [cpf, setCpf] = useState('');
+  const [email, setEmail] = useState('');
+  const [dataNascimento, setDataNascimento] = useState('');
+  const [senha, setSenha] = useState('');
+  const [respostas, setRespostas] = useState<number[]>(Array(8).fill(0));
+  const [perfil, setPerfil] = useState<string | null>(null);
 
-const handleChange = (index: number, value: number) => {
-const novasRespostas = [...respostas]
-novasRespostas[index] = value
-setRespostas(novasRespostas)
-}
+  const handleChange = (index: number, value: number) => {
+    const novasRespostas = [...respostas];
+    novasRespostas[index] = value;
+    setRespostas(novasRespostas);
+  };
 
-const calcularPerfil = () => {
-const soma = respostas.reduce((a, b) => a + b, 0)
-if (soma < 12) return 'Empático'
-if (soma < 20) return 'Guardião'
-if (soma < 28) return 'Estratégico'
-return 'Pioneiro'
-}
+  const calcularPerfil = () => {
+    const soma = respostas.reduce((a, b) => a + b, 0);
+    if (soma < 12) return 'Empático';
+    if (soma < 20) return 'Guardião';
+    if (soma < 28) return 'Estratégico';
+    return 'Pioneiro';
+  };
 
-const getDescricaoPerfil = (perfil: string) => {
-switch (perfil) {
-case 'Empático':
-return 'Você tem uma grande sensibilidade emocional, valoriza conexões humanas e está sempre pronto para apoiar quem precisa. Seu poder está na escuta e no acolhimento.'
-case 'Guardião':
-return 'Você é leal, confiável e organizado. Gosta de proteger o que é importante e se dedica com responsabilidade às suas tarefas. Um verdadeiro pilar para qualquer equipe.'
-case 'Estratégico':
-return 'Você pensa à frente, enxerga soluções e sabe como alcançar objetivos com inteligência. Seu raciocínio lógico e visão tática te destacam.'
-case 'Pioneiro':
-return 'Você é um líder nato! Ama inovação, desafiar padrões e transformar ideias em realidade. Seu espírito criativo e ousado inspira mudanças.'
-default:
-return ''
-}
-}
+  const getDescricaoPerfil = (perfil: string) => {
+    switch (perfil) {
+      case 'Empático':
+        return 'Você tem uma grande sensibilidade emocional, valoriza conexões humanas e está sempre pronto para apoiar quem precisa. Seu poder está na escuta e no acolhimento.';
+      case 'Guardião':
+        return 'Você é leal, confiável e organizado. Gosta de proteger o que é importante e se dedica com responsabilidade às suas tarefas. Um verdadeiro pilar para qualquer equipe.';
+      case 'Estratégico':
+        return 'Você pensa à frente, enxerga soluções e sabe como alcançar objetivos com inteligência. Seu raciocínio lógico e visão tática te destacam.';
+      case 'Pioneiro':
+        return 'Você é um líder nato! Ama inovação, desafiar padrões e transformar ideias em realidade. Seu espírito criativo e ousado inspira mudanças.';
+      default:
+        return '';
+    }
+  };
 
-const perguntas = [
-'Você se considera uma pessoa comunicativa?',
-'Costuma planejar com antecedência suas tarefas?',
-'Consegue entender facilmente os sentimentos dos outros?',
-'Gosta de assumir a liderança em projetos?',
-'Você prefere estabilidade ou mudanças constantes?',
-'Tem facilidade em resolver problemas de forma lógica?',
-'Valoriza relações profundas e sinceras?',
-'Sente-se motivado por desafios e inovação?'
-]
+  const perguntas = [
+    'Você se considera uma pessoa comunicativa?',
+    'Costuma planejar com antecedência suas tarefas?',
+    'Consegue entender facilmente os sentimentos dos outros?',
+    'Gosta de assumir a liderança em projetos?',
+    'Você prefere estabilidade ou mudanças constantes?',
+    'Tem facilidade em resolver problemas de forma lógica?',
+    'Valoriza relações profundas e sinceras?',
+    'Sente-se motivado por desafios e inovação?'
+  ];
 
-const enviarRespostas = () => {
-const perfilCalculado = calcularPerfil()
-setPerfil(perfilCalculado)
-setStep('resultado')
-}
+  const enviarRespostas = () => {
+    const perfilCalculado = calcularPerfil();
+    setPerfil(perfilCalculado);
+    setStep('resultado');
+  };
 
-const BotaoVoltar = ({ voltarPara }: { voltarPara: typeof step }) => (
-<button
-onClick={() => setStep(voltarPara)}
-className="bg-zinc-700 hover\:bg-zinc-600 text-white py-1 px-4 rounded transition mb-4"
->
-← Voltar <button>
-)
+  const BotaoVoltar = ({ voltarPara }: { voltarPara: typeof step }) => (
+    <button
+      onClick={() => setStep(voltarPara)}
+      className="bg-zinc-700 hover:bg-zinc-600 text-white py-1 px-4 rounded transition mb-4"
+    >
+      ← Voltar
+    </button>
+  );
 
-const Dica = ({ titulo, conteudo }: { titulo: string, conteudo: string }) => ( <div className="bg-zinc-800 p-4 rounded-lg shadow-md"> <h4 className="text-green-400 font-semibold text-lg">{titulo}</h4> <p className="text-zinc-300">{conteudo}</p> </div>
-)
+  const Dica = ({ titulo, conteudo }: { titulo: string, conteudo: string }) => (
+    <div className="bg-zinc-800 p-4 rounded-lg shadow-md">
+      <h4 className="text-green-400 font-semibold text-lg">{titulo}</h4>
+      <p className="text-zinc-300">{conteudo}</p>
+    </div>
+  );
 
-return ( <main className="flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white">
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white">
 {step === 'inicio' && ( <section className="text-center space-y-6"> <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1> <p className="text-zinc-300 text-xl font-medium">Onde cada geração encontra seu propósito.</p>
 <button onClick={() => setStep('cadastro')} className="bg-purple-800 hover\:bg-purple-900 text-white font-bold py-2 px-6 rounded transition">
 Entrar com convite / Pedir acesso <button> <div className="mt-6 flex justify-center gap-4 text-sm text-zinc-400"> <a href="https://www.instagram.com/themindyz/" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">Instagram</a> <a href="https://youtube.com/@thejovify" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">YouTube</a> <a href="mailto:sacjovify@gmail.com" className="hover:text-green-400">Email</a> <a href="https://tiktok.com/@thejovify" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">TikTok</a> </div> </section>
