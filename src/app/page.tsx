@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
 
@@ -44,7 +44,7 @@ return ''
 }
 }
 
-const perguntas = \[
+const perguntas = [
 'Você se considera uma pessoa comunicativa?',
 'Costuma planejar com antecedência suas tarefas?',
 'Consegue entender facilmente os sentimentos dos outros?',
