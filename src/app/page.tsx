@@ -7,7 +7,7 @@ const [step, setStep] = useState<
   'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv'
 >('inicio');
 
-> const [nome, setNome] = useState('')
+const [nome, setNome] = useState('')
 > const [cpf, setCpf] = useState('')
 > const [email, setEmail] = useState('')
 > const [dataNascimento, setDataNascimento] = useState('')
