@@ -16,8 +16,8 @@ const [step, setStep] = useState<
  const [perfil, setPerfil] = useState<string | null>(null)
 
 const handleChange = (index: number, value: number) => {
-const novasRespostas = \[...respostas]
-novasRespostas\[index] = value
+const novasRespostas = [...respostas]
+novasRespostas[index] = value
 setRespostas(novasRespostas)
 }
 
