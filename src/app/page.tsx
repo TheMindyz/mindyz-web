@@ -154,8 +154,9 @@ export default function Home() {
           <li>Marcar sessões com psicólogos parceiros</li>
           <li>Receber mensagens motivacionais diárias</li>
           <li>Entrar na comunidade exclusiva Mindyz</li>
-          <li>Receber conteúdos personalizados pelo seu perfil</li>
-        </ul>
+          <li>Cvv</li>
+      
+  </ul>
       </div>
       <button onClick={() => setStep('home')} className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 w-full rounded transition">
         Ir para a Página Inicial
@@ -267,7 +268,7 @@ export default function Home() {
         <p className="text-zinc-300">Ou envie um e-mail para <a href="mailto:cvv@cvv.org.br" className="text-green-400 underline">cvv@cvv.org.br</a></p>
       </section>
     )}
-    
+
 {step === 'mensagens' && (
   <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-6">
     <BotaoVoltar voltarPara="home" />
