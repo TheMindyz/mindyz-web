@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv'
+    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -183,6 +183,12 @@ export default function Home() {
         <h3 className="text-green-400 font-semibold text-lg">Precisa conversar?</h3>
         <p>Saiba como receber apoio emocional gratuito com o CVV (188).</p>
       </div>
+
+      <div onClick={() => setStep('mensagens')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
+  <h3 className="text-green-400 font-semibold text-lg">Mensagens Motivacionais</h3>
+  <p>Leia frases que vão te inspirar e dar um gás no seu dia.</p>
+</div>
+
     </div>
   </section>
 )}
@@ -261,6 +267,28 @@ export default function Home() {
         <p className="text-zinc-300">Ou envie um e-mail para <a href="mailto:cvv@cvv.org.br" className="text-green-400 underline">cvv@cvv.org.br</a></p>
       </section>
     )}
+    
+{step === 'mensagens' && (
+  <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-6">
+    <BotaoVoltar voltarPara="home" />
+    <h2 className="text-3xl font-bold text-green-400">Mensagens Motivacionais</h2>
+    <div className="space-y-4 text-left">
+      <Dica
+        titulo="Acredite em você"
+        conteudo="Você é mais capaz do que imagina. Cada passo, por menor que seja, é um avanço na direção certa."
+      />
+      <Dica
+        titulo="Seja constante"
+        conteudo="A motivação começa com uma escolha: continuar, mesmo quando for difícil."
+      />
+      <Dica
+        titulo="Você importa"
+        conteudo="Seu valor não está no que você faz, mas em quem você é. O mundo precisa do seu brilho."
+      />
+    </div>
+  </section>
+)}
+
   </main>
 );
 }
