@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade'
+    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -196,6 +196,12 @@ export default function Home() {
 </div>
 
 
+<div onClick={() => setStep('checkin')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
+  <h3 className="text-green-400 font-semibold text-lg">Fazer Check-in Emocional</h3>
+  <p>Registre como está se sentindo agora com um simples toque.</p>
+</div>
+
+
     </div>
   </section>
 )}
@@ -314,6 +320,34 @@ export default function Home() {
   </section>
 )}
 
+{step === 'checkin' && (
+  <section className="w-full max-w-md bg-zinc-900 p-6 rounded-xl shadow-xl space-y-6 text-center">
+    <BotaoVoltar voltarPara="home" />
+    <h2 className="text-3xl font-bold text-green-400">Como você está se sentindo hoje?</h2>
+    <div className="grid grid-cols-3 gap-4 text-3xl">
+      {[
+        { emoji: '😊', label: 'Feliz' },
+        { emoji: '😔', label: 'Triste' },
+        { emoji: '😡', label: 'Irritado' },
+        { emoji: '😰', label: 'Ansioso' },
+        { emoji: '😎', label: 'Confiante' },
+        { emoji: '😴', label: 'Cansado' },
+        { emoji: '😭', label: 'Sobrecarregado' },
+        { emoji: '❤️', label: 'Grato' },
+        { emoji: '🤔', label: 'Pensativo' },
+      ].map(({ emoji, label }) => (
+        <button
+          key={label}
+          onClick={() => alert(`Check-in registrado: ${label}`)}
+          className="flex flex-col items-center bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
+        >
+          <span>{emoji}</span>
+          <span className="text-sm text-zinc-300 mt-1">{label}</span>
+        </button>
+      ))}
+    </div>
+  </section>
+)}
 
   </main>
 );
