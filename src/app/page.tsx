@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens'
+    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -190,6 +190,12 @@ export default function Home() {
   <p>Leia frases que vão te inspirar e dar um gás no seu dia.</p>
 </div>
 
+<div onClick={() => setStep('comunidade')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
+  <h3 className="text-green-400 font-semibold text-lg">Comunidade Exclusiva Mindyz</h3>
+  <p>Conecte-se com outras mentes incríveis, compartilhe experiências e evolua em grupo.</p>
+</div>
+
+
     </div>
   </section>
 )}
@@ -289,6 +295,25 @@ export default function Home() {
     </div>
   </section>
 )}
+
+{step === 'comunidade' && (
+  <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-xl shadow-xl text-center space-y-6">
+    <BotaoVoltar voltarPara="home" />
+    <h2 className="text-3xl font-bold text-green-400">Comunidade Exclusiva Mindyz</h2>
+    <p className="text-zinc-300">Aqui você encontrará um espaço seguro para trocas, apoio mútuo e desenvolvimento conjunto.</p>
+    <p className="text-zinc-300">Nosso grupo oficial é no WhatsApp. Clique abaixo para entrar:</p>
+    <a
+      href="https://chat.whatsapp.com/I32zRC7Fue71w4ZHodWHMq"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
+    >
+      Entrar no Grupo
+    </a>
+    <p className="text-sm text-zinc-500">*A entrada é moderada e exclusiva para membros da plataforma.</p>
+  </section>
+)}
+
 
   </main>
 );
