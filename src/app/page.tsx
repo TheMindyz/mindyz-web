@@ -155,6 +155,7 @@ export default function Home() {
           <li>Receber mensagens motivacionais diárias</li>
           <li>Entrar na comunidade exclusiva Mindyz</li>
           <li>Cvv</li>
+          <li>Fazer check-in emocional</li>
       
   </ul>
       </div>
