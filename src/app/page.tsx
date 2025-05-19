@@ -49,7 +49,7 @@ export default function Home() {
     'Costuma planejar com antecedência suas tarefas?',
     'Consegue entender facilmente os sentimentos dos outros?',
     'Gosta de assumir a liderança em projetos?',
-    'Você prefere estabilidade ou mudanças constantes?',
+    'Você prefere estabilidade á mudanças constantes?',
     'Tem facilidade em resolver problemas de forma lógica?',
     'Valoriza relações profundas e sinceras?',
     'Sente-se motivado por desafios e inovação?'
