@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin'
+    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -202,6 +202,11 @@ export default function Home() {
   <p>Registre como está se sentindo agora com um simples toque.</p>
 </div>
 
+<div onClick={() => setStep('sobre a Mindyz')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
+  <h3 className="text-green-400 font-semibold text-lg">Sobre a Mindzy</h3>
+  <p>Conheça nossa missão, visão e os valores que guiam o nosso propósito.</p>
+</div>
+
 
     </div>
   </section>
@@ -346,6 +351,45 @@ export default function Home() {
           <span className="text-sm text-zinc-300 mt-1">{label}</span>
         </button>
       ))}
+    </div>
+  </section>
+)}
+
+{step === 'sobre a Mindyz' && (
+  <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl overflow-y-auto max-h-screen">
+    <BotaoVoltar voltarPara="inicio" />
+    <h2 className="text-3xl font-bold text-green-400 text-center">Como surgiu a Mindzy</h2>
+    <p className="text-zinc-300 leading-relaxed">
+      A Mindzy nasceu da visão sensível e inovadora de Mariana Tavares, estudante do curso de Gestão da Tecnologia da Informação. Desde o primeiro período da faculdade, Mariana já refletia profundamente sobre a importância de unir a tecnologia ao cuidado com a saúde mental — um tema que sempre considerou essencial, mas ainda pouco explorado no universo digital.
+      <br /><br />
+      Foi justamente no primeiro período que a ideia da Mindzy surgiu. A partir daquele momento, Mariana começou a planejar e trabalhar com dedicação no projeto, buscando formas de tornar a proposta real e impactante. Paralelamente à formação em tecnologia, ela também passou a estudar Psicologia nas horas vagas, movida por experiências pessoais e familiares com ansiedade e questões emocionais. Essas vivências fortaleceram ainda mais seu compromisso em criar algo verdadeiramente útil, humano e acolhedor.
+      <br /><br />
+      Mais do que um nome, Mindzy representa um propósito: criar um espaço acessível e sensível para quem busca apoio emocional, usando a tecnologia de forma ética, empática e consciente. Cada detalhe da plataforma foi pensado com carinho, responsabilidade e escuta ativa, para que cada pessoa se sinta genuinamente acolhida.
+    </p>
+
+    <div className="space-y-4 mt-6">
+      <div>
+        <h3 className="text-xl font-semibold text-green-400">🌱 Missão</h3>
+        <p className="text-zinc-300">
+          Oferecer apoio emocional por meio de soluções tecnológicas acessíveis, empáticas e acolhedoras, promovendo bem-estar e autocuidado na vida das pessoas.
+        </p>
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-green-400">👁️ Visão</h3>
+        <p className="text-zinc-300">
+          Ser referência em tecnologia voltada à saúde mental, criando um espaço seguro e humanizado para quem busca acolhimento, inspiração ou orientação emocional.
+        </p>
+      </div>
+      <div>
+        <h3 className="text-xl font-semibold text-green-400">💛 Valores</h3>
+        <ul className="list-disc list-inside text-zinc-300 space-y-1">
+          <li><strong>Empatia:</strong> Ouvir, acolher e compreender sem julgamentos.</li>
+          <li><strong>Acessibilidade:</strong> Tornar o cuidado emocional possível para todos.</li>
+          <li><strong>Inovação com propósito:</strong> Usar a tecnologia para fazer o bem.</li>
+          <li><strong>Cuidado humano:</strong> Desenvolver com sensibilidade, sempre pensando em quem vai usar.</li>
+          <li><strong>Respeito e ética:</strong> Tratar cada pessoa com dignidade e responsabilidade.</li>
+        </ul>
+      </div>
     </div>
   </section>
 )}
