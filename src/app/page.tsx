@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz'
+    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz' | 'desabafo'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -208,6 +208,10 @@ export default function Home() {
   <p>Conheça nossa missão, visão e os valores que guiam o nosso propósito.</p>
 </div>
 
+<div onClick={() => setStep('desabafo')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
+  <h3 className="text-green-400 font-semibold text-lg">Desabafo</h3>
+  <p>Compartilhe o que está sentindo de forma segura e anônima. Estamos aqui para te ouvir.</p>
+</div>
 
     </div>
   </section>
@@ -328,6 +332,7 @@ export default function Home() {
 )}
 
 {step === 'checkin' && (
+
   <section className="w-full max-w-md bg-zinc-900 p-6 rounded-xl shadow-xl space-y-6 text-center">
     <BotaoVoltar voltarPara="home" />
     <h2 className="text-3xl font-bold text-green-400">Como você está se sentindo hoje?</h2>
@@ -355,6 +360,8 @@ export default function Home() {
     </div>
   </section>
 )}
+
+
 
 {step === 'sobre a Mindyz' && (
   <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl overflow-y-auto max-h-screen">
@@ -395,6 +402,20 @@ export default function Home() {
   </section>
 )}
 
+{step === 'desabafo' && (
+  <section className="bg-zinc-900 p-6 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-4">
+    <BotaoVoltar voltarPara="home" />
+    <h2 className="text-2xl font-bold text-green-400">Bloco de Desabafo</h2>
+    <textarea
+      placeholder="Escreva aqui o que está sentindo..."
+      rows={10}
+      className="w-full p-4 rounded-lg bg-zinc-800 text-white border border-zinc-700 resize-none"
+    />
+    <button className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition">
+      Salvar (em breve)
+    </button>
+  </section>
+)}
 
   </main>
 );
