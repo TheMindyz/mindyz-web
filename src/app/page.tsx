@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz' | 'desabafo'
+    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -157,6 +157,7 @@ export default function Home() {
           <li>Cvv</li>
           <li>Fazer check-in emocional</li>
           <li>Conhecer sobre a Mindyz</li>
+          <li>Desabafar</li>
       
   </ul>
       </div>
@@ -211,6 +212,11 @@ export default function Home() {
 <div onClick={() => setStep('desabafo')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
   <h3 className="text-green-400 font-semibold text-lg">Desabafo</h3>
   <p>Compartilhe o que está sentindo de forma segura e anônima. Estamos aqui para te ouvir.</p>
+</div>
+
+<div onClick={() => setStep('mindyz news')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
+  <h3 className="text-green-400 font-semibold text-lg">Mindyz News</h3>
+  <p>Fique por dentro das últimas novidades e descobertas sobre saúde mental no Brasil e no mundo.</p>
 </div>
 
     </div>
@@ -414,6 +420,48 @@ export default function Home() {
     <button className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition">
       Salvar (em breve)
     </button>
+  </section>
+)}
+
+{step === 'mindyz news' && (
+  <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl overflow-y-auto max-h-screen">
+    <BotaoVoltar voltarPara="home" />
+    <h2 className="text-3xl font-bold text-green-400 text-center">📰 Mindyz News</h2>
+    <p className="text-zinc-300 leading-relaxed text-center">
+      Acompanhe as principais notícias e descobertas sobre saúde mental no Brasil e no mundo.
+    </p>
+
+    <div className="space-y-4">
+      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+        <h3 className="text-green-300 font-semibold text-lg">
+          Estudo revela impacto positivo da meditação no cérebro
+        </h3>
+        <p className="text-zinc-300 text-sm mt-1">
+          Pesquisadores apontam melhorias cognitivas e redução da ansiedade com apenas 10 minutos diários.
+        </p>
+        <p className="text-xs text-zinc-400 mt-2">20 de maio de 2025</p>
+      </div>
+
+      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+        <h3 className="text-green-300 font-semibold text-lg">
+          Saúde mental dos jovens preocupa especialistas
+        </h3>
+        <p className="text-zinc-300 text-sm mt-1">
+          Número de casos de ansiedade e depressão entre adolescentes cresce em ritmo acelerado no Brasil.
+        </p>
+        <p className="text-xs text-zinc-400 mt-2">18 de maio de 2025</p>
+      </div>
+
+      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+        <h3 className="text-green-300 font-semibold text-lg">
+          Novo app gratuito oferece suporte emocional anônimo
+        </h3>
+        <p className="text-zinc-300 text-sm mt-1">
+          Plataforma conecta usuários a escuta ativa e conteúdo educativo sobre emoções.
+        </p>
+        <p className="text-xs text-zinc-400 mt-2">15 de maio de 2025</p>
+      </div>
+    </div>
   </section>
 )}
 
