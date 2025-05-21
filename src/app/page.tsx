@@ -507,9 +507,9 @@ export default function Home() {
       {/* Notícia 5 */}
       <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
         <h3 className="text-green-300 font-semibold text-lg">
-          Saúde mental será a 'grande causa nacional' da França em 2025
-        </h3>
-        <p className="text-zinc-300 text-sm mt-1">
+  Saúde mental será a &apos;grande causa nacional&apos; da França em 2025
+</h3>
+<p className="text-zinc-300 text-sm mt-1">
           Governo francês anuncia foco em saúde mental, com campanhas de sensibilização e medidas de prevenção.
         </p>
         <a
