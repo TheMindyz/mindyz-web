@@ -156,6 +156,7 @@ export default function Home() {
           <li>Entrar na comunidade exclusiva Mindyz</li>
           <li>Cvv</li>
           <li>Fazer check-in emocional</li>
+          <li>Conhecer sobre a Mindyz</li>
       
   </ul>
       </div>
@@ -357,7 +358,7 @@ export default function Home() {
 
 {step === 'sobre a Mindyz' && (
   <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl overflow-y-auto max-h-screen">
-    <BotaoVoltar voltarPara="inicio" />
+    <BotaoVoltar voltarPara="home" />
     <h2 className="text-3xl font-bold text-green-400 text-center">Como surgiu a Mindzy</h2>
     <p className="text-zinc-300 leading-relaxed">
       A Mindzy nasceu da visão sensível e inovadora de Mariana Tavares, estudante do curso de Gestão da Tecnologia da Informação. Desde o primeiro período da faculdade, Mariana já refletia profundamente sobre a importância de unir a tecnologia ao cuidado com a saúde mental — um tema que sempre considerou essencial, mas ainda pouco explorado no universo digital.
@@ -393,6 +394,7 @@ export default function Home() {
     </div>
   </section>
 )}
+
 
   </main>
 );
