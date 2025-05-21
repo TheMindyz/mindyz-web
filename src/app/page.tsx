@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news'
+    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'sos'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -217,6 +217,16 @@ export default function Home() {
 <div onClick={() => setStep('mindyz news')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
   <h3 className="text-green-400 font-semibold text-lg">Mindyz News</h3>
   <p>Fique por dentro das últimas novidades e descobertas sobre saúde mental no Brasil e no mundo.</p>
+</div>
+
+<div
+  onClick={() => setStep('sos')}
+  className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer"
+>
+  <h3 className="text-rose-400 font-semibold text-lg">🚑 SOS Emocional</h3>
+  <p>
+    Práticas de respiração, relaxamento e primeiros socorros emocionais para te ajudar em momentos de crise, ansiedade ou estresse.
+  </p>
 </div>
 
     </div>
@@ -615,6 +625,69 @@ export default function Home() {
   </section>
 )}
 
+{step === 'sos' && (
+  <section className="bg-zinc-900 p-6 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-6">
+    <BotaoVoltar voltarPara="home" />
+
+    <h2 className="text-2xl font-bold text-rose-400">
+      🚑 SOS Emocional
+    </h2>
+
+    <p className="text-zinc-300">
+      Se você está se sentindo sobrecarregado, ansioso ou em crise, aqui estão práticas e orientações para te ajudar agora.
+    </p>
+
+    {/* Círculo simulando respiração */}
+    <div className="flex justify-center">
+      <div className="w-40 h-40 rounded-full bg-rose-500 opacity-50 animate-ping"></div>
+    </div>
+
+    <p className="text-rose-300 font-semibold">
+      🌬️ Inspire... Segura... Expira... Repete comigo.
+    </p>
+
+    {/* Sons Terapêuticos */}
+    <div className="space-y-2">
+      <h3 className="text-rose-400 font-semibold">
+        🌿 Sons Terapêuticos
+      </h3>
+      <div className="grid grid-cols-2 gap-2">
+        <button className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200">
+          🌧️ Chuva
+        </button>
+        <button className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200">
+          🌊 Mar
+        </button>
+        <button className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200">
+          🌳 Floresta
+        </button>
+        <button className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200">
+          🔥 Fogueira
+        </button>
+      </div>
+    </div>
+
+    {/* Guia de Primeiros Socorros Psicológicos */}
+    <div className="space-y-4">
+      <h3 className="text-rose-400 font-semibold text-xl">
+        🧠 Primeiros Socorros Psicológicos
+      </h3>
+      <ul className="space-y-2 text-zinc-300 text-left">
+        <li>✔️ Reconheça: Está tudo bem não estar bem agora.</li>
+        <li>✔️ Respire fundo e foque na sua respiração.</li>
+        <li>✔️ Identifique o que está sentindo, sem se julgar.</li>
+        <li>✔️ Se puder, fale com alguém de confiança.</li>
+        <li>✔️ Procure um lugar seguro e confortável.</li>
+        <li>✔️ Pratique aterramento: perceba seus 5 sentidos.</li>
+        <li>✔️ Lembre-se: isso vai passar.</li>
+      </ul>
+    </div>
+
+    <p className="text-center text-sm text-zinc-400">
+      Se precisar de apoio imediato, fale com o <b>CVV — 188</b> ou com um profissional de saúde mental.
+    </p>
+  </section>
+)}
 
   </main>
 );
