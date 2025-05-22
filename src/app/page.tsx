@@ -229,13 +229,12 @@ const pararTodosOsSons = () => {
 
 
   {step === 'boasVindas' && perfil && (
-
-
-
-    <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6">
+  <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6">
       <BotaoVoltar voltarPara="resultado" />
       <h2 className="text-3xl font-bold text-green-400">Seja bem-vindo(a), {nome}!</h2>
-      <p className="text-zinc-300">{getDescricaoPerfil(perfil)}</p>
+<p className="text-zinc-300">
+Agora que você conhece melhor o seu perfil emocional, explore os recursos que a Mindyz preparou para sua jornada de autoconhecimento.
+</p>
       <div className="space-y-4 text-left text-zinc-300">
         <h3 className="text-green-400 font-semibold text-xl">Funções Disponíveis:</h3>
         <ul className="space-y-2 list-disc list-inside">
