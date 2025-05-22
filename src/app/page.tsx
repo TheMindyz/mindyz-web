@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+
 
 export default function Home() {
   const [step, setStep] = useState<
@@ -14,6 +15,35 @@ export default function Home() {
   const [senha, setSenha] = useState('');
   const [respostas, setRespostas] = useState<number[]>(Array(8).fill(0));
   const [perfil, setPerfil] = useState<string | null>(null);
+
+const chuvaRef = useRef<HTMLAudioElement>(null);
+const marRef = useRef<HTMLAudioElement>(null);
+const florestaRef = useRef<HTMLAudioElement>(null);
+const fogueiraRef = useRef<HTMLAudioElement>(null);
+
+// Tipagem genérica e segura
+const tocarSom = (somRef: React.RefObject<HTMLAudioElement | null>) => {
+  [chuvaRef, marRef, florestaRef, fogueiraRef].forEach(ref => {
+    if (ref.current) {
+      ref.current.pause();
+      ref.current.currentTime = 0;
+    }
+  });
+
+  if (somRef.current) {
+    somRef.current.play();
+  }
+};
+
+const pararTodosOsSons = () => {
+  [chuvaRef, marRef, florestaRef, fogueiraRef].forEach(ref => {
+    if (ref.current) {
+      ref.current.pause();
+      ref.current.currentTime = 0;
+    }
+  });
+};
+
 
   const handleChange = (index: number, value: number) => {
     const novasRespostas = [...respostas];
@@ -82,7 +112,7 @@ export default function Home() {
       {step === 'inicio' && (
         <section className="text-center space-y-6">
           <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
-          <p className="text-zinc-300 text-xl font-medium">Onde cada geração encontra seu propósito.</p>
+          <p className="text-zinc-300 text-xl font-medium">Sua S.O.S em Saúde Mental.</p>
           <button
             onClick={() => setStep('cadastro')}
             className="bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-6 rounded transition"
@@ -143,6 +173,9 @@ export default function Home() {
   )}
 
   {step === 'boasVindas' && perfil && (
+
+
+
     <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6">
       <BotaoVoltar voltarPara="resultado" />
       <h2 className="text-3xl font-bold text-green-400">Seja bem-vindo(a), {nome}!</h2>
@@ -158,6 +191,8 @@ export default function Home() {
           <li>Fazer check-in emocional</li>
           <li>Conhecer sobre a Mindyz</li>
           <li>Desabafar</li>
+          <li>Mindyz News</li>
+          <li>S.O.S Emocional</li>
       
   </ul>
       </div>
@@ -652,20 +687,44 @@ export default function Home() {
         🌿 Sons Terapêuticos
       </h3>
       <div className="grid grid-cols-2 gap-2">
-        <button className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200">
+        <button
+          onClick={() => tocarSom(chuvaRef)}
+          className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200"
+        >
           🌧️ Chuva
         </button>
-        <button className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200">
+        <button
+          onClick={() => tocarSom(marRef)}
+          className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200"
+        >
           🌊 Mar
         </button>
-        <button className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200">
+        <button
+          onClick={() => tocarSom(florestaRef)}
+          className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200"
+        >
           🌳 Floresta
         </button>
-        <button className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200">
+        <button
+          onClick={() => tocarSom(fogueiraRef)}
+          className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200"
+        >
           🔥 Fogueira
+        </button>
+        <button
+          onClick={pararTodosOsSons}
+          className="bg-red-800 hover:bg-red-700 p-2 rounded-xl text-white col-span-2"
+        >
+          ⏹️ Parar Sons
         </button>
       </div>
     </div>
+
+    {/* Elementos de áudio ocultos */}
+    <audio ref={chuvaRef} src="/sons/chuva.mp3" loop />
+<audio ref={marRef} src="/sons/mar.mp3" loop />
+<audio ref={florestaRef} src="/sons/floresta.mp3" loop />
+<audio ref={fogueiraRef} src="/sons/fogueira.mp3" loop />
 
     {/* Guia de Primeiros Socorros Psicológicos */}
     <div className="space-y-4">
