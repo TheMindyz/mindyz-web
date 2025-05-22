@@ -153,8 +153,9 @@ const pararTodosOsSons = () => {
 
 {step === 'login' && (
   <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
-    <BotaoVoltar voltarPara="inicio" />
+    <BotaoVoltar voltarPara="cadastro" /> {/* Alterado para voltar para cadastro */}
     <h2 className="text-2xl font-bold text-green-400 text-center">Entrar</h2>
+    
     <input
       type="email"
       placeholder="Digite seu email"
@@ -162,6 +163,7 @@ const pararTodosOsSons = () => {
       onChange={(e) => setEmail(e.target.value)}
       className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
     />
+    
     <input
       type="password"
       placeholder="Digite sua senha"
@@ -169,12 +171,19 @@ const pararTodosOsSons = () => {
       onChange={(e) => setSenha(e.target.value)}
       className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
     />
+    
     <button
-      onClick={() => console.log('Fazer login...')} // depois você substitui com a lógica de autenticação
+      onClick={() => {
+        if (email.trim() !== '' && senha.trim() !== '') {
+          // Aqui você pode implementar a lógica de login real depois
+          setStep('autoconhecimento') // Vai para o fluxo principal
+        }
+      }}
       className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
     >
       Entrar
     </button>
+
     <p className="text-center text-sm text-zinc-400 mt-4">
       Ainda não tem uma conta?{' '}
       <button
@@ -186,6 +195,7 @@ const pararTodosOsSons = () => {
     </p>
   </section>
 )}
+
 
   {step === 'autoconhecimento' && (
     <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl">
@@ -218,12 +228,12 @@ const pararTodosOsSons = () => {
 
   {step === 'boasVindas' && perfil && (
 
-
-
     <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6">
       <BotaoVoltar voltarPara="resultado" />
       <h2 className="text-3xl font-bold text-green-400">Seja bem-vindo(a), {nome}!</h2>
-      <p className="text-zinc-300">{getDescricaoPerfil(perfil)}</p>
+<p className="text-zinc-300">
+Agora que você conhece melhor o seu perfil emocional, explore os recursos que a Mindyz preparou para sua jornada de autoconhecimento.
+</p>
       <div className="space-y-4 text-left text-zinc-300">
         <h3 className="text-green-400 font-semibold text-xl">Funções Disponíveis:</h3>
         <ul className="space-y-2 list-disc list-inside">
