@@ -29,12 +29,10 @@ const tocarSom = (somRef: React.RefObject<HTMLAudioElement | null>) => {
       ref.current.currentTime = 0;
     }
   });
-
   if (somRef.current) {
     somRef.current.play();
   }
 };
-
 const pararTodosOsSons = () => {
   [chuvaRef, marRef, florestaRef, fogueiraRef].forEach(ref => {
     if (ref.current) {
@@ -265,21 +263,6 @@ const pararTodosOsSons = () => {
     Práticas de respiração, relaxamento e primeiros socorros emocionais para te ajudar em momentos de crise, ansiedade ou estresse.
   </p>
 </div>
-
-<audio ref={chuvaRef} src="/sons/chuva.mp3" preload="auto" />
-<audio ref={marRef} src="/sons/mar.mp3" preload="auto" />
-<audio ref={florestaRef} src="/sons/floresta.mp3" preload="auto" />
-<audio ref={fogueiraRef} src="/sons/fogueira.mp3" preload="auto" />
-
-
-<div className="flex gap-2 mt-4">
-  <button onClick={() => tocarSom(chuvaRef)}>Chuva</button>
-  <button onClick={() => tocarSom(marRef)}>Mar</button>
-  <button onClick={() => tocarSom(florestaRef)}>Floresta</button>
-  <button onClick={() => tocarSom(fogueiraRef)}>Fogueira</button>
-  <button onClick={pararTodosOsSons}>Parar</button>
-</div>
-
 
     </div>
   </section>
@@ -676,7 +659,7 @@ const pararTodosOsSons = () => {
     </div>
   </section>
 )}
-
+console.log('Step atual:', step);
 {step === 'sos' && (
   <section className="bg-zinc-900 p-6 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-6">
     <BotaoVoltar voltarPara="home" />
@@ -737,6 +720,8 @@ const pararTodosOsSons = () => {
       </div>
     </div>
 
+
+
     {/* Elementos de áudio ocultos */}
     <audio ref={chuvaRef} src="/sons/chuva.mp3" loop />
 <audio ref={marRef} src="/sons/mar.mp3" loop />
@@ -763,7 +748,9 @@ const pararTodosOsSons = () => {
       Se precisar de apoio imediato, fale com o <b>CVV — 188</b> ou com um profissional de saúde mental.
     </p>
   </section>
+
 )}
+
 
   </main>
 );
