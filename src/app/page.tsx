@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' | 'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'sos'
+    'inicio' | 'cadastro' | 'login'|'autoconhecimento' | 'resultado' | 'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'sos'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -128,19 +128,65 @@ const pararTodosOsSons = () => {
       )}
 
       {step === 'cadastro' && (
-        <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
-          <BotaoVoltar voltarPara="inicio" />
-          <h2 className="text-2xl font-bold text-green-400 text-center">Cadastro</h2>
-          <input type="text" placeholder="Digite seu nome" value={nome} onChange={(e) => setNome(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
-          <input type="text" placeholder="Digite seu CPF" value={cpf} onChange={(e) => setCpf(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
-          <input type="email" placeholder="Digite seu email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
-          <input type="date" value={dataNascimento} onChange={(e) => setDataNascimento(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
-          <input type="password" placeholder="Crie uma senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
-          <button onClick={() => nome.trim() !== '' && setStep('autoconhecimento')} className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition">
-            Avançar
-          </button>
-        </section>
-      )}
+  <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
+    <BotaoVoltar voltarPara="inicio" />
+    <h2 className="text-2xl font-bold text-green-400 text-center">Cadastro</h2>
+    <input type="text" placeholder="Digite seu nome" value={nome} onChange={(e) => setNome(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
+    <input type="text" placeholder="Digite seu CPF" value={cpf} onChange={(e) => setCpf(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
+    <input type="email" placeholder="Digite seu email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
+    <input type="date" value={dataNascimento} onChange={(e) => setDataNascimento(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
+    <input type="password" placeholder="Crie uma senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
+    <button onClick={() => nome.trim() !== '' && setStep('autoconhecimento')} className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition">
+      Avançar
+    </button>
+    <p className="text-center text-sm text-zinc-400 mt-4">
+      Já tem uma conta?{' '}
+      <button
+        onClick={() => setStep('login')}
+        className="text-green-400 hover:underline font-semibold"
+      >
+        Entrar
+      </button>
+    </p>
+  </section>
+)}
+
+
+{step === 'login' && (
+  <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
+    <BotaoVoltar voltarPara="inicio" />
+    <h2 className="text-2xl font-bold text-green-400 text-center">Entrar</h2>
+    <input
+      type="email"
+      placeholder="Digite seu email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    />
+    <input
+      type="password"
+      placeholder="Digite sua senha"
+      value={senha}
+      onChange={(e) => setSenha(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    />
+    <button
+      onClick={() => console.log('Fazer login...')} // depois você substitui com a lógica de autenticação
+      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
+    >
+      Entrar
+    </button>
+    <p className="text-center text-sm text-zinc-400 mt-4">
+      Ainda não tem uma conta?{' '}
+      <button
+        onClick={() => setStep('cadastro')}
+        className="text-green-400 hover:underline font-semibold"
+      >
+        Cadastre-se
+      </button>
+    </p>
+  </section>
+)}
 
 
   {step === 'autoconhecimento' && (
