@@ -659,7 +659,7 @@ const pararTodosOsSons = () => {
     </div>
   </section>
 )}
-console.log('Step atual:', step);
+
 {step === 'sos' && (
   <section className="bg-zinc-900 p-6 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-6">
     <BotaoVoltar voltarPara="home" />
@@ -680,6 +680,13 @@ console.log('Step atual:', step);
     <p className="text-rose-300 font-semibold">
       🌬️ Inspire... Segura... Expira... Repete comigo.
     </p>
+
+{/* Elementos de áudio ocultos */}
+    <audio ref={chuvaRef} src="/sons/chuva.mp3" loop />
+<audio ref={marRef} src="/sons/mar.mp3" loop />
+<audio ref={florestaRef} src="/sons/floresta.mp3" loop />
+<audio ref={fogueiraRef} src="/sons/fogueira.mp3" loop />
+
 
     {/* Sons Terapêuticos */}
     <div className="space-y-2">
@@ -720,14 +727,7 @@ console.log('Step atual:', step);
       </div>
     </div>
 
-
-
-    {/* Elementos de áudio ocultos */}
-    <audio ref={chuvaRef} src="/sons/chuva.mp3" loop />
-<audio ref={marRef} src="/sons/mar.mp3" loop />
-<audio ref={florestaRef} src="/sons/floresta.mp3" loop />
-<audio ref={fogueiraRef} src="/sons/fogueira.mp3" loop />
-
+    
     {/* Guia de Primeiros Socorros Psicológicos */}
     <div className="space-y-4">
       <h3 className="text-rose-400 font-semibold text-xl">
