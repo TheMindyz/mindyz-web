@@ -11,7 +11,7 @@ export default function SosPage() {
   const tocarSom = (somRef: React.RefObject<HTMLAudioElement | null>) => {
     [chuvaRef, marRef, florestaRef, fogueiraRef].forEach(ref => {
       if (ref.current) {
-        ref.current.pause();s
+        ref.current.pause();
         ref.current.currentTime = 0;
       }
     });
