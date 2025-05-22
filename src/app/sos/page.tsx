@@ -1,8 +1,11 @@
 'use client';
 
 import React, { useRef } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function SosPage() {
+  const router = useRouter();
+
   const chuvaRef = useRef<HTMLAudioElement>(null);
   const marRef = useRef<HTMLAudioElement>(null);
   const florestaRef = useRef<HTMLAudioElement>(null);
@@ -19,6 +22,7 @@ export default function SosPage() {
       somRef.current.play();
     }
   };
+
   const pararTodosOsSons = () => {
     [chuvaRef, marRef, florestaRef, fogueiraRef].forEach(ref => {
       if (ref.current) {
@@ -31,12 +35,12 @@ export default function SosPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white">
       <section className="bg-zinc-900 p-6 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-6">
-        <a
-          href="/"
+        <button
+          onClick={() => router.back()}
           className="bg-zinc-700 hover:bg-zinc-600 text-white py-1 px-4 rounded transition mb-4 inline-block"
         >
           ← Voltar
-        </a>
+        </button>
 
         <h2 className="text-2xl font-bold text-rose-400">
           🚑 SOS Emocional
@@ -55,13 +59,11 @@ export default function SosPage() {
           🌬️ Inspire... Segura... Expira... Repete comigo.
         </p>
 
-        {/* Elementos de áudio ocultos */}
         <audio ref={chuvaRef} src="/sons/chuva.mp3" loop />
         <audio ref={marRef} src="/sons/mar.mp3" loop />
         <audio ref={florestaRef} src="/sons/floresta.mp3" loop />
         <audio ref={fogueiraRef} src="/sons/fogueira.mp3" loop />
 
-        {/* Sons Terapêuticos */}
         <div className="space-y-2">
           <h3 className="text-rose-400 font-semibold">
             🌿 Sons Terapêuticos
@@ -100,7 +102,6 @@ export default function SosPage() {
           </div>
         </div>
 
-        {/* Guia de Primeiros Socorros Psicológicos */}
         <div className="space-y-4">
           <h3 className="text-rose-400 font-semibold text-xl">
             🧠 Primeiros Socorros Psicológicos
