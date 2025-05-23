@@ -231,13 +231,13 @@ const pararTodosOsSons = () => {
 )}
 
 {step === 'parabenizacao' && (
-  <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6 border border-green-500 shadow-purple-500/20 relative">
+  <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6 border border-purple-500 shadow-purple-500/40 relative">
     {/* Botão de voltar */}
     <BotaoVoltar voltarPara="resultado" />
 
-    {/* Título com destaque roxo */}
+    {/* Título com cor verde e efeito roxo no contorno geral */}
     <h2 className="text-3xl font-bold text-green-400 flex items-center justify-center gap-2">
-      🎉 <span className="text-purple-400">Parabéns, {nome}!</span>
+      🎉 Parabéns, {nome}!
     </h2>
 
     <p className="text-zinc-300 text-lg">
@@ -256,6 +256,7 @@ const pararTodosOsSons = () => {
     </button>
   </section>
 )}
+
 
 
   {step === 'boasVindas' && perfil && (
