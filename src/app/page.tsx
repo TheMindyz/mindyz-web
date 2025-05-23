@@ -465,19 +465,77 @@ const pararTodosOsSons = () => {
   <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-xl shadow-xl text-center space-y-6">
     <BotaoVoltar voltarPara="home" />
     <h2 className="text-3xl font-bold text-green-400">Comunidade Exclusiva Mindyz</h2>
-    <p className="text-zinc-300">Aqui você encontrará um espaço seguro para trocas, apoio mútuo e desenvolvimento conjunto.</p>
-    <p className="text-zinc-300">Nosso grupo oficial é no WhatsApp. Clique abaixo para entrar:</p>
+
+    <p className="text-zinc-300">
+      Aqui você encontrará um espaço seguro para trocas, apoio mútuo e desenvolvimento conjunto.
+    </p>
+
+    <p className="text-zinc-300">
+      Comece entrando no nosso <strong>Grupo Geral</strong> no WhatsApp:
+    </p>
+
     <a
       href="https://chat.whatsapp.com/I32zRC7Fue71w4ZHodWHMq"
       target="_blank"
       rel="noopener noreferrer"
       className="inline-block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
     >
-      Entrar no Grupo
+      📢 Entrar no Grupo Geral
     </a>
-    <p className="text-sm text-zinc-500">*A entrada é moderada e exclusiva para membros da plataforma.</p>
+
+    <p className="text-zinc-300">
+      Depois, você pode acessar nossos grupos temáticos para conversas mais direcionadas:
+    </p>
+
+    <div className="space-y-4">
+      <a
+        href="https://chat.whatsapp.com/F0WqGTYIdIKHR5jkJcGfuC"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
+      >
+        🧠 Ansiedade e Saúde Mental
+      </a>
+      <a
+        href="https://chat.whatsapp.com/H7MDbPTuA4d4BG78QP3aV7"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
+      >
+        💔 Término Amoroso e Relações
+      </a>
+      <a
+        href="https://chat.whatsapp.com/C7vL4tW0RSm6dmRdXC6vQE"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
+      >
+        🏫 Estudos, Faculdade e Pressões Acadêmicas
+      </a>
+      <a
+        href="https://chat.whatsapp.com/FV9H8zHJ07ODxI8DmsKXXA"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
+      >
+        💼 Trabalho, Estresse e Burnout
+      </a>
+      <a
+        href="https://chat.whatsapp.com/DZyqsArN0z54VCGIQSpRvN"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
+      >
+        🌈 Identidade, Autoestima e Aceitação
+      </a>
+    </div>
+
+    <p className="text-sm text-zinc-500">
+      *A entrada é moderada e exclusiva para membros da plataforma. Fique à vontade para participar dos grupos que fizerem sentido pra você.
+    </p>
   </section>
 )}
+
 
 {step === 'checkin' && (
 
