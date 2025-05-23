@@ -230,16 +230,20 @@ const pararTodosOsSons = () => {
   </section>
 )}
 
-{step === 'parabenizacao' && perfil && (
-  <section className="bg-purple-800 p-8 rounded-xl shadow-xl w-full max-w-md text-center text-white space-y-6">
-    <h2 className="text-3xl font-bold">🎉 Parabéns, {nome}!</h2>
-    <p className="text-lg">Você concluiu sua avaliação emocional com sucesso.</p>
-    <p>Agora vamos começar sua jornada de autoconhecimento com a Mindyz!</p>
-
-    {/* Botão caso queira clique manual */}
+{step === 'parabenizacao' && (
+  <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6 border border-green-500">
+    <h2 className="text-3xl font-bold text-green-400 flex items-center justify-center gap-2">
+      🎉 Parabéns, {nome}!
+    </h2>
+    <p className="text-zinc-300 text-lg">
+      Você concluiu sua avaliação emocional com sucesso.
+    </p>
+    <p className="text-zinc-400">
+      Agora que você conhece melhor o seu perfil emocional, explore os recursos que a Mindyz preparou para sua jornada de autoconhecimento.
+    </p>
     <button
       onClick={() => setStep('boasVindas')}
-      className="bg-white hover:bg-gray-200 text-purple-800 font-bold py-2 px-4 rounded transition"
+      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
     >
       Continuar
     </button>
@@ -247,35 +251,35 @@ const pararTodosOsSons = () => {
 )}
 
 
-  {step === 'boasVindas' && perfil && (
 
-    <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6">
-      <BotaoVoltar voltarPara="resultado" />
-      <h2 className="text-3xl font-bold text-green-400">Seja bem-vindo(a), {nome}!</h2>
-<p className="text-zinc-300">
-Agora que você conhece melhor o seu perfil emocional, explore os recursos que a Mindyz preparou para sua jornada de autoconhecimento.
-</p>
-      <div className="space-y-4 text-left text-zinc-300">
-        <h3 className="text-green-400 font-semibold text-xl">Funções Disponíveis:</h3>
-        <ul className="space-y-2 list-disc list-inside">
-          <li>Acessar trilhas de autodesenvolvimento</li>
-          <li>Marcar sessões com psicólogos parceiros</li>
-          <li>Receber mensagens motivacionais diárias</li>
-          <li>Entrar na comunidade exclusiva Mindyz</li>
-          <li>Cvv</li>
-          <li>Fazer check-in emocional</li>
-          <li>Conhecer sobre a Mindyz</li>
-          <li>Desabafar</li>
-          <li>Mindyz News</li>
-          <li>S.O.S Emocional</li>
-      
-  </ul>
-      </div>
-      <button onClick={() => setStep('home')} className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 w-full rounded transition">
-        Ir para a Página Inicial
-      </button>
-    </section>
-  )}
+  {step === 'boasVindas' && perfil && (
+  <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6">
+    <BotaoVoltar voltarPara="parabenizacao" />
+
+    <div className="space-y-4 text-left text-zinc-300">
+      <h3 className="text-green-400 font-semibold text-2xl text-center">Funções Disponíveis:</h3>
+      <ul className="space-y-2 list-disc list-inside">
+        <li>Acessar trilhas de autodesenvolvimento</li>
+        <li>Marcar sessões com psicólogos parceiros</li>
+        <li>Receber mensagens motivacionais diárias</li>
+        <li>Entrar na comunidade exclusiva Mindyz</li>
+        <li>Cvv</li>
+        <li>Fazer check-in emocional</li>
+        <li>Conhecer sobre a Mindyz</li>
+        <li>Desabafar</li>
+        <li>Mindyz News</li>
+        <li>S.O.S Emocional</li>
+      </ul>
+    </div>
+
+    <button
+      onClick={() => setStep('home')}
+      className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 w-full rounded transition"
+    >
+      Ir para a Página Inicial
+    </button>
+  </section>
+)}
 
   {step === 'home' && (
   <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
