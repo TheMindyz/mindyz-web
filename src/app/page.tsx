@@ -231,30 +231,41 @@ const pararTodosOsSons = () => {
 )}
 
 {step === 'parabenizacao' && (
-  <section className="bg-gradient-to-b from-zinc-900 to-zinc-800 p-8 rounded-2xl w-full max-w-md text-center space-y-6 border border-green-500 shadow-[0_0_25px_rgba(192,132,252,0.7)]">
+  <section className="bg-zinc-900 p-10 rounded-2xl w-full max-w-md mx-auto text-center space-y-8 border border-green-500 shadow-[0_0_30px_#84cc16]">
+    
+    {/* Botão de Voltar */}
+    <div className="flex justify-start">
+      <BotaoVoltar voltarPara="resultado" />
+    </div>
 
-    <BotaoVoltar voltarPara="resultado" />
-
+    {/* Título com ícone */}
     <h2 className="text-3xl font-bold text-green-400 flex items-center justify-center gap-2">
       🎉 Parabéns, {nome}!
     </h2>
 
-    <p className="text-zinc-300 text-lg">
-      Você concluiu sua <span className="text-green-400 font-semibold">avaliação emocional</span> com sucesso.
+    {/* Texto principal */}
+    <p className="text-zinc-300 text-lg font-medium">
+      Você concluiu sua avaliação emocional com sucesso.
     </p>
 
-    <p className="text-zinc-400">
-      Agora que você conhece melhor o seu perfil emocional, explore os recursos que a <span className="text-purple-400 font-medium">Mindyz</span> preparou para sua jornada de autoconhecimento.
+    {/* Texto secundário */}
+    <p className="text-zinc-400 text-base leading-relaxed">
+      Agora que você conhece melhor o seu perfil emocional, explore os recursos que a Mindyz preparou para sua jornada de autoconhecimento.
     </p>
 
-    <button
-      onClick={() => setStep('boasVindas')}
-      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition flex items-center justify-center gap-2 hover:scale-105 duration-200"
-    >
-      Continuar <span className="animate-bounce">➡️</span>
-    </button>
+    {/* Botão Centralizado */}
+    <div className="flex justify-center">
+      <button
+        onClick={() => setStep('boasVindas')}
+        className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-6 rounded-lg transition shadow-md"
+      >
+        Continuar
+      </button>
+    </div>
+    
   </section>
 )}
+
 
 
 
