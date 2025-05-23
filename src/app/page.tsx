@@ -107,7 +107,7 @@ const pararTodosOsSons = () => {
   );
 
   return (
-<main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white border-4 border-green-400 shadow-[0_0_20px_4px_rgba(34,197,94,0.7)]">
+<main className="flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white border-4 border-green-500 shadow-[0_0_15px_#22c55e]">
       {step === 'inicio' && (
         <section className="text-center space-y-6">
           <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
