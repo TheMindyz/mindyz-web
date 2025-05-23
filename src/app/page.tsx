@@ -107,7 +107,7 @@ const pararTodosOsSons = () => {
   );
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white">
+<main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white border-4 border-green-400 shadow-[0_0_20px_4px_rgba(34,197,94,0.7)]">
       {step === 'inicio' && (
         <section className="text-center space-y-6">
           <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
@@ -125,7 +125,8 @@ const pararTodosOsSons = () => {
             <a href="https://tiktok.com/@thejovify" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">TikTok</a>
           </div>
         </section>
-      )}
+      )}     
+
 
       {step === 'cadastro' && (
   <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
