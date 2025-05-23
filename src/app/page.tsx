@@ -231,16 +231,23 @@ const pararTodosOsSons = () => {
 )}
 
 {step === 'parabenizacao' && (
-  <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6 border border-green-500">
+  <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6 border border-green-500 shadow-purple-500/20 relative">
+    {/* Botão de voltar */}
+    <BotaoVoltar voltarPara="resultado" />
+
+    {/* Título com destaque roxo */}
     <h2 className="text-3xl font-bold text-green-400 flex items-center justify-center gap-2">
-      🎉 Parabéns, {nome}!
+      🎉 <span className="text-purple-400">Parabéns, {nome}!</span>
     </h2>
+
     <p className="text-zinc-300 text-lg">
       Você concluiu sua avaliação emocional com sucesso.
     </p>
+
     <p className="text-zinc-400">
       Agora que você conhece melhor o seu perfil emocional, explore os recursos que a Mindyz preparou para sua jornada de autoconhecimento.
     </p>
+
     <button
       onClick={() => setStep('boasVindas')}
       className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
@@ -249,7 +256,6 @@ const pararTodosOsSons = () => {
     </button>
   </section>
 )}
-
 
 
   {step === 'boasVindas' && perfil && (
