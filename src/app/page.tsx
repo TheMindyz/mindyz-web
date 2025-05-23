@@ -231,7 +231,7 @@ const pararTodosOsSons = () => {
 )}
 
 {step === 'parabenizacao' && (
-  <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6 border border-green-500 [box-shadow:0_8px_16px_#c084fc]">
+  <section className="bg-zinc-900 p-8 rounded-xl w-full max-w-md text-center space-y-6 border border-green-500 shadow-[0_12px_16px_-4px_#c084fc]">
     <BotaoVoltar voltarPara="resultado" />
 
     <h2 className="text-3xl font-bold text-green-400 flex items-center justify-center gap-2">
