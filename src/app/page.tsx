@@ -2,26 +2,11 @@
 
 import React, { useState, useRef } from 'react';
 
-export type Step =
-  | 'inicio'
-  | 'cadastro'
-  | 'login'
-  | 'autoconhecimento'
-  | 'resultado'
-  | 'parabenizacao'
-  | 'boasVindas'
-  | 'home'
-  | 'trilhaDetalhes'
-  | 'psicologico'
-  | 'cvv'
-  | 'mensagens'
-  | 'checkin'
-  | 'sobre a Mindyz'
-  | 'desabafo'
-  | 'mindyz news'
 
 export default function Home() {
-  const [step, setStep] = useState<Step>('inicio');
+  const [step, setStep] = useState<
+    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news'  
+  >('inicio');
 
   const [nome, setNome] = useState('');
   const [cpf, setCpf] = useState('');
@@ -105,17 +90,14 @@ const pararTodosOsSons = () => {
     setStep('resultado');
   };
 
-const BotaoVoltar = ({ voltarPara }: { voltarPara: Step }) => (
-  <button
-    onClick={() => setStep(voltarPara)}
-    className="bg-zinc-700 hover:bg-zinc-600 text-white py-1 px-4 rounded transition mb-4"
-  >
-    ← Voltar
-  </button>
-);
-
-
-
+  const BotaoVoltar = ({ voltarPara }: { voltarPara: typeof step }) => (
+    <button
+      onClick={() => setStep(voltarPara)}
+      className="bg-zinc-700 hover:bg-zinc-600 text-white py-1 px-4 rounded transition mb-4"
+    >
+      ← Voltar
+    </button>
+  );
 
   const Dica = ({ titulo, conteudo }: { titulo: string, conteudo: string }) => (
     <div className="bg-zinc-800 p-4 rounded-lg shadow-md">
@@ -297,8 +279,6 @@ const BotaoVoltar = ({ voltarPara }: { voltarPara: Step }) => (
       <ul className="space-y-2 list-disc list-inside">
         <li>Acessar trilhas de autodesenvolvimento</li>
         <li>Receber mensagens motivacionais diárias</li>
-        <li>Receber mensagens motivacionais diárias</li>
-        <li>Oportunidade para Profissionais</li>
         <li>Cvv</li>
         <li>Fazer check-in emocional</li>
         <li>Conhecer sobre a Mindyz</li>
@@ -318,14 +298,19 @@ const BotaoVoltar = ({ voltarPara }: { voltarPara: Step }) => (
 
   {step === 'home' && (
   <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
+    <BotaoVoltar voltarPara="boasVindas" />
     <h2 className="text-3xl font-bold text-green-400 text-center">Home - Bem-vindo, {nome}!</h2>
     
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-zinc-300">
-      <div onClick={() => setStep('trilhaDetalhes')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
+      <div onClick={() => setStep('trilhas')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
         <h3 className="text-green-400 font-semibold text-lg">Trilhas de Autodesenvolvimento</h3>
         <p>Acesse conteúdos e desafios personalizados para evoluir continuamente.</p>
       </div>
 
+      <div onClick={() => setStep('psicologo')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
+        <h3 className="text-green-400 font-semibold text-lg">Sessões com Psicólogos</h3>
+        <p>Agende conversas com nossos especialistas parceiros para cuidar da sua mente.</p>
+      </div>
 
       <div onClick={() => setStep('cvv')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
         <h3 className="text-green-400 font-semibold text-lg">Precisa conversar?</h3>
@@ -358,12 +343,12 @@ const BotaoVoltar = ({ voltarPara }: { voltarPara: Step }) => (
 </div>
 
 
-</div>
+    </div>
   </section>
 )}
 
 
-  {step === 'trilhaDetalhes' && (
+  {step === 'trilhas' && (
     <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center">
       <BotaoVoltar voltarPara="home" />
       <h2 className="text-3xl font-bold text-green-400">Trilhas de Autodesenvolvimento</h2>
@@ -376,6 +361,7 @@ const BotaoVoltar = ({ voltarPara }: { voltarPara: Step }) => (
 
   {step === 'trilhaDetalhes' && perfil && (
     <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
+      <BotaoVoltar voltarPara="trilhas" />
       <h2 className="text-3xl font-bold text-green-400 text-center">Dicas para o perfil: {perfil}</h2>
       <p className="text-zinc-300 text-center">Inspire-se com recomendações feitas sob medida para seu estilo único.</p>
 
@@ -415,7 +401,17 @@ const BotaoVoltar = ({ voltarPara }: { voltarPara: Step }) => (
     </section>
   )}
 
-  
+  {step === 'psicologo' && (
+    <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-xl shadow-xl text-center space-y-6">
+      <BotaoVoltar voltarPara="home" />
+      <h2 className="text-3xl font-bold text-green-400">Sessões com Psicólogos</h2>
+      <p className="text-zinc-300">Estamos montando uma rede de psicólogos parceiros da Mindyz.</p>
+      <p className="text-zinc-300">Se você é psicólogo(a) e tem interesse em fazer parte, envie um e-mail para:</p>
+      <a href="mailto:equipemindyz@gmail.com" className="text-green-400 underline">equipemindyz@gmail.com</a>
+    </section>
+  )}
+
+
     {step === 'cvv' && (
       <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-xl shadow-xl text-center space-y-6">
         <BotaoVoltar voltarPara="home" />
@@ -447,6 +443,7 @@ const BotaoVoltar = ({ voltarPara }: { voltarPara: Step }) => (
   </section>
 )}
 
+
 {step === 'checkin' && (
 
   <section className="w-full max-w-md bg-zinc-900 p-6 rounded-xl shadow-xl space-y-6 text-center">
@@ -461,12 +458,12 @@ const BotaoVoltar = ({ voltarPara }: { voltarPara: Step }) => (
         { emoji: '😎', label: 'Confiante' },
         { emoji: '😴', label: 'Cansado' },
         { emoji: '😭', label: 'Sobrecarregado' },
-        { emoji: '❤️', label: 'Grato' },
+        { emoji: '❤', label: 'Grato' },
         { emoji: '🤔', label: 'Pensativo' },
       ].map(({ emoji, label }) => (
         <button
           key={label}
-          onClick={() => alert(`Check-in registrado: ${label}`)}
+onClick={() => alert(`Check-in registrado: ${label}`)}
           className="flex flex-col items-center bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
         >
           <span>{emoji}</span>
@@ -499,7 +496,7 @@ const BotaoVoltar = ({ voltarPara }: { voltarPara: Step }) => (
         </p>
       </div>
       <div>
-        <h3 className="text-xl font-semibold text-green-400">👁️ Visão</h3>
+        <h3 className="text-xl font-semibold text-green-400">👁 Visão</h3>
         <p className="text-zinc-300">
           Ser referência em tecnologia voltada à saúde mental, criando um espaço seguro e humanizado para quem busca acolhimento, inspiração ou orientação emocional.
         </p>
@@ -725,6 +722,7 @@ const BotaoVoltar = ({ voltarPara }: { voltarPara: Step }) => (
   </section>
 )}
 
-  </main>
+
+  </main>
 );
 }
