@@ -5,7 +5,7 @@ import React, { useState, useRef } from 'react';
 
 export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'sos'
+    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao' |'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -278,15 +278,14 @@ const pararTodosOsSons = () => {
       <h3 className="text-green-400 font-semibold text-2xl text-center">Funções Disponíveis:</h3>
       <ul className="space-y-2 list-disc list-inside">
         <li>Acessar trilhas de autodesenvolvimento</li>
-        <li>Marcar sessões com psicólogos parceiros</li>
         <li>Receber mensagens motivacionais diárias</li>
-        <li>Entrar na comunidade exclusiva Mindyz</li>
+        <li>Receber mensagens motivacionais diárias</li>
+        <li>Oportunidade para Profissionais</li>
         <li>Cvv</li>
         <li>Fazer check-in emocional</li>
         <li>Conhecer sobre a Mindyz</li>
         <li>Desabafar</li>
         <li>Mindyz News</li>
-        <li>S.O.S Emocional</li>
       </ul>
     </div>
 
@@ -325,12 +324,6 @@ const pararTodosOsSons = () => {
   <p>Leia frases que vão te inspirar e dar um gás no seu dia.</p>
 </div>
 
-<div onClick={() => setStep('comunidade')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
-  <h3 className="text-green-400 font-semibold text-lg">Comunidade Exclusiva Mindyz</h3>
-  <p>Conecte-se com outras mentes incríveis, compartilhe experiências e evolua em grupo.</p>
-</div>
-
-
 <div onClick={() => setStep('checkin')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
   <h3 className="text-green-400 font-semibold text-lg">Fazer Check-in Emocional</h3>
   <p>Registre como está se sentindo agora com um simples toque.</p>
@@ -351,17 +344,8 @@ const pararTodosOsSons = () => {
   <p>Fique por dentro das últimas novidades e descobertas sobre saúde mental no Brasil e no mundo.</p>
 </div>
 
-<div
-  onClick={() => setStep('sos')}
-  className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer"
->
-  <h3 className="text-rose-400 font-semibold text-lg">🚑 SOS Emocional</h3>
-  <p>
-    Práticas de respiração, relaxamento e primeiros socorros emocionais para te ajudar em momentos de crise, ansiedade ou estresse.
-  </p>
-</div>
 
-    </div>
+</div>
   </section>
 )}
 
@@ -460,82 +444,6 @@ const pararTodosOsSons = () => {
     </div>
   </section>
 )}
-
-{step === 'comunidade' && (
-  <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-xl shadow-xl text-center space-y-6">
-    <BotaoVoltar voltarPara="home" />
-    <h2 className="text-3xl font-bold text-green-400">Comunidade Exclusiva Mindyz</h2>
-
-    <p className="text-zinc-300">
-      Aqui você encontrará um espaço seguro para trocas, apoio mútuo e desenvolvimento conjunto.
-    </p>
-
-    <p className="text-zinc-300">
-      Comece entrando no nosso <strong>Grupo Geral</strong> no WhatsApp:
-    </p>
-
-    <a
-      href="https://chat.whatsapp.com/I32zRC7Fue71w4ZHodWHMq"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
-    >
-      📢 Entrar no Grupo Geral
-    </a>
-
-    <p className="text-zinc-300">
-      Depois, você pode acessar nossos grupos temáticos para conversas mais direcionadas:
-    </p>
-
-    <div className="space-y-4">
-      <a
-        href="https://chat.whatsapp.com/F0WqGTYIdIKHR5jkJcGfuC"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
-      >
-        🧠 Ansiedade e Saúde Mental
-      </a>
-      <a
-        href="https://chat.whatsapp.com/H7MDbPTuA4d4BG78QP3aV7"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
-      >
-        💔 Término Amoroso e Relações
-      </a>
-      <a
-        href="https://chat.whatsapp.com/C7vL4tW0RSm6dmRdXC6vQE"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
-      >
-        🏫 Estudos, Faculdade e Pressões Acadêmicas
-      </a>
-      <a
-        href="https://chat.whatsapp.com/FV9H8zHJ07ODxI8DmsKXXA"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
-      >
-        💼 Trabalho, Estresse e Burnout
-      </a>
-      <a
-        href="https://chat.whatsapp.com/DZyqsArN0z54VCGIQSpRvN"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="block bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
-      >
-        🌈 Identidade, Autoestima e Aceitação
-      </a>
-    </div>
-
-    <p className="text-sm text-zinc-500">
-      *A entrada é moderada e exclusiva para membros da plataforma. Fique à vontade para participar dos grupos que fizerem sentido pra você.
-    </p>
-  </section>
-)}
-
 
 {step === 'checkin' && (
 
@@ -814,98 +722,6 @@ const pararTodosOsSons = () => {
     </div>
   </section>
 )}
-
-{step === 'sos' && (
-  <section className="bg-zinc-900 p-6 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-6">
-    <BotaoVoltar voltarPara="home" />
-
-    <h2 className="text-2xl font-bold text-rose-400">
-      🚑 SOS Emocional
-    </h2>
-
-    <p className="text-zinc-300">
-      Se você está se sentindo sobrecarregado, ansioso ou em crise, aqui estão práticas e orientações para te ajudar agora.
-    </p>
-
-    {/* Círculo simulando respiração */}
-    <div className="flex justify-center">
-      <div className="w-40 h-40 rounded-full bg-rose-500 opacity-50 animate-ping"></div>
-    </div>
-
-    <p className="text-rose-300 font-semibold">
-      🌬️ Inspire... Segura... Expira... Repete comigo.
-    </p>
-
-{/* Elementos de áudio ocultos */}
-    <audio ref={chuvaRef} src="/sons/chuva.mp3" loop />
-<audio ref={marRef} src="/sons/mar.mp3" loop />
-<audio ref={florestaRef} src="/sons/floresta.mp3" loop />
-<audio ref={fogueiraRef} src="/sons/fogueira.mp3" loop />
-
-
-    {/* Sons Terapêuticos */}
-    <div className="space-y-2">
-      <h3 className="text-rose-400 font-semibold">
-        🌿 Sons Terapêuticos
-      </h3>
-      <div className="grid grid-cols-2 gap-2">
-        <button
-          onClick={() => tocarSom(chuvaRef)}
-          className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200"
-        >
-          🌧️ Chuva
-        </button>
-        <button
-          onClick={() => tocarSom(marRef)}
-          className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200"
-        >
-          🌊 Mar
-        </button>
-        <button
-          onClick={() => tocarSom(florestaRef)}
-          className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200"
-        >
-          🌳 Floresta
-        </button>
-        <button
-          onClick={() => tocarSom(fogueiraRef)}
-          className="bg-zinc-800 hover:bg-zinc-700 p-2 rounded-xl text-zinc-200"
-        >
-          🔥 Fogueira
-        </button>
-        <button
-          onClick={pararTodosOsSons}
-          className="bg-red-800 hover:bg-red-700 p-2 rounded-xl text-white col-span-2"
-        >
-          ⏹️ Parar Sons
-        </button>
-      </div>
-    </div>
-
-    
-    {/* Guia de Primeiros Socorros Psicológicos */}
-    <div className="space-y-4">
-      <h3 className="text-rose-400 font-semibold text-xl">
-        🧠 Primeiros Socorros Psicológicos
-      </h3>
-      <ul className="space-y-2 text-zinc-300 text-left">
-        <li>✔️ Reconheça: Está tudo bem não estar bem agora.</li>
-        <li>✔️ Respire fundo e foque na sua respiração.</li>
-        <li>✔️ Identifique o que está sentindo, sem se julgar.</li>
-        <li>✔️ Se puder, fale com alguém de confiança.</li>
-        <li>✔️ Procure um lugar seguro e confortável.</li>
-        <li>✔️ Pratique aterramento: perceba seus 5 sentidos.</li>
-        <li>✔️ Lembre-se: isso vai passar.</li>
-      </ul>
-    </div>
-
-    <p className="text-center text-sm text-zinc-400">
-      Se precisar de apoio imediato, fale com o <b>CVV — 188</b> ou com um profissional de saúde mental.
-    </p>
-  </section>
-
-)}
-
 
   </main>
 );
