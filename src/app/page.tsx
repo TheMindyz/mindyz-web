@@ -51,7 +51,7 @@ export function ParticulasMisticas() {
   );
 }
 
-export default function Home() {
+export default function Page() {
   const [step, setStep] = useState<
     'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' 
   >('inicio');
