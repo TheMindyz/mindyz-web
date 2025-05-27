@@ -110,8 +110,8 @@ const handleChange = (index: number, value: number) => {
 
   return (
   <main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white overflow-hidden">
-<div className="absolute inset-0 bg-[url('/fog.png')] bg-cover opacity-80 animate-fadeFog z-0 pointer-events-none" />
-<div className="absolute inset-0 bg-[url('/fog.png')] bg-cover opacity-80 animate-fadeFog z-0 pointer-events-none" />
+<div className="absolute inset-0 bg-purple-900 opacity-60 z-[-2]" />
+<div className="absolute inset-0 bg-[url('/fog.png')] bg-cover opacity-90 animate-fadeFog z-[-1] pointer-events-none" />
 
   {step === 'inicio' && (
     <section className="text-center space-y-6 z-10 relative">
