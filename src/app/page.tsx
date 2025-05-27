@@ -1,11 +1,15 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+import { useCallback } from 'react';
 
 
 export default function Home() {
+}
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news'  
+    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' 
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -32,7 +36,6 @@ const tocarSom = (somRef: React.RefObject<HTMLAudioElement | null>) => {
   if (somRef.current) {
     somRef.current.play();
   }
-};
 const pararTodosOsSons = () => {
   [chuvaRef, marRef, florestaRef, fogueiraRef].forEach(ref => {
     if (ref.current) {
@@ -42,12 +45,17 @@ const pararTodosOsSons = () => {
   });
 };
 
+const particlesInit = useCallback(async (engine: any) => {
+  await loadFull(engine);
+}, []);
 
-  const handleChange = (index: number, value: number) => {
-    const novasRespostas = [...respostas];
-    novasRespostas[index] = value;
-    setRespostas(novasRespostas);
-  };
+
+const handleChange = (index: number, value: number) => {
+  const novasRespostas = [...respostas];
+  novasRespostas[index] = value;
+  setRespostas(novasRespostas);
+};
+
 
 
   const calcularPerfil = () => {
@@ -109,23 +117,45 @@ const pararTodosOsSons = () => {
   return (
   <main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white border-4 border-green-400 shadow-[0_0_20px_4px_rgba(34,197,94,0.7)]">
       {step === 'inicio' && (
-        <section className="text-center space-y-6">
-          <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
-          <p className="text-zinc-300 text-xl font-medium">Sua S.O.S em Saúde Mental.</p>
-          <button
-            onClick={() => setStep('cadastro')}
-            className="bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-6 rounded transition"
-          >
-            Entrar com convite / Pedir acesso
-          </button>
-          <div className="mt-6 flex justify-center gap-4 text-sm text-zinc-400">
-            <a href="https://www.instagram.com/themindyz/" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">Instagram</a>
-            <a href="https://youtube.com/@thejovify" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">YouTube</a>
-            <a href="mailto:sacjovify@gmail.com" className="hover:text-green-400">Email</a>
-            <a href="https://tiktok.com/@thejovify" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">TikTok</a>
-          </div>
-        </section>
-      )}     
+  <section className="relative w-full h-screen flex items-center justify-center">
+    {/* Fundo místico */}
+    <Particles
+      id="tsparticles"
+      init={particlesInit}
+      options={{
+        background: { color: "#000000" },
+        fpsLimit: 60,
+        particles: {
+          color: { value: "#8A2BE2" },
+          move: { enable: true, speed: 0.3 },
+          number: { value: 30 },
+          opacity: { value: 0.3 },
+          size: { value: { min: 1, max: 3 } },
+        },
+      }}
+      className="absolute top-0 left-0 w-full h-full z-0"
+    />
+
+    {/* Conteúdo místico em cima do fundo */}
+    <div className="z-10 text-center space-y-6">
+      <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
+      <p className="text-zinc-300 text-xl font-medium">Sua S.O.S em Saúde Mental.</p>
+      <button
+        onClick={() => setStep('cadastro')}
+        className="bg-purple-800 hover:bg-purple-900 text-white font-bold py-2 px-6 rounded transition"
+      >
+        Entrar com convite / Pedir acesso
+      </button>
+      <div className="mt-6 flex justify-center gap-4 text-sm text-zinc-400">
+        <a href="https://www.instagram.com/themindyz/" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">Instagram</a>
+        <a href="https://youtube.com/@thejovify" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">YouTube</a>
+        <a href="mailto:sacjovify@gmail.com" className="hover:text-green-400">Email</a>
+        <a href="https://tiktok.com/@thejovify" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">TikTok</a>
+      </div>
+    </div>
+  </section>
+)}
+
 
 
       {step === 'cadastro' && (
@@ -268,8 +298,6 @@ const pararTodosOsSons = () => {
 )}
 
 
-
-
   {step === 'boasVindas' && perfil && (
   <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6">
     <BotaoVoltar voltarPara="parabenizacao" />
@@ -304,12 +332,12 @@ const pararTodosOsSons = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-zinc-300">
       <div onClick={() => setStep('trilhas')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
         <h3 className="text-green-400 font-semibold text-lg">Trilhas de Autodesenvolvimento</h3>
-        <p>Acesse conteúdos e desafios personalizados para evoluir continuamente.</p>
+        <p>Dê o primeiro passo. As trilhas avançadas te esperam no Premium.</p>
       </div>
 
       <div onClick={() => setStep('psicologo')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
         <h3 className="text-green-400 font-semibold text-lg">Sessões com Psicólogos</h3>
-        <p>Agende conversas com nossos especialistas parceiros para cuidar da sua mente.</p>
+        <p>Descubra o poder de conversar com quem entende. Conheça o apoio Premium.</p>
       </div>
 
       <div onClick={() => setStep('cvv')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
@@ -319,7 +347,7 @@ const pararTodosOsSons = () => {
 
       <div onClick={() => setStep('mensagens')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
   <h3 className="text-green-400 font-semibold text-lg">Mensagens Motivacionais</h3>
-  <p>Leia frases que vão te inspirar e dar um gás no seu dia.</p>
+  <p>Leia frases que vão te inspirar e dar um gás no seu dia.Uma frase por dia pode mudar tudo. No Premium, você desbloqueia sua jornada</p>
 </div>
 
 <div onClick={() => setStep('checkin')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
@@ -329,7 +357,7 @@ const pararTodosOsSons = () => {
 
 <div onClick={() => setStep('sobre a Mindyz')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
   <h3 className="text-green-400 font-semibold text-lg">Sobre a Mindzy</h3>
-  <p>Conheça nossa missão, visão e os valores que guiam o nosso propósito.</p>
+  <p>Conheça nossa missão, visão e os valores que guiam o nosso propósito.Nossa missão é te ajudar a florescer. No Premium, você vai mais longe</p>
 </div>
 
 <div onClick={() => setStep('desabafo')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
