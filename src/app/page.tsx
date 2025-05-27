@@ -1,59 +1,11 @@
 'use client';
-import React, { useState, useRef, useCallback } from 'react';
-import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles';
 
-// Agora é uma exportação nomeada
-export function ParticulasMisticas() {
-  const particlesInit = useCallback(async (engine: any) => {
-    await loadFull(engine);
-  }, []);
+import React, { useState, useRef } from 'react';
 
-  return (
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      options={{
-        fullScreen: { enable: false },
-        background: {
-          color: { value: '#000000' },
-        },
-        particles: {
-          number: {
-            value: 40,
-            density: {
-              enable: true,
-              area: 800,
-            },
-          },
-          color: {
-            value: '#aaffaa',
-          },
-          opacity: {
-            value: 0.05,
-            random: true,
-          },
-          size: {
-            value: 60,
-            random: true,
-          },
-          move: {
-            enable: true,
-            speed: 0.5,
-            direction: 'top',
-            outModes: {
-              default: 'out',
-            },
-          },
-        },
-      }}
-    />
-  );
-}
 
-export default function Page() {
+export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' 
+    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'sos'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -63,6 +15,7 @@ export default function Page() {
   const [senha, setSenha] = useState('');
   const [respostas, setRespostas] = useState<number[]>(Array(8).fill(0));
   const [perfil, setPerfil] = useState<string | null>(null);
+
 
 const chuvaRef = useRef<HTMLAudioElement>(null);
 const marRef = useRef<HTMLAudioElement>(null);
@@ -89,10 +42,6 @@ const pararTodosOsSons = () => {
     }
   });
 };
-
-const particlesInit = useCallback(async (engine: any) => {
-  await loadFull(engine);
-}, []);
 
 
 const handleChange = (index: number, value: number) => {
@@ -161,7 +110,6 @@ const handleChange = (index: number, value: number) => {
 
   return (
   <main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white overflow-hidden">
-  <ParticulasMisticas />
 <div className="absolute inset-0 bg-[url('/fog.png')] bg-cover opacity-40 animate-fadeFog z-0 pointer-events-none" />
 
   {step === 'inicio' && (
