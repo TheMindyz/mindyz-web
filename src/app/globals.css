@@ -1,17 +1,14 @@
 @import "tailwindcss";
 
+/* Variáveis base */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-sans: 'Geist Sans', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
+/* Tema escuro automático via media query */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -19,8 +16,19 @@
   }
 }
 
+/* Aplicação das variáveis */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+/* Animação customizada */
+@keyframes fadeFog {
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.15; }
+}
+
+.animate-fadeFog {
+  animation: fadeFog 20s ease-in-out infinite;
 }
