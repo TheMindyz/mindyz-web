@@ -1,10 +1,55 @@
 'use client';
-
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles';
-import { useCallback } from 'react';
 
+// Agora é uma exportação nomeada
+export function ParticulasMisticas() {
+  const particlesInit = useCallback(async (engine: any) => {
+    await loadFull(engine);
+  }, []);
+
+  return (
+    <Particles
+      id="tsparticles"
+      init={particlesInit}
+      options={{
+        fullScreen: { enable: false },
+        background: {
+          color: { value: '#000000' },
+        },
+        particles: {
+          number: {
+            value: 40,
+            density: {
+              enable: true,
+              area: 800,
+            },
+          },
+          color: {
+            value: '#aaffaa',
+          },
+          opacity: {
+            value: 0.05,
+            random: true,
+          },
+          size: {
+            value: 60,
+            random: true,
+          },
+          move: {
+            enable: true,
+            speed: 0.5,
+            direction: 'top',
+            outModes: {
+              default: 'out',
+            },
+          },
+        },
+      }}
+    />
+  );
+}
 
 export default function Home() {
   const [step, setStep] = useState<
@@ -115,29 +160,12 @@ const handleChange = (index: number, value: number) => {
   );
 
   return (
-  <main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white border-4 border-green-400 shadow-[0_0_20px_4px_rgba(34,197,94,0.7)]">
-      {step === 'inicio' && (
-  <section className="relative w-full h-screen flex items-center justify-center">
-    {/* Fundo místico */}
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      options={{
-        background: { color: "#000000" },
-        fpsLimit: 60,
-        particles: {
-          color: { value: "#8A2BE2" },
-          move: { enable: true, speed: 0.3 },
-          number: { value: 30 },
-          opacity: { value: 0.3 },
-          size: { value: { min: 1, max: 3 } },
-        },
-      }}
-      className="absolute top-0 left-0 w-full h-full z-0"
-    />
+  <main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white overflow-hidden">
+  <ParticulasMisticas />
+<div className="absolute inset-0 bg-[url('/fog.png')] bg-cover opacity-40 animate-fadeFog z-0 pointer-events-none" />
 
-    {/* Conteúdo místico em cima do fundo */}
-    <div className="z-10 text-center space-y-6">
+  {step === 'inicio' && (
+    <section className="text-center space-y-6 z-10 relative">
       <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
       <p className="text-zinc-300 text-xl font-medium">Sua S.O.S em Saúde Mental.</p>
       <button
@@ -152,10 +180,8 @@ const handleChange = (index: number, value: number) => {
         <a href="mailto:sacjovify@gmail.com" className="hover:text-green-400">Email</a>
         <a href="https://tiktok.com/@thejovify" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">TikTok</a>
       </div>
-    </div>
-  </section>
-)}
-
+    </section>
+  )}
 
 
       {step === 'cadastro' && (
