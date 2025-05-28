@@ -6,7 +6,7 @@ import React, { useState, useRef } from 'react';
 
 export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'termos' 
+    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'termos' | 'desafiosmotivacionais' |
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -358,6 +358,13 @@ const handleChange = (index: number, value: number) => {
   </button>
 </div>
 
+<div
+  onClick={() => setStep('desafiosmotivacionais')}
+  className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer"
+>
+  <h3 className="text-green-400 font-semibold text-lg">Desafios Motivacionais</h3>
+  <p>Enfrente o dia com pequenos desafios que inspiram, fortalecem e geram bem-estar emocional.</p>
+</div>
 
     </div>
   </section>
@@ -760,6 +767,35 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     </button>
   </section>
 )}
+
+{step === 'desafiosmotivacionais' && (
+  <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center">
+    <BotaoVoltar voltarPara="home" />
+    <h2 className="text-3xl font-bold text-green-400">Desafios Motivacionais</h2>
+    <p className="text-zinc-300">Escolha um desafio para hoje e fortaleça seu bem-estar emocional com atitudes simples.</p>
+
+    <ul className="space-y-4 text-left">
+      {[
+        "Beber 2 copos de água agora",
+        "Ficar 10 minutos longe do celular",
+        "Agradecer por algo bom que aconteceu hoje",
+        "Dizer algo positivo para si mesmo no espelho",
+        "Fazer uma pausa consciente de 2 minutos para respirar",
+      ].map((desafio, index) => (
+        <li
+          key={index}
+          className="bg-zinc-800 p-4 rounded-xl flex justify-between items-center"
+        >
+          <span className="text-white">{desafio}</span>
+          <button className="bg-green-500 hover:bg-green-600 text-black px-3 py-1 rounded text-sm">
+            Concluir
+          </button>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
 
 
   </main>
