@@ -7,7 +7,7 @@ import React, { useState, useRef } from 'react';
 export default function Home() {
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'termos' | 'desafiosmotivacionais' | 'seudiario'
+    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'termos' | 'desafiosmotivacionais' | 'seudiario'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -147,7 +147,7 @@ const handleChange = (index: number, value: number) => {
     <input type="email" placeholder="Digite seu email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
     <input type="date" value={dataNascimento} onChange={(e) => setDataNascimento(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
     <input type="password" placeholder="Crie uma senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
-    <button onClick={() => nome.trim() !== '' && setStep('autoconhecimento')} className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition">
+    <button onClick={() => nome.trim() !== '' && setStep('termos')} className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition">
       Avançar
     </button>
     <p className="text-center text-sm text-zinc-400 mt-4">
@@ -187,7 +187,7 @@ const handleChange = (index: number, value: number) => {
       onClick={() => {
         if (email.trim() !== '' && senha.trim() !== '') {
           // Aqui você pode implementar a lógica de login real depois
-          setStep('autoconhecimento') // Vai para o fluxo principal
+          setStep('termos') // Vai para o fluxo principal
         }
       }}
       className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
@@ -207,6 +207,36 @@ const handleChange = (index: number, value: number) => {
   </section>
 )}
 
+{step === 'termos' && (
+  <section className="w-full max-w-xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl text-sm text-zinc-300">
+    <BotaoVoltar voltarPara="login" />
+    <h2 className="text-2xl font-bold text-green-400 text-center">Termos de Uso</h2>
+
+    <div className="bg-zinc-800 p-4 rounded-lg">
+      <h3 className="text-lg font-semibold text-white mb-2">1. Sobre o uso do aplicativo</h3>
+      <p>
+        Este aplicativo não substitui atendimento psicológico, psiquiátrico ou médico profissional.
+        Em caso de crise, procure um profissional ou ligue para o CVV (188).
+        Ao continuar, você reconhece estar ciente de que o conteúdo é informativo e de suporte leve ao bem-estar emocional.
+      </p>
+    </div>
+
+    <div className="bg-zinc-800 p-4 rounded-lg">
+      <h3 className="text-lg font-semibold text-white mb-2">2. Permissões de dados</h3>
+      <p>
+        Ao continuar, você autoriza a coleta e uso dos dados fornecidos para fins de personalização da experiência no aplicativo,
+        bem como o envio de e-mails e mensagens para os meios de contato fornecidos (como email e telefone), com conteúdos relacionados ao bem-estar emocional e atualizações da plataforma.
+      </p>
+    </div>
+
+    <button
+      onClick={() => setStep('autoconhecimento')}
+      className="w-full mt-4 py-2 bg-green-600 hover:bg-green-700 text-black font-bold rounded"
+    >
+      Concordo e continuar
+    </button>
+  </section>
+)}
 
   {step === 'autoconhecimento' && (
     <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl">
