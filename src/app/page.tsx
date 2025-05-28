@@ -1,11 +1,12 @@
 'use client';
 
+
 import React, { useState, useRef } from 'react';
 
 
 export default function Home() {
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'sos'
+    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'termos' 
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -134,8 +135,6 @@ const handleChange = (index: number, value: number) => {
     </div>
   </section>
 )}
-
-
 
 
       {step === 'cadastro' && (
@@ -348,6 +347,15 @@ const handleChange = (index: number, value: number) => {
 <div onClick={() => setStep('mindyz news')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
   <h3 className="text-green-400 font-semibold text-lg">Mindyz News</h3>
   <p>Fique por dentro das últimas novidades e descobertas sobre saúde mental no Brasil e no mundo.</p>
+</div>
+
+<div className="text-center pt-6 border-t border-zinc-700 mt-4">
+  <button
+    onClick={() => setStep('termos')}
+    className="text-sm text-green-400 underline hover:text-green-300 transition"
+  >
+    Ver Termos de Uso
+  </button>
 </div>
 
 
@@ -727,6 +735,23 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
         </a>
       </div>
     </div>
+  </section>
+)}
+
+{step === 'termos' && (
+  <section className="w-full max-w-xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl">
+    <BotaoVoltar voltarPara="inicio" />
+    <h2 className="text-2xl font-bold text-green-400 text-center">Termo de Responsabilidade</h2>
+    <p className="text-zinc-300 text-sm leading-relaxed">
+      Este aplicativo não substitui atendimento psicológico, psiquiátrico ou médico profissional. Em caso de crise, procure um profissional ou ligue para o CVV (188).
+      Ao continuar, você reconhece estar ciente de que o conteúdo é informativo e de suporte leve ao bem-estar emocional.
+    </p>
+    <button
+      onClick={() => setStep('cadastro')}
+      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
+    >
+      Concordo e quero continuar
+    </button>
   </section>
 )}
 
