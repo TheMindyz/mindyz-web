@@ -265,7 +265,7 @@ const handleChange = (index: number, value: number) => {
 
   {step === 'autoconhecimento' && (
     <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl">
-      <BotaoVoltar voltarPara="cadastro" />
+      <BotaoVoltar voltarPara="termos" />
       <h2 className="text-2xl font-bold text-green-400 text-center">Perguntas de Autoconhecimento</h2>
       {perguntas.map((pergunta, index) => (
         <div key={index} className="space-y-2">
