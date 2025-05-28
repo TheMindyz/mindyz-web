@@ -878,28 +878,6 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
   </section>
 )}
 
-{step === 'termos' && (
-  <section className="w-full max-w-2xl mx-auto bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-white">
-    <button
-      onClick={() => setStep('home')} // Volta para a tela anterior
-      className="bg-zinc-700 hover:bg-zinc-600 text-white px-4 py-2 rounded-md"
-    >
-      ← Voltar
-    </button>
-    <h2 className="text-2xl font-bold text-green-400 text-center">Termo de Responsabilidade</h2>
-    <p className="text-zinc-300 text-center">
-      Este aplicativo não substitui atendimento psicológico, psiquiátrico ou médico profissional.
-      Em caso de crise, procure um profissional ou ligue para o CVV (188).<br />
-      Ao continuar, você reconhece estar ciente de que o conteúdo é informativo e de suporte leve ao bem-estar emocional.
-    </p>
-    <button
-      onClick={() => setStep('home')} // Aqui decide para onde vai ao concordar
-      className="bg-green-500 hover:bg-green-600 text-black font-semibold px-6 py-2 rounded-md w-full"
-    >
-      Concordo e quero continuar
-    </button>
-  </section>
-)}
 
 
   </main>
