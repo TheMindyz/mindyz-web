@@ -2,6 +2,7 @@
 
 
 import React, { useState, useRef } from 'react';
+const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
 
 
 export default function Home() {
@@ -787,16 +788,24 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
           className="bg-zinc-800 p-4 rounded-xl flex justify-between items-center"
         >
           <span className="text-white">{desafio}</span>
-          <button className="bg-green-500 hover:bg-green-600 text-black px-3 py-1 rounded text-sm">
-            Concluir
+          <button
+            onClick={() => {
+              setDesafiosConcluidos((prev) => [...prev, index]);
+            }}
+            disabled={desafiosConcluidos.includes(index)}
+            className={`px-3 py-1 rounded text-sm font-semibold transition ${
+              desafiosConcluidos.includes(index)
+                ? 'bg-green-700 text-white cursor-default'
+                : 'bg-green-500 hover:bg-green-600 text-black'
+            }`}
+          >
+            {desafiosConcluidos.includes(index) ? 'Concluído' : 'Concluir'}
           </button>
         </li>
       ))}
     </ul>
   </section>
 )}
-
-
 
   </main>
 );
