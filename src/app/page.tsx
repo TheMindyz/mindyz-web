@@ -2,10 +2,10 @@
 
 
 import React, { useState, useRef } from 'react';
-const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
 
 
 export default function Home() {
+  const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [step, setStep] = useState<
     'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'termos' | 'desafiosmotivacionais' 
   >('inicio');
