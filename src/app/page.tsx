@@ -4,11 +4,12 @@
 import React, { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
+
 export default function Home() {
   const router = useRouter();
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'termos' | 'desafiosmotivacionais' | 'seudiario'
+    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -348,6 +349,8 @@ const handleChange = (index: number, value: number) => {
         <li>Desabafar</li>
         <li>Mindyz News</li>
         <li>Seu Diário</li>
+        <li>Desafios Motivacionais</li>
+
 
       </ul>
     </div>
