@@ -3,8 +3,6 @@
 
 import React, { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
-const [origemTermos, setOrigemTermos] = useState<'login' | 'cadastro' | null>(null);
-
 
 export default function Home() {
   const router = useRouter();
@@ -141,53 +139,18 @@ const handleChange = (index: number, value: number) => {
 )}
 
 
-     {step === 'cadastro' && (
+      {step === 'cadastro' && (
   <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
     <BotaoVoltar voltarPara="inicio" />
     <h2 className="text-2xl font-bold text-green-400 text-center">Cadastro</h2>
-
-    <input
-      type="text"
-      placeholder="Digite seu nome"
-      value={nome}
-      onChange={(e) => setNome(e.target.value)}
-      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-    />
-    <input
-      type="text"
-      placeholder="Digite seu CPF"
-      value={cpf}
-      onChange={(e) => setCpf(e.target.value)}
-      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-    />
-    <input
-      type="email"
-      placeholder="Digite seu email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-    />
-    <input
-      type="date"
-      value={dataNascimento}
-      onChange={(e) => setDataNascimento(e.target.value)}
-      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-    />
-    <input
-      type="password"
-      placeholder="Crie uma senha"
-      value={senha}
-      onChange={(e) => setSenha(e.target.value)}
-      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-    />
-
-    <button
-      onClick={() => nome.trim() !== '' && setStep('termos')}
-      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
-    >
+    <input type="text" placeholder="Digite seu nome" value={nome} onChange={(e) => setNome(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
+    <input type="text" placeholder="Digite seu CPF" value={cpf} onChange={(e) => setCpf(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
+    <input type="email" placeholder="Digite seu email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
+    <input type="date" value={dataNascimento} onChange={(e) => setDataNascimento(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
+    <input type="password" placeholder="Crie uma senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
+    <button onClick={() => nome.trim() !== '' && setStep('termos')} className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition">
       Avançar
     </button>
-
     <p className="text-center text-sm text-zinc-400 mt-4">
       Já tem uma conta?{' '}
       <button
@@ -200,12 +163,11 @@ const handleChange = (index: number, value: number) => {
   </section>
 )}
 
-
 {step === 'login' && (
   <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
-    <BotaoVoltar voltarPara="cadastro" />
+    <BotaoVoltar voltarPara="cadastro" /> {/* Alterado para voltar para cadastro */}
     <h2 className="text-2xl font-bold text-green-400 text-center">Entrar</h2>
-
+    
     <input
       type="email"
       placeholder="Digite seu email"
@@ -213,6 +175,7 @@ const handleChange = (index: number, value: number) => {
       onChange={(e) => setEmail(e.target.value)}
       className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
     />
+    
     <input
       type="password"
       placeholder="Digite sua senha"
@@ -220,11 +183,12 @@ const handleChange = (index: number, value: number) => {
       onChange={(e) => setSenha(e.target.value)}
       className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
     />
-
+    
     <button
       onClick={() => {
         if (email.trim() !== '' && senha.trim() !== '') {
-          setStep('termos') // ou 'autoconhecimento' direto, dependendo do fluxo desejado
+          // Aqui você pode implementar a lógica de login real depois
+          setStep('termos') // Vai para o fluxo principal
         }
       }}
       className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
@@ -243,7 +207,6 @@ const handleChange = (index: number, value: number) => {
     </p>
   </section>
 )}
-
 
 {step === 'termos' && (
   <section className="w-full max-w-xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl text-sm text-zinc-300">
@@ -297,7 +260,6 @@ const handleChange = (index: number, value: number) => {
     </button>
   </section>
 )}
-
 
 
 
