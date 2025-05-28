@@ -117,8 +117,15 @@ const handleChange = (index: number, value: number) => {
 
   {step === 'inicio' && (
   <section className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden">
-    {/* Contorno neon místico */}
-    <div className="absolute inset-0 border-4 border-[#34D399] rounded-none pointer-events-none z-10 shadow-[0_0_60px_20px_rgba(52,211,153,0.6)]" />
+    
+    {/* Contorno neon esfumado e místico */}
+    <div className="absolute inset-0 border-4 border-[#34D399] pointer-events-none z-10 rounded-[30px] 
+      shadow-[0_0_80px_20px_rgba(52,211,153,0.6),0_0_120px_40px_rgba(52,211,153,0.4)]" />
+
+    {/* Camada de névoa suave */}
+    <div className="absolute inset-0 pointer-events-none z-0 
+      bg-[radial-gradient(circle_at_center,rgba(52,211,153,0.15)_0%,transparent_70%)]
+      blur-3xl" />
 
     {/* Conteúdo central */}
     <div className="z-20 text-center space-y-6">
@@ -139,6 +146,7 @@ const handleChange = (index: number, value: number) => {
     </div>
   </section>
 )}
+
 
 
       {step === 'cadastro' && (
