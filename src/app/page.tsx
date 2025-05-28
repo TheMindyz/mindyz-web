@@ -7,7 +7,7 @@ import React, { useState, useRef } from 'react';
 export default function Home() {
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'termos' | 'desafiosmotivacionais' 
+    'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'termos' | 'desafiosmotivacionais' | 'seudiario'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -368,6 +368,12 @@ const handleChange = (index: number, value: number) => {
   <h3 className="text-green-400 font-semibold text-lg">Desafios Motivacionais</h3>
   <p>Enfrente o dia com pequenos desafios que inspiram, fortalecem e geram bem-estar emocional.</p>
 </div>
+
+<div onClick={() => setStep('seudiario')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
+  <h3 className="text-green-400 font-semibold text-lg">Diário Emocional</h3>
+  <p>Registre pensamentos e momentos do seu dia. Descubra padrões e fortaleça sua jornada emocional.</p>
+</div>
+
 
     </div>
   </section>
@@ -806,6 +812,33 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
         </li>
       ))}
     </ul>
+  </section>
+)}
+
+{step === 'seudiario' && (
+  <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
+    <BotaoVoltar voltarPara="home" />
+
+    <h2 className="text-3xl font-bold text-green-400 text-center">Diário Emocional</h2>
+    <p className="text-zinc-300 text-center">
+      Um espaço para refletir, se expressar e acompanhar sua jornada emocional ao longo do tempo.
+    </p>
+
+    <div className="space-y-4">
+      <textarea
+        className="w-full bg-zinc-800 text-white rounded-lg p-4 resize-none h-56 focus:outline-none focus:ring-2 focus:ring-green-500"
+        placeholder="Escreva livremente sobre o seu dia, sentimentos ou pensamentos..."
+      />
+
+      <button className="bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded w-full">
+        Salvar no Diário
+      </button>
+    </div>
+
+    <div className="border-t border-zinc-700 pt-6">
+      <h3 className="text-green-300 font-semibold text-lg mb-2">Histórico da Semana</h3>
+      <p className="text-zinc-400 text-sm">Em breve: acompanhe seus registros em gráficos e perceba padrões emocionais.</p>
+    </div>
   </section>
 )}
 
