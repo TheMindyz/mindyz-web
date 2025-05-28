@@ -109,7 +109,7 @@ const handleChange = (index: number, value: number) => {
   );
 
   return (
-  <main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white overflow-hidden">
+  <main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white border-4 border-green-400 shadow-[0_0_20px_4px_rgba(34,197,94,0.7)]">
     <div className="absolute inset-0 bg-purple-950 z-[-3]" />
 
 <div className="absolute inset-0 bg-[url('/fog.png')] bg-cover opacity-100 z-[-2] mix-blend-screen pointer-events-none" />
