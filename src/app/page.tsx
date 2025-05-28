@@ -4,7 +4,6 @@ import React, { useState, useRef } from 'react';
 
 
 export default function Home() {
-  const [showPortal, setShowPortal] = useState(false);
   const [step, setStep] = useState<
     'inicio' | 'cadastro' |'login' | 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'comunidade' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'sos'
   >('inicio');
@@ -305,30 +304,7 @@ const handleChange = (index: number, value: number) => {
   </section>
 )}
 
-
-{step === 'home' && (
-  <>
-    {/* BOTÃO FLUTUANTE DO PORTAL PREMIUM */}
-    <div className="absolute top-4 right-4 z-40">
-      <button
-        onClick={() => setShowPortal(true)}
-        className="bg-black border-2 border-green-400 text-green-400 px-4 py-2 rounded-full font-semibold shadow-lg hover:bg-green-500 hover:text-black transition duration-300"
-      >
-        Portal Premium
-      </button>
-    </div>
-
-    {/* CONTEÚDO HOME */}
-    <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
-      <BotaoVoltar voltarPara="boasVindas" />
-      <h2 className="text-3xl font-bold text-green-400 text-center">Home - Bem-vindo, {nome}!</h2>
-
-      {/* ...cards... */}
-    </section>
-  </>
-)}
-
-
+  {step === 'home' && (
   <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
     <BotaoVoltar voltarPara="boasVindas" />
     <h2 className="text-3xl font-bold text-green-400 text-center">Home - Bem-vindo, {nome}!</h2>
@@ -336,12 +312,12 @@ const handleChange = (index: number, value: number) => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-zinc-300">
       <div onClick={() => setStep('trilhas')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
         <h3 className="text-green-400 font-semibold text-lg">Trilhas de Autodesenvolvimento</h3>
-        <p>Dê o primeiro passo. As trilhas Premium te ajudam a evoluir.</p>
+        <p>Dê o primeiro passo. As trilhas avançadas te esperam no Premium.</p>
       </div>
 
       <div onClick={() => setStep('psicologo')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
         <h3 className="text-green-400 font-semibold text-lg">Sessões com Psicólogos</h3>
-        <p>Descubra o poder de conversar com quem entende.Conheça o apoio Premium.</p>
+        <p>Descubra o poder de conversar com quem entende. Conheça o apoio Premium.</p>
       </div>
 
       <div onClick={() => setStep('cvv')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
@@ -351,7 +327,7 @@ const handleChange = (index: number, value: number) => {
 
       <div onClick={() => setStep('mensagens')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
   <h3 className="text-green-400 font-semibold text-lg">Mensagens Motivacionais</h3>
-  <p>Uma frase por dia pode transformar sua jornada.</p>
+  <p>Leia frases que vão te inspirar e dar um gás no seu dia.Uma frase por dia pode mudar tudo. No Premium, você desbloqueia sua jornada</p>
 </div>
 
 <div onClick={() => setStep('checkin')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
@@ -366,7 +342,7 @@ const handleChange = (index: number, value: number) => {
 
 <div onClick={() => setStep('desabafo')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
   <h3 className="text-green-400 font-semibold text-lg">Desabafo</h3>
-  <p>Compartilhe que está sentindo de forma segura e anônima.Estamos aqui para te ouvir.</p>
+  <p>Compartilhe o que está sentindo de forma segura e anônima. Estamos aqui para te ouvir.</p>
 </div>
 
 <div onClick={() => setStep('mindyz news')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
@@ -374,37 +350,9 @@ const handleChange = (index: number, value: number) => {
   <p>Fique por dentro das últimas novidades e descobertas sobre saúde mental no Brasil e no mundo.</p>
 </div>
 
+
     </div>
   </section>
-)
-
-{showPortal && (
-  <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center animate-fadeIn">
-    <div className="relative border-4 border-green-500 rounded-3xl p-10 max-w-2xl mx-auto shadow-[0_0_60px_15px_rgba(0,255,100,0.5)] bg-gradient-to-br from-[#111] to-[#000] text-center">
-      <h2 className="text-green-400 text-3xl font-bold mb-4">🧙 Portal Premium</h2>
-      <p className="text-gray-300 italic mb-6">
-        Você atravessou o limiar do comum. Aqui moram os recursos sagrados...
-      </p>
-
-      <div className="text-left text-gray-200 text-sm space-y-2 mb-6">
-        <p>🔮 Diários Secretos</p>
-        <p>🧠 Sessões com Sábios</p>
-        <p>🌱 Missões Avançadas</p>
-        <p>📜 Conhecimento Proibido</p>
-      </div>
-
-      <p className="text-gray-500 text-sm italic mb-4">
-        Apenas com a chave sagrada (Premium) os portões se abrem totalmente...
-      </p>
-
-      <button
-        onClick={() => setShowPortal(false)}
-        className="mt-4 bg-green-500 text-black font-bold px-6 py-2 rounded-full hover:bg-green-600 transition"
-      >
-        Voltar
-      </button>
-    </div>
-  </div>
 )}
 
 
