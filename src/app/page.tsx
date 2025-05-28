@@ -117,10 +117,13 @@ const handleChange = (index: number, value: number) => {
 
   {step === 'inicio' && (
   <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-    {/* Contorno místico em toda a tela */}
+    {/* Contorno neon em toda a tela */}
+    <div className="absolute inset-0 border-4 border-green-500 rounded-[30px] pointer-events-none neon-border z-0" />
+
+    {/* Fundo místico com efeito pulsante */}
     <div className="absolute inset-0 z-0 pointer-events-none animate-pulse bg-[radial-gradient(circle_at_center,rgba(34,255,116,0.2)_0%,transparent_60%)] blur-3xl" />
 
-    {/* Conteúdo principal sem contorno */}
+    {/* Conteúdo principal sem borda visível */}
     <section className="text-center space-y-6 z-10 relative bg-black p-6">
       <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
       <p className="text-zinc-300 text-xl font-medium">Sua S.O.S em Saúde Mental.</p>
@@ -139,6 +142,7 @@ const handleChange = (index: number, value: number) => {
     </section>
   </div>
 )}
+
 
 
 
