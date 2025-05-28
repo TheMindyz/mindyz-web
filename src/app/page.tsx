@@ -292,7 +292,7 @@ const handleChange = (index: number, value: number) => {
         <li>Conhecer sobre a Mindyz</li>
         <li>Desabafar</li>
         <li>Mindyz News</li>
-        <li>Desafios Motivacionais</li>
+        <li>Seu Diário</li>
 
       </ul>
     </div>
@@ -352,14 +352,6 @@ const handleChange = (index: number, value: number) => {
   <p>Fique por dentro das últimas novidades e descobertas sobre saúde mental no Brasil e no mundo.</p>
 </div>
 
-<div className="text-center pt-6 border-t border-zinc-700 mt-4">
-  <button
-    onClick={() => setStep('termos')}
-    className="text-sm text-green-400 underline hover:text-green-300 transition"
-  >
- Ver Termos de Uso
-  </button>
-</div>
 
 <div
   onClick={() => setStep('desafiosmotivacionais')}
@@ -372,6 +364,15 @@ const handleChange = (index: number, value: number) => {
 <div onClick={() => setStep('seudiario')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
   <h3 className="text-green-400 font-semibold text-lg">Diário Emocional</h3>
   <p>Registre pensamentos e momentos do seu dia. Descubra padrões e fortaleça sua jornada emocional.</p>
+</div>
+
+<div className="text-center pt-6 border-t border-zinc-700 mt-4">
+  <button
+    onClick={() => setStep('termos')}
+    className="text-sm text-green-400 underline hover:text-green-300 transition"
+  >
+ Ver Termos de Uso
+  </button>
 </div>
 
 
@@ -754,28 +755,6 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
   </section>
 )}
 
-{step === 'termos' && (
-  <section className="w-full max-w-2xl mx-auto bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-white">
-    <button
-      onClick={() => setStep('home')} // Volta para a tela anterior
-      className="bg-zinc-700 hover:bg-zinc-600 text-white px-4 py-2 rounded-md"
-    >
-      ← Voltar
-    </button>
-    <h2 className="text-2xl font-bold text-green-400 text-center">Termo de Responsabilidade</h2>
-    <p className="text-zinc-300 text-center">
-      Este aplicativo não substitui atendimento psicológico, psiquiátrico ou médico profissional.
-      Em caso de crise, procure um profissional ou ligue para o CVV (188).<br />
-      Ao continuar, você reconhece estar ciente de que o conteúdo é informativo e de suporte leve ao bem-estar emocional.
-    </p>
-    <button
-      onClick={() => setStep('home')} // Aqui decide para onde vai ao concordar
-      className="bg-green-500 hover:bg-green-600 text-black font-semibold px-6 py-2 rounded-md w-full"
-    >
-      Concordo e quero continuar
-    </button>
-  </section>
-)}
 
 {step === 'desafiosmotivacionais' && (
   <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center">
@@ -841,6 +820,30 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     </div>
   </section>
 )}
+
+{step === 'termos' && (
+  <section className="w-full max-w-2xl mx-auto bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-white">
+    <button
+      onClick={() => setStep('home')} // Volta para a tela anterior
+      className="bg-zinc-700 hover:bg-zinc-600 text-white px-4 py-2 rounded-md"
+    >
+      ← Voltar
+    </button>
+    <h2 className="text-2xl font-bold text-green-400 text-center">Termo de Responsabilidade</h2>
+    <p className="text-zinc-300 text-center">
+      Este aplicativo não substitui atendimento psicológico, psiquiátrico ou médico profissional.
+      Em caso de crise, procure um profissional ou ligue para o CVV (188).<br />
+      Ao continuar, você reconhece estar ciente de que o conteúdo é informativo e de suporte leve ao bem-estar emocional.
+    </p>
+    <button
+      onClick={() => setStep('home')} // Aqui decide para onde vai ao concordar
+      className="bg-green-500 hover:bg-green-600 text-black font-semibold px-6 py-2 rounded-md w-full"
+    >
+      Concordo e quero continuar
+    </button>
+  </section>
+)}
+
 
   </main>
 );
