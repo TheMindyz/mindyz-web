@@ -307,78 +307,80 @@ const handleChange = (index: number, value: number) => {
 )}
 
   {step === 'home' && (
-  <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
+  <section className="w-full max-w-6xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 mx-auto">
     <BotaoVoltar voltarPara="boasVindas" />
-    <h2 className="text-3xl font-bold text-green-400 text-center">Home - Bem-vindo, {nome}!</h2>
     
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-zinc-300">
-      <div onClick={() => setStep('trilhas')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
-        <h3 className="text-green-400 font-semibold text-lg">Trilhas de Autodesenvolvimento</h3>
-        <p>Dê o primeiro passo. As trilhas avançadas te esperam no Premium.</p>
-      </div>
+    <h2 className="text-4xl font-bold text-green-400 text-center mb-10">
+      Home - Bem-vindo, {nome}!
+    </h2>
 
-      <div onClick={() => setStep('psicologo')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
-        <h3 className="text-green-400 font-semibold text-lg">Sessões com Psicólogos</h3>
-        <p>Descubra o poder de conversar com quem entende. Conheça o apoio Premium.</p>
-      </div>
-
-      <div onClick={() => setStep('cvv')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
-        <h3 className="text-green-400 font-semibold text-lg">Precisa conversar?</h3>
-        <p>Saiba como receber apoio emocional gratuito com o CVV (188).</p>
-      </div>
-
-      <div onClick={() => setStep('mensagens')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
-  <h3 className="text-green-400 font-semibold text-lg">Mensagens Motivacionais</h3>
-  <p>Leia frases que vão te inspirar e dar um gás no seu dia.Uma frase por dia pode mudar tudo. No Premium, você desbloqueia sua jornada</p>
-</div>
-
-<div onClick={() => setStep('checkin')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
-  <h3 className="text-green-400 font-semibold text-lg">Fazer Check-in Emocional</h3>
-  <p>Registre como está se sentindo agora com um simples toque.</p>
-</div>
-
-<div onClick={() => setStep('sobre a Mindyz')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
-  <h3 className="text-green-400 font-semibold text-lg">Sobre a Mindzy</h3>
-  <p>Conheça nossa missão, visão e os valores que guiam o nosso propósito.Nossa missão é te ajudar a florescer. No Premium, você vai mais longe</p>
-</div>
-
-<div onClick={() => setStep('desabafo')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
-  <h3 className="text-green-400 font-semibold text-lg">Desabafo</h3>
-  <p>Compartilhe o que está sentindo de forma segura e anônima. Estamos aqui para te ouvir.</p>
-</div>
-
-<div onClick={() => setStep('mindyz news')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
-  <h3 className="text-green-400 font-semibold text-lg">Mindyz News</h3>
-  <p>Fique por dentro das últimas novidades e descobertas sobre saúde mental no Brasil e no mundo.</p>
-</div>
-
-
-<div
-  onClick={() => setStep('desafiosmotivacionais')}
-  className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer"
->
-  <h3 className="text-green-400 font-semibold text-lg">Desafios Motivacionais</h3>
-  <p>Enfrente o dia com pequenos desafios que inspiram, fortalecem e geram bem-estar emocional.</p>
-</div>
-
-<div onClick={() => setStep('seudiario')} className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition cursor-pointer">
-  <h3 className="text-green-400 font-semibold text-lg">Diário Emocional</h3>
-  <p>Registre pensamentos e momentos do seu dia. Descubra padrões e fortaleça sua jornada emocional.</p>
-</div>
-
-<div className="text-center pt-6 border-t border-zinc-700 mt-4">
-  <button
-    onClick={() => setStep('termos')}
-    className="text-sm text-green-400 underline hover:text-green-300 transition"
-  >
- Ver Termos de Uso
-  </button>
-</div>
-
-
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-zinc-300">
+      {[
+        {
+          title: 'Trilhas de Autodesenvolvimento',
+          desc: 'Dê o primeiro passo. As trilhas avançadas te esperam no Premium.',
+          step: 'trilhas',
+        },
+        {
+          title: 'Sessões com Psicólogos',
+          desc: 'Descubra o poder de conversar com quem entende. Conheça o apoio Premium.',
+          step: 'psicologo',
+        },
+        {
+          title: 'Precisa conversar?',
+          desc: 'Saiba como receber apoio emocional gratuito com o CVV (188).',
+          step: 'cvv',
+        },
+        {
+          title: 'Mensagens Motivacionais',
+          desc: 'Leia frases que vão te inspirar e dar um gás no seu dia. Uma frase por dia pode mudar tudo. No Premium, você desbloqueia sua jornada.',
+          step: 'mensagens',
+        },
+        {
+          title: 'Fazer Check-in Emocional',
+          desc: 'Registre como está se sentindo agora com um simples toque.',
+          step: 'checkin',
+        },
+        {
+          title: 'Sobre a Mindyz',
+          desc: 'Conheça nossa missão, visão e os valores que guiam o nosso propósito. No Premium, você vai mais fundo nessa jornada.',
+          step: 'sobre a Mindyz',
+        },
+        {
+          title: 'Desabafar',
+          desc: 'Um espaço seguro e anônimo para soltar o que está preso no coração.',
+          step: 'desabafo',
+        },
+        {
+          title: 'Mindyz News',
+          desc: 'Fique por dentro das novidades sobre saúde mental, atualizações do app e conteúdos exclusivos.',
+          step: 'mindyz news',
+        },
+        {
+          title: 'Seu Diário',
+          desc: 'Registre seus pensamentos, momentos especiais e conquistas. No Premium, desbloqueie insights poderosos.',
+          step: 'seudiario',
+        },
+        {
+          title: 'Desafios Motivacionais',
+          desc: 'Topa um desafio diário? Supere seus limites e descubra sua força interior.',
+          step: 'desafiosmotivacionais',
+        },
+      ].map((card, index) => (
+        <div
+          key={index}
+          className="bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-lg transition cursor-pointer hover:bg-zinc-700"
+          onClick={() => setStep(card.step as typeof step)}
+        >
+          <h3 className="text-green-400 font-semibold text-xl mb-2">{card.title}</h3>
+          <p className="text-zinc-300 text-sm">{card.desc}</p>
+        </div>
+      ))}
     </div>
   </section>
 )}
+
+
 
 
   {step === 'trilhas' && (
