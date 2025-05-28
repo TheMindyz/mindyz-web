@@ -292,6 +292,8 @@ const handleChange = (index: number, value: number) => {
         <li>Conhecer sobre a Mindyz</li>
         <li>Desabafar</li>
         <li>Mindyz News</li>
+        <li>Desafios Motivacionais</li>
+
       </ul>
     </div>
 
