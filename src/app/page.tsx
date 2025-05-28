@@ -116,7 +116,8 @@ const handleChange = (index: number, value: number) => {
 <div className="absolute inset-0 bg-[url('/fog.png')] bg-cover opacity-100 z-[-2] mix-blend-screen pointer-events-none" />
 
   {step === 'inicio' && (
-    <section className="text-center space-y-6 z-10 relative">
+  <div className="p-1 rounded-[20px] shadow-[0_0_20px_4px_rgba(34,255,116,0.8)] border border-green-400 transition-all">
+    <section className="text-center space-y-6 z-10 relative bg-black rounded-[18px] p-6">
       <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
       <p className="text-zinc-300 text-xl font-medium">Sua S.O.S em Saúde Mental.</p>
       <button
@@ -132,7 +133,8 @@ const handleChange = (index: number, value: number) => {
         <a href="https://tiktok.com/@thejovify" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">TikTok</a>
       </div>
     </section>
-  )}
+  </div>
+)}
 
 
       {step === 'cadastro' && (
