@@ -116,15 +116,12 @@ const handleChange = (index: number, value: number) => {
 <div className="absolute inset-0 bg-[url('/fog.png')] bg-cover opacity-100 z-[-2] mix-blend-screen pointer-events-none" />
 
   {step === 'inicio' && (
-  <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-    {/* Contorno neon ocupando toda a tela */}
-    <div className="absolute inset-0 border-4 border-green-500 pointer-events-none z-0 rounded-none shadow-[0_0_60px_20px_rgba(0,255,0,0.7)]" />
+  <section className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden">
+    {/* Contorno neon místico */}
+    <div className="absolute inset-0 border-4 border-[#34D399] rounded-none pointer-events-none z-10 shadow-[0_0_60px_20px_rgba(52,211,153,0.6)]" />
 
-    {/* Fundo místico com efeito pulsante */}
-    <div className="absolute inset-0 z-0 pointer-events-none animate-pulse bg-[radial-gradient(circle_at_center,rgba(34,255,116,0.2)_0%,transparent_60%)] blur-3xl" />
-
-    {/* Conteúdo principal */}
-    <section className="text-center space-y-6 z-10 relative bg-black p-6">
+    {/* Conteúdo central */}
+    <div className="z-20 text-center space-y-6">
       <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
       <p className="text-zinc-300 text-xl font-medium">Sua S.O.S em Saúde Mental.</p>
       <button
@@ -139,12 +136,9 @@ const handleChange = (index: number, value: number) => {
         <a href="mailto:sacjovify@gmail.com" className="hover:text-green-400">Email</a>
         <a href="https://tiktok.com/@thejovify" target="_blank" rel="noopener noreferrer" className="hover:text-green-400">TikTok</a>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 )}
-
-
-
 
 
       {step === 'cadastro' && (
