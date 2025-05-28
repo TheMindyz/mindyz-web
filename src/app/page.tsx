@@ -118,16 +118,19 @@ const handleChange = (index: number, value: number) => {
   {step === 'inicio' && (
   <section className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden">
     
-    {/* Contorno neon esfumado e místico */}
-    <div className="absolute inset-0 border-4 border-[#34D399] pointer-events-none z-10 rounded-[30px] 
-      shadow-[0_0_80px_20px_rgba(52,211,153,0.6),0_0_120px_40px_rgba(52,211,153,0.4)]" />
+    {/* Borda neon verde com efeito de fumaça */}
+    <div className="absolute inset-0 rounded-[30px] border-4 border-[#00ff00] pointer-events-none z-10 
+      shadow-[0_0_60px_10px_#00ff00,0_0_90px_20px_#00ff00,0_0_120px_30px_#00ff00]" />
 
-    {/* Camada de névoa suave */}
-    <div className="absolute inset-0 pointer-events-none z-0 
-      bg-[radial-gradient(circle_at_center,rgba(52,211,153,0.15)_0%,transparent_70%)]
-      blur-3xl" />
+    {/* Glow suave só nas bordas */}
+    <div className="absolute inset-0 rounded-[30px] pointer-events-none z-0
+      bg-[conic-gradient(from_180deg_at_top_left,transparent_20%,rgba(0,255,0,0.15)_30%,transparent_50%),
+          conic-gradient(from_0deg_at_top_right,transparent_20%,rgba(0,255,0,0.15)_30%,transparent_50%),
+          conic-gradient(from_270deg_at_bottom_left,transparent_20%,rgba(0,255,0,0.15)_30%,transparent_50%),
+          conic-gradient(from_90deg_at_bottom_right,transparent_20%,rgba(0,255,0,0.15)_30%,transparent_50%)]
+      blur-2xl" />
 
-    {/* Conteúdo central */}
+    {/* Conteúdo */}
     <div className="z-20 text-center space-y-6">
       <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
       <p className="text-zinc-300 text-xl font-medium">Sua S.O.S em Saúde Mental.</p>
@@ -146,6 +149,7 @@ const handleChange = (index: number, value: number) => {
     </div>
   </section>
 )}
+
 
 
 
