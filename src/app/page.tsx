@@ -2,9 +2,10 @@
 
 
 import React, { useState, useRef } from 'react';
-
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
+  const router = useRouter();
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [step, setStep] = useState<
     'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'termos' | 'desafiosmotivacionais' | 'seudiario'
@@ -208,59 +209,58 @@ const handleChange = (index: number, value: number) => {
 )}
 
 {step === 'termos' && (
-  <section className="w-full max-w-xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl text-sm text-zinc-300">
+        <section className="w-full max-w-xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl text-sm text-zinc-300">
+          <button
+          onClick={() => window.history.back()}
+            className="text-white text-sm px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded mb-2"
+          >
+            ← Voltar
+          </button>
+
+          <h2 className="text-2xl font-bold text-green-400 text-center">Termos de Uso</h2>
+
+          <div className="bg-zinc-800 p-5 rounded-lg space-y-4 border border-zinc-700">
+            <h3 className="text-lg font-semibold text-white">Responsabilidade e Consentimento</h3>
+
+            <p>
+              Ao continuar, você declara estar ciente de que este aplicativo tem caráter informativo e de suporte leve ao bem-estar emocional,
+              <strong> não substituindo acompanhamento psicológico, psiquiátrico ou médico profissional</strong>.
+              Em situações de crise, procure ajuda especializada ou entre em contato com o <strong>CVV</strong> pelo número <strong>188</strong>.
+            </p>
+
+            <p>
+              Você também <strong>autoriza a coleta e uso dos dados fornecidos</strong> com a finalidade de personalizar sua experiência,
+              enviar conteúdos relacionados ao bem-estar emocional e comunicações sobre a plataforma.
+            </p>
+
+            <div className="text-xs text-zinc-400 mt-4 space-y-1">
+              <p>
+                🔗 <a href="https://www.gov.br/saude/pt-br/composicao/svs/cgap/cvv" target="_blank" className="underline hover:text-green-400">
+                  Saiba mais sobre o CVV
+                </a>
+              </p>
+              <p>
+                🔗 <a href="https://www.gov.br/anpd/pt-br/assuntos/noticias/lgpd-conheca-seus-direitos" target="_blank" className="underline hover:text-green-400">
+                  Direitos segundo a LGPD
+                </a>
+              </p>
+              <p>
+                🔗 <a href="https://www.serpro.gov.br/lgpd/menu/entenda-lgpd" target="_blank" className="underline hover:text-green-400">
+                  O que é o consentimento de dados?
+                </a>
+              </p>
+            </div>
+          </div>
+
+          <button
+            onClick={() => setStep('autoconhecimento')}
+            className="w-full mt-4 py-2 bg-green-600 hover:bg-green-700 text-black font-bold rounded"
+          >
+            Concordo e continuar
+          </button>
+        </section>
+      )}
     
-    {/* Botão de voltar dinâmico */}
-    <button
-      onClick={() => router.back()}
-      className="text-white text-sm px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded mb-2"
-    >
-      ← Voltar
-    </button>
-
-    <h2 className="text-2xl font-bold text-green-400 text-center">Termos de Uso</h2>
-
-    <div className="bg-zinc-800 p-5 rounded-lg space-y-4 border border-zinc-700">
-      <h3 className="text-lg font-semibold text-white">Responsabilidade e Consentimento</h3>
-
-      <p>
-        Ao continuar, você declara estar ciente de que este aplicativo tem caráter informativo e de suporte leve ao bem-estar emocional,
-        <strong> não substituindo acompanhamento psicológico, psiquiátrico ou médico profissional</strong>.
-        Em situações de crise, procure ajuda especializada ou entre em contato com o <strong>CVV</strong> pelo número <strong>188</strong>.
-      </p>
-
-      <p>
-        Você também <strong>autoriza a coleta e uso dos dados fornecidos</strong> com a finalidade de personalizar sua experiência,
-        enviar conteúdos relacionados ao bem-estar emocional e comunicações sobre a plataforma (por e-mail ou telefone).
-      </p>
-
-      <div className="text-xs text-zinc-400 mt-4 space-y-1">
-        <p>
-          🔗 <a href="https://www.gov.br/saude/pt-br/composicao/svs/cgap/cvv" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">
-            Saiba mais sobre o CVV e como obter apoio emocional
-          </a>
-        </p>
-        <p>
-          🔗 <a href="https://www.gov.br/anpd/pt-br/assuntos/noticias/lgpd-conheca-seus-direitos" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">
-            Entenda seus direitos segundo a LGPD (Lei Geral de Proteção de Dados)
-          </a>
-        </p>
-        <p>
-          🔗 <a href="https://www.serpro.gov.br/lgpd/menu/entenda-lgpd" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">
-            O que é o consentimento para uso de dados pessoais?
-          </a>
-        </p>
-      </div>
-    </div>
-
-    <button
-      onClick={() => setStep('autoconhecimento')}
-      className="w-full mt-4 py-2 bg-green-600 hover:bg-green-700 text-black font-bold rounded"
-    >
-      Concordo e continuar
-    </button>
-  </section>
-)}
 
 
   {step === 'autoconhecimento' && (
