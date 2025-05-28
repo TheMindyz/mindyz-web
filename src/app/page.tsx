@@ -235,17 +235,17 @@ const handleChange = (index: number, value: number) => {
 
       <div className="text-xs text-zinc-400 mt-4 space-y-1">
         <p>
-          🔗 <a href="https://www.gov.br/saude/pt-br/composicao/svs/cgap/cvv" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">
+          🔗 <a href="https://www.cvv.org.br/" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">
             Saiba mais sobre o CVV
           </a>
         </p>
         <p>
-          🔗 <a href="https://www.gov.br/anpd/pt-br/assuntos/noticias/lgpd-conheca-seus-direitos" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">
+          🔗 <a href="https://www.mpf.mp.br/servicos/lgpd/o-que-e-a-lgpd" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">
             Direitos segundo a LGPD
           </a>
         </p>
         <p>
-          🔗 <a href="https://www.serpro.gov.br/lgpd/menu/entenda-lgpd" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">
+          🔗 <a href="https://www.jusbrasil.com.br/modelos-pecas/termo-de-consentimento-para-tratamento-de-dados-pessoais/2409302451" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">
             O que é o consentimento de dados?
           </a>
         </p>
