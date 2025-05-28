@@ -112,24 +112,9 @@ const handleChange = (index: number, value: number) => {
   <main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white border-4 border-green-400 shadow-[0_0_20px_4px_rgba(34,197,94,0.7)]">
     <div className="absolute inset-0 bg-purple-950 z-[-3]" />
 
-<div className="absolute inset-0 bg-[url('/fog.png')] bg-cover opacity-100 z-[-2] mix-blend-screen pointer-events-none" />
-<div className="absolute inset-0 bg-[url('/fog.png')] bg-cover opacity-100 z-[-2] mix-blend-screen pointer-events-none" />
-
   {step === 'inicio' && (
   <section className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden">
     
-    {/* Borda neon verde com efeito de fumaça */}
-    <div className="absolute inset-0 rounded-[30px] border-4 border-[#00ff00] pointer-events-none z-10 
-      shadow-[0_0_60px_10px_#00ff00,0_0_90px_20px_#00ff00,0_0_120px_30px_#00ff00]" />
-
-    {/* Glow suave só nas bordas */}
-    <div className="absolute inset-0 rounded-[30px] pointer-events-none z-0
-      bg-[conic-gradient(from_180deg_at_top_left,transparent_20%,rgba(0,255,0,0.15)_30%,transparent_50%),
-          conic-gradient(from_0deg_at_top_right,transparent_20%,rgba(0,255,0,0.15)_30%,transparent_50%),
-          conic-gradient(from_270deg_at_bottom_left,transparent_20%,rgba(0,255,0,0.15)_30%,transparent_50%),
-          conic-gradient(from_90deg_at_bottom_right,transparent_20%,rgba(0,255,0,0.15)_30%,transparent_50%)]
-      blur-2xl" />
-
     {/* Conteúdo */}
     <div className="z-20 text-center space-y-6">
       <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
