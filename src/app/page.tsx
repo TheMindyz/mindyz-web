@@ -362,7 +362,7 @@ const handleChange = (index: number, value: number) => {
     </div>
 
     <button
-      onClick={() => setStep('home')}
+      onClick={() => setStep('termoderedirecionamento')}
       className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 w-full rounded transition"
     >
       Ir para a Página Inicial
