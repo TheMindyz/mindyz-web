@@ -9,7 +9,7 @@ export default function Home() {
   const router = useRouter();
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade'
+    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' |'termoderedirecionamento' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -431,6 +431,12 @@ const handleChange = (index: number, value: number) => {
         desc: 'Veja como a fé pode ajudar na saúde emocional, com versículos, estudos e milagres inspiradores.',
         step: 'espiritualidade',
       },
+     {
+       title: 'Termo de Redirecionamento',
+       desc: 'Entenda como funcionam os links externos dentro do app Mindyz.',
+       step: 'termo',
+     },
+
       ].map((card, index) => (
         <div
           key={index}
@@ -933,6 +939,31 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     </ul>
   </section>
 )}
+
+{step === 'termoderedirecionamento' && (
+  <section className="bg-zinc-900 p-6 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-4">
+    <BotaoVoltar voltarPara="home" />
+    <h2 className="text-2xl font-bold text-green-400">Política de Redirecionamento</h2>
+    <p className="text-sm text-zinc-300 text-left">
+      Ao continuar, você concorda que alguns links podem redirecionar para sites externos que não são de responsabilidade da Mindyz.
+      Acreditamos que essas referências podem enriquecer sua experiência, mas é importante lembrar que o conteúdo externo pode
+      não seguir os mesmos padrões de segurança, acessibilidade ou confiabilidade que prezamos aqui.
+    </p>
+    <p className="text-sm text-zinc-300 text-left">
+      Se encontrar algo inadequado, entre em contato conosco para avaliarmos a remoção.
+    </p>
+    <p className="text-sm text-zinc-300 text-left">
+      Ao clicar em <strong>"Concordo e continuar"</strong>, você declara estar ciente e de acordo com essa política.
+    </p>
+    <button
+      onClick={() => setStep('home')}
+      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
+    >
+      Concordo e continuar
+    </button>
+  </section>
+)}
+
 
   </main>
 );
