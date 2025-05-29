@@ -442,6 +442,8 @@ const handleChange = (index: number, value: number) => {
         <li>Seu Diário</li>
         <li>Desafios Motivacionais</li>
         <li>Espiritualidade e Saúde Mental</li>
+        <li>Portal Premium</li>
+
 
 
 
