@@ -9,6 +9,7 @@ import { useRouter } from 'next/navigation';
 export default function Home() {
   const router = useRouter();
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
+  const [accepted, setAccepted] = useState(false);
   const [step, setStep] = useState<
     'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade'
   >('inicio');
@@ -226,6 +227,7 @@ const handleChange = (index: number, value: number) => {
 
     <div className="bg-zinc-800 p-5 rounded-lg space-y-5 border border-zinc-700">
 
+      {/* --- Bloco 1 --- */}
       <div>
         <h3 className="text-lg font-semibold text-white">1. Responsabilidade e Consentimento</h3>
         <p>
@@ -239,6 +241,7 @@ const handleChange = (index: number, value: number) => {
         </p>
       </div>
 
+      {/* --- Bloco 2 --- */}
       <div>
         <h3 className="text-lg font-semibold text-white">2. Privacidade e Dados</h3>
         <p>
@@ -255,6 +258,7 @@ const handleChange = (index: number, value: number) => {
         </p>
       </div>
 
+      {/* --- Bloco 3 --- */}
       <div>
         <h3 className="text-lg font-semibold text-white">3. Uso Indevido</h3>
         <p>
@@ -263,6 +267,7 @@ const handleChange = (index: number, value: number) => {
         </p>
       </div>
 
+      {/* --- Bloco 4 --- */}
       <div>
         <h3 className="text-lg font-semibold text-white">4. Atualizações dos Termos</h3>
         <p>
@@ -270,6 +275,7 @@ const handleChange = (index: number, value: number) => {
         </p>
       </div>
 
+      {/* --- Bloco 5 --- */}
       <div>
         <h3 className="text-lg font-semibold text-white">5. Links e Sites Externos</h3>
         <p>
@@ -278,6 +284,7 @@ const handleChange = (index: number, value: number) => {
         </p>
       </div>
 
+      {/* --- Links --- */}
       <div className="text-xs text-zinc-400 mt-4 space-y-1">
         <p>
           🔗 <a href="https://www.cvv.org.br/" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">
@@ -297,9 +304,29 @@ const handleChange = (index: number, value: number) => {
       </div>
     </div>
 
+    {/* Checkbox */}
+    <div className="flex items-start gap-2">
+      <input
+        type="checkbox"
+        id="accept"
+        checked={accepted}
+        onChange={(e) => setAccepted(e.target.checked)}
+        className="mt-1"
+      />
+      <label htmlFor="accept" className="text-sm text-zinc-300">
+        Li e concordo com os <strong>Termos de Uso</strong> e a <strong>Política de Privacidade</strong>.
+      </label>
+    </div>
+
+    {/* Botão */}
     <button
       onClick={() => setStep('autoconhecimento')}
-      className="w-full mt-4 py-2 bg-green-600 hover:bg-green-700 text-black font-bold rounded"
+      disabled={!accepted}
+      className={`w-full mt-4 py-2 rounded font-bold transition ${
+        accepted
+          ? 'bg-green-600 hover:bg-green-700 text-black'
+          : 'bg-zinc-700 text-zinc-500 cursor-not-allowed'
+      }`}
     >
       Concordo e continuar
     </button>
