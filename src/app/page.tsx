@@ -246,6 +246,11 @@ const handleChange = (index: number, value: number) => {
           Não compartilhamos seus dados com terceiros sem seu consentimento prévio.
         </p>
         <p>
+          A coleta do <strong>CPF</strong> tem como objetivo ajudar na identificação dos usuários, contribuindo para a segurança da comunidade.
+          Isso permite que, em casos de <strong>comportamento inadequado, ofensas, práticas abusivas ou violações dos termos</strong>, 
+          a conta seja <strong>banida de forma definitiva</strong>, prevenindo o uso indevido da plataforma e protegendo os demais usuários.
+        </p>
+        <p>
           Tratamos seus dados conforme a <strong>Lei Geral de Proteção de Dados (LGPD)</strong>.
         </p>
       </div>
