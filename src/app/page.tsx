@@ -902,19 +902,19 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
         },
         {
           texto: "Oração para ansiedade (YouTube)",
-          link: "https://www.youtube.com/watch?v=lP8CxFfWFLY",
+          link: "https://www.youtube.com/watch?v=boPX3Bo05Ks",
         },
         {
-          texto: "Estudo: fé e saúde mental (Koenig, 2012)",
-          link: "https://pubmed.ncbi.nlm.nih.gov/23312236/",
+          texto: "Estudo: fé e saúde mental",
+          link: "https://drasimonenakaopinheiro.com.br/a-fe-pode-melhorar-sua-saude-mental/",
         },
         {
           texto: "Conheça Santa Dymphna — padroeira da saúde mental",
-          link: "https://www.a12.com/santuario-nacional/noticias/conheca-santa-dimpna-padroeira-da-saude-mental",
+          link: "https://todayscatholic.org/st-dymphna-patron-saint-of-mental-health/",
         },
         {
           texto: "Devocional Diário Online",
-          link: "https://biblia.com.br/devocionais/",
+          link: "https://www.devocionaldiario.com.br/",
         },
       ].map((item, index) => (
         <li key={index} className="bg-zinc-800 p-4 rounded-xl">
