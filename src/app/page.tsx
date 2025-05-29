@@ -10,7 +10,7 @@ export default function Home() {
   const router = useRouter();
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' |'termoderedirecionamento' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade'
+    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -224,19 +224,54 @@ const handleChange = (index: number, value: number) => {
 
     <h2 className="text-2xl font-bold text-green-400 text-center">Termos de Uso</h2>
 
-    <div className="bg-zinc-800 p-5 rounded-lg space-y-4 border border-zinc-700">
-      <h3 className="text-lg font-semibold text-white">Responsabilidade e Consentimento</h3>
+    <div className="bg-zinc-800 p-5 rounded-lg space-y-5 border border-zinc-700">
 
-      <p>
-        Ao continuar, você declara estar ciente de que este aplicativo tem caráter informativo e de suporte leve ao bem-estar emocional,
-        <strong> não substituindo acompanhamento psicológico, psiquiátrico ou médico profissional</strong>.
-        Em situações de crise, procure ajuda especializada ou entre em contato com o <strong>CVV</strong> pelo número <strong>188</strong>.
-      </p>
+      <div>
+        <h3 className="text-lg font-semibold text-white">1. Responsabilidade e Consentimento</h3>
+        <p>
+          Ao continuar, você declara estar ciente de que este aplicativo tem caráter informativo e de suporte leve ao bem-estar emocional,
+          <strong> não substituindo acompanhamento psicológico, psiquiátrico ou médico profissional</strong>.
+          Em situações de crise, procure ajuda especializada ou entre em contato com o <strong>CVV</strong> pelo número <strong>188</strong>.
+        </p>
+        <p>
+          Você também <strong>autoriza a coleta e uso dos dados fornecidos</strong> com a finalidade de personalizar sua experiência,
+          enviar conteúdos relacionados ao bem-estar emocional e comunicações sobre a plataforma.
+        </p>
+      </div>
 
-      <p>
-        Você também <strong>autoriza a coleta e uso dos dados fornecidos</strong> com a finalidade de personalizar sua experiência,
-        enviar conteúdos relacionados ao bem-estar emocional e comunicações sobre a plataforma.
-      </p>
+      <div>
+        <h3 className="text-lg font-semibold text-white">2. Privacidade e Dados</h3>
+        <p>
+          Seus dados pessoais (nome, e-mail, CPF, data de nascimento e informações emocionais) são armazenados de forma segura.
+          Não compartilhamos seus dados com terceiros sem seu consentimento prévio.
+        </p>
+        <p>
+          Tratamos seus dados conforme a <strong>Lei Geral de Proteção de Dados (LGPD)</strong>.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="text-lg font-semibold text-white">3. Uso Indevido</h3>
+        <p>
+          É proibido utilizar esta plataforma para atividades ilícitas, ofensivas, preconceituosas ou que infrinjam leis.
+          O uso indevido pode resultar no bloqueio ou exclusão da sua conta, a critério da equipe da Mindyz.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="text-lg font-semibold text-white">4. Atualizações dos Termos</h3>
+        <p>
+          Este termo pode ser alterado e atualizado periodicamente sem aviso prévio. Recomendamos que você revise os termos regularmente.
+        </p>
+      </div>
+
+      <div>
+        <h3 className="text-lg font-semibold text-white">5. Links e Sites Externos</h3>
+        <p>
+          O aplicativo pode conter links para sites externos, como o CVV e órgãos públicos. A Mindyz não se responsabiliza
+          pelo conteúdo, políticas ou práticas de privacidade desses sites.
+        </p>
+      </div>
 
       <div className="text-xs text-zinc-400 mt-4 space-y-1">
         <p>
@@ -362,7 +397,7 @@ const handleChange = (index: number, value: number) => {
     </div>
 
     <button
-      onClick={() => setStep('termoderedirecionamento')}
+      onClick={() => setStep('home')}
       className="bg-green-500 hover:bg-green-600 text-black font-bold py-2 w-full rounded transition"
     >
       Ir para a Página Inicial
@@ -370,45 +405,6 @@ const handleChange = (index: number, value: number) => {
   </section>
 )}
 
-{step === 'termoderedirecionamento' && (
-  <section className="w-full max-w-2xl space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
-    <BotaoVoltar voltarPara="cadastro" />
-    <h2 className="text-2xl font-bold text-green-400 text-center">Termos de Uso</h2>
-
-    <div className="overflow-y-auto max-h-64 bg-zinc-800 p-4 rounded text-sm text-zinc-300 border border-zinc-700">
-      <p><strong>1. Aceitação dos Termos:</strong> Ao continuar, você concorda com os termos e políticas da Mindzy. Utilizamos seus dados apenas para melhorar sua experiência no app.</p>
-      <p><strong>2. Privacidade:</strong> Seus dados pessoais, como nome, CPF, email e data de nascimento, são armazenados com segurança e não serão compartilhados com terceiros.</p>
-      <p><strong>3. Responsabilidade:</strong> Este aplicativo oferece suporte emocional, mas não substitui acompanhamento profissional em situações de risco.</p>
-      <p><strong>4. Uso Indevido:</strong> O uso indevido da plataforma pode resultar em bloqueio da conta, a critério da equipe Mindzy.</p>
-      <p><strong>5. Atualizações:</strong> Os termos podem ser alterados a qualquer momento. Recomendamos revisá-los regularmente.</p>
-    </div>
-
-    <div className="flex items-center gap-2">
-      <input
-        type="checkbox"
-        id="concordo"
-        className="accent-green-500"
-        checked={termoAceito}
-        onChange={() => setTermoAceito(!termoAceito)}
-      />
-      <label htmlFor="concordo" className="text-zinc-200 text-sm">
-        Li e concordo com os Termos de Uso
-      </label>
-    </div>
-
-    <button
-      disabled={!termoAceito}
-      onClick={() => setStep('home')}
-      className={`w-full font-bold py-2 rounded transition ${
-        termoAceito
-          ? 'bg-green-600 hover:bg-green-700 text-black'
-          : 'bg-zinc-600 text-zinc-400 cursor-not-allowed'
-      }`}
-    >
-      Continuar
-    </button>
-  </section>
-)}
 
 
   {step === 'home' && (
