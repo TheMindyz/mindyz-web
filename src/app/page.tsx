@@ -524,15 +524,16 @@ const handleChange = (index: number, value: number) => {
       },
      
       {
-        title: '✨ Portal Premium ✨',
-        desc: 'Entre em um espaço exclusivo com conteúdos premium, recursos especiais e uma jornada mística para o autoconhecimento.',
-        step: 'premium',
-     },
-
+         title: '✨ Portal Premium ✨',
+          desc: 'Entre em um espaço exclusivo com conteúdos premium, recursos especiais e uma jornada mística para o autoconhecimento.',
+          step: 'premium',
+        },
       ].map((card, index) => (
         <div
           key={index}
-          className="bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-lg transition cursor-pointer hover:bg-zinc-700"
+          className={`bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-lg transition cursor-pointer hover:bg-zinc-700 ${
+            card.step === 'premium' ? 'border-2 border-green-500' : ''
+          }`}
           onClick={() => setStep(card.step as typeof step)}
         >
           <h3 className="text-green-400 font-semibold text-xl mb-2">{card.title}</h3>
@@ -542,7 +543,6 @@ const handleChange = (index: number, value: number) => {
     </div>
   </section>
 )}
-
 
 
 
