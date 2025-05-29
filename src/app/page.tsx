@@ -9,7 +9,7 @@ export default function Home() {
   const router = useRouter();
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario'
+    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -424,6 +424,11 @@ const handleChange = (index: number, value: number) => {
           desc: 'Topa um desafio diário? Supere seus limites e descubra sua força interior.',
           step: 'desafiosmotivacionais',
         },
+       {
+        title: 'Espiritualidade e Saúde Mental',
+        desc: 'Veja como a fé pode ajudar na saúde emocional, com versículos, estudos e milagres inspiradores.',
+        step: 'espiritualidade',
+      },
       ].map((card, index) => (
         <div
           key={index}
@@ -881,7 +886,51 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
   </section>
 )}
 
+{step === 'espiritualidade' && (
+  <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center">
+    <BotaoVoltar voltarPara="home" />
+    <h2 className="text-3xl font-bold text-green-400">Espiritualidade e Saúde Mental</h2>
+    <p className="text-zinc-300">
+      Descubra conteúdos que fortalecem sua fé e bem-estar emocional.
+    </p>
 
+    <ul className="space-y-4 text-left">
+      {[
+        {
+          texto: "Versículo do Dia — 1 Pedro 5:7",
+          link: "https://www.bibliaonline.com.br/nvi/1pe/5/7",
+        },
+        {
+          texto: "Oração para ansiedade (YouTube)",
+          link: "https://www.youtube.com/watch?v=lP8CxFfWFLY",
+        },
+        {
+          texto: "Estudo: fé e saúde mental (Koenig, 2012)",
+          link: "https://pubmed.ncbi.nlm.nih.gov/23312236/",
+        },
+        {
+          texto: "Conheça Santa Dymphna — padroeira da saúde mental",
+          link: "https://www.a12.com/santuario-nacional/noticias/conheca-santa-dimpna-padroeira-da-saude-mental",
+        },
+        {
+          texto: "Devocional Diário Online",
+          link: "https://biblia.com.br/devocionais/",
+        },
+      ].map((item, index) => (
+        <li key={index} className="bg-zinc-800 p-4 rounded-xl">
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-400 hover:underline"
+          >
+            {item.texto}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
 
   </main>
 );
