@@ -59,8 +59,6 @@ const handleChange = (index: number, value: number) => {
   setRespostas(novasRespostas);
 };
 
-
-
   const calcularPerfil = () => {
     const soma = respostas.reduce((a, b) => a + b, 0);
     if (soma < 12) return 'Empático';
@@ -284,7 +282,30 @@ const handleChange = (index: number, value: number) => {
         </p>
       </div>
 
-      {/* --- Links --- */}
+      {/* --- Bloco 6 --- */}
+      <div>
+        <h3 className="text-lg font-semibold text-white">6. Direitos e Deveres do Usuário</h3>
+        <p>
+          Ao utilizar a plataforma Mindyz, você tem o direito de acessar conteúdos e ferramentas que promovem seu bem-estar emocional,
+          além de garantir a privacidade dos seus dados e a segurança das suas informações, conforme nossa política de privacidade.
+        </p>
+        <p className="mt-2">
+          Como usuário, você também se compromete a:
+        </p>
+        <ul className="list-disc list-inside space-y-1 mt-2">
+          <li>Fornecer informações verdadeiras, precisas e atualizadas no seu cadastro.</li>
+          <li>Manter uma conduta respeitosa, acolhedora e ética na interação com outros usuários, profissionais e conteúdos da plataforma.</li>
+          <li>Não divulgar, compartilhar ou utilizar informações de outros usuários sem consentimento.</li>
+          <li>Não praticar atos de assédio, discriminação, preconceito, discurso de ódio ou qualquer comportamento ofensivo.</li>
+          <li>Respeitar os direitos de propriedade intelectual da Mindyz e de terceiros, não copiando, distribuindo ou reproduzindo conteúdos sem autorização.</li>
+          <li>Utilizar a plataforma exclusivamente para os fins propostos, sendo proibido qualquer uso comercial, promocional ou que fuja dos objetivos da Mindyz.</li>
+        </ul>
+        <p className="mt-2">
+          O descumprimento desses deveres pode acarretar em advertências, suspensão ou exclusão definitiva da conta, a critério da equipe da Mindyz.
+        </p>
+      </div>
+
+      {/* --- Links úteis --- */}
       <div className="text-xs text-zinc-400 mt-4 space-y-1">
         <p>
           🔗 <a href="https://www.cvv.org.br/" target="_blank" rel="noopener noreferrer" className="underline hover:text-green-400">
@@ -304,7 +325,7 @@ const handleChange = (index: number, value: number) => {
       </div>
     </div>
 
-    {/* Checkbox */}
+    {/* Checkbox de aceite */}
     <div className="flex items-start gap-2">
       <input
         type="checkbox"
@@ -318,7 +339,7 @@ const handleChange = (index: number, value: number) => {
       </label>
     </div>
 
-    {/* Botão */}
+    {/* Botão continuar */}
     <button
       onClick={() => setStep('autoconhecimento')}
       disabled={!accepted}
@@ -332,6 +353,7 @@ const handleChange = (index: number, value: number) => {
     </button>
   </section>
 )}
+
 
 
 
