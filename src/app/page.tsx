@@ -11,7 +11,7 @@ export default function Home() {
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [accepted, setAccepted] = useState(false);
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade'
+    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'portalpremium'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -355,8 +355,6 @@ const handleChange = (index: number, value: number) => {
 )}
 
 
-
-
   {step === 'autoconhecimento' && (
     <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl">
       <BotaoVoltar voltarPara="termos" />
@@ -459,8 +457,6 @@ const handleChange = (index: number, value: number) => {
   </section>
 )}
 
-
-
   {step === 'home' && (
   <section className="w-full max-w-6xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 mx-auto">
     <BotaoVoltar voltarPara="boasVindas" />
@@ -527,6 +523,11 @@ const handleChange = (index: number, value: number) => {
         step: 'espiritualidade',
       },
      
+      {
+        title: '✨ Portal Premium ✨',
+        desc: 'Entre em um espaço exclusivo com conteúdos premium, recursos especiais e uma jornada mística para o autoconhecimento.',
+        step: 'premium',
+     },
 
       ].map((card, index) => (
         <div
