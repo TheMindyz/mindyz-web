@@ -5,6 +5,7 @@ import React, { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 
+
 export default function Home() {
   const router = useRouter();
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
@@ -19,6 +20,9 @@ export default function Home() {
   const [senha, setSenha] = useState('');
   const [respostas, setRespostas] = useState<number[]>(Array(8).fill(0));
   const [perfil, setPerfil] = useState<string | null>(null);
+
+  const [termoAceito, setTermoAceito] = useState(false);
+
 
 
 const chuvaRef = useRef<HTMLAudioElement>(null);
@@ -366,6 +370,47 @@ const handleChange = (index: number, value: number) => {
   </section>
 )}
 
+{step === 'termoderedirecionamento' && (
+  <section className="w-full max-w-2xl space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
+    <BotaoVoltar voltarPara="cadastro" />
+    <h2 className="text-2xl font-bold text-green-400 text-center">Termos de Uso</h2>
+
+    <div className="overflow-y-auto max-h-64 bg-zinc-800 p-4 rounded text-sm text-zinc-300 border border-zinc-700">
+      <p><strong>1. Aceitação dos Termos:</strong> Ao continuar, você concorda com os termos e políticas da Mindzy. Utilizamos seus dados apenas para melhorar sua experiência no app.</p>
+      <p><strong>2. Privacidade:</strong> Seus dados pessoais, como nome, CPF, email e data de nascimento, são armazenados com segurança e não serão compartilhados com terceiros.</p>
+      <p><strong>3. Responsabilidade:</strong> Este aplicativo oferece suporte emocional, mas não substitui acompanhamento profissional em situações de risco.</p>
+      <p><strong>4. Uso Indevido:</strong> O uso indevido da plataforma pode resultar em bloqueio da conta, a critério da equipe Mindzy.</p>
+      <p><strong>5. Atualizações:</strong> Os termos podem ser alterados a qualquer momento. Recomendamos revisá-los regularmente.</p>
+    </div>
+
+    <div className="flex items-center gap-2">
+      <input
+        type="checkbox"
+        id="concordo"
+        className="accent-green-500"
+        checked={termoAceito}
+        onChange={() => setTermoAceito(!termoAceito)}
+      />
+      <label htmlFor="concordo" className="text-zinc-200 text-sm">
+        Li e concordo com os Termos de Uso
+      </label>
+    </div>
+
+    <button
+      disabled={!termoAceito}
+      onClick={() => setStep('home')}
+      className={`w-full font-bold py-2 rounded transition ${
+        termoAceito
+          ? 'bg-green-600 hover:bg-green-700 text-black'
+          : 'bg-zinc-600 text-zinc-400 cursor-not-allowed'
+      }`}
+    >
+      Continuar
+    </button>
+  </section>
+)}
+
+
   {step === 'home' && (
   <section className="w-full max-w-6xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 mx-auto">
     <BotaoVoltar voltarPara="boasVindas" />
@@ -431,11 +476,7 @@ const handleChange = (index: number, value: number) => {
         desc: 'Veja como a fé pode ajudar na saúde emocional, com versículos, estudos e milagres inspiradores.',
         step: 'espiritualidade',
       },
-     {
-       title: 'Termo de Redirecionamento',
-       desc: 'Entenda como funcionam os links externos dentro do app Mindyz.',
-       step: 'termo',
-     },
+     
 
       ].map((card, index) => (
         <div
@@ -940,29 +981,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
   </section>
 )}
 
-{step === 'termoderedirecionamento' && (
-  <section className="bg-zinc-900 p-6 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-4">
-    <BotaoVoltar voltarPara="home" />
-    <h2 className="text-2xl font-bold text-green-400">Política de Redirecionamento</h2>
-    <p className="text-sm text-zinc-300 text-left">
-      Ao continuar, você concorda que alguns links podem redirecionar para sites externos que não são de responsabilidade da Mindyz.
-      Acreditamos que essas referências podem enriquecer sua experiência, mas é importante lembrar que o conteúdo externo pode
-      não seguir os mesmos padrões de segurança, acessibilidade ou confiabilidade que prezamos aqui.
-    </p>
-    <p className="text-sm text-zinc-300 text-left">
-      Se encontrar algo inadequado, entre em contato conosco para avaliarmos a remoção.
-    </p>
-    <p className="text-sm text-zinc-300 text-left">
-      Ao clicar em <strong>"Concordo e continuar"</strong>, você declara estar ciente e de acordo com essa política.
-    </p>
-    <button
-      onClick={() => setStep('home')}
-      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
-    >
-      Concordo e continuar
-    </button>
-  </section>
-)}
+
 
 
   </main>
