@@ -445,8 +445,6 @@ const handleChange = (index: number, value: number) => {
         <li>Portal Premium</li>
 
 
-
-
       </ul>
     </div>
 
@@ -1034,6 +1032,53 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
   </section>
 )}
 
+{step === 'portalpremium' && (
+  <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center border-2 border-green-400">
+    <BotaoVoltar voltarPara="home" />
+    <h2 className="text-3xl font-bold text-green-400 flex items-center justify-center gap-2">
+      ✨ Portal Premium ✨
+    </h2>
+    <p className="text-zinc-300">
+      Bem-vindo(a) ao espaço exclusivo da sua jornada interior. Aqui você desbloqueia conteúdos místicos, ferramentas poderosas e experiências de autoconhecimento únicas.
+    </p>
+
+    <ul className="space-y-4 text-left">
+      {[
+        {
+          texto: "🔓 Acesso antecipado a novos recursos",
+          link: "#",
+        },
+        {
+          texto: "🧘 Meditações guiadas exclusivas",
+          link: "#",
+        },
+        {
+          texto: "📔 Diário com análise emocional avançada",
+          link: "#",
+        },
+        {
+          texto: "🧠 Insights personalizados semanais",
+          link: "#",
+        },
+        {
+          texto: "🌌 Exploradores do Eu: desafios místicos",
+          link: "#",
+        },
+      ].map((item, index) => (
+        <li key={index} className="bg-zinc-800 p-4 rounded-xl transition hover:scale-[1.02]">
+          <a
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-400 hover:underline"
+          >
+            {item.texto}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
 
 
 
