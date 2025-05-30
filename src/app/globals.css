@@ -143,3 +143,62 @@ body {
     background-position: 100px 100px;
   }
 }
+/* Container neon com faíscas */
+.neon-border {
+  position: relative;
+  border: 4px solid #22c55e;
+  border-radius: 20px;
+  box-shadow:
+    0 0 20px #22c55e,
+    0 0 40px #22c55e,
+    0 0 60px #22c55e;
+  overflow: hidden;
+}
+
+/* Camada de faíscas */
+.neon-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(#22c55e 2px, transparent 2px) center/50px 50px;
+  opacity: 0.2;
+  animation: moveSparks 20s linear infinite;
+  z-index: 1;
+}
+
+/* ⚡ Faíscas aleatórias piscando */
+.neon-border::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle, rgba(34, 197, 94, 0.7) 2%, transparent 3%) 10% 20%,
+    radial-gradient(circle, rgba(34, 197, 94, 0.5) 2%, transparent 3%) 70% 80%,
+    radial-gradient(circle, rgba(34, 197, 94, 0.6) 2%, transparent 3%) 50% 50%;
+  background-repeat: no-repeat;
+  animation: flashSparks 1.5s infinite ease-in-out;
+  z-index: 2;
+}
+
+/* Animação de movimento das faíscas no grid */
+@keyframes moveSparks {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
+/* Animação dos flashes dos raios */
+@keyframes flashSparks {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.3);
+  }
+}
