@@ -1034,24 +1034,24 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
 
 {step === 'premium' && (
   <div className="relative w-full min-h-screen bg-black flex items-center justify-center overflow-hidden">
-    {/* 🔥 Portal Neon */}
-    <div className="portal-circle"></div>
+    {/* 🔥 Portão com portas laterais */}
+    <div className="portal-door left-door"></div>
+    <div className="portal-door right-door"></div>
     <div className="particles"></div>
 
-    {/* 🔥 Painel Circular Premium */}
-    <section className="relative z-10 w-[500px] h-[500px] rounded-full bg-zinc-900/80 border-4 border-green-500 shadow-2xl backdrop-blur-md flex flex-col items-center justify-center p-6 space-y-4 text-center">
+    {/* 🔥 Conteúdo Premium */}
+    <section className="relative z-10 w-[90%] max-w-4xl min-h-[600px] bg-zinc-900/90 border-4 border-green-500 rounded-3xl shadow-2xl backdrop-blur-md flex flex-col items-center justify-center p-10 space-y-6 text-center">
       <BotaoVoltar voltarPara="home" />
 
-      <h2 className="text-3xl font-extrabold text-green-400 animate-pulse">
+      <h2 className="text-5xl font-extrabold text-green-400 animate-pulse">
         🚀 Portal Premium Mindyz
       </h2>
 
-      <p className="text-zinc-300 text-sm px-6">
-        Bem-vindo(a) ao nosso espaço premium. 
-        Desbloqueie ferramentas para seu desenvolvimento e autoconhecimento.
+      <p className="text-zinc-300 text-lg max-w-xl">
+        Bem-vindo(a) a um espaço exclusivo. Desbloqueie ferramentas que aceleram seu desenvolvimento e autoconhecimento.
       </p>
 
-      <ul className="text-green-400 text-xs space-y-2 text-left max-w-[80%]">
+      <ul className="space-y-4 text-left max-w-xl">
         {[
           "🔓 Acesso antecipado a recursos exclusivos",
           "🧠 Conteúdos avançados de autoconhecimento",
@@ -1062,7 +1062,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
         ].map((item, idx) => (
           <li
             key={idx}
-            className="bg-zinc-800/80 px-3 py-2 rounded-xl shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm"
+            className="bg-zinc-800/80 px-6 py-3 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm"
           >
             {item}
           </li>
@@ -1070,7 +1070,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
       </ul>
 
       <button
-        className="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-bold text-white rounded-full shadow-lg group"
+        className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group"
         onClick={() => alert('Em breve disponível!')}
       >
         <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-70 group-hover:opacity-90 animate-pulse"></span>
@@ -1079,6 +1079,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     </section>
   </div>
 )}
+
 
 
 
