@@ -1040,7 +1040,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     <div className="particles"></div>
 
     {/* 🔥 Conteúdo Premium */}
-<section className="neon-border relative z-10 w-[90%] max-w-4xl min-h-[600px] bg-zinc-900/90 rounded-3xl shadow-2xl backdrop-blur-md flex flex-col items-center justify-center p-10 space-y-6 text-center">
+    <section className="neon-border relative z-10 w-[90%] max-w-4xl min-h-[600px] bg-zinc-900/90 rounded-3xl shadow-2xl backdrop-blur-md flex flex-col items-center justify-center p-10 space-y-6 text-center">
       <BotaoVoltar voltarPara="home" />
 
       <h2 className="text-5xl font-extrabold text-green-400 animate-pulse">
@@ -1053,12 +1053,12 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
 
       <ul className="space-y-4 text-left max-w-xl">
         {[
-          "🔓 Acesso antecipado a recursos exclusivos",
-          "🧠 Conteúdos avançados de autoconhecimento",
-          "📔 Insights do Diário Emocional",
-          "🎯 Desafios de desenvolvimento pessoal",
-          "🎥 Workshops e aulas com especialistas",
-          "🤝 Comunidade premium para evolução",
+          '🔓 Acesso antecipado a recursos exclusivos',
+          '🧠 Conteúdos avançados de autoconhecimento',
+          '📔 Insights do Diário Emocional',
+          '🎯 Desafios de desenvolvimento pessoal',
+          '🎥 Workshops e aulas com especialistas',
+          '🤝 Comunidade premium para evolução',
         ].map((item, idx) => (
           <li
             key={idx}
@@ -1079,7 +1079,6 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     </section>
   </div>
 )}
-
 
 
 
