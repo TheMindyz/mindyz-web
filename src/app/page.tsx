@@ -11,7 +11,7 @@ export default function Home() {
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [accepted, setAccepted] = useState(false);
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'portalpremium'
+    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'portalPremium'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -1032,53 +1032,40 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
   </section>
 )}
 
-{step === 'portalpremium' && (
-  <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center border-2 border-green-400">
+{step === 'portalPremium' && (
+  <section className="w-full max-w-3xl mx-auto bg-zinc-900 p-8 rounded-xl shadow-2xl border border-green-500 space-y-6 text-center">
     <BotaoVoltar voltarPara="home" />
-    <h2 className="text-3xl font-bold text-green-400 flex items-center justify-center gap-2">
-      ✨ Portal Premium ✨
-    </h2>
+    <h2 className="text-3xl font-extrabold text-green-400 animate-pulse">✨ Portal Premium ✨</h2>
     <p className="text-zinc-300">
-      Bem-vindo(a) ao espaço exclusivo da sua jornada interior. Aqui você desbloqueia conteúdos místicos, ferramentas poderosas e experiências de autoconhecimento únicas.
+      Entre em um espaço exclusivo com conteúdos premium, recursos especiais e uma jornada mística para o autoconhecimento.
     </p>
 
     <ul className="space-y-4 text-left">
       {[
         {
           texto: "🔓 Acesso antecipado a novos recursos",
-          link: "#",
         },
         {
           texto: "🧘 Meditações guiadas exclusivas",
-          link: "#",
         },
         {
-          texto: "📔 Diário com análise emocional avançada",
-          link: "#",
-        },
-        {
-          texto: "🧠 Insights personalizados semanais",
-          link: "#",
+          texto: "📔 Insights personalizados do seu diário",
         },
         {
           texto: "🌌 Exploradores do Eu: desafios místicos",
-          link: "#",
+        },
+        {
+          texto: "🔮 Conteúdos espirituais avançados",
         },
       ].map((item, index) => (
-        <li key={index} className="bg-zinc-800 p-4 rounded-xl transition hover:scale-[1.02]">
-          <a
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-green-400 hover:underline"
-          >
-            {item.texto}
-          </a>
+        <li key={index} className="bg-zinc-800 p-4 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all">
+          {item.texto}
         </li>
       ))}
     </ul>
   </section>
 )}
+
 
 
 
