@@ -1046,18 +1046,18 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
 
     <ul className="space-y-4 text-left">
       {[
-        { texto: "🔓 Acesso antecipado a novos recursos e ferramentas" },
-        { texto: "🧘 Meditações guiadas e práticas energéticas exclusivas" },
-        { texto: "📔 Insights avançados e análises do seu Diário Emocional" },
-        { texto: "🌌 Exploradores do Eu: desafios místicos e autoconhecimento profundo" },
-        { texto: "🔮 Aulas, rituais e conteúdos espirituais avançados" },
-        { texto: "🤝 Acesso à comunidade premium e eventos fechados" },
-      ].map((item, index) => (
+        "🔓 Acesso antecipado a novos recursos e ferramentas",
+        "🧘 Meditações guiadas e práticas energéticas exclusivas",
+        "📔 Insights avançados e análises do seu Diário Emocional",
+        "🌌 Exploradores do Eu: desafios místicos e autoconhecimento profundo",
+        "🔮 Aulas, rituais e conteúdos espirituais avançados",
+        "🤝 Acesso à comunidade premium e eventos fechados",
+      ].map((texto, index) => (
         <li
           key={index}
           className="bg-zinc-800 p-4 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all"
         >
-          {item.texto}
+          {texto}
         </li>
       ))}
     </ul>
