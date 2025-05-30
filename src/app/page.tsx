@@ -1035,38 +1035,41 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
 {step === 'portalPremium' && (
   <section className="w-full max-w-3xl mx-auto bg-zinc-900 p-8 rounded-xl shadow-2xl border border-green-500 space-y-6 text-center">
     <BotaoVoltar voltarPara="home" />
-    <h2 className="text-3xl font-extrabold text-green-400 animate-pulse">✨ Portal Premium ✨</h2>
+
+    <h2 className="text-3xl font-extrabold text-green-400 animate-pulse">
+      ✨ Portal Premium ✨
+    </h2>
+
     <p className="text-zinc-300">
-      Entre em um espaço exclusivo com conteúdos premium, recursos especiais e uma jornada mística para o autoconhecimento.
+      Desbloqueie um universo exclusivo de autoconhecimento, bem-estar e evolução pessoal. Acesse conteúdos, desafios e ferramentas que vão elevar sua jornada interior.
     </p>
 
     <ul className="space-y-4 text-left">
       {[
-        {
-          texto: "🔓 Acesso antecipado a novos recursos",
-        },
-        {
-          texto: "🧘 Meditações guiadas exclusivas",
-        },
-        {
-          texto: "📔 Insights personalizados do seu diário",
-        },
-        {
-          texto: "🌌 Exploradores do Eu: desafios místicos",
-        },
-        {
-          texto: "🔮 Conteúdos espirituais avançados",
-        },
+        { texto: "🔓 Acesso antecipado a novos recursos e ferramentas" },
+        { texto: "🧘 Meditações guiadas e práticas energéticas exclusivas" },
+        { texto: "📔 Insights avançados e análises do seu Diário Emocional" },
+        { texto: "🌌 Exploradores do Eu: desafios místicos e autoconhecimento profundo" },
+        { texto: "🔮 Aulas, rituais e conteúdos espirituais avançados" },
+        { texto: "🤝 Acesso à comunidade premium e eventos fechados" },
       ].map((item, index) => (
-        <li key={index} className="bg-zinc-800 p-4 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all">
+        <li
+          key={index}
+          className="bg-zinc-800 p-4 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all"
+        >
           {item.texto}
         </li>
       ))}
     </ul>
+
+    <button
+      className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all"
+      onClick={() => alert('Em breve disponível!')}
+    >
+      Seja Premium 🌟
+    </button>
   </section>
 )}
-
-
 
 
   </main>
