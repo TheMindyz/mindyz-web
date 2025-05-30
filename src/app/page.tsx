@@ -1033,25 +1033,25 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
 )}
 
 {step === 'premium' && (
-  <section className="w-full max-w-3xl mx-auto bg-zinc-900 p-8 rounded-xl shadow-2xl border border-green-500 space-y-6 text-center">
+  <section className="w-full max-w-3xl mx-auto bg-zinc-900 p-8 rounded-2xl shadow-2xl border border-green-500 space-y-6 text-center">
     <BotaoVoltar voltarPara="home" />
 
-    <h2 className="text-3xl font-extrabold text-green-400 animate-pulse">
-      ✨ Portal Premium ✨
+    <h2 className="text-4xl font-extrabold text-green-400 animate-pulse">
+      🚀 Portal Premium Mindyz
     </h2>
 
-    <p className="text-zinc-300">
-      Desbloqueie um universo exclusivo de autoconhecimento, bem-estar e evolução pessoal. Acesse conteúdos, desafios e ferramentas que vão elevar sua jornada interior.
+    <p className="text-zinc-300 text-lg">
+      Bem-vindo(a) a um espaço feito para quem busca se desenvolver, crescer e viver sua melhor versão. Desbloqueie recursos que potencializam seu autoconhecimento e bem-estar.
     </p>
 
     <ul className="space-y-4 text-left">
       {[
-        "🔓 Acesso antecipado a novos recursos e ferramentas",
-        "🧘 Meditações guiadas e práticas energéticas exclusivas",
-        "📔 Insights avançados e análises do seu Diário Emocional",
-        "🌌 Exploradores do Eu: desafios místicos e autoconhecimento profundo",
-        "🔮 Aulas, rituais e conteúdos espirituais avançados",
-        "🤝 Acesso à comunidade premium e eventos fechados",
+        "🔓 Acesso antecipado a novos recursos, funcionalidades e ferramentas exclusivas",
+        "🧠 Conteúdos avançados sobre inteligência emocional, autoconhecimento e bem-estar",
+        "📔 Análises aprofundadas do seu Diário Emocional com insights personalizados",
+        "🎯 Desafios de desenvolvimento pessoal para acelerar sua evolução",
+        "🎥 Aulas, workshops e encontros exclusivos com especialistas",
+        "🤝 Conexão com uma comunidade premium de pessoas que também estão na jornada de crescimento",
       ].map((texto, index) => (
         <li
           key={index}
@@ -1063,13 +1063,15 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     </ul>
 
     <button
-      className="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full shadow-lg transition-all"
+      className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group"
       onClick={() => alert('Em breve disponível!')}
     >
-      Seja Premium 🌟
+      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-70 group-hover:opacity-90 animate-pulse"></span>
+      <span className="relative z-10">🚀 Quero ser Premium</span>
     </button>
   </section>
 )}
+
 
 
 
