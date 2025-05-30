@@ -1033,43 +1033,51 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
 )}
 
 {step === 'premium' && (
-  <section className="w-full max-w-3xl mx-auto bg-zinc-900 p-8 rounded-2xl shadow-2xl border border-green-500 space-y-6 text-center">
-    <BotaoVoltar voltarPara="home" />
+  <div className="relative w-full min-h-screen bg-black flex items-center justify-center overflow-hidden">
+    {/* 🔥 Portal Neon */}
+    <div className="portal-circle"></div>
+    <div className="particles"></div>
 
-    <h2 className="text-4xl font-extrabold text-green-400 animate-pulse">
-      🚀 Portal Premium Mindyz
-    </h2>
+    {/* 🔥 Painel Premium */}
+    <section className="relative z-10 w-full max-w-3xl mx-auto bg-zinc-900/80 p-8 rounded-2xl shadow-2xl border border-green-500 space-y-6 text-center backdrop-blur-md">
+      <BotaoVoltar voltarPara="home" />
 
-    <p className="text-zinc-300 text-lg">
-      Bem-vindo(a) a um espaço feito para quem busca se desenvolver, crescer e viver sua melhor versão. Desbloqueie recursos que potencializam seu autoconhecimento e bem-estar.
-    </p>
+      <h2 className="text-4xl font-extrabold text-green-400 animate-pulse">
+        🚀 Portal Premium Mindyz
+      </h2>
 
-    <ul className="space-y-4 text-left">
-      {[
-        "🔓 Acesso antecipado a novos recursos, funcionalidades e ferramentas exclusivas",
-        "🧠 Conteúdos avançados sobre inteligência emocional, autoconhecimento e bem-estar",
-        "📔 Análises aprofundadas do seu Diário Emocional com insights personalizados",
-        "🎯 Desafios de desenvolvimento pessoal para acelerar sua evolução",
-        "🎥 Aulas, workshops e encontros exclusivos com especialistas",
-        "🤝 Conexão com uma comunidade premium de pessoas que também estão na jornada de crescimento",
-      ].map((texto, index) => (
-        <li
-          key={index}
-          className="bg-zinc-800 p-4 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all"
-        >
-          {texto}
-        </li>
-      ))}
-    </ul>
+      <p className="text-zinc-300 text-lg">
+        Bem-vindo(a) a um espaço feito para quem busca se desenvolver, crescer e viver sua melhor versão. 
+        Desbloqueie recursos que potencializam seu autoconhecimento e bem-estar.
+      </p>
 
-    <button
-      className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group"
-      onClick={() => alert('Em breve disponível!')}
-    >
-      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-70 group-hover:opacity-90 animate-pulse"></span>
-      <span className="relative z-10">🚀 Quero ser Premium</span>
-    </button>
-  </section>
+      <ul className="space-y-4 text-left">
+        {[
+          "🔓 Acesso antecipado a novos recursos, funcionalidades e ferramentas exclusivas",
+          "🧠 Conteúdos avançados sobre inteligência emocional, autoconhecimento e bem-estar",
+          "📔 Análises aprofundadas do seu Diário Emocional com insights personalizados",
+          "🎯 Desafios de desenvolvimento pessoal para acelerar sua evolução",
+          "🎥 Aulas, workshops e encontros exclusivos com especialistas",
+          "🤝 Conexão com uma comunidade premium de pessoas que também estão na jornada de crescimento",
+        ].map((texto, index) => (
+          <li
+            key={index}
+            className="bg-zinc-800/80 p-4 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm"
+          >
+            {texto}
+          </li>
+        ))}
+      </ul>
+
+      <button
+        className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group"
+        onClick={() => alert('Em breve disponível!')}
+      >
+        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-70 group-hover:opacity-90 animate-pulse"></span>
+        <span className="relative z-10">🚀 Quero ser Premium</span>
+      </button>
+    </section>
+  </div>
 )}
 
 
