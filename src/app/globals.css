@@ -40,3 +40,51 @@ body {
     0 0 40px 10px rgba(0, 255, 153, 0.4) inset;
   border-radius: 30px;
 }
+/* 🔥 Portal Neon */
+.portal-circle {
+  width: 600px;
+  height: 600px;
+  border: 8px solid rgba(34, 197, 94, 0.6); /* Verde neon */
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 60px rgba(34, 197, 94, 0.7);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.05);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+
+/* ✨ Partículas simples */
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(rgba(34, 197, 94, 0.2) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: moveBackground 10s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes moveBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
