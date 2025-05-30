@@ -1038,39 +1038,39 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     <div className="portal-circle"></div>
     <div className="particles"></div>
 
-    {/* 🔥 Painel Premium */}
-    <section className="relative z-10 w-full max-w-3xl mx-auto bg-zinc-900/80 p-8 rounded-2xl shadow-2xl border border-green-500 space-y-6 text-center backdrop-blur-md">
+    {/* 🔥 Painel Circular Premium */}
+    <section className="relative z-10 w-[500px] h-[500px] rounded-full bg-zinc-900/80 border-4 border-green-500 shadow-2xl backdrop-blur-md flex flex-col items-center justify-center p-6 space-y-4 text-center">
       <BotaoVoltar voltarPara="home" />
 
-      <h2 className="text-4xl font-extrabold text-green-400 animate-pulse">
+      <h2 className="text-3xl font-extrabold text-green-400 animate-pulse">
         🚀 Portal Premium Mindyz
       </h2>
 
-      <p className="text-zinc-300 text-lg">
-        Bem-vindo(a) a um espaço feito para quem busca se desenvolver, crescer e viver sua melhor versão. 
-        Desbloqueie recursos que potencializam seu autoconhecimento e bem-estar.
+      <p className="text-zinc-300 text-sm px-6">
+        Bem-vindo(a) ao nosso espaço premium. 
+        Desbloqueie ferramentas para seu desenvolvimento e autoconhecimento.
       </p>
 
-      <ul className="space-y-4 text-left">
+      <ul className="text-green-400 text-xs space-y-2 text-left max-w-[80%]">
         {[
-          "🔓 Acesso antecipado a novos recursos, funcionalidades e ferramentas exclusivas",
-          "🧠 Conteúdos avançados sobre inteligência emocional, autoconhecimento e bem-estar",
-          "📔 Análises aprofundadas do seu Diário Emocional com insights personalizados",
-          "🎯 Desafios de desenvolvimento pessoal para acelerar sua evolução",
-          "🎥 Aulas, workshops e encontros exclusivos com especialistas",
-          "🤝 Conexão com uma comunidade premium de pessoas que também estão na jornada de crescimento",
-        ].map((texto, index) => (
+          "🔓 Acesso antecipado a recursos exclusivos",
+          "🧠 Conteúdos avançados de autoconhecimento",
+          "📔 Insights do Diário Emocional",
+          "🎯 Desafios de desenvolvimento pessoal",
+          "🎥 Workshops e aulas com especialistas",
+          "🤝 Comunidade premium para evolução",
+        ].map((item, idx) => (
           <li
-            key={index}
-            className="bg-zinc-800/80 p-4 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm"
+            key={idx}
+            className="bg-zinc-800/80 px-3 py-2 rounded-xl shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm"
           >
-            {texto}
+            {item}
           </li>
         ))}
       </ul>
 
       <button
-        className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group"
+        className="relative inline-flex items-center justify-center px-6 py-2 overflow-hidden font-bold text-white rounded-full shadow-lg group"
         onClick={() => alert('Em breve disponível!')}
       >
         <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-70 group-hover:opacity-90 animate-pulse"></span>
