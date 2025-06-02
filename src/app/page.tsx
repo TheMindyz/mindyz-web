@@ -247,7 +247,7 @@ const handleChange = (index: number, value: number) => {
           <h2 className="text-xl font-semibold text-green-400">Aguardando Aprovação</h2>
           <p>
             Obrigado por se cadastrar, <strong>{nome}</strong>! Seu cadastro está em análise.
-            Você receberá um e-mail com a senha para login assim que for aprovado,e fazer parte na nossa comunidade familiar.
+            Você receberá um e-mail com a senha para login assim que for aprovado,e fazer parte na nossa comunidade família!.
           </p>
           <button
             onClick={() => setStep('inicio')}
