@@ -11,7 +11,7 @@ export default function Home() {
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [accepted, setAccepted] = useState(false);
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium'
+    'inicio' |'aguardandoaprovacao'| 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -164,6 +164,25 @@ const handleChange = (index: number, value: number) => {
         Entrar
       </button>
     </p>
+  </section>
+)}
+
+{step === 'aguardandoaprovacao' && (
+  <section className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden">
+    <div className="z-20 text-center space-y-6">
+      <h1 className="text-4xl font-bold text-green-400 animate-pulseGlow">
+        Aguardando aprovação
+      </h1>
+      <p className="text-zinc-300 text-lg">
+        Seu acesso está sendo analisado. Entraremos em contato por email quando for liberado.
+      </p>
+      <button
+        onClick={() => setStep('inicio')}
+        className="bg-zinc-700 hover:bg-zinc-800 text-white font-bold py-2 px-6 rounded transition"
+      >
+        Voltar para início
+      </button>
+    </div>
   </section>
 )}
 
