@@ -144,132 +144,114 @@ const handleChange = (index: number, value: number) => {
 
 
        {step === 'cadastro' && (
-  <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
-    <BotaoVoltar voltarPara="inicio" />
-    <h2 className="text-2xl font-bold text-green-400 text-center">Cadastro</h2>
-    <input
-      type="text"
-      placeholder="Digite seu nome"
-      value={nome}
-      onChange={(e) => setNome(e.target.value)}
-      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-    />
-    <input
-      type="text"
-      placeholder="Digite seu CPF"
-      value={cpf}
-      onChange={(e) => setCpf(e.target.value)}
-      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-    />
-    <input
-      type="email"
-      placeholder="Digite seu email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-    />
-    <input
-      type="date"
-      value={dataNascimento}
-      onChange={(e) => setDataNascimento(e.target.value)}
-      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-    />
-    
-    <button
-      onClick={() => nome.trim() !== '' && email.trim() !== '' && setStep('aguardandoaprovacao')}
-      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
-    >
-      Avançar
-    </button>
+        <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
+          <BotaoVoltar voltarPara="inicio" />
+          <h2 className="text-2xl font-bold text-green-400 text-center">Cadastro</h2>
+          <input
+            type="text"
+            placeholder="Digite seu nome"
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
+            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+          />
+          <input
+            type="text"
+            placeholder="Digite seu CPF"
+            value={cpf}
+            onChange={(e) => setCpf(e.target.value)}
+            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+          />
+          <input
+            type="email"
+            placeholder="Digite seu email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+          />
+          <input
+            type="date"
+            value={dataNascimento}
+            onChange={(e) => setDataNascimento(e.target.value)}
+            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+          />
 
-    <p className="text-center text-sm text-zinc-400 mt-4">
-      Já tem uma conta?{' '}
-      <button
-        onClick={() => setStep('login')}
-        className="text-green-400 hover:underline font-semibold"
-      >
-        Entrar
-      </button>
-    </p>
-  </section>
-)}
+          <button
+            onClick={() =>
+              nome.trim() !== '' && email.trim() !== '' && setStep('aguardandoaprovacao')
+            }
+            className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
+          >
+            Avançar
+          </button>
+
+          <p className="text-center text-sm text-zinc-400 mt-4">
+            Já tem uma conta?{' '}
+            <button
+              onClick={() => setStep('login')}
+              className="text-green-400 underline hover:text-green-600"
+            >
+              Faça login
+            </button>
+          </p>
+        </section>
+      )}
 
 {step === 'aguardandoaprovacao' && (
-  <section className="w-full max-w-md space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl text-center">
-    <h2 className="text-2xl font-bold text-green-400">Cadastro em Análise</h2>
-    <p className="text-zinc-300">
-      Seus dados foram enviados com sucesso! Agora eles passarão por uma análise e você será notificado por e-mail assim que sua conta for aprovada.
-    </p>
-    <p className="text-sm text-zinc-500">
-      Assim que aprovado, você receberá uma senha para acessar o aplicativo.
-    </p>
-    <p className="text-sm text-zinc-500">
-      Isso pode levar até 24 horas. Fique de olho no seu e-mail!
-    </p>
-    <button
-      onClick={() => setStep('inicio')}
-      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
-    >
-      Voltar ao início
-    </button>
-  </section>
-)}
+        <section className="max-w-md p-6 bg-zinc-900 rounded-lg shadow-lg text-center space-y-4">
+          <h2 className="text-xl font-semibold text-green-400">Aguardando Aprovação</h2>
+          <p>
+            Obrigado por se cadastrar, <strong>{nome}</strong>! Seu cadastro está em análise.
+            Você receberá um e-mail com a senha para login assim que for aprovado.
+          </p>
+          <button
+            onClick={() => setStep('inicio')}
+            className="mt-4 bg-green-600 hover:bg-green-700 text-black py-2 px-4 rounded"
+          >
+            Voltar ao início
+          </button>
+        </section>
+      )}
+
 
 
 {step === 'login' && (
-  <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
-    <BotaoVoltar voltarPara="cadastro" />
-    <h2 className="text-2xl font-bold text-green-400 text-center">Entrar</h2>
-    
-    <input
-      type="email"
-      placeholder="Digite seu email"
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-    />
-    
-    <input
-      type="password"
-      placeholder="Digite sua senha (enviada por e-mail)"
-      value={senha}
-      onChange={(e) => setSenha(e.target.value)}
-      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-    />
-    
-    <button
-      onClick={() => {
-        if (email.trim() !== '' && senha.trim() !== '') {
-          // Aqui você pode validar com backend e avançar no fluxo
-          setStep('termos');
-        }
-      }}
-      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
-    >
-      Entrar
-    </button>
+        <section className="max-w-md p-6 bg-zinc-900 rounded-lg shadow-lg space-y-4">
+          <BotaoVoltar voltarPara="inicio" />
+          <h2 className="text-2xl font-bold text-green-400 text-center">Login</h2>
+          <input
+            type="email"
+            placeholder="Digite seu email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+          />
+          <input
+            type="password"
+            placeholder="Digite sua senha"
+            value={senha}
+            onChange={(e) => setSenha(e.target.value)}
+            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+          />
+          <button
+            onClick={() => {
+              if (email.trim() && senha.trim()) setStep('home');
+            }}
+            className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded"
+          >
+            Entrar
+          </button>
+          <p className="text-center text-sm text-zinc-400 mt-4">
+            Não tem cadastro?{' '}
+            <button
+              onClick={() => setStep('cadastro')}
+              className="text-green-400 underline hover:text-green-600"
+            >
+              Cadastre-se
+            </button>
+          </p>
+        </section>
+      )}
 
-    <p className="text-center text-sm text-zinc-400 mt-4">
-      Ainda não tem uma conta?{' '}
-      <button
-        onClick={() => setStep('cadastro')}
-        className="text-green-400 hover:underline font-semibold"
-      >
-        Cadastre-se
-      </button>
-    </p>
-
-    <p className="text-center text-sm text-zinc-400 mt-2">
-      Ainda esperando aprovação?{' '}
-      <button
-        onClick={() => setStep('aguardandoaprovacao')}
-        className="text-green-400 hover:underline font-semibold"
-      >
-        Ver status
-      </button>
-    </p>
-  </section>
-)}
 
 {step === 'termos' && (
   <section className="w-full max-w-xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl text-sm text-zinc-300">
