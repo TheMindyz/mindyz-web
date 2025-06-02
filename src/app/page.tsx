@@ -152,13 +152,21 @@ const handleChange = (index: number, value: number) => {
     <input type="email" placeholder="Digite seu email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
     <input type="date" value={dataNascimento} onChange={(e) => setDataNascimento(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
     <input type="password" placeholder="Crie uma senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
-    <button onClick={() => nome.trim() !== '' && setStep('termos')} className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition">
-      Avançar
+    <button
+      onClick={() => {
+        if (nome.trim() && cpf.trim() && email.trim() && senha.trim()) {
+          // Aqui você pode também fazer a chamada para enviar os dados ao backend
+          setStep('aguardandoaprovacao');
+        }
+      }}
+      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
+    >
+      Finalizar Cadastro
     </button>
     <p className="text-center text-sm text-zinc-400 mt-4">
       Já tem uma conta?{' '}
       <button
-        onClick={() => setStep('aguardandoaprovacao')}
+        onClick={() => setStep('login')}
         className="text-green-400 hover:underline font-semibold"
       >
         Entrar
@@ -166,6 +174,7 @@ const handleChange = (index: number, value: number) => {
     </p>
   </section>
 )}
+
 
 {step === 'aguardandoaprovacao' && (
   <section className="w-full max-w-md space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl text-center">
