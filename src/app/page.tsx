@@ -158,7 +158,7 @@ const handleChange = (index: number, value: number) => {
     <p className="text-center text-sm text-zinc-400 mt-4">
       Já tem uma conta?{' '}
       <button
-        onClick={() => setStep('login')}
+        onClick={() => setStep('aguardandoaprovacao')}
         className="text-green-400 hover:underline font-semibold"
       >
         Entrar
