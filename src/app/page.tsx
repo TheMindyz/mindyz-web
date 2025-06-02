@@ -181,7 +181,7 @@ const handleChange = (index: number, value: number) => {
     />
 
     <textarea
-      placeholder="Fale brevemente sobre você e por que quer participar da Minds"
+      placeholder="Fale brevemente sobre você e por que quer participar da Mindyz"
       value={descricaoPessoal}
       onChange={(e) => setDescricaoPessoal(e.target.value)}
       className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700 resize-none h-24"
