@@ -243,7 +243,7 @@ const handleChange = (index: number, value: number) => {
           <p className="text-center text-sm text-zinc-400 mt-4">
             Não tem cadastro?{' '}
             <button
-              onClick={() => setStep('cadastro')}
+              onClick={() => setStep('termos')}
               className="text-green-400 underline hover:text-green-600"
             >
               Cadastre-se
@@ -256,7 +256,7 @@ const handleChange = (index: number, value: number) => {
 {step === 'termos' && (
   <section className="w-full max-w-xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl text-sm text-zinc-300">
     <button
-      onClick={() => setStep('cadastro')}
+      onClick={() => setStep('login')}
       className="text-white text-sm px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded mb-2"
     >
       ← Voltar
