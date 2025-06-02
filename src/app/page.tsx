@@ -738,187 +738,168 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
 
     <div className="space-y-4">
       {/* Notícia 1 */}
-      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+      <a
+        href="https://istoe.com.br/istoegeral/2025/03/04/saude-mental-dos-jovens-brasileiros-esta-em-colapso-estudo-revela-dados-alarmantes/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
+      >
         <h3 className="text-green-300 font-semibold text-lg">
           Saúde mental dos jovens brasileiros está em colapso?
         </h3>
         <p className="text-zinc-300 text-sm mt-1">
           Estudo revela dados alarmantes sobre autoestima, isolamento social e conflitos familiares entre jovens de 16 a 24 anos.
         </p>
-        <a
-          href="https://istoe.com.br/istoegeral/2025/03/04/saude-mental-dos-jovens-brasileiros-esta-em-colapso-estudo-revela-dados-alarmantes/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-zinc-400 mt-2 block"
-        >
-          Fonte: IstoÉ
-        </a>
-      </div>
+        <span className="text-xs text-zinc-400 mt-2 block">Fonte: IstoÉ</span>
+      </a>
 
       {/* Notícia 2 */}
-      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+      <a
+        href="https://www.infomoney.com.br/saude/ansiedade-e-depressao-fazem-o-brasil-bater-recorde-de-afastamento-por-saude-mental/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
+      >
         <h3 className="text-green-300 font-semibold text-lg">
           Ansiedade e depressão fazem o Brasil bater recorde de afastamentos por saúde mental
         </h3>
         <p className="text-zinc-300 text-sm mt-1">
           Mais de 472 mil licenças médicas foram concedidas em 2024, um aumento de 68% em relação ao ano anterior.
         </p>
-        <a
-          href="https://www.infomoney.com.br/saude/ansiedade-e-depressao-fazem-o-brasil-bater-recorde-de-afastamento-por-saude-mental/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-zinc-400 mt-2 block"
-        >
-          Fonte: InfoMoney
-        </a>
-      </div>
+        <span className="text-xs text-zinc-400 mt-2 block">Fonte: InfoMoney</span>
+      </a>
 
       {/* Notícia 3 */}
-      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+      <a
+        href="https://conexaoto.com.br/2025/01/16/falta-de-psiquiatras-agrava-epidemia-de-saude-mental-no-brasil"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
+      >
         <h3 className="text-green-300 font-semibold text-lg">
           Falta de psiquiatras agrava epidemia de saúde mental no Brasil
         </h3>
         <p className="text-zinc-300 text-sm mt-1">
           País enfrenta escassez de profissionais especializados, com apenas 0,83 psiquiatra por 100 mil habitantes.
         </p>
-        <a
-          href="https://conexaoto.com.br/2025/01/16/falta-de-psiquiatras-agrava-epidemia-de-saude-mental-no-brasil"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-zinc-400 mt-2 block"
-        >
-          Fonte: Conexão Tocantins
-        </a>
-      </div>
+        <span className="text-xs text-zinc-400 mt-2 block">Fonte: Conexão Tocantins</span>
+      </a>
 
       {/* Notícia 4 */}
-      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+      <a
+        href="https://www.portaltela.com/saude/saude-publica/2025/04/30/queda-de-leitos-psiquiatricos-no-sus-agrava-crise-da-saude-mental-no-brasil"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
+      >
         <h3 className="text-green-300 font-semibold text-lg">
           Queda de leitos psiquiátricos no SUS agrava crise da saúde mental
         </h3>
         <p className="text-zinc-300 text-sm mt-1">
           Em uma década, o SUS perdeu 13,1 mil vagas para internação psiquiátrica, dificultando o tratamento de casos graves.
         </p>
-        <a
-          href="https://www.portaltela.com/saude/saude-publica/2025/04/30/queda-de-leitos-psiquiatricos-no-sus-agrava-crise-da-saude-mental-no-brasil"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-zinc-400 mt-2 block"
-        >
-          Fonte: Portal Tela
-        </a>
-      </div>
+        <span className="text-xs text-zinc-400 mt-2 block">Fonte: Portal Tela</span>
+      </a>
 
       {/* Notícia 5 */}
-      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+      <a
+        href="https://noticias.uol.com.br/ultimas-noticias/rfi/2024/10/04/por-que-a-saude-mental-sera-a-grande-causa-nacional-da-franca-em-2025.htm"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
+      >
         <h3 className="text-green-300 font-semibold text-lg">
-  Saúde mental será a &apos;grande causa nacional&apos; da França em 2025
-</h3>
-<p className="text-zinc-300 text-sm mt-1">
+          Saúde mental será a 'grande causa nacional' da França em 2025
+        </h3>
+        <p className="text-zinc-300 text-sm mt-1">
           Governo francês anuncia foco em saúde mental, com campanhas de sensibilização e medidas de prevenção.
         </p>
-        <a
-          href="https://noticias.uol.com.br/ultimas-noticias/rfi/2024/10/04/por-que-a-saude-mental-sera-a-grande-causa-nacional-da-franca-em-2025.htm"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-zinc-400 mt-2 block"
-        >
-          Fonte: UOL Notícias
-        </a>
-      </div>
+        <span className="text-xs text-zinc-400 mt-2 block">Fonte: UOL Notícias</span>
+      </a>
 
       {/* Notícia 6 */}
-      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+      <a
+        href="https://elpais.com/salud-y-bienestar/2025-05-20/mas-de-1000-millones-de-jovenes-sufriran-problemas-de-salud-en-2030.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
+      >
         <h3 className="text-green-300 font-semibold text-lg">
           Mais de 1 bilhão de jovens enfrentarão problemas de saúde até 2030
         </h3>
         <p className="text-zinc-300 text-sm mt-1">
           Estudo da The Lancet destaca impacto do clima e digitalização na saúde mental de adolescentes.
         </p>
-        <a
-          href="https://elpais.com/salud-y-bienestar/2025-05-20/mas-de-1000-millones-de-jovenes-sufriran-problemas-de-salud-en-2030.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-zinc-400 mt-2 block"
-        >
-          Fonte: El País
-        </a>
-      </div>
+        <span className="text-xs text-zinc-400 mt-2 block">Fonte: El País</span>
+      </a>
 
       {/* Notícia 7 */}
-      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+      <a
+        href="https://cadenaser.com/galicia/2025/05/21/la-demanda-de-atencion-en-salud-mental-se-dispara-un-30-desde-la-pandemia-radio-galicia/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
+      >
         <h3 className="text-green-300 font-semibold text-lg">
           Demanda por atendimento em saúde mental dispara 30% desde a pandemia
         </h3>
         <p className="text-zinc-300 text-sm mt-1">
           Em regiões como a Galícia, o aumento na procura por serviços de saúde mental pressiona o sistema público.
         </p>
-        <a
-          href="https://cadenaser.com/galicia/2025/05/21/la-demanda-de-atencion-en-salud-mental-se-dispara-un-30-desde-la-pandemia-radio-galicia/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-zinc-400 mt-2 block"
-        >
-          Fonte: Cadena SER
-        </a>
-      </div>
+        <span className="text-xs text-zinc-400 mt-2 block">Fonte: Cadena SER</span>
+      </a>
 
       {/* Notícia 8 */}
-      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+      <a
+        href="https://www12.senado.leg.br/noticias/materias/2024/02/02/senado-avalia-politicas-de-saude-mental-para-profissional-de-saude-crianca-e-adolescente"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
+      >
         <h3 className="text-green-300 font-semibold text-lg">
           Senado avalia políticas de saúde mental para profissionais de saúde, crianças e adolescentes
         </h3>
         <p className="text-zinc-300 text-sm mt-1">
           Projetos de lei buscam regulamentar ações de saúde mental no SUS para grupos vulneráveis.
         </p>
-        <a
-          href="https://www12.senado.leg.br/noticias/materias/2024/02/02/senado-avalia-politicas-de-saude-mental-para-profissional-de-saude-crianca-e-adolescente"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-zinc-400 mt-2 block"
-        >
-          Fonte: Senado Notícias
-        </a>
-      </div>
+        <span className="text-xs text-zinc-400 mt-2 block">Fonte: Senado Notícias</span>
+      </a>
 
       {/* Notícia 9 */}
-      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+      <a
+        href="https://janeirobranco.org.br/janeiro-branco-2025-um-convite-nacional-para-a-promocao-da-saude-mental/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
+      >
         <h3 className="text-green-300 font-semibold text-lg">
           Janeiro Branco 2025: Um chamado pela saúde mental no Brasil
         </h3>
         <p className="text-zinc-300 text-sm mt-1">
           Campanha nacional convida a sociedade a refletir e agir em prol do bem-estar emocional.
         </p>
-        <a
-          href="https://janeirobranco.org.br/janeiro-branco-2025-um-convite-nacional-para-a-promocao-da-saude-mental/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-zinc-400 mt-2 block"
-        >
-          Fonte: Janeiro Branco
-        </a>
-      </div>
+        <span className="text-xs text-zinc-400 mt-2 block">Fonte: Janeiro Branco</span>
+      </a>
 
       {/* Notícia 10 */}
-      <div className="bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition">
+      <a
+        href="https://www.em.com.br/colunistas/marcilio-de-moraes/2025/04/7107718-saude-mental-esta-entre-as-prioridades-das-empresas-este-ano.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
+      >
         <h3 className="text-green-300 font-semibold text-lg">
           Saúde mental está entre as prioridades das empresas em 2025
         </h3>
         <p className="text-zinc-300 text-sm mt-1">
           Empresas brasileiras reconhecem a importância da saúde mental e buscam implementar práticas de bem-estar.
         </p>
-        <a
-          href="https://www.em.com.br/colunistas/marcilio-de-moraes/2025/04/7107718-saude-mental-esta-entre-as-prioridades-das-empresas-este-ano.html"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs text-zinc-400 mt-2 block"
-        >
-          Fonte: Estado de Minas
-        </a>
-      </div>
+        <span className="text-xs text-zinc-400 mt-2 block">Fonte: Estado de Minas</span>
+      </a>
     </div>
   </section>
 )}
+
 
 
 {step === 'desafiosmotivacionais' && (
