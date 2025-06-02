@@ -243,7 +243,7 @@ const handleChange = (index: number, value: number) => {
 
 
 {step === 'aguardandoaprovacao' && (
-        <section className="max-w-md p-6 bg-zinc-900 rounded-lg shadow-lg text-center space-y-4">
+  <section className="w-full max-w-md space-y-4 p-6 rounded-xl border-4 border-green-500 shadow-[0_0_20px_4px_rgba(34,197,94,0.5)] bg-zinc-900 text-center">
           <h2 className="text-xl font-semibold text-green-400">Aguardando Aprovação</h2>
           <p>
             Obrigado por se cadastrar, <strong>{nome}</strong>! Seu cadastro está em análise.
