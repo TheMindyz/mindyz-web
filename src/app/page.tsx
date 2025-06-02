@@ -11,7 +11,7 @@ export default function Home() {
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [accepted, setAccepted] = useState(false);
   const [step, setStep] = useState<
-    'inicio' |'aguardandoaprovacao'| 'cadastro' |'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium'
+    'inicio' | 'cadastro' |'aguardandoaprovacao'|'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -168,21 +168,20 @@ const handleChange = (index: number, value: number) => {
 )}
 
 {step === 'aguardandoaprovacao' && (
-  <section className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden">
-    <div className="z-20 text-center space-y-6">
-      <h1 className="text-4xl font-bold text-green-400 animate-pulseGlow">
-        Aguardando aprovação
-      </h1>
-      <p className="text-zinc-300 text-lg">
-        Seu acesso está sendo analisado. Entraremos em contato por email quando for liberado.
-      </p>
-      <button
-        onClick={() => setStep('inicio')}
-        className="bg-zinc-700 hover:bg-zinc-800 text-white font-bold py-2 px-6 rounded transition"
-      >
-        Voltar para início
-      </button>
-    </div>
+  <section className="w-full max-w-md space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl text-center">
+    <h2 className="text-2xl font-bold text-green-400">Cadastro em Análise</h2>
+    <p className="text-zinc-300">
+      Seus dados foram enviados com sucesso! Agora eles passarão por uma análise e você será notificado por e-mail assim que sua conta for aprovada.
+    </p>
+    <p className="text-sm text-zinc-500">
+      Isso pode levar até 24 horas. Fique de olho no seu e-mail!
+    </p>
+    <button
+      onClick={() => setStep('inicio')}
+      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 px-4 rounded transition"
+    >
+      Voltar ao início
+    </button>
   </section>
 )}
 
