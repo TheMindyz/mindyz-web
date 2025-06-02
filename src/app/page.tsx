@@ -143,26 +143,45 @@ const handleChange = (index: number, value: number) => {
 )}
 
 
-      {step === 'cadastro' && (
+       {step === 'cadastro' && (
   <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
     <BotaoVoltar voltarPara="inicio" />
     <h2 className="text-2xl font-bold text-green-400 text-center">Cadastro</h2>
-    <input type="text" placeholder="Digite seu nome" value={nome} onChange={(e) => setNome(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
-    <input type="text" placeholder="Digite seu CPF" value={cpf} onChange={(e) => setCpf(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
-    <input type="email" placeholder="Digite seu email" value={email} onChange={(e) => setEmail(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
-    <input type="date" value={dataNascimento} onChange={(e) => setDataNascimento(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
-    <input type="password" placeholder="Crie uma senha" value={senha} onChange={(e) => setSenha(e.target.value)} className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700" />
+    <input
+      type="text"
+      placeholder="Digite seu nome"
+      value={nome}
+      onChange={(e) => setNome(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    />
+    <input
+      type="text"
+      placeholder="Digite seu CPF"
+      value={cpf}
+      onChange={(e) => setCpf(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    />
+    <input
+      type="email"
+      placeholder="Digite seu email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    />
+    <input
+      type="date"
+      value={dataNascimento}
+      onChange={(e) => setDataNascimento(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    />
+    
     <button
-      onClick={() => {
-        if (nome.trim() && cpf.trim() && email.trim() && senha.trim()) {
-          // Aqui você pode também fazer a chamada para enviar os dados ao backend
-          setStep('aguardandoaprovacao');
-        }
-      }}
+      onClick={() => nome.trim() !== '' && email.trim() !== '' && setStep('aguardandoaprovacao')}
       className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
     >
-      Finalizar Cadastro
+      Avançar
     </button>
+
     <p className="text-center text-sm text-zinc-400 mt-4">
       Já tem uma conta?{' '}
       <button
@@ -175,12 +194,14 @@ const handleChange = (index: number, value: number) => {
   </section>
 )}
 
-
 {step === 'aguardandoaprovacao' && (
   <section className="w-full max-w-md space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl text-center">
     <h2 className="text-2xl font-bold text-green-400">Cadastro em Análise</h2>
     <p className="text-zinc-300">
       Seus dados foram enviados com sucesso! Agora eles passarão por uma análise e você será notificado por e-mail assim que sua conta for aprovada.
+    </p>
+    <p className="text-sm text-zinc-500">
+      Assim que aprovado, você receberá uma senha para acessar o aplicativo.
     </p>
     <p className="text-sm text-zinc-500">
       Isso pode levar até 24 horas. Fique de olho no seu e-mail!
@@ -194,9 +215,10 @@ const handleChange = (index: number, value: number) => {
   </section>
 )}
 
+
 {step === 'login' && (
   <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
-    <BotaoVoltar voltarPara="cadastro" /> {/* Alterado para voltar para cadastro */}
+    <BotaoVoltar voltarPara="cadastro" />
     <h2 className="text-2xl font-bold text-green-400 text-center">Entrar</h2>
     
     <input
@@ -209,7 +231,7 @@ const handleChange = (index: number, value: number) => {
     
     <input
       type="password"
-      placeholder="Digite sua senha"
+      placeholder="Digite sua senha (enviada por e-mail)"
       value={senha}
       onChange={(e) => setSenha(e.target.value)}
       className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
@@ -218,8 +240,8 @@ const handleChange = (index: number, value: number) => {
     <button
       onClick={() => {
         if (email.trim() !== '' && senha.trim() !== '') {
-          // Aqui você pode implementar a lógica de login real depois
-          setStep('termos') // Vai para o fluxo principal
+          // Aqui você pode validar com backend e avançar no fluxo
+          setStep('termos');
         }
       }}
       className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
@@ -234,6 +256,16 @@ const handleChange = (index: number, value: number) => {
         className="text-green-400 hover:underline font-semibold"
       >
         Cadastre-se
+      </button>
+    </p>
+
+    <p className="text-center text-sm text-zinc-400 mt-2">
+      Ainda esperando aprovação?{' '}
+      <button
+        onClick={() => setStep('aguardandoaprovacao')}
+        className="text-green-400 hover:underline font-semibold"
+      >
+        Ver status
       </button>
     </p>
   </section>
