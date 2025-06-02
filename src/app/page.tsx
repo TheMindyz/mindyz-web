@@ -5,11 +5,15 @@ import React, { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 
-
 export default function Home() {
   const router = useRouter();
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [accepted, setAccepted] = useState(false);
+  const [descricaoPessoal, setDescricaoPessoal] = useState('');
+const [cidade, setCidade] = useState('');
+const [estado, setEstado] = useState('');
+const [acompanhamento, setAcompanhamento] = useState('');
+
   const [step, setStep] = useState<
     'inicio' | 'cadastro' |'aguardandoaprovacao'| 'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium'
   >('inicio');
@@ -144,57 +148,99 @@ const handleChange = (index: number, value: number) => {
 
 
        {step === 'cadastro' && (
-        <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
-          <BotaoVoltar voltarPara="inicio" />
-          <h2 className="text-2xl font-bold text-green-400 text-center">Cadastro</h2>
-          <input
-            type="text"
-            placeholder="Digite seu nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-          />
-          <input
-            type="text"
-            placeholder="Digite seu CPF"
-            value={cpf}
-            onChange={(e) => setCpf(e.target.value)}
-            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-          />
-          <input
-            type="email"
-            placeholder="Digite seu email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-          />
-          <input
-            type="date"
-            value={dataNascimento}
-            onChange={(e) => setDataNascimento(e.target.value)}
-            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-          />
+  <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
+    <BotaoVoltar voltarPara="inicio" />
+    <h2 className="text-2xl font-bold text-green-400 text-center">Cadastro</h2>
 
-          <button
-            onClick={() =>
-              nome.trim() !== '' && email.trim() !== '' && setStep('aguardandoaprovacao')
-            }
-            className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
-          >
-            Avançar
-          </button>
+    <input
+      type="text"
+      placeholder="Digite seu nome"
+      value={nome}
+      onChange={(e) => setNome(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    />
+    <input
+      type="text"
+      placeholder="Digite seu CPF"
+      value={cpf}
+      onChange={(e) => setCpf(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    />
+    <input
+      type="email"
+      placeholder="Digite seu email"
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    />
+    <input
+      type="date"
+      value={dataNascimento}
+      onChange={(e) => setDataNascimento(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    />
 
-          <p className="text-center text-sm text-zinc-400 mt-4">
-            Já tem uma conta?{' '}
-            <button
-              onClick={() => setStep('login')}
-              className="text-green-400 underline hover:text-green-600"
-            >
-              Faça login
-            </button>
-          </p>
-        </section>
-      )}
+    <textarea
+      placeholder="Fale brevemente sobre você e por que quer participar da Minds"
+      value={descricaoPessoal}
+      onChange={(e) => setDescricaoPessoal(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700 resize-none h-24"
+    />
+
+    <input
+      type="text"
+      placeholder="Cidade"
+      value={cidade}
+      onChange={(e) => setCidade(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    />
+
+    <input
+      type="text"
+      placeholder="Estado"
+      value={estado}
+      onChange={(e) => setEstado(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    />
+
+    <select
+      value={acompanhamento}
+      onChange={(e) => setAcompanhamento(e.target.value)}
+      className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+    >
+      <option value="">Você faz acompanhamento psicológico?</option>
+      <option value="sim">Sim</option>
+      <option value="nao">Não</option>
+      <option value="pretendo">Pretendo buscar</option>
+    </select>
+
+    <button
+      onClick={() =>
+        nome.trim() !== '' &&
+        email.trim() !== '' &&
+        descricaoPessoal.trim() !== '' &&
+        cidade.trim() !== '' &&
+        estado.trim() !== '' &&
+        acompanhamento !== '' &&
+        setStep('aguardandoaprovacao')
+      }
+      className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
+    >
+      Avançar
+    </button>
+
+    <p className="text-center text-sm text-zinc-400 mt-4">
+      Já tem uma conta?{' '}
+      <button
+        onClick={() => setStep('login')}
+        className="text-green-400 underline hover:text-green-600"
+      >
+        Faça login
+      </button>
+    </p>
+  </section>
+)}
+
 
 {step === 'aguardandoaprovacao' && (
         <section className="max-w-md p-6 bg-zinc-900 rounded-lg shadow-lg text-center space-y-4">
