@@ -11,7 +11,7 @@ export default function Home() {
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
   const [accepted, setAccepted] = useState(false);
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'aguardandoaprovacao'|'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium'
+    'inicio' | 'cadastro' |'aguardandoaprovacao'| 'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -234,7 +234,7 @@ const handleChange = (index: number, value: number) => {
           />
           <button
             onClick={() => {
-              if (email.trim() && senha.trim()) setStep('home');
+              if (email.trim() && senha.trim()) setStep('termos');
             }}
             className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded"
           >
