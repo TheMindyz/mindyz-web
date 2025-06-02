@@ -739,18 +739,18 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     <div className="space-y-4">
       {/* Notícia 1 */}
       <a
-        href="https://istoe.com.br/istoegeral/2025/03/04/saude-mental-dos-jovens-brasileiros-esta-em-colapso-estudo-revela-dados-alarmantes/"
+  href="https://www.bbc.com/portuguese/articles/crg7lg4r6g5o#:~:text=Os%20jovens%20brasileiros%20com%20idades,de%20identidade%20e%20descobertas%20sexuais.%E2%80%9D&text=Barrancos%20aponta%20tamb%C3%A9m%20que%20mais,s%C3%A3o%20impactadas%20pela%20sa%C3%BAde%20mental."
         target="_blank"
         rel="noopener noreferrer"
         className="block bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
       >
         <h3 className="text-green-300 font-semibold text-lg">
-          Saúde mental dos jovens brasileiros está em colapso?
+       Autoestima baixa e ansiedade: saúde mental de jovens é pior que de outros grupos, aponta estudo
         </h3>
         <p className="text-zinc-300 text-sm mt-1">
-          Estudo revela dados alarmantes sobre autoestima, isolamento social e conflitos familiares entre jovens de 16 a 24 anos.
+      Jovens brasileiros enfrentam taxas elevadas de autoestima baixa, ansiedade e outros desafios emocionais, segundo pesquisa recente.
         </p>
-        <span className="text-xs text-zinc-400 mt-2 block">Fonte: IstoÉ</span>
+        <span className="text-xs text-zinc-400 mt-2 block">Fonte: BBC News Brasil</span>
       </a>
 
       {/* Notícia 2 */}
