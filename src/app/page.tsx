@@ -124,7 +124,7 @@ const handleChange = (index: number, value: number) => {
     
     {/* Conteúdo */}
     <div className="z-20 text-center space-y-6">
-      <h1 className="text-4xl font-bold text-green-400">Bem-vindo à Mindzy</h1>
+    <h1 className="text-4xl font-bold text-green-400 animate-pulse">Bem-vindo à Mindzy</h1>
       <p className="text-zinc-300 text-xl font-medium">Sua S.O.S em Saúde Mental.</p>
       <button
         onClick={() => setStep('cadastro')}
@@ -1060,10 +1060,6 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     </section>
   </div>
 )}
-
-
-
-
 
 
   </main>
