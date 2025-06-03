@@ -278,13 +278,6 @@ const handleChange = (index: number, value: number) => {
           return `"${frases[index]}"`;
         })()}
       </p>
-
-      {/* Coração pulsando */}
-      <div className="w-6 h-6 bg-green-500 rounded-full animate-ping flex items-center justify-center relative">
-        <div className="absolute w-6 h-6 text-green-400 text-xl animate-pulse">
-          💚
-        </div>
-      </div>
     </div>
 
     <button
@@ -295,11 +288,6 @@ const handleChange = (index: number, value: number) => {
     </button>
   </section>
 )}
-
-
-
-
-
 
 {step === 'login' && (
         <section className="max-w-md p-6 bg-zinc-900 rounded-lg shadow-lg space-y-4">
