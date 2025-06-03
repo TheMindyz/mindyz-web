@@ -1171,7 +1171,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
             className="relative group bg-zinc-800/80 px-6 py-3 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm overflow-hidden"
           >
             {/* Glow mais claro */}
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-300 via-emerald-400 to-teal-300 rounded-xl blur-lg opacity-30 group-hover:opacity-40 animate-pulse z-0"></span>
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-200 via-emerald-400 to-teal-300 rounded-xl blur-lg opacity-30 group-hover:opacity-40 animate-pulse z-0"></span>
 
             {/* Selo de bloqueio */}
             <span className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
