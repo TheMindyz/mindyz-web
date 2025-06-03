@@ -251,20 +251,15 @@ const handleChange = (index: number, value: number) => {
     <p>
       Obrigado por se cadastrar, <strong>{nome}</strong>! Seu cadastro está em
       análise. Você receberá um e-mail com a senha para login assim que for
-      aprovado, e fazer parte da nossa comunidade família!
+      aprovado, e fará parte da nossa comunidade família!
     </p>
 
-    {/* Animação + Mensagem acolhedora + Frase automática */}
+    {/* Mensagem acolhedora + Frase automática */}
     <div className="flex flex-col items-center space-y-2">
-      {/* Coração pulsando */}
-      <div className="w-6 h-6 bg-green-500 rounded-full animate-ping" />
-
-      {/* Mensagem acolhedora */}
       <p className="text-green-400 text-sm">
         Estamos preparando tudo para você se juntar à nossa comunidade 💚
       </p>
 
-      {/* Frase automática de autocuidado */}
       <p className="text-white text-sm italic">
         {(() => {
           const frases = [
@@ -280,6 +275,9 @@ const handleChange = (index: number, value: number) => {
       </p>
     </div>
 
+    {/* Bolinha verde embaixo da última mensagem */}
+    <div className="w-6 h-6 bg-green-500 rounded-full animate-ping mx-auto" />
+
     <button
       onClick={() => setStep('inicio')}
       className="mt-4 bg-green-600 hover:bg-green-700 text-black py-2 px-4 rounded"
@@ -288,6 +286,7 @@ const handleChange = (index: number, value: number) => {
     </button>
   </section>
 )}
+
 
 
 
