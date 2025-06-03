@@ -244,19 +244,51 @@ const handleChange = (index: number, value: number) => {
 
 {step === 'aguardandoaprovacao' && (
   <section className="w-full max-w-md space-y-4 p-6 rounded-xl border-4 border-green-500 shadow-[0_0_20px_4px_rgba(34,197,94,0.5)] bg-zinc-900 text-center">
-          <h2 className="text-xl font-semibold text-green-400">Aguardando Aprovação</h2>
-          <p>
-            Obrigado por se cadastrar, <strong>{nome}</strong>! Seu cadastro está em análise.
-            Você receberá um e-mail com a senha para login assim que for aprovado,e fazer parte na nossa comunidade família!.
-          </p>
-          <button
-            onClick={() => setStep('inicio')}
-            className="mt-4 bg-green-600 hover:bg-green-700 text-black py-2 px-4 rounded"
-          >
-            Voltar ao início
-          </button>
-        </section>
-      )}
+    <h2 className="text-xl font-semibold text-green-400">
+      Aguardando Aprovação
+    </h2>
+
+    <p>
+      Obrigado por se cadastrar, <strong>{nome}</strong>! Seu cadastro está em
+      análise. Você receberá um e-mail com a senha para login assim que for
+      aprovado, e fazer parte da nossa comunidade família!
+    </p>
+
+    {/* Animação + Mensagem acolhedora + Frase automática */}
+    <div className="flex flex-col items-center space-y-2">
+      {/* Coração pulsando */}
+      <div className="w-6 h-6 bg-green-500 rounded-full animate-ping" />
+
+      {/* Mensagem acolhedora */}
+      <p className="text-green-400 text-sm">
+        Estamos preparando tudo para você se juntar à nossa comunidade 💚
+      </p>
+
+      {/* Frase automática de autocuidado */}
+      <p className="text-white text-sm italic">
+        {(() => {
+          const frases = [
+            'Respire fundo... você está exatamente onde deveria estar.',
+            'Lembre-se: você merece cuidado, amor e acolhimento.',
+            'Seu bem-estar importa. Cuide de você, um passo de cada vez.',
+            'Você é mais forte do que imagina. 💚',
+            'Tudo bem pausar. Você é sua prioridade.',
+          ];
+          const index = Math.floor(Math.random() * frases.length);
+          return `"${frases[index]}"`;
+        })()}
+      </p>
+    </div>
+
+    <button
+      onClick={() => setStep('inicio')}
+      className="mt-4 bg-green-600 hover:bg-green-700 text-black py-2 px-4 rounded"
+    >
+      Voltar ao início
+    </button>
+  </section>
+)}
+
 
 
 
