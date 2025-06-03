@@ -1209,6 +1209,9 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
           ))}
         </ul>
 
+        <p className="text-green-300 text-lg italic mt-4">...e muito mais!</p>
+
+
 <p
   className="text-sm text-green-300 underline cursor-pointer hover:text-green-200 transition"
   onClick={() => setStep("sobrePremium")}
@@ -1216,7 +1219,11 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
   Saiba mais sobre o Premium
 </p>
 
-        <p className="text-green-300 text-lg italic mt-4">...e muito mais!</p>
+
+
+
+
+
 
 
         <button
@@ -1305,6 +1312,29 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
       </section>
   
     )}
+  </div>
+)}
+
+{step === "sobrePremium" && (
+  <div className="relative w-full min-h-screen bg-black flex items-center justify-center">
+    <section className="relative z-10 w-[90%] max-w-3xl bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_30px_#22c55eaa] backdrop-blur-md p-10 space-y-6 text-center">
+      <BotaoVoltar voltarPara="premium" />
+
+      <h2 className="text-4xl font-extrabold text-green-400">✨ Sobre o Premium</h2>
+      <p className="text-zinc-300 text-lg">
+        Ao se tornar Premium no Mindyz, você desbloqueia uma jornada completa de autodesenvolvimento. Receba conteúdos exclusivos, desafios, workshops e participe de uma comunidade dedicada ao seu bem-estar emocional.
+      </p>
+      <ul className="text-green-300 text-left list-disc list-inside space-y-2">
+        <li>Acesso a ferramentas avançadas</li>
+        <li>Desafios guiados de autoconhecimento</li>
+        <li>Conteúdos semanais e insights personalizados</li>
+        <li>Eventos e aulas com especialistas</li>
+        <li>SOS emocional 24/7</li>
+      </ul>
+      <p className="text-zinc-400 text-sm italic mt-4">
+        Essa é a versão ideal para quem quer evoluir com profundidade e suporte contínuo.
+      </p>
+    </section>
   </div>
 )}
 
