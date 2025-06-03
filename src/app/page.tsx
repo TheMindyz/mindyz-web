@@ -654,11 +654,10 @@ const handleChange = (index: number, value: number) => {
         <div
           key={index}
           className={`bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-lg transition cursor-pointer hover:bg-zinc-700 
-            border 
             ${
               card.step === 'premium'
                 ? 'border-2 border-green-400 shadow-[0_0_20px_#22c55e]'
-                : 'border border-zinc-600/70'
+                : 'border border-green-600'
             }`}
           onClick={() => setStep(card.step as typeof step)}
         >
@@ -669,6 +668,7 @@ const handleChange = (index: number, value: number) => {
     </div>
   </section>
 )}
+
 
 
   {step === 'trilhas' && (
