@@ -256,10 +256,15 @@ const handleChange = (index: number, value: number) => {
 
     {/* Mensagem acolhedora + Frase automática */}
     <div className="flex flex-col items-center space-y-2">
-      <p className="text-green-400 text-sm">
-        Estamos preparando tudo para você se juntar à nossa comunidade 💚
+      {/* Texto animado */}
+      <p className="text-green-400 text-sm flex items-center gap-1">
+        <span className="animate-pulse">Estamos revisando seu cadastro</span>
+        <span className="animate-bounce">.</span>
+        <span className="animate-bounce delay-150">.</span>
+        <span className="animate-bounce delay-300">.</span>
       </p>
 
+      {/* Frase automática */}
       <p className="text-white text-sm italic">
         {(() => {
           const frases = [
@@ -273,10 +278,14 @@ const handleChange = (index: number, value: number) => {
           return `"${frases[index]}"`;
         })()}
       </p>
-    </div>
 
-    {/* Bolinha verde embaixo da última mensagem */}
-    <div className="w-6 h-6 bg-green-500 rounded-full animate-ping mx-auto" />
+      {/* Coração pulsando */}
+      <div className="w-6 h-6 bg-green-500 rounded-full animate-ping flex items-center justify-center relative">
+        <div className="absolute w-6 h-6 text-green-400 text-xl animate-pulse">
+          💚
+        </div>
+      </div>
+    </div>
 
     <button
       onClick={() => setStep('inicio')}
@@ -286,6 +295,7 @@ const handleChange = (index: number, value: number) => {
     </button>
   </section>
 )}
+
 
 
 
