@@ -6,10 +6,11 @@ import { useRouter } from 'next/navigation';
 
 
 export default function Home() {
-  const router = useRouter();
-  const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
-  const [accepted, setAccepted] = useState(false);
-  const [descricaoPessoal, setDescricaoPessoal] = useState('');
+const router = useRouter();
+const [mostrarPlanos, setMostrarPlanos] = useState(false);
+const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
+const [accepted, setAccepted] = useState(false);
+const [descricaoPessoal, setDescricaoPessoal] = useState('');
 const [cidade, setCidade] = useState('');
 const [estado, setEstado] = useState('');
 const [acompanhamento, setAcompanhamento] = useState('');
@@ -1138,14 +1139,14 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
   </section>
 )}
 
-{step === 'premium' && (
+{step === "premium" && (
   <div className="relative w-full min-h-screen bg-black flex items-center justify-center overflow-hidden">
-    {/* 🔥 Portão com portas laterais */}
+    {/* Portas e partículas */}
     <div className="portal-door left-door"></div>
     <div className="portal-door right-door"></div>
     <div className="particles"></div>
 
-    {/* 🔥 Conteúdo Premium */}
+    {/* Seção principal */}
     <section className="relative z-10 w-[90%] max-w-4xl min-h-[600px] bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_40px_#22c55eaa] backdrop-blur-md flex flex-col items-center justify-center p-10 space-y-6 text-center">
       <BotaoVoltar voltarPara="home" />
 
@@ -1170,17 +1171,14 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
             key={idx}
             className="relative group bg-zinc-800/80 px-6 py-3 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm overflow-hidden"
           >
-            {/* Glow mais claro */}
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-200 via-emerald-400 to-teal-300 rounded-xl blur-lg opacity-30 group-hover:opacity-40 animate-pulse z-0"></span>
 
-            {/* Selo de bloqueio */}
             <span className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
               <span className="bg-black/80 px-4 py-1 rounded-full text-sm text-white flex items-center gap-2 shadow-lg">
                 🔒 Assinar
               </span>
             </span>
 
-            {/* Conteúdo opaco */}
             <span className="relative z-20 opacity-30 group-hover:opacity-40">
               {item}
             </span>
@@ -1188,21 +1186,18 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
         ))}
       </ul>
 
-      {/* E muito mais... */}
       <p className="text-green-300 text-lg italic mt-4">...e muito mais!</p>
 
-      {/* Botão de explicação */}
       <button
         className="mt-2 text-sm text-white underline hover:text-green-400 transition"
-        onClick={() => alert("O Premium desbloqueia ferramentas poderosas para seu desenvolvimento emocional, acesso antecipado a novidades e conteúdos exclusivos preparados por especialistas.")}
+        onClick={() => setMostrarPlanos(true)}
       >
         ❓ O que é o Premium?
       </button>
 
-      {/* Botão principal */}
       <button
         className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group mt-6"
-        onClick={() => alert('Em breve disponível!')}
+        onClick={() => alert("Em breve disponível!")}
       >
         <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-70 group-hover:opacity-90 animate-pulse"></span>
         <span className="relative z-10">🚀 Quero ser Premium</span>
@@ -1211,10 +1206,9 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
   </div>
 )}
 
-{step === 'planos' && (
-  <div className="relative w-full min-h-screen bg-black text-white flex items-center justify-center p-6">
+{step === "premium" && mostrarPlanos && (
+  <div className="fixed inset-0 bg-black/90 z-50 overflow-y-auto flex items-center justify-center p-6">
     <section className="w-full max-w-4xl bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_40px_#22c55eaa] backdrop-blur-md p-10 text-center space-y-6">
-      
       <h2 className="text-4xl md:text-5xl font-extrabold text-green-400 animate-pulse">
         💎 Torne-se Premium Mindyz
       </h2>
@@ -1223,9 +1217,8 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
         A assinatura Premium desbloqueia recursos avançados, experiências exclusivas e suporte completo para o seu autodesenvolvimento emocional.
       </p>
 
-      {/* Planos de assinatura */}
       <div className="grid md:grid-cols-3 gap-6 mt-8 text-left">
-        {/* Plano Mensal */}
+        {/* Mensal */}
         <div className="bg-zinc-800 rounded-2xl p-6 border border-green-500 shadow-lg">
           <h3 className="text-xl font-bold text-green-400">Plano Mensal</h3>
           <p className="text-zinc-200 mt-2">Ideal para começar.</p>
@@ -1238,7 +1231,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
           </ul>
         </div>
 
-        {/* Plano Trimestral */}
+        {/* Trimestral */}
         <div className="bg-zinc-800 rounded-2xl p-6 border border-emerald-500 shadow-lg">
           <h3 className="text-xl font-bold text-emerald-400">Plano Trimestral</h3>
           <p className="text-zinc-200 mt-2">Mais economia.</p>
@@ -1251,7 +1244,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
           </ul>
         </div>
 
-        {/* Plano Anual */}
+        {/* Anual */}
         <div className="bg-zinc-800 rounded-2xl p-6 border border-teal-500 shadow-lg">
           <h3 className="text-xl font-bold text-teal-400">Plano Anual</h3>
           <p className="text-zinc-200 mt-2">Para quem quer se comprometer.</p>
@@ -1276,7 +1269,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
       </button>
 
       <button
-        onClick={() => setStep("premium")}
+        onClick={() => setMostrarPlanos(false)}
         className="mt-4 underline text-sm text-zinc-400 hover:text-green-400"
       >
         ← Voltar para o portal
@@ -1284,7 +1277,6 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     </section>
   </div>
 )}
-
-  </main>
-);
+</main>
+  );
 }
