@@ -1096,9 +1096,11 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
 {step === 'espiritualidade' && (
   <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center">
     <BotaoVoltar voltarPara="home" />
-    <h2 className="text-3xl font-bold text-green-400">Espiritualidade e Saúde Mental</h2>
+    <h2 className="text-3xl font-bold text-green-400">
+      Espiritualidade e Saúde Mental
+    </h2>
     <p className="text-zinc-300">
-      Descubra conteúdos que fortalecem sua fé e bem-estar emocional.
+      Descubra conteúdos que fortalecem sua fé, espiritualidade e bem-estar emocional.
     </p>
 
     <ul className="space-y-4 text-left">
@@ -1108,36 +1110,59 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
           link: "https://www.bibliaonline.com.br/nvi/1pe/5/7",
         },
         {
-          texto: "Oração para ansiedade (YouTube)",
-          link: "https://www.youtube.com/watch?v=boPX3Bo05Ks",
-        },
-        {
-          texto: "Estudo: fé e saúde mental",
+          texto: "Estudo: A fé pode melhorar sua saúde mental",
           link: "https://drasimonenakaopinheiro.com.br/a-fe-pode-melhorar-sua-saude-mental/",
         },
         {
-          texto: "Conheça Santa Dymphna — padroeira da saúde mental",
+          texto: "Conheça Santa Dymphna — Padroeira da Saúde Mental",
           link: "https://todayscatholic.org/st-dymphna-patron-saint-of-mental-health/",
         },
         {
           texto: "Devocional Diário Online",
           link: "https://www.devocionaldiario.com.br/",
         },
+        {
+          texto: "Reportagem — O impacto da espiritualidade na saúde mental (Revista Galileu)",
+          link: "https://revistagalileu.globo.com/Ciencia/noticia/2020/02/como-a-espiritualidade-pode-impactar-na-saude-mental.html",
+        },
+        {
+          texto: "Artigo — A Ciência da Espiritualidade na Saúde (Scielo)",
+          link: "https://www.scielo.br/j/ram/a/9JdZdq8n4zTYdD7rQvHtspP/?lang=pt",
+        },
+        {
+          texto: "Canal de Meditações Cristãs no YouTube",
+          link: "https://www.youtube.com/@MeditacoesCristas",
+        },
       ].map((item, index) => (
-        <li key={index} className="bg-zinc-800 p-4 rounded-xl">
+        <li key={index}>
           <a
             href={item.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-green-400 hover:underline"
+            className="flex items-center justify-between bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
           >
-            {item.texto}
+            <span className="text-green-400 font-medium">{item.texto}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 text-green-400"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
           </a>
         </li>
       ))}
     </ul>
   </section>
 )}
+
 
 {step === "premium" && (
   <div className="relative w-full min-h-screen bg-black flex items-center justify-center overflow-hidden">
