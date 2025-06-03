@@ -17,7 +17,7 @@ const [estado, setEstado] = useState('');
 const [acompanhamento, setAcompanhamento] = useState('');
 
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'aguardandoaprovacao'| 'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium' | 'planos' | 'infoPremium'
+    'inicio' | 'cadastro' |'aguardandoaprovacao'| 'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium' | 'planos' | 'sobrePremium'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -1209,7 +1209,15 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
           ))}
         </ul>
 
+<p
+  className="text-sm text-green-300 underline cursor-pointer hover:text-green-200 transition"
+  onClick={() => setStep("sobrePremium")}
+>
+  Saiba mais sobre o Premium
+</p>
+
         <p className="text-green-300 text-lg italic mt-4">...e muito mais!</p>
+
 
         <button
           className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group mt-6"
@@ -1278,19 +1286,11 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
 
         <p className="mt-6 text-green-300 italic">*Você pode cancelar a qualquer momento.</p>
 
-<button
-  className="relative inline-flex items-center justify-center px-6 py-2 font-medium text-white rounded-full shadow-md bg-zinc-800 hover:bg-zinc-700 transition"
-  onClick={() => setMostrarInfoPremium(true)}
->
-  ℹ️ Saber mais sobre o Premium
-</button>
-
         <button
           className="relative inline-flex items-center justify-center px-8 py-3 mt-6 overflow-hidden font-bold text-white rounded-full shadow-lg group"
           onClick={() => alert("Página de pagamento em breve disponível!")}
         >
 
-    
 
           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-80 group-hover:opacity-100 animate-pulse"></span>
           <span className="relative z-10">🚀 Assinar agora</span>
