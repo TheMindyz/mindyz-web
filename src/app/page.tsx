@@ -653,21 +653,18 @@ const handleChange = (index: number, value: number) => {
       ].map((card, index) => (
         <div
           key={index}
-      className={`bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-lg transition cursor-pointer hover:bg-zinc-700 ${
-  card.step === 'premium' ? 'border-green-500' : 'border-green-800'
-}`}
-
-      onClick={() => setStep(card.step as typeof step)}
-    >
-      <h3 className="text-green-400 font-semibold text-xl mb-2">{card.title}</h3>
-      <p className="text-zinc-300 text-sm">{card.desc}</p>
-    </div>
+          className={`bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-lg transition cursor-pointer hover:bg-zinc-700 border ${
+            card.step === 'premium' ? 'border-green-400 shadow-[0_0_15px_#22c55e]' : 'border-zinc-700'
+          }`}
+          onClick={() => setStep(card.step as typeof step)}
+        >
+          <h3 className="text-green-400 font-semibold text-xl mb-2">{card.title}</h3>
+          <p className="text-zinc-300 text-sm">{card.desc}</p>
+        </div>
       ))}
     </div>
   </section>
 )}
-
-
 
 
   {step === 'trilhas' && (
