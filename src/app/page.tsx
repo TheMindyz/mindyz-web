@@ -1170,17 +1170,17 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
             key={idx}
             className="relative group bg-zinc-800/80 px-6 py-3 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm overflow-hidden"
           >
-            {/* 🔆 Glow animado por trás */}
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-xl blur-md opacity-10 group-hover:opacity-20 animate-pulse z-0"></span>
+            {/* Glow mais claro */}
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-300 via-emerald-400 to-teal-300 rounded-xl blur-lg opacity-30 group-hover:opacity-40 animate-pulse z-0"></span>
 
-            {/* 🔒 Badge central bloqueando */}
+            {/* Selo de bloqueio */}
             <span className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-              <span className="bg-black/70 px-4 py-1 rounded-full text-sm text-white flex items-center gap-2 shadow-md">
+              <span className="bg-black/80 px-4 py-1 rounded-full text-sm text-white flex items-center gap-2 shadow-lg">
                 🔒 Assinar
               </span>
             </span>
 
-            {/* Texto esmaecido */}
+            {/* Conteúdo opaco */}
             <span className="relative z-20 opacity-30 group-hover:opacity-40">
               {item}
             </span>
@@ -1188,8 +1188,20 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
         ))}
       </ul>
 
+      {/* E muito mais... */}
+      <p className="text-green-300 text-lg italic mt-4">...e muito mais!</p>
+
+      {/* Botão de explicação */}
       <button
-        className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group"
+        className="mt-2 text-sm text-white underline hover:text-green-400 transition"
+        onClick={() => alert("O Premium desbloqueia ferramentas poderosas para seu desenvolvimento emocional, acesso antecipado a novidades e conteúdos exclusivos preparados por especialistas.")}
+      >
+        ❓ O que é o Premium?
+      </button>
+
+      {/* Botão principal */}
+      <button
+        className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group mt-6"
         onClick={() => alert('Em breve disponível!')}
       >
         <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-70 group-hover:opacity-90 animate-pulse"></span>
