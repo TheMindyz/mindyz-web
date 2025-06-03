@@ -16,7 +16,7 @@ const [estado, setEstado] = useState('');
 const [acompanhamento, setAcompanhamento] = useState('');
 
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'aguardandoaprovacao'| 'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium' | 'planos'
+    'inicio' | 'cadastro' |'aguardandoaprovacao'| 'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium' | 'planos' | 'infoPremium'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -1164,15 +1164,18 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
 
 {step === "premium" && (
   <div className="relative w-full min-h-screen bg-black flex items-center justify-center overflow-hidden">
-    {/* Portas e partículas */}
     <div className="portal-door left-door"></div>
     <div className="portal-door right-door"></div>
     <div className="particles"></div>
 
-    {/* Seção principal */}
     {!mostrarPlanos ? (
       <section className="relative z-10 w-[90%] max-w-4xl min-h-[600px] bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_40px_#22c55eaa] backdrop-blur-md flex flex-col items-center justify-center p-10 space-y-6 text-center">
-        <BotaoVoltar voltarPara="home" />
+        <button
+          onClick={() => setStep("home")}
+          className="absolute top-6 left-6 text-sm text-zinc-400 hover:text-green-400 underline"
+        >
+          ← Voltar
+        </button>
 
         <h2 className="text-5xl font-extrabold text-green-400 animate-pulse">
           🚀 Portal Premium Mindyz
@@ -1196,21 +1199,14 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
               className="relative group bg-zinc-800/80 px-6 py-3 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm overflow-hidden"
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-200 via-emerald-400 to-teal-300 rounded-xl blur-lg opacity-30 group-hover:opacity-40 animate-pulse z-0"></span>
-              <span className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                <span className="bg-black/80 px-4 py-1 rounded-full text-sm text-white flex items-center gap-2 shadow-lg">
-                  🔒 Assinar
-                </span>
-              </span>
-              <span className="relative z-20 opacity-30 group-hover:opacity-40">
-                {item}
-              </span>
+              <span className="relative z-10">{item}</span>
             </li>
           ))}
         </ul>
 
         <p className="text-green-300 text-lg italic mt-4">...e muito mais!</p>
 
-        {/* 🔥 BOTÃO NOVO: O que é o Premium? */}
+        {/* 🔥 Botão pequeno de info Premium */}
         <button
           onClick={() => setStep("infoPremium")}
           className="text-sm text-zinc-400 hover:text-green-400 underline mb-2"
@@ -1218,10 +1214,10 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
           💡 O que é o Premium?
         </button>
 
-        {/* 🔥 BOTÃO QUERO SER PREMIUM */}
+        {/* 🔥 Botão Quero ser Premium */}
         <button
-          className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group mt-2"
           onClick={() => setMostrarPlanos(true)}
+          className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group mt-2"
         >
           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-70 group-hover:opacity-90 animate-pulse"></span>
           <span className="relative z-10">🚀 Quero ser Premium</span>
@@ -1304,6 +1300,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     )}
   </div>
 )}
+
 
  </main>
 );
