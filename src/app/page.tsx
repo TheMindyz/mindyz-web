@@ -1374,7 +1374,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     <section className="relative z-10 w-full max-w-4xl bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_30px_#22c55eaa] backdrop-blur-md p-10 space-y-6 text-left overflow-y-auto max-h-screen">
       <BotaoVoltar voltarPara="sobrePremium" />
 
-      <h2 className="text-4xl font-extrabold text-green-400 text-center">📜 Termos de Uso e Política de Privacidade</h2>
+      <h2 className="text-4xl font-extrabold text-green-400 text-center">🛡️ Termos de Uso e Política de Privacidade</h2>
 
       <div className="space-y-6 text-zinc-300 text-sm md:text-base">
         <section>
