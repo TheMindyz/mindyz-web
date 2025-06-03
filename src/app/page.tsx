@@ -1106,19 +1106,19 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     <ul className="space-y-4 text-left">
       {[
         {
-          texto: "Versículo do Dia — 1 Pedro 5:7",
+          texto: "Versículo do Dia — 1 Pedro 5:7 (Biblia Online)",
           link: "https://www.bibliaonline.com.br/nvi/1pe/5/7",
         },
         {
-          texto: "Estudo: A fé pode melhorar sua saúde mental",
+          texto: "Estudo: A fé pode melhorar sua saúde mental (Dra. Simone Naka)",
           link: "https://drasimonenakaopinheiro.com.br/a-fe-pode-melhorar-sua-saude-mental/",
         },
         {
-          texto: "Conheça Santa Dymphna — Padroeira da Saúde Mental",
+          texto: "Conheça Santa Dymphna — Padroeira da Saúde Mental (Today's Catholic)",
           link: "https://todayscatholic.org/st-dymphna-patron-saint-of-mental-health/",
         },
         {
-          texto: "Devocional Diário Online",
+          texto: "Devocional Diário Online (DevocionalDiario.com.br)",
           link: "https://www.devocionaldiario.com.br/",
         },
         {
@@ -1130,7 +1130,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
           link: "https://www.scielo.br/j/ram/a/9JdZdq8n4zTYdD7rQvHtspP/?lang=pt",
         },
         {
-          texto: "Canal de Meditações Cristãs no YouTube",
+          texto: "Canal de Meditações Cristãs (YouTube)",
           link: "https://www.youtube.com/@MeditacoesCristas",
         },
       ].map((item, index) => (
@@ -1162,6 +1162,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     </ul>
   </section>
 )}
+
 
 
 {step === "premium" && (
