@@ -17,7 +17,7 @@ const [estado, setEstado] = useState('');
 const [acompanhamento, setAcompanhamento] = useState('');
 
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'aguardandoaprovacao'| 'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium' | 'planos' | 'sobrePremium'
+    'inicio' | 'cadastro' |'aguardandoaprovacao'| 'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium' | 'planos' | 'sobrePremium' | 'termospolitica'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -1323,8 +1323,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
         <div>
           <h3 className="text-green-400 font-bold text-lg">🔐 Segurança e Privacidade</h3>
           <p>
-            Seus dados são criptografados e armazenados de forma segura. Seguimos rigorosamente a LGPD (Lei Geral de Proteção de Dados).
-            Nenhuma informação sensível é compartilhada com terceiros.
+            Seus dados são criptografados e armazenados de forma segura. Seguimos rigorosamente a LGPD (Lei Geral de Proteção de Dados). Nenhuma informação sensível é compartilhada com terceiros.
           </p>
         </div>
 
@@ -1348,7 +1347,21 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
         <div>
           <h3 className="text-green-400 font-bold text-lg">📜 Política Mindyz</h3>
           <p>
-            Ao utilizar nossos serviços, você concorda com nossos <span className="underline cursor-pointer text-green-300">termos de uso</span> e <span className="underline cursor-pointer text-green-300">política de privacidade</span>. Garantimos total transparência e ética em todas as etapas do seu uso da plataforma.
+            Ao utilizar nossos serviços, você concorda com nossos{" "}
+            <button
+              onClick={() => setStep("termospolitica")}
+              className="underline text-green-300 hover:text-green-200 transition"
+            >
+              termos de uso
+            </button>{" "}
+            e{" "}
+            <button
+              onClick={() => setStep("termospolitica")}
+              className="underline text-green-300 hover:text-green-200 transition"
+            >
+              política de privacidade
+            </button>
+            . Garantimos total transparência e ética em todas as etapas do seu uso da plataforma.
           </p>
         </div>
       </div>
@@ -1356,6 +1369,66 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
   </div>
 )}
 
+{step === "termospolitica" && (
+  <div className="relative w-full min-h-screen bg-black flex items-center justify-center px-4">
+    <section className="relative z-10 w-full max-w-4xl bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_30px_#22c55eaa] backdrop-blur-md p-10 space-y-6 text-left overflow-y-auto max-h-screen">
+      <BotaoVoltar voltarPara="sobrePremium" />
+
+      <h2 className="text-4xl font-extrabold text-green-400 text-center">📜 Termos de Uso e Política de Privacidade</h2>
+
+      <div className="space-y-6 text-zinc-300 text-sm md:text-base">
+        <section>
+          <h3 className="text-green-400 font-semibold text-lg">1. Introdução</h3>
+          <p>
+            Ao utilizar a plataforma Mindzy, você concorda com os nossos termos e políticas. É importante ler com atenção para entender seus direitos e deveres como usuário.
+          </p>
+        </section>
+
+        <section>
+          <h3 className="text-green-400 font-semibold text-lg">2. Uso da Plataforma</h3>
+          <p>
+            A Mindzy é voltada para apoio emocional e desenvolvimento pessoal. O uso indevido da plataforma, como disseminação de conteúdo ofensivo ou uso comercial indevido, resultará na suspensão do acesso.
+          </p>
+        </section>
+
+        <section>
+          <h3 className="text-green-400 font-semibold text-lg">3. Coleta e Uso de Dados</h3>
+          <p>
+            Coletamos apenas dados essenciais para oferecer uma experiência personalizada e segura. Nenhuma informação é vendida ou compartilhada com terceiros sem consentimento.
+          </p>
+        </section>
+
+        <section>
+          <h3 className="text-green-400 font-semibold text-lg">4. Segurança</h3>
+          <p>
+            Seus dados são criptografados e protegidos conforme os padrões da LGPD. Utilizamos servidores seguros e atualizados para garantir a privacidade das suas informações.
+          </p>
+        </section>
+
+        <section>
+          <h3 className="text-green-400 font-semibold text-lg">5. Cancelamento e Reembolsos</h3>
+          <p>
+            Você pode cancelar sua assinatura a qualquer momento. Reembolsos serão analisados caso a solicitação ocorra em até 7 dias após a assinatura, conforme o Código de Defesa do Consumidor.
+          </p>
+        </section>
+
+        <section>
+          <h3 className="text-green-400 font-semibold text-lg">6. Alterações</h3>
+          <p>
+            Podemos atualizar nossos termos e políticas periodicamente. Avisaremos por e-mail ou via plataforma em caso de mudanças significativas.
+          </p>
+        </section>
+
+        <section>
+          <h3 className="text-green-400 font-semibold text-lg">7. Contato</h3>
+          <p>
+            Em caso de dúvidas, entre em contato pelo e-mail: <span className="underline text-green-300">equipe@mindzy.com</span>.
+          </p>
+        </section>
+      </div>
+    </section>
+  </div>
+)}
 
 
  </main>
