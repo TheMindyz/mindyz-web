@@ -1129,10 +1129,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
           texto: "Artigo — A Ciência da Espiritualidade na Saúde (Scielo)",
           link: "https://www.scielo.br/j/ram/a/9JdZdq8n4zTYdD7rQvHtspP/?lang=pt",
         },
-        {
-          texto: "Canal de Meditações Cristãs (YouTube)",
-          link: "https://www.youtube.com/@MeditacoesCristas",
-        },
+      
       ].map((item, index) => (
         <li key={index}>
           <a
