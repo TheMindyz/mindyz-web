@@ -1208,45 +1208,51 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
         </p>
 
         <div className="grid md:grid-cols-3 gap-6 mt-8 text-left">
-          {/* Mensal */}
-          <div className="bg-zinc-800 rounded-2xl p-6 border border-green-500 shadow-lg">
-            <h3 className="text-xl font-bold text-green-400">Plano Mensal</h3>
-            <p className="text-zinc-200 mt-2">Ideal para começar.</p>
-            <p className="text-3xl font-extrabold text-white mt-4">R$ 7,90</p>
-            <p className="text-sm text-zinc-400">/ mês até dez/2025</p>
-            <ul className="mt-4 space-y-2 text-green-300 text-sm">
-              <li>✔️ Acesso completo a recursos Premium</li>
-              <li>✔️ SOS Emocional completo</li>
-              <li>✔️ Conteúdos semanais exclusivos</li>
-            </ul>
-          </div>
+  {/* Plano Mensal */}
+  <div className="bg-zinc-800 rounded-2xl p-6 border border-green-500 shadow-lg min-h-[300px] flex flex-col justify-between">
+    <div>
+      <h3 className="text-xl font-bold text-green-400">Plano Mensal</h3>
+      <p className="text-zinc-200 mt-2">Ideal para quem está começando.</p>
+      <p className="text-3xl font-extrabold text-white mt-4">R$ 7,90</p>
+      <p className="text-sm text-zinc-400">/ mês até dez/2025</p>
+      <ul className="mt-4 space-y-2 text-green-300 text-sm">
+        <li>✔️ Acesso completo a recursos Premium</li>
+        <li>✔️ SOS Emocional completo</li>
+        <li>✔️ Conteúdos semanais exclusivos</li>
+      </ul>
+    </div>
+  </div>
 
-          {/* Trimestral */}
-          <div className="bg-zinc-800 rounded-2xl p-6 border border-emerald-500 shadow-lg">
-            <h3 className="text-xl font-bold text-emerald-400">Plano Trimestral</h3>
-            <p className="text-zinc-200 mt-2">Mais economia.</p>
-            <p className="text-3xl font-extrabold text-white mt-4">R$ 19,90</p>
-            <p className="text-sm text-zinc-400">/ a cada 3 meses</p>
-            <ul className="mt-4 space-y-2 text-green-300 text-sm">
-              <li>✔️ Tudo do plano mensal</li>
-              <li>✔️ Acesso a eventos ao vivo</li>
-              <li>✔️ Prioridade no suporte</li>
-            </ul>
-          </div>
+  {/* Plano Trimestral */}
+  <div className="bg-zinc-800 rounded-2xl p-6 border border-emerald-500 shadow-lg min-h-[300px] flex flex-col justify-between">
+    <div>
+      <h3 className="text-xl font-bold text-emerald-400">Plano Trimestral</h3>
+      <p className="text-zinc-200 mt-2">Mais economia com benefícios extras.</p>
+      <p className="text-3xl font-extrabold text-white mt-4">R$ 19,90</p>
+      <p className="text-sm text-zinc-400">/ a cada 3 meses</p>
+      <ul className="mt-4 space-y-2 text-green-300 text-sm">
+        <li>✔️ Tudo do plano mensal</li>
+        <li>✔️ Acesso a eventos ao vivo</li>
+        <li>✔️ Prioridade no suporte</li>
+      </ul>
+    </div>
+  </div>
 
-          {/* Anual */}
-          <div className="bg-zinc-800 rounded-2xl p-6 border border-teal-500 shadow-lg">
-            <h3 className="text-xl font-bold text-teal-400">Plano Anual</h3>
-            <p className="text-zinc-200 mt-2">Para quem quer se comprometer.</p>
-            <p className="text-3xl font-extrabold text-white mt-4">R$ 69,90</p>
-            <p className="text-sm text-zinc-400">/ ano</p>
-            <ul className="mt-4 space-y-2 text-green-300 text-sm">
-              <li>✔️ Tudo dos outros planos</li>
-              <li>✔️ Acesso antecipado a novas funcionalidades</li>
-              <li>✔️ Reconhecimento na comunidade Mindyz</li>
-            </ul>
-          </div>
-        </div>
+  {/* Plano Anual */}
+  <div className="bg-zinc-800 rounded-2xl p-6 border border-teal-500 shadow-lg min-h-[300px] flex flex-col justify-between">
+    <div>
+      <h3 className="text-xl font-bold text-teal-400">Plano Anual</h3>
+      <p className="text-zinc-200 mt-2">Compromisso total com sua jornada.</p>
+      <p className="text-3xl font-extrabold text-white mt-4">R$ 69,90</p>
+      <p className="text-sm text-zinc-400">/ ano</p>
+      <ul className="mt-4 space-y-2 text-green-300 text-sm">
+        <li>✔️ Tudo dos outros planos</li>
+        <li>✔️ Acesso antecipado a novas funcionalidades</li>
+        <li>✔️ Reconhecimento na comunidade Mindyz</li>
+      </ul>
+    </div>
+  </div>
+</div>
 
         <p className="mt-6 text-green-300 italic">*Você pode cancelar a qualquer momento.</p>
 
