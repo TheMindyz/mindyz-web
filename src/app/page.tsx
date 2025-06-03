@@ -1147,136 +1147,128 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
     <div className="particles"></div>
 
     {/* Seção principal */}
-    <section className="relative z-10 w-[90%] max-w-4xl min-h-[600px] bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_40px_#22c55eaa] backdrop-blur-md flex flex-col items-center justify-center p-10 space-y-6 text-center">
-      <BotaoVoltar voltarPara="home" />
+    {!mostrarPlanos ? (
+      <section className="relative z-10 w-[90%] max-w-4xl min-h-[600px] bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_40px_#22c55eaa] backdrop-blur-md flex flex-col items-center justify-center p-10 space-y-6 text-center">
+        <BotaoVoltar voltarPara="home" />
 
-      <h2 className="text-5xl font-extrabold text-green-400 animate-pulse">
-        🚀 Portal Premium Mindyz
-      </h2>
+        <h2 className="text-5xl font-extrabold text-green-400 animate-pulse">
+          🚀 Portal Premium Mindyz
+        </h2>
 
-      <p className="text-zinc-300 text-lg max-w-xl">
-        Bem-vindo(a) a um espaço exclusivo. Desbloqueie ferramentas que aceleram seu desenvolvimento e autoconhecimento.
-      </p>
+        <p className="text-zinc-300 text-lg max-w-xl">
+          Bem-vindo(a) a um espaço exclusivo. Desbloqueie ferramentas que aceleram seu desenvolvimento e autoconhecimento.
+        </p>
 
-      <ul className="space-y-4 text-left max-w-xl">
-        {[
-          "🔓 Acesso antecipado a recursos exclusivos",
-          "🧠 Conteúdos avançados de autoconhecimento",
-          "📔 Insights do Diário Emocional",
-          "🎯 Desafios de desenvolvimento pessoal",
-          "🎥 Workshops e aulas com especialistas",
-          "🤝 Comunidade premium para evolução",
-        ].map((item, idx) => (
-          <li
-            key={idx}
-            className="relative group bg-zinc-800/80 px-6 py-3 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm overflow-hidden"
-          >
-            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-200 via-emerald-400 to-teal-300 rounded-xl blur-lg opacity-30 group-hover:opacity-40 animate-pulse z-0"></span>
+        <ul className="space-y-4 text-left max-w-xl">
+          {[
+            "🔓 Acesso antecipado a recursos exclusivos",
+            "🧠 Conteúdos avançados de autoconhecimento",
+            "📔 Insights do Diário Emocional",
+            "🎯 Desafios de desenvolvimento pessoal",
+            "🎥 Workshops e aulas com especialistas",
+            "🤝 Comunidade premium para evolução",
+          ].map((item, idx) => (
+            <li
+              key={idx}
+              className="relative group bg-zinc-800/80 px-6 py-3 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm overflow-hidden"
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-200 via-emerald-400 to-teal-300 rounded-xl blur-lg opacity-30 group-hover:opacity-40 animate-pulse z-0"></span>
 
-            <span className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-              <span className="bg-black/80 px-4 py-1 rounded-full text-sm text-white flex items-center gap-2 shadow-lg">
-                🔒 Assinar
+              <span className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                <span className="bg-black/80 px-4 py-1 rounded-full text-sm text-white flex items-center gap-2 shadow-lg">
+                  🔒 Assinar
+                </span>
               </span>
-            </span>
 
-            <span className="relative z-20 opacity-30 group-hover:opacity-40">
-              {item}
-            </span>
-          </li>
-        ))}
-      </ul>
+              <span className="relative z-20 opacity-30 group-hover:opacity-40">
+                {item}
+              </span>
+            </li>
+          ))}
+        </ul>
 
-      <p className="text-green-300 text-lg italic mt-4">...e muito mais!</p>
+        <p className="text-green-300 text-lg italic mt-4">...e muito mais!</p>
 
-      <button
-        className="mt-2 text-sm text-white underline hover:text-green-400 transition"
-        onClick={() => setMostrarPlanos(true)}
-      >
-        ❓ O que é o Premium?
-      </button>
+        <button
+          className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group mt-6"
+          onClick={() => setMostrarPlanos(true)}
+        >
+          <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-70 group-hover:opacity-90 animate-pulse"></span>
+          <span className="relative z-10">🚀 Quero ser Premium</span>
+        </button>
+      </section>
+    ) : (
+      <section className="relative z-20 w-[90%] max-w-4xl bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_40px_#22c55eaa] backdrop-blur-md p-10 text-center space-y-6">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-green-400 animate-pulse">
+          💎 Torne-se Premium Mindyz
+        </h2>
 
-      <button
-        className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group mt-6"
-        onClick={() => alert("Em breve disponível!")}
-      >
-        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-70 group-hover:opacity-90 animate-pulse"></span>
-        <span className="relative z-10">🚀 Quero ser Premium</span>
-      </button>
-    </section>
+        <p className="text-zinc-300 text-lg max-w-2xl mx-auto">
+          A assinatura Premium desbloqueia recursos avançados, experiências exclusivas e suporte completo para o seu autodesenvolvimento emocional.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 mt-8 text-left">
+          {/* Mensal */}
+          <div className="bg-zinc-800 rounded-2xl p-6 border border-green-500 shadow-lg">
+            <h3 className="text-xl font-bold text-green-400">Plano Mensal</h3>
+            <p className="text-zinc-200 mt-2">Ideal para começar.</p>
+            <p className="text-3xl font-extrabold text-white mt-4">R$ 7,90</p>
+            <p className="text-sm text-zinc-400">/ mês até dez/2025</p>
+            <ul className="mt-4 space-y-2 text-green-300 text-sm">
+              <li>✔️ Acesso completo a recursos Premium</li>
+              <li>✔️ SOS Emocional completo</li>
+              <li>✔️ Conteúdos semanais exclusivos</li>
+            </ul>
+          </div>
+
+          {/* Trimestral */}
+          <div className="bg-zinc-800 rounded-2xl p-6 border border-emerald-500 shadow-lg">
+            <h3 className="text-xl font-bold text-emerald-400">Plano Trimestral</h3>
+            <p className="text-zinc-200 mt-2">Mais economia.</p>
+            <p className="text-3xl font-extrabold text-white mt-4">R$ 19,90</p>
+            <p className="text-sm text-zinc-400">/ a cada 3 meses</p>
+            <ul className="mt-4 space-y-2 text-green-300 text-sm">
+              <li>✔️ Tudo do plano mensal</li>
+              <li>✔️ Acesso a eventos ao vivo</li>
+              <li>✔️ Prioridade no suporte</li>
+            </ul>
+          </div>
+
+          {/* Anual */}
+          <div className="bg-zinc-800 rounded-2xl p-6 border border-teal-500 shadow-lg">
+            <h3 className="text-xl font-bold text-teal-400">Plano Anual</h3>
+            <p className="text-zinc-200 mt-2">Para quem quer se comprometer.</p>
+            <p className="text-3xl font-extrabold text-white mt-4">R$ 69,90</p>
+            <p className="text-sm text-zinc-400">/ ano</p>
+            <ul className="mt-4 space-y-2 text-green-300 text-sm">
+              <li>✔️ Tudo dos outros planos</li>
+              <li>✔️ Acesso antecipado a novas funcionalidades</li>
+              <li>✔️ Reconhecimento na comunidade Mindyz</li>
+            </ul>
+          </div>
+        </div>
+
+        <p className="mt-6 text-green-300 italic">*Você pode cancelar a qualquer momento.</p>
+
+        <button
+          className="relative inline-flex items-center justify-center px-8 py-3 mt-6 overflow-hidden font-bold text-white rounded-full shadow-lg group"
+          onClick={() => alert("Página de pagamento em breve disponível!")}
+        >
+          <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-80 group-hover:opacity-100 animate-pulse"></span>
+          <span className="relative z-10">🚀 Assinar agora</span>
+        </button>
+
+        <button
+          onClick={() => setMostrarPlanos(false)}
+          className="mt-4 underline text-sm text-zinc-400 hover:text-green-400"
+        >
+          ← Voltar para o portal
+        </button>
+      </section>
+    )}
   </div>
 )}
 
-{step === "premium" && mostrarPlanos && (
-  <div className="fixed inset-0 bg-black/90 z-50 overflow-y-auto flex items-center justify-center p-6">
-    <section className="w-full max-w-4xl bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_40px_#22c55eaa] backdrop-blur-md p-10 text-center space-y-6">
-      <h2 className="text-4xl md:text-5xl font-extrabold text-green-400 animate-pulse">
-        💎 Torne-se Premium Mindyz
-      </h2>
-
-      <p className="text-zinc-300 text-lg max-w-2xl mx-auto">
-        A assinatura Premium desbloqueia recursos avançados, experiências exclusivas e suporte completo para o seu autodesenvolvimento emocional.
-      </p>
-
-      <div className="grid md:grid-cols-3 gap-6 mt-8 text-left">
-        {/* Mensal */}
-        <div className="bg-zinc-800 rounded-2xl p-6 border border-green-500 shadow-lg">
-          <h3 className="text-xl font-bold text-green-400">Plano Mensal</h3>
-          <p className="text-zinc-200 mt-2">Ideal para começar.</p>
-          <p className="text-3xl font-extrabold text-white mt-4">R$ 7,90</p>
-          <p className="text-sm text-zinc-400">/ mês até dez/2025</p>
-          <ul className="mt-4 space-y-2 text-green-300 text-sm">
-            <li>✔️ Acesso completo a recursos Premium</li>
-            <li>✔️ SOS Emocional completo</li>
-            <li>✔️ Conteúdos semanais exclusivos</li>
-          </ul>
-        </div>
-
-        {/* Trimestral */}
-        <div className="bg-zinc-800 rounded-2xl p-6 border border-emerald-500 shadow-lg">
-          <h3 className="text-xl font-bold text-emerald-400">Plano Trimestral</h3>
-          <p className="text-zinc-200 mt-2">Mais economia.</p>
-          <p className="text-3xl font-extrabold text-white mt-4">R$ 19,90</p>
-          <p className="text-sm text-zinc-400">/ a cada 3 meses</p>
-          <ul className="mt-4 space-y-2 text-green-300 text-sm">
-            <li>✔️ Tudo do plano mensal</li>
-            <li>✔️ Acesso a eventos ao vivo</li>
-            <li>✔️ Prioridade no suporte</li>
-          </ul>
-        </div>
-
-        {/* Anual */}
-        <div className="bg-zinc-800 rounded-2xl p-6 border border-teal-500 shadow-lg">
-          <h3 className="text-xl font-bold text-teal-400">Plano Anual</h3>
-          <p className="text-zinc-200 mt-2">Para quem quer se comprometer.</p>
-          <p className="text-3xl font-extrabold text-white mt-4">R$ 69,90</p>
-          <p className="text-sm text-zinc-400">/ ano</p>
-          <ul className="mt-4 space-y-2 text-green-300 text-sm">
-            <li>✔️ Tudo dos outros planos</li>
-            <li>✔️ Acesso antecipado a novas funcionalidades</li>
-            <li>✔️ Reconhecimento na comunidade Mindyz</li>
-          </ul>
-        </div>
-      </div>
-
-      <p className="mt-6 text-green-300 italic">*Você pode cancelar a qualquer momento.</p>
-
-      <button
-        className="relative inline-flex items-center justify-center px-8 py-3 mt-6 overflow-hidden font-bold text-white rounded-full shadow-lg group"
-        onClick={() => alert("Página de pagamento em breve disponível!")}
-      >
-        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-80 group-hover:opacity-100 animate-pulse"></span>
-        <span className="relative z-10">🚀 Assinar agora</span>
-      </button>
-
-      <button
-        onClick={() => setMostrarPlanos(false)}
-        className="mt-4 underline text-sm text-zinc-400 hover:text-green-400"
-      >
-        ← Voltar para o portal
-      </button>
-    </section>
-  </div>
-)}
 </main>
   );
 }
