@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 
 export default function Home() {
 const router = useRouter();
+const [mostrarInfoPremium, setMostrarInfoPremium] = useState(false);
 const [mostrarPlanos, setMostrarPlanos] = useState(false);
 const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
 const [accepted, setAccepted] = useState(false);
@@ -1281,6 +1282,14 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
           className="relative inline-flex items-center justify-center px-8 py-3 mt-6 overflow-hidden font-bold text-white rounded-full shadow-lg group"
           onClick={() => alert("Página de pagamento em breve disponível!")}
         >
+
+       <button
+       className="relative inline-flex items-center justify-center px-6 py-2 font-medium text-white rounded-full shadow-md bg-zinc-800 hover:bg-zinc-700 transition"
+       onClick={() => setMostrarInfoPremium(true)}
+      >
+      ℹ️ Saber mais sobre o Premium
+    </button>
+
           <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-80 group-hover:opacity-100 animate-pulse"></span>
           <span className="relative z-10">🚀 Assinar agora</span>
         </button>
@@ -1292,6 +1301,7 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
           ← Voltar para o portal
         </button>
       </section>
+  
     )}
   </div>
 )}
