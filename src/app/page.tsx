@@ -1337,10 +1337,21 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
         <div>
           <h3 className="text-green-400 font-bold text-lg">✨ O que está incluso</h3>
           <ul className="list-disc list-inside mt-2 space-y-1 text-green-300">
-            <li>Diário emocional com insights personalizados</li>
-            <li>Workshops, aulas e trilhas exclusivas</li>
-            <li>Comunidade de apoio emocional</li>
-            <li>SOS emocional e desafios guiados</li>
+<li>📓 Diário emocional com insights personalizados</li>
+<li>🎓 Workshops, aulas e trilhas exclusivas</li>
+<li>🤝 Comunidade de apoio emocional</li>
+<li>🚨 SOS emocional com desafios guiados</li>
+<li>💬 Fóruns de conversas globais e privados personalizados</li>
+<li>📚 Conteúdos semanais sobre autoconhecimento</li>
+<li>🌟 Reconhecimento na comunidade Mindyz</li>    
+<li>🧠 Indicação de sessões de terapia com profissionais (fora da plataforma)</li>    
+<li>🎫 Convites exclusivos para eventos premium</li>    
+<li>🧍‍♀️ Avatares personalizados para representar seu perfil emocional</li> 
+<li>🎁 Clube de benefícios com descontos em parceiros e serviços de bem-estar</li>
+<li>💬 Chat de apoio com inteligência artificial e moderação humana para acolhimento inicial</li>
+
+
+
           </ul>
         </div>
 
