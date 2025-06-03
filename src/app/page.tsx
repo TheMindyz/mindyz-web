@@ -1278,14 +1278,12 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
 
         <p className="mt-6 text-green-300 italic">*Você pode cancelar a qualquer momento.</p>
 
-
 <button
-       className="relative inline-flex items-center justify-center px-6 py-2 font-medium text-white rounded-full shadow-md bg-zinc-800 hover:bg-zinc-700 transition"
-       onClick={() => setMostrarInfoPremium(true)}
-      >
-      ℹ️ Saber mais sobre o Premium
-    </button>
-
+  className="relative inline-flex items-center justify-center px-6 py-2 font-medium text-white rounded-full shadow-md bg-zinc-800 hover:bg-zinc-700 transition"
+  onClick={() => setMostrarInfoPremium(true)}
+>
+  ℹ️ Saber mais sobre o Premium
+</button>
 
         <button
           className="relative inline-flex items-center justify-center px-8 py-3 mt-6 overflow-hidden font-bold text-white rounded-full shadow-lg group"
