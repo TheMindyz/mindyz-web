@@ -653,9 +653,13 @@ const handleChange = (index: number, value: number) => {
       ].map((card, index) => (
         <div
           key={index}
-          className={`bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-lg transition cursor-pointer hover:bg-zinc-700 border ${
-            card.step === 'premium' ? 'border-green-400 shadow-[0_0_15px_#22c55e]' : 'border-zinc-700'
-          }`}
+          className={`bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-lg transition cursor-pointer hover:bg-zinc-700 
+            border 
+            ${
+              card.step === 'premium'
+                ? 'border-2 border-green-400 shadow-[0_0_20px_#22c55e]'
+                : 'border border-zinc-600/70'
+            }`}
           onClick={() => setStep(card.step as typeof step)}
         >
           <h3 className="text-green-400 font-semibold text-xl mb-2">{card.title}</h3>
