@@ -640,23 +640,20 @@ const handleChange = (index: number, value: number) => {
           desc: 'Topa um desafio diário? Supere seus limites e descubra sua força interior.',
           step: 'desafiosmotivacionais',
         },
-       {
-        title: 'Espiritualidade e Saúde Mental',
-        desc: 'Veja como a fé pode ajudar na saúde emocional, com versículos, estudos e milagres inspiradores.',
-        step: 'espiritualidade',
-      },
-     
-      {
-         title: '✨ Portal Premium ✨',
+        {
+          title: 'Espiritualidade e Saúde Mental',
+          desc: 'Veja como a fé pode ajudar na saúde emocional, com versículos, estudos e milagres inspiradores.',
+          step: 'espiritualidade',
+        },
+        {
+          title: '✨ Portal Premium ✨',
           desc: 'Entre em um espaço exclusivo com conteúdos premium, recursos especiais e uma jornada mística para o autoconhecimento.',
           step: 'premium',
         },
       ].map((card, index) => (
         <div
           key={index}
-          className={`bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-lg transition cursor-pointer hover:bg-zinc-700 ${
-            card.step === 'premium' ? 'border-2 border-green-500' : ''
-          }`}
+          className="bg-zinc-800 rounded-lg p-6 shadow-md hover:shadow-lg transition cursor-pointer hover:bg-zinc-700 border-2 border-green-500"
           onClick={() => setStep(card.step as typeof step)}
         >
           <h3 className="text-green-400 font-semibold text-xl mb-2">{card.title}</h3>
@@ -666,6 +663,7 @@ const handleChange = (index: number, value: number) => {
     </div>
   </section>
 )}
+
 
 
 
