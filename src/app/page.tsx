@@ -249,9 +249,11 @@ const handleChange = (index: number, value: number) => {
     </h2>
 
     <p>
-      Obrigado por se cadastrar, <strong>{nome}</strong>! Seu cadastro está em
+      Obrigado por se cadastrar, <strong>{nome}</strong>! 
+      Seu cadastro está em
       análise. Você receberá um e-mail com a senha para login assim que for
-      aprovado, e fará parte da nossa comunidade família!
+      aprovado.
+       E poderá fazer parte da nossa comunidade!
     </p>
 
     {/* Mensagem acolhedora + Frase automática */}
