@@ -15,7 +15,7 @@ const [estado, setEstado] = useState('');
 const [acompanhamento, setAcompanhamento] = useState('');
 
   const [step, setStep] = useState<
-    'inicio' | 'cadastro' |'aguardandoaprovacao'| 'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium'
+    'inicio' | 'cadastro' |'aguardandoaprovacao'| 'login' |'termos'| 'autoconhecimento' | 'resultado' | 'parabenizacao'|'boasVindas' | 'home' | 'trilhas' | 'trilhaDetalhes' | 'psicologo' | 'cvv' | 'mensagens' | 'checkin' | 'sobre a Mindyz' | 'desabafo' | 'mindyz news' | 'desafiosmotivacionais' | 'seudiario' | 'espiritualidade' |'premium' | 'planos'
   >('inicio');
 
   const [nome, setNome] = useState('');
@@ -1211,6 +1211,79 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
   </div>
 )}
 
+{step === 'planos' && (
+  <div className="relative w-full min-h-screen bg-black text-white flex items-center justify-center p-6">
+    <section className="w-full max-w-4xl bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_40px_#22c55eaa] backdrop-blur-md p-10 text-center space-y-6">
+      
+      <h2 className="text-4xl md:text-5xl font-extrabold text-green-400 animate-pulse">
+        💎 Torne-se Premium Mindyz
+      </h2>
+
+      <p className="text-zinc-300 text-lg max-w-2xl mx-auto">
+        A assinatura Premium desbloqueia recursos avançados, experiências exclusivas e suporte completo para o seu autodesenvolvimento emocional.
+      </p>
+
+      {/* Planos de assinatura */}
+      <div className="grid md:grid-cols-3 gap-6 mt-8 text-left">
+        {/* Plano Mensal */}
+        <div className="bg-zinc-800 rounded-2xl p-6 border border-green-500 shadow-lg">
+          <h3 className="text-xl font-bold text-green-400">Plano Mensal</h3>
+          <p className="text-zinc-200 mt-2">Ideal para começar.</p>
+          <p className="text-3xl font-extrabold text-white mt-4">R$ 7,90</p>
+          <p className="text-sm text-zinc-400">/ mês até dez/2025</p>
+          <ul className="mt-4 space-y-2 text-green-300 text-sm">
+            <li>✔️ Acesso completo a recursos Premium</li>
+            <li>✔️ SOS Emocional completo</li>
+            <li>✔️ Conteúdos semanais exclusivos</li>
+          </ul>
+        </div>
+
+        {/* Plano Trimestral */}
+        <div className="bg-zinc-800 rounded-2xl p-6 border border-emerald-500 shadow-lg">
+          <h3 className="text-xl font-bold text-emerald-400">Plano Trimestral</h3>
+          <p className="text-zinc-200 mt-2">Mais economia.</p>
+          <p className="text-3xl font-extrabold text-white mt-4">R$ 19,90</p>
+          <p className="text-sm text-zinc-400">/ a cada 3 meses</p>
+          <ul className="mt-4 space-y-2 text-green-300 text-sm">
+            <li>✔️ Tudo do plano mensal</li>
+            <li>✔️ Acesso a eventos ao vivo</li>
+            <li>✔️ Prioridade no suporte</li>
+          </ul>
+        </div>
+
+        {/* Plano Anual */}
+        <div className="bg-zinc-800 rounded-2xl p-6 border border-teal-500 shadow-lg">
+          <h3 className="text-xl font-bold text-teal-400">Plano Anual</h3>
+          <p className="text-zinc-200 mt-2">Para quem quer se comprometer.</p>
+          <p className="text-3xl font-extrabold text-white mt-4">R$ 69,90</p>
+          <p className="text-sm text-zinc-400">/ ano</p>
+          <ul className="mt-4 space-y-2 text-green-300 text-sm">
+            <li>✔️ Tudo dos outros planos</li>
+            <li>✔️ Acesso antecipado a novas funcionalidades</li>
+            <li>✔️ Reconhecimento na comunidade Mindyz</li>
+          </ul>
+        </div>
+      </div>
+
+      <p className="mt-6 text-green-300 italic">*Você pode cancelar a qualquer momento.</p>
+
+      <button
+        className="relative inline-flex items-center justify-center px-8 py-3 mt-6 overflow-hidden font-bold text-white rounded-full shadow-lg group"
+        onClick={() => alert("Página de pagamento em breve disponível!")}
+      >
+        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-80 group-hover:opacity-100 animate-pulse"></span>
+        <span className="relative z-10">🚀 Assinar agora</span>
+      </button>
+
+      <button
+        onClick={() => setStep("premium")}
+        className="mt-4 underline text-sm text-zinc-400 hover:text-green-400"
+      >
+        ← Voltar para o portal
+      </button>
+    </section>
+  </div>
+)}
 
   </main>
 );
