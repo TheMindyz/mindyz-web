@@ -1212,19 +1212,12 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
         <p className="text-green-300 text-lg italic mt-4">...e muito mais!</p>
 
 
-<p
-  className="text-sm text-green-300 underline cursor-pointer hover:text-green-200 transition"
-  onClick={() => setStep("sobrePremium")}
->
-  Saiba mais sobre o Premium
-</p>
-
-
-
-
-
-
-
+      <p
+      className="text-sm text-green-300 underline cursor-pointer hover:text-green-200 transition"
+     onClick={() => setStep("sobrePremium")}
+    >
+    Saiba mais sobre o Premium
+  </p>
 
         <button
           className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group mt-6"
@@ -1316,27 +1309,53 @@ onClick={() => alert(`Check-in registrado: ${label}`)}
 )}
 
 {step === "sobrePremium" && (
-  <div className="relative w-full min-h-screen bg-black flex items-center justify-center">
-    <section className="relative z-10 w-[90%] max-w-3xl bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_30px_#22c55eaa] backdrop-blur-md p-10 space-y-6 text-center">
+  <div className="relative w-full min-h-screen bg-black flex items-center justify-center px-4">
+    <section className="relative z-10 w-full max-w-4xl bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_30px_#22c55eaa] backdrop-blur-md p-10 space-y-6 text-center">
       <BotaoVoltar voltarPara="premium" />
 
-      <h2 className="text-4xl font-extrabold text-green-400">✨ Sobre o Premium</h2>
+      <h2 className="text-4xl font-extrabold text-green-400">🛡️ Sobre o Premium e Políticas</h2>
+
       <p className="text-zinc-300 text-lg">
-        Ao se tornar Premium no Mindyz, você desbloqueia uma jornada completa de autodesenvolvimento. Receba conteúdos exclusivos, desafios, workshops e participe de uma comunidade dedicada ao seu bem-estar emocional.
+        Ao se tornar Premium no Mindyz, você investe na sua evolução emocional com acesso a conteúdos, ferramentas e suporte exclusivos.
       </p>
-      <ul className="text-green-300 text-left list-disc list-inside space-y-2">
-        <li>Acesso a ferramentas avançadas</li>
-        <li>Desafios guiados de autoconhecimento</li>
-        <li>Conteúdos semanais e insights personalizados</li>
-        <li>Eventos e aulas com especialistas</li>
-        <li>SOS emocional 24/7</li>
-      </ul>
-      <p className="text-zinc-400 text-sm italic mt-4">
-        Essa é a versão ideal para quem quer evoluir com profundidade e suporte contínuo.
-      </p>
+
+      <div className="text-left text-zinc-200 space-y-6">
+        <div>
+          <h3 className="text-green-400 font-bold text-lg">🔐 Segurança e Privacidade</h3>
+          <p>
+            Seus dados são criptografados e armazenados de forma segura. Seguimos rigorosamente a LGPD (Lei Geral de Proteção de Dados).
+            Nenhuma informação sensível é compartilhada com terceiros.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-green-400 font-bold text-lg">💳 Pagamentos</h3>
+          <p>
+            Os pagamentos são processados via plataformas seguras como Stripe ou Mercado Pago. Você pode cancelar a assinatura a qualquer momento, sem fidelidade.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-green-400 font-bold text-lg">✨ O que está incluso</h3>
+          <ul className="list-disc list-inside mt-2 space-y-1 text-green-300">
+            <li>Diário emocional com insights personalizados</li>
+            <li>Workshops, aulas e trilhas exclusivas</li>
+            <li>Comunidade de apoio emocional</li>
+            <li>SOS emocional e desafios guiados</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-green-400 font-bold text-lg">📜 Política Mindyz</h3>
+          <p>
+            Ao utilizar nossos serviços, você concorda com nossos <span className="underline cursor-pointer text-green-300">termos de uso</span> e <span className="underline cursor-pointer text-green-300">política de privacidade</span>. Garantimos total transparência e ética em todas as etapas do seu uso da plataforma.
+          </p>
+        </div>
+      </div>
     </section>
   </div>
 )}
+
 
 
  </main>
