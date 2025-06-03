@@ -578,10 +578,15 @@ const handleChange = (index: number, value: number) => {
   {step === 'home' && (
   <section className="w-full max-w-6xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 mx-auto">
     <BotaoVoltar voltarPara="boasVindas" />
-    
-    <h2 className="text-4xl font-bold text-green-400 text-center mb-10">
-      Home - Bem-vindo, {nome}!
-    </h2>
+
+    <div className="text-center mb-10">
+      <h2 className="text-4xl font-extrabold text-green-400">
+        Bem-vindo(a), {nome}!
+      </h2>
+      <p className="text-lg text-gray-400 mt-2">
+        Pronto(a) para mais um passo na sua jornada de autodesenvolvimento?
+      </p>
+    </div>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-zinc-300">
       {[
