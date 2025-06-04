@@ -1083,7 +1083,7 @@ export default function Home() {
             desbloqueie mensagens ilimitadas.
           </p>
           <button
-            onClick={() => setStep("chatDesabafoConversa")}
+            onClick={() => setStep("chatdesabafo")}
             className="bg-purple-500 hover:bg-purple-600 text-black font-bold py-2 w-full rounded transition"
           >
             Entrar no Chat Anônimo
