@@ -730,62 +730,62 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-zinc-300">
             {[
               {
-                title: "Trilhas de Autodesenvolvimento",
+                title: "🧭Trilhas de Autodesenvolvimento",
                 desc: "Dê o primeiro passo. As trilhas avançadas te esperam no Premium.",
                 step: "trilhas",
               },
               {
-                title: "Sessões com Psicólogos",
+                title: "🧑‍⚕️Sessões com Psicólogos",
                 desc: "Descubra o poder de conversar com quem entende. Conheça o apoio Premium.",
                 step: "psicologo",
               },
               {
-                title: "Precisa conversar?",
+                title: "📞Precisa conversar?",
                 desc: "Saiba como receber apoio emocional gratuito com o CVV (188).",
                 step: "cvv",
               },
               {
-                title: "SOS Emocional",
+                title: "🚑S.O.S Emocional",
                 desc: "Encontre apoio imediato em momentos difíceis. Saiba mais sobre o SOS.",
                 step: "sos",
               },
               {
-                title: "Mensagens Motivacionais",
+                title: "💬Mensagens Motivacionais",
                 desc: "Leia frases que vão te inspirar e dar um gás no seu dia. Uma frase por dia pode mudar tudo. No Premium, você desbloqueia sua jornada.",
                 step: "mensagens",
               },
               {
-                title: "Fazer Check-in Emocional",
+                title: "📝Fazer Check-in Emocional",
                 desc: "Registre como está se sentindo agora com um simples toque.",
                 step: "checkin",
               },
               {
-                title: "Sobre a Mindyz",
+                title: "🌱Sobre a Mindyz",
                 desc: "Conheça nossa missão, visão e os valores que guiam o nosso propósito. No Premium, você vai mais fundo nessa jornada.",
                 step: "sobre a Mindyz",
               },
               {
-                title: "Desabafar",
+                title: "😔Desabafar",
                 desc: "Um espaço seguro e anônimo para soltar o que está preso no coração.",
                 step: "desabafo",
               },
               {
-                title: "Mindyz News",
+                title: "📰Mindyz News",
                 desc: "Fique por dentro das novidades sobre saúde mental, atualizações do app e conteúdos exclusivos.",
                 step: "mindyz news",
               },
               {
-                title: "Seu Diário",
+                title: "📖Seu Diário",
                 desc: "Registre seus pensamentos, momentos especiais e conquistas. No Premium, desbloqueie insights poderosos.",
                 step: "seudiario",
               },
               {
-                title: "Desafios Motivacionais",
+                title: "🔥Desafios Motivacionais",
                 desc: "Topa um desafio diário? Supere seus limites e descubra sua força interior.",
                 step: "desafiosmotivacionais",
               },
               {
-                title: "Espiritualidade e Saúde Mental",
+                title: "🙏Espiritualidade e Saúde Mental",
                 desc: "Veja como a fé pode ajudar na saúde emocional, com versículos, estudos e milagres inspiradores.",
                 step: "espiritualidade",
               },
