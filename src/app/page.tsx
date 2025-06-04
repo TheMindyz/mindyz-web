@@ -4,6 +4,12 @@ import React, { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const [mensagens, setMensagens] = useState<string[]>([]);
+
+  // Função para enviar mensagem
+  const enviarMensagem = (mensagem: string) => {
+    setMensagens([...mensagens, mensagem]);
+  };
   const router = useRouter();
   const [mostrarInfoPremium, setMostrarInfoPremium] = useState(false);
   const [mostrarPlanos, setMostrarPlanos] = useState(false);
@@ -1073,21 +1079,33 @@ export default function Home() {
         </section>
       )}
       {step === "chatdesabafo" && (
-        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center">
-          <BotaoVoltar voltarPara="home" />
-          <h2 className="text-3xl font-bold text-purple-400">
-            🕊️ Chat Anônimo de Desabafo
+        <section className="w-full max-w-3xl bg-zinc-900 p-6 rounded-xl shadow-xl space-y-4 flex flex-col">
+          <BotaoVoltar voltarPara="chatdesabafo" />
+
+          <h2 className="text-2xl font-bold text-purple-400 text-center">
+            🕊️ Chat Anônimo
           </h2>
-          <p className="text-zinc-300">
-            Converse de forma segura, anônima e acolhedora. No Premium,
-            desbloqueie mensagens ilimitadas.
-          </p>
-          <button
-            onClick={() => setStep("chatdesabafo")}
-            className="bg-purple-500 hover:bg-purple-600 text-black font-bold py-2 w-full rounded transition"
-          >
-            Entrar no Chat Anônimo
-          </button>
+
+          <div className="flex-1 bg-zinc-800 rounded-lg p-4 overflow-y-auto space-y-2">
+            {/* Exemplo de mensagens */}
+            <div className="bg-purple-500 text-black p-2 rounded-lg w-fit self-start">
+              Olá, tudo bem? Pode desabafar à vontade.
+            </div>
+            <div className="bg-zinc-700 text-white p-2 rounded-lg w-fit self-end">
+              Obrigado! Hoje não estou me sentindo bem...
+            </div>
+          </div>
+
+          <div className="flex gap-2">
+            <input
+              type="text"
+              placeholder="Digite sua mensagem..."
+              className="flex-1 p-2 rounded-lg bg-zinc-700 text-white focus:outline-none"
+            />
+            <button className="bg-purple-500 hover:bg-purple-600 text-black font-bold px-4 py-2 rounded-lg">
+              Enviar
+            </button>
+          </div>
         </section>
       )}
       {step === "mensagens" && (
