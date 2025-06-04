@@ -30,6 +30,7 @@ export default function Home() {
     | "psicologo"
     | "cvv"
     | "sos"
+    | "chatdesabafo"
     | "mensagens"
     | "checkin"
     | "sobre a Mindyz"
@@ -750,6 +751,11 @@ export default function Home() {
                 step: "sos",
               },
               {
+                title: "Chat Anônimo de Desabafo",
+                desc: "Converse de forma segura e anônima. No Premium, desbloqueie mensagens ilimitadas.",
+                step: "chatdesabafo",
+              },
+              {
                 title: "💬Mensagens Motivacionais",
                 desc: "Leia frases que vão te inspirar e dar um gás no seu dia. Uma frase por dia pode mudar tudo. No Premium, você desbloqueia sua jornada.",
                 step: "mensagens",
@@ -1064,6 +1070,24 @@ export default function Home() {
             <br />
             Transforme seu cuidado emocional em prioridade. 💖
           </div>
+        </section>
+      )}
+      {step === "chatdesabafo" && (
+        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center">
+          <BotaoVoltar voltarPara="home" />
+          <h2 className="text-3xl font-bold text-purple-400">
+            🕊️ Chat Anônimo de Desabafo
+          </h2>
+          <p className="text-zinc-300">
+            Converse de forma segura, anônima e acolhedora. No Premium,
+            desbloqueie mensagens ilimitadas.
+          </p>
+          <button
+            onClick={() => setStep("chatDesabafoConversa")}
+            className="bg-purple-500 hover:bg-purple-600 text-black font-bold py-2 w-full rounded transition"
+          >
+            Entrar no Chat Anônimo
+          </button>
         </section>
       )}
       {step === "mensagens" && (
