@@ -1,16 +1,45 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const [mensagens, setMensagens] = useState<string[]>([]);
-
-  // Função para enviar mensagem
-  const enviarMensagem = (mensagem: string) => {
-    setMensagens([...mensagens, mensagem]);
-  };
   const router = useRouter();
+
+  // Estado do chat
+  const [mensagens, setMensagens] = useState<
+    { texto: string; tipo: "usuario" | "bot" }[]
+  >([
+    { texto: "Olá, tudo bem? Pode desabafar à vontade.", tipo: "bot" },
+    { texto: "Obrigado! Hoje não estou me sentindo bem...", tipo: "usuario" },
+  ]);
+
+  const [novaMensagem, setNovaMensagem] = useState("");
+
+  // Ref para o container das mensagens (para rolar para o final)
+  const mensagensEndRef = useRef<HTMLDivElement>(null);
+
+  const enviarMensagem = () => {
+    if (novaMensagem.trim() === "") return;
+
+    setMensagens((prev) => [...prev, { texto: novaMensagem, tipo: "usuario" }]);
+    setNovaMensagem("");
+
+    // Resposta automática do "bot"
+    setTimeout(() => {
+      setMensagens((prev) => [
+        ...prev,
+        { texto: "Entendo, quer me contar mais sobre isso?", tipo: "bot" },
+      ]);
+    }, 1000);
+  };
+
+  // Sempre que mensagens mudarem, rola o scroll para o final
+  useEffect(() => {
+    mensagensEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [mensagens]);
+
+  // Outros estados...
   const [mostrarInfoPremium, setMostrarInfoPremium] = useState(false);
   const [mostrarPlanos, setMostrarPlanos] = useState(false);
   const [desafiosConcluidos, setDesafiosConcluidos] = useState<number[]>([]);
@@ -1086,14 +1115,19 @@ export default function Home() {
             🕊️ Chat Anônimo
           </h2>
 
-          <div className="flex-1 bg-zinc-800 rounded-lg p-4 overflow-y-auto space-y-2">
-            {/* Exemplo de mensagens */}
-            <div className="bg-purple-500 text-black p-2 rounded-lg w-fit self-start">
-              Olá, tudo bem? Pode desabafar à vontade.
-            </div>
-            <div className="bg-zinc-700 text-white p-2 rounded-lg w-fit self-end">
-              Obrigado! Hoje não estou me sentindo bem...
-            </div>
+          <div className="flex-1 bg-zinc-800 rounded-lg p-4 overflow-y-auto space-y-2 max-h-96">
+            {mensagens.map((mensagem, index) => (
+              <div
+                key={index}
+                className={`p-2 rounded-lg w-fit ${
+                  mensagem.tipo === "bot"
+                    ? "bg-purple-500 text-black self-start"
+                    : "bg-zinc-700 text-white self-end"
+                }`}
+              >
+                {mensagem.texto}
+              </div>
+            ))}
           </div>
 
           <div className="flex gap-2">
@@ -1101,8 +1135,16 @@ export default function Home() {
               type="text"
               placeholder="Digite sua mensagem..."
               className="flex-1 p-2 rounded-lg bg-zinc-700 text-white focus:outline-none"
+              value={novaMensagem}
+              onChange={(e) => setNovaMensagem(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") enviarMensagem();
+              }}
             />
-            <button className="bg-purple-500 hover:bg-purple-600 text-black font-bold px-4 py-2 rounded-lg">
+            <button
+              onClick={enviarMensagem}
+              className="bg-purple-500 hover:bg-purple-600 text-black font-bold px-4 py-2 rounded-lg"
+            >
               Enviar
             </button>
           </div>
