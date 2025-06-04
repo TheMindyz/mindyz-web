@@ -1109,7 +1109,13 @@ export default function Home() {
       )}
       {step === "chatdesabafo" && (
         <section className="w-full max-w-3xl bg-zinc-900 p-6 rounded-xl shadow-xl space-y-4 flex flex-col">
-          <BotaoVoltar voltarPara="chatdesabafo" />
+          {/* Botão de voltar para "home" */}
+          <button
+            onClick={() => setStep("home")}
+            className="text-sm text-white hover:underline self-start"
+          >
+            ← Voltar
+          </button>
 
           <h2 className="text-2xl font-bold text-purple-400 text-center">
             🕊️ Chat Anônimo
