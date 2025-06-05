@@ -254,73 +254,98 @@ export default function Home() {
         </section>
       )}
       {step === "cadastro" && (
-        <section className="w-full max-w-md space-y-4 bg-zinc-900 p-6 rounded-xl shadow-xl">
+        <section className="w-full max-w-md bg-zinc-900 p-6 rounded-xl shadow-xl space-y-6">
           <BotaoVoltar voltarPara="inicio" />
+
           <h2 className="text-2xl font-bold text-green-400 text-center">
             Cadastro
           </h2>
 
-          <input
-            type="text"
-            placeholder="Digite seu nome"
-            value={nome}
-            onChange={(e) => setNome(e.target.value)}
-            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-          />
-          <input
-            type="text"
-            placeholder="Digite seu CPF"
-            value={cpf}
-            onChange={(e) => setCpf(e.target.value)}
-            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-          />
-          <input
-            type="email"
-            placeholder="Digite seu email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-          />
-          <input
-            type="date"
-            value={dataNascimento}
-            onChange={(e) => setDataNascimento(e.target.value)}
-            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-          />
+          {/* Dados Pessoais */}
+          <div className="space-y-3">
+            <label className="block text-sm text-zinc-400">Nome</label>
+            <input
+              type="text"
+              placeholder="Digite seu nome"
+              value={nome}
+              onChange={(e) => setNome(e.target.value)}
+              className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+            />
 
-          <textarea
-            placeholder="Fale brevemente sobre você e por que quer participar da Mindyz"
-            value={descricaoPessoal}
-            onChange={(e) => setDescricaoPessoal(e.target.value)}
-            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700 resize-none h-24"
-          />
+            <label className="block text-sm text-zinc-400">CPF</label>
+            <input
+              type="text"
+              placeholder="Digite seu CPF"
+              value={cpf}
+              onChange={(e) => setCpf(e.target.value)}
+              className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+            />
 
-          <input
-            type="text"
-            placeholder="Cidade"
-            value={cidade}
-            onChange={(e) => setCidade(e.target.value)}
-            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-          />
+            <label className="block text-sm text-zinc-400">Email</label>
+            <input
+              type="email"
+              placeholder="Digite seu email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+            />
 
-          <input
-            type="text"
-            placeholder="Estado"
-            value={estado}
-            onChange={(e) => setEstado(e.target.value)}
-            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-          />
+            <label className="block text-sm text-zinc-400">
+              Data de nascimento
+            </label>
+            <input
+              type="date"
+              value={dataNascimento}
+              onChange={(e) => setDataNascimento(e.target.value)}
+              className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+            />
+          </div>
 
-          <select
-            value={acompanhamento}
-            onChange={(e) => setAcompanhamento(e.target.value)}
-            className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
-          >
-            <option value="">Você faz acompanhamento psicológico?</option>
-            <option value="sim">Sim</option>
-            <option value="nao">Não</option>
-            <option value="pretendo">Pretendo buscar</option>
-          </select>
+          {/* Localização */}
+          <div className="space-y-3">
+            <label className="block text-sm text-zinc-400">Cidade</label>
+            <input
+              type="text"
+              placeholder="Cidade"
+              value={cidade}
+              onChange={(e) => setCidade(e.target.value)}
+              className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+            />
+
+            <label className="block text-sm text-zinc-400">Estado</label>
+            <input
+              type="text"
+              placeholder="Estado"
+              value={estado}
+              onChange={(e) => setEstado(e.target.value)}
+              className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+            />
+          </div>
+
+          {/* Sobre você */}
+          <div className="space-y-3">
+            <label className="block text-sm text-zinc-400">Sobre você</label>
+            <textarea
+              placeholder="Fale brevemente sobre você e por que quer participar da Mindyz"
+              value={descricaoPessoal}
+              onChange={(e) => setDescricaoPessoal(e.target.value)}
+              className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700 resize-none h-24"
+            />
+
+            <label className="block text-sm text-zinc-400">
+              Você faz acompanhamento psicológico?
+            </label>
+            <select
+              value={acompanhamento}
+              onChange={(e) => setAcompanhamento(e.target.value)}
+              className="w-full p-2 rounded bg-zinc-800 text-white border border-zinc-700"
+            >
+              <option value="">Selecione uma opção</option>
+              <option value="sim">Sim</option>
+              <option value="nao">Não</option>
+              <option value="pretendo">Pretendo buscar</option>
+            </select>
+          </div>
 
           <button
             onClick={() =>
@@ -332,7 +357,7 @@ export default function Home() {
               acompanhamento !== "" &&
               setStep("aguardandoaprovacao")
             }
-            className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded transition"
+            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 w-full rounded transition"
           >
             Avançar
           </button>
@@ -341,7 +366,7 @@ export default function Home() {
             Já tem uma conta?{" "}
             <button
               onClick={() => setStep("login")}
-              className="text-green-400 underline hover:text-green-600"
+              className="text-green-400 underline hover:text-green-500"
             >
               Faça login
             </button>
