@@ -357,7 +357,7 @@ export default function Home() {
               acompanhamento !== "" &&
               setStep("aguardandoaprovacao")
             }
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 w-full rounded transition"
+            className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded"
           >
             Avançar
           </button>
