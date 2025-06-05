@@ -979,16 +979,13 @@ export default function Home() {
           {/* Rodapé Premium */}
           <div className="border-t border-zinc-700 pt-4 mt-6 text-center">
             <p className="text-zinc-400">
-              Você visualizou <strong>4 de 8</strong> dicas. Desbloqueie o
-              restante com a{" "}
+              Você visualizou <strong>4 de 8</strong> dicas. Todas as
+              informações sobre como desbloquear o restante estão no{" "}
               <span className="text-green-400 font-semibold">
-                Mindyz Premium
-              </span>
-              .
+                Portal Premium
+              </span>{" "}
+              na tela <strong>Home</strong>.
             </p>
-            <button className="mt-2 text-sm bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded font-bold transition">
-              Conhecer o Premium
-            </button>
           </div>
         </section>
       )}
