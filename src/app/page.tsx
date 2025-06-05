@@ -807,7 +807,7 @@ export default function Home() {
                 step: "sos",
               },
               {
-                title: "Chat Anônimo de Desabafo",
+                title: "🕊️Chat Anônimo de Desabafo",
                 desc: "Converse de forma segura e anônima. No Premium, desbloqueie mensagens ilimitadas.",
                 step: "chatdesabafo",
               },
@@ -827,7 +827,7 @@ export default function Home() {
                 step: "sobre a Mindyz",
               },
               {
-                title: "😔Desabafar",
+                title: "😔Desabafar consigo mesmo(a)",
                 desc: "Um espaço seguro e anônimo para soltar o que está preso no coração.",
                 step: "desabafo",
               },
