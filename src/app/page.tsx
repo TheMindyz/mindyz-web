@@ -374,20 +374,29 @@ export default function Home() {
         </section>
       )}
       {step === "aguardandoaprovacao" && (
-        <section className="w-full max-w-md space-y-4 p-6 rounded-xl border-4 border-green-500 shadow-[0_0_20px_4px_rgba(34,197,94,0.5)] bg-zinc-900 text-center">
-          <h2 className="text-xl font-semibold text-green-400">
+        <section className="w-full max-w-md space-y-6 p-6 rounded-xl border-4 border-green-500 shadow-[0_0_20px_4px_rgba(34,197,94,0.5)] bg-zinc-900 text-center">
+          <h2 className="text-2xl font-bold text-green-400">
             Aguardando Aprovação
           </h2>
 
-          <p>
-            Obrigado por se cadastrar, <strong>{nome}</strong>! Seu cadastro
-            está em análise. Você receberá um e-mail com a senha para login
-            assim que for aprovado. E poderá fazer parte da nossa comunidade!
-          </p>
+          <div className="text-white text-base space-y-3">
+            <p>
+              Obrigado por se cadastrar,{" "}
+              <strong className="text-green-300">{nome}</strong>! Seu cadastro
+              está em análise.
+            </p>
+            <p>
+              Você receberá um e-mail com sua senha de acesso assim que for
+              aprovado.
+            </p>
+            <p>
+              Em até <strong className="text-green-300">24 horas</strong>, você
+              poderá fazer parte da nossa comunidade! 💚
+            </p>
+          </div>
 
           {/* Mensagem acolhedora + Frase automática */}
           <div className="flex flex-col items-center space-y-2">
-            {/* Texto animado */}
             <p className="text-green-400 text-sm flex items-center gap-1">
               <span className="animate-pulse">
                 Estamos revisando seu cadastro
@@ -397,7 +406,6 @@ export default function Home() {
               <span className="animate-bounce delay-300">.</span>
             </p>
 
-            {/* Frase automática */}
             <p className="text-white text-sm italic">
               {(() => {
                 const frases = [
@@ -415,7 +423,7 @@ export default function Home() {
 
           <button
             onClick={() => setStep("inicio")}
-            className="mt-4 bg-green-600 hover:bg-green-700 text-black py-2 px-4 rounded"
+            className="mt-4 bg-green-600 hover:bg-green-700 text-black font-semibold py-2 px-4 rounded"
           >
             Voltar ao início
           </button>
