@@ -3,38 +3,59 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+// Tipo reutilizável para mensagens
+type Mensagem = { texto: string; tipo: "usuario" | "bot" };
+
 export default function Home() {
   const router = useRouter();
 
   // Estado do chat
-  const [mensagens, setMensagens] = useState<
-    { texto: string; tipo: "usuario" | "bot" }[]
-  >([
+  const [mensagens, setMensagens] = useState<Mensagem[]>([
     { texto: "Olá, tudo bem? Pode desabafar à vontade.", tipo: "bot" },
     { texto: "Obrigado! Hoje não estou me sentindo bem...", tipo: "usuario" },
   ]);
 
   const [novaMensagem, setNovaMensagem] = useState("");
 
-  // Ref para o container das mensagens (para rolar para o final)
+  // Ref para rolar até a última mensagem
   const mensagensEndRef = useRef<HTMLDivElement>(null);
+
+  // Função para gerar respostas personalizadas do bot
+  const gerarResposta = (texto: string): string => {
+    const msg = texto.toLowerCase();
+
+    if (msg.includes("triste")) {
+      return "Sinto muito por você estar se sentindo assim. Quer conversar mais sobre isso?";
+    } else if (msg.includes("ansiedade") || msg.includes("ansioso")) {
+      return "A ansiedade pode ser sufocante às vezes. Você quer me contar mais sobre isso?";
+    } else if (msg.includes("feliz")) {
+      return "Fico feliz em saber disso! 😊 Me conta o que te deixou tão alegre!";
+    } else if (msg.includes("raiva")) {
+      return "Raiva é uma emoção válida. Quer desabafar sobre o que aconteceu?";
+    } else if (msg.includes("medo")) {
+      return "O medo pode nos paralisar... estou aqui com você, quer me contar mais?";
+    } else if (msg.includes("sozinho") || msg.includes("sozinha")) {
+      return "Você não está sozinho aqui. Pode contar comigo.";
+    } else {
+      return "Entendo... quer me contar mais sobre isso?";
+    }
+  };
 
   const enviarMensagem = () => {
     if (novaMensagem.trim() === "") return;
 
-    setMensagens((prev) => [...prev, { texto: novaMensagem, tipo: "usuario" }]);
+    const mensagemUsuario: Mensagem = { texto: novaMensagem, tipo: "usuario" };
+    const respostaBot = gerarResposta(novaMensagem);
+
+    setMensagens((prev) => [...prev, mensagemUsuario]);
     setNovaMensagem("");
 
-    // Resposta automática do "bot"
     setTimeout(() => {
-      setMensagens((prev) => [
-        ...prev,
-        { texto: "Entendo, quer me contar mais sobre isso?", tipo: "bot" },
-      ]);
+      setMensagens((prev) => [...prev, { texto: respostaBot, tipo: "bot" }]);
     }, 1000);
   };
 
-  // Sempre que mensagens mudarem, rola o scroll para o final
+  // Scroll automático
   useEffect(() => {
     mensagensEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [mensagens]);
@@ -1109,7 +1130,7 @@ export default function Home() {
       )}
       {step === "chatdesabafo" && (
         <section className="w-full max-w-3xl bg-zinc-900 p-6 rounded-xl shadow-xl space-y-4 flex flex-col">
-          {/* Botão de voltar para "home" */}
+          {/* Botão de voltar */}
           <button
             onClick={() => setStep("home")}
             className="text-sm text-white hover:underline self-start"
@@ -1121,6 +1142,7 @@ export default function Home() {
             🕊️ Chat Anônimo
           </h2>
 
+          {/* Caixa de mensagens */}
           <div className="flex-1 bg-zinc-800 rounded-lg p-4 overflow-y-auto space-y-2 max-h-96">
             {mensagens.map((mensagem, index) => (
               <div
@@ -1136,6 +1158,7 @@ export default function Home() {
             ))}
           </div>
 
+          {/* Input e botão */}
           <div className="flex gap-2">
             <input
               type="text"
