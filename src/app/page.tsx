@@ -1019,7 +1019,12 @@ export default function Home() {
             sozinho(a). O CVV (Centro de Valorização da Vida) oferece apoio
             emocional gratuito e sigiloso.
           </p>
-          <p className="text-2xl text-white font-semibold">Ligue 188</p>
+          <a
+            href="tel:188"
+            className="inline-block bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition duration-200"
+          >
+            Ligue 188
+          </a>
           <p className="text-zinc-300">
             Ou envie um e-mail para{" "}
             <a
