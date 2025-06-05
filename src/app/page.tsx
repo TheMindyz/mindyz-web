@@ -1177,6 +1177,14 @@ export default function Home() {
               Enviar
             </button>
           </div>
+
+          {/* Aviso discreto */}
+          <p className="text-xs text-zinc-400 text-center mt-2">
+            🧠 Este chat é assistido por uma inteligência artificial treinada
+            para oferecer apoio emocional. Ele não substitui a ajuda de
+            profissionais humanos. Para suporte psicológico urgente,
+            recomendamos buscar um profissional ou o CVV (188).
+          </p>
         </section>
       )}
       {step === "mensagens" && (
