@@ -8,6 +8,11 @@ type Mensagem = { texto: string; tipo: "usuario" | "bot" };
 
 export default function Home() {
   const router = useRouter();
+  const [isPremium, setIsPremium] = useState(false);
+  const handlePagamentoSucesso = () => {
+    setIsPremium(true);
+    setStep("premiumSucesso");
+  };
 
   // Estado do chat
   const [mensagens, setMensagens] = useState<Mensagem[]>([
@@ -99,6 +104,8 @@ export default function Home() {
     | "planos"
     | "sobrePremium"
     | "termospolitica"
+    | "pagamento"
+    | "premiumSucesso"
   >("inicio");
 
   const [nome, setNome] = useState("");
@@ -2068,6 +2075,31 @@ export default function Home() {
         </div>
       )}
        
+      {step === "premiumSucesso" && (
+        <div>
+          <h2>✔️ Sua assinatura foi ativada!</h2>
+          <button onClick={() => setStep("home")}>Ir para Home Premium</button>
+        </div>
+      )}
+      {step === "home" && (
+        <div>
+          <h1>Bem-vindo(a) à Home</h1>
+
+          {isPremium ? (
+            <div>
+              <p>🎉 Você é Premium! Acesso total liberado.</p>
+              {/* Mostrar botões e funções exclusivas */}
+            </div>
+          ) : (
+            <div>
+              <p>🚀 Faça upgrade para desbloquear todos os recursos!</p>
+              <button onClick={() => setStep("pagamento")}>
+                Assinar Premium
+              </button>
+            </div>
+          )}
+        </div>
+      )}
     </main>
   );
 }
