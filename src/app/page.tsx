@@ -986,11 +986,7 @@ export default function Home() {
               </span>
               .
             </p>
-
-            <button
-              onClick={() => router.push("/premium")}
-              className="mt-2 text-sm bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded font-bold transition"
-            >
+            <button className="mt-2 text-sm bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded font-bold transition">
               Conhecer o Premium
             </button>
           </div>
