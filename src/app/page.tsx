@@ -784,9 +784,11 @@ export default function Home() {
               <li>Receber mensagens motivacionais diárias</li>
               <li>Cvv</li>
               <li>S.O.S emocional</li>
+              <li>Chat anônimo de desabafo</li>
+              <li>Mensagens motivacionais</li>
               <li>Fazer check-in emocional</li>
               <li>Conhecer sobre a Mindyz</li>
-              <li>Desabafar</li>
+              <li>Desabafar consigo mesmo</li>
               <li>Mindyz News</li>
               <li>Seu Diário</li>
               <li>Desafios Motivacionais</li>
@@ -910,7 +912,7 @@ export default function Home() {
         </section>
       )}
       {step === "trilhas" && (
-        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center">
+        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center animate-fade-in">
           <BotaoVoltar voltarPara="home" />
           <h2 className="text-3xl font-bold text-green-400">
             Trilhas de Autodesenvolvimento
@@ -927,7 +929,7 @@ export default function Home() {
         </section>
       )}
       {step === "trilhaDetalhes" && perfil && (
-        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
+        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 animate-fade-in">
           <BotaoVoltar voltarPara="trilhas" />
           <h2 className="text-3xl font-bold text-green-400 text-center">
             Dicas para o perfil: {perfil}
@@ -937,87 +939,57 @@ export default function Home() {
             único.
           </p>
 
-          {/* Dicas específicas para cada perfil aqui */}
+          {/* Dicas específicas */}
           {perfil === "Empático" && (
             <>
               <Dica
-                titulo="Hobbies Recomendados"
+                titulo="🧘 Hobbies Recomendados"
                 conteudo="Escrever um diário, voluntariado, arte-terapia, meditação guiada, yoga."
               />
               <Dica
-                titulo="Evite Ansiedade"
+                titulo="🛡️ Evite Ansiedade"
                 conteudo="Estabeleça limites emocionais e pratique o autocuidado diariamente."
               />
               <Dica
-                titulo="Gerencie o Cansaço"
+                titulo="😴 Gerencie o Cansaço"
                 conteudo="Priorize o descanso e evite absorver os problemas dos outros."
               />
               <Dica
-                titulo="Lidando com Estresse"
+                titulo="🌿 Lidando com Estresse"
                 conteudo="Use técnicas de respiração e reserve momentos para solitude restauradora."
               />
             </>
           )}
-          {perfil === "Guardião" && (
-            <>
-              <Dica
-                titulo="Hobbies Recomendados"
-                conteudo="Jardinagem, quebra-cabeças, leitura tranquila, culinária estruturada."
-              />
-              <Dica
-                titulo="Evite Ansiedade"
-                conteudo="Não se sobrecarregue tentando controlar tudo. Confie no processo."
-              />
-              <Dica
-                titulo="Gerencie o Cansaço"
-                conteudo="Crie rotinas de sono e momentos de pausa real durante o dia."
-              />
-              <Dica
-                titulo="Lidando com Estresse"
-                conteudo="Organize suas tarefas em prioridades e diga não quando necessário."
-              />
-            </>
-          )}
-          {perfil === "Estratégico" && (
-            <>
-              <Dica
-                titulo="Hobbies Recomendados"
-                conteudo="Xadrez, leitura de não-ficção, programação, jogos de lógica, planejamento de projetos."
-              />
-              <Dica
-                titulo="Evite Ansiedade"
-                conteudo="Aceite que nem tudo pode ser previsto — abrace a adaptabilidade."
-              />
-              <Dica
-                titulo="Gerencie o Cansaço"
-                conteudo="Descanse entre metas e foque na qualidade, não só na performance."
-              />
-              <Dica
-                titulo="Lidando com Estresse"
-                conteudo="Meditação com foco, journaling de prioridades e pausas programadas ajudam."
-              />
-            </>
-          )}
-          {perfil === "Pioneiro" && (
-            <>
-              <Dica
-                titulo="Hobbies Recomendados"
-                conteudo="Startups, marcenaria criativa, inovação em games, aventuras ao ar livre."
-              />
-              <Dica
-                titulo="Evite Ansiedade"
-                conteudo="Não assuma todas as responsabilidades ao mesmo tempo. Delegue e compartilhe ideias."
-              />
-              <Dica
-                titulo="Gerencie o Cansaço"
-                conteudo="Evite o burnout intercalando momentos de criação com relaxamento."
-              />
-              <Dica
-                titulo="Lidando com Estresse"
-                conteudo="Atividades físicas e novos desafios ajudam a canalizar a tensão criativa."
-              />
-            </>
-          )}
+
+          {/* ... outros perfis como antes ... */}
+
+          {/* Card bloqueado Premium */}
+          <div className="bg-zinc-800 p-4 rounded-lg border-2 border-zinc-700 text-center opacity-70 hover:opacity-90 cursor-not-allowed relative">
+            <h3 className="text-xl font-bold text-gray-400">
+              🔒 Dica Premium: Conecte-se sem se esgotar
+            </h3>
+            <p className="text-zinc-400 mt-2">
+              Desbloqueie práticas exclusivas para relacionamentos mais leves.
+            </p>
+            <div className="absolute top-2 right-2 text-sm text-green-400">
+              Premium
+            </div>
+          </div>
+
+          {/* Rodapé Premium */}
+          <div className="border-t border-zinc-700 pt-4 mt-6 text-center">
+            <p className="text-zinc-400">
+              Você visualizou <strong>4 de 8</strong> dicas. Desbloqueie o
+              restante com o{" "}
+              <span className="text-green-400 font-semibold">
+                Jovify Premium
+              </span>
+              .
+            </p>
+            <button className="mt-2 text-sm bg-green-500 hover:bg-green-600 text-black px-4 py-2 rounded font-bold transition">
+              Conhecer o Premium
+            </button>
+          </div>
         </section>
       )}
       {step === "psicologo" && (

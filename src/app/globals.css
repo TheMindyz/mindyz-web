@@ -4,8 +4,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --font-sans: 'Geist Sans', sans-serif;
-  --font-mono: 'Geist Mono', monospace;
+  --font-sans: "Geist Sans", sans-serif;
+  --font-mono: "Geist Mono", monospace;
 }
 
 /* Tema escuro automático via media query */
@@ -25,8 +25,13 @@ body {
 
 /* Animação customizada */
 @keyframes fadeFog {
-  0%, 100% { opacity: 0.08; }
-  50% { opacity: 0.15; }
+  0%,
+  100% {
+    opacity: 0.08;
+  }
+  50% {
+    opacity: 0.15;
+  }
 }
 
 .animate-fadeFog {
@@ -42,8 +47,7 @@ body {
   height: 80vh;
   background: rgba(5, 20, 5, 0.95);
   border: 3px solid rgba(34, 197, 94, 0.8);
-  box-shadow:
-    0 0 40px rgba(34, 197, 94, 0.8),
+  box-shadow: 0 0 40px rgba(34, 197, 94, 0.8),
     inset 0 0 20px rgba(34, 197, 94, 0.5);
   z-index: 5;
   border-radius: 10px;
@@ -83,7 +87,7 @@ body {
 
 /* ⚡ Linhas de energia nas bordas */
 .portal-door::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
@@ -99,7 +103,7 @@ body {
 }
 
 .portal-door::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   right: 0;
@@ -144,7 +148,8 @@ body {
   }
 }
 @keyframes pulseGlow {
-  0%, 100% {
+  0%,
+  100% {
     text-shadow: 0 0 0px rgba(34, 197, 94, 0.5);
     transform: scale(1);
   }
@@ -156,4 +161,24 @@ body {
 
 .animate-pulseGlow {
   animation: pulseGlow 2.5s ease-in-out infinite;
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }
