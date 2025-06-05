@@ -228,7 +228,7 @@ export default function Home() {
                 Instagram
               </a>
               <a
-                href="https://youtube.com/@thejovify"
+                href="https://www.youtube.com/@TheMindyz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-green-400"
@@ -236,13 +236,13 @@ export default function Home() {
                 YouTube
               </a>
               <a
-                href="mailto:sacjovify@gmail.com"
+                href="mailto:equipemindyz@gmail.com"
                 className="hover:text-green-400"
               >
                 Email
               </a>
               <a
-                href="https://tiktok.com/@thejovify"
+                href="https://tiktok.com/@themindyz"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-green-400"
