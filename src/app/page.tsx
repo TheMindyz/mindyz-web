@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { p } from "framer-motion/client";
 
 // Tipo reutilizável para mensagens
 type Mensagem = { texto: string; tipo: "usuario" | "bot" };
@@ -1811,6 +1812,14 @@ export default function Home() {
                       <li>✔️ Conteúdos semanais exclusivos</li>
                     </ul>
                   </div>
+                  <a
+                    href="https://mpago.la/2xq1BTu"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 block bg-green-500 text-black font-bold text-center py-3 rounded-xl shadow hover:bg-green-600 transition"
+                  >
+                    🚀 Assinar Agora
+                  </a>
                 </div>
 
                 {/* Plano Trimestral */}
@@ -1832,6 +1841,14 @@ export default function Home() {
                       <li>✔️ Prioridade no suporte</li>
                     </ul>
                   </div>
+                  <a
+                    href="https://mpago.la/25NZAwC"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 block bg-emerald-500 text-black font-bold text-center py-3 rounded-xl shadow hover:bg-emerald-600 transition"
+                  >
+                    🚀 Assinar Agora
+                  </a>
                 </div>
 
                 {/* Plano Anual */}
@@ -1853,22 +1870,20 @@ export default function Home() {
                       <li>✔️ Reconhecimento na comunidade Mindyz</li>
                     </ul>
                   </div>
+                  <a
+                    href="https://mpago.la/1DgcoSA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 block bg-teal-500 text-black font-bold text-center py-3 rounded-xl shadow hover:bg-teal-600 transition"
+                  >
+                    🚀 Assinar Agora
+                  </a>
                 </div>
               </div>
 
               <p className="mt-6 text-green-300 italic">
                 *Você pode cancelar a qualquer momento.
               </p>
-
-              <button
-                className="relative inline-flex items-center justify-center px-8 py-3 mt-6 overflow-hidden font-bold text-white rounded-full shadow-lg group"
-                onClick={() =>
-                  alert("Página de pagamento em breve disponível!")
-                }
-              >
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-80 group-hover:opacity-100 animate-pulse"></span>
-                <span className="relative z-10">🚀 Assinar agora</span>
-              </button>
 
               <button
                 onClick={() => setMostrarPlanos(false)}
@@ -2074,32 +2089,20 @@ export default function Home() {
           </section>
         </div>
       )}
+      {step === "pagamento" && (
+        <div className="flex flex-col items-center gap-4">
+          <p className="text-white text-lg">
+            Pronto! Agora é só confirmar sua assinatura:
+          </p>
+          <button
+            onClick={handlePagamentoSucesso}
+            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
+          >
+            Assinar com Mercado Pago
+          </button>
+        </div>
+      )}
        
-      {step === "premiumSucesso" && (
-        <div>
-          <h2>✔️ Sua assinatura foi ativada!</h2>
-          <button onClick={() => setStep("home")}>Ir para Home Premium</button>
-        </div>
-      )}
-      {step === "home" && (
-        <div>
-          <h1>Bem-vindo(a) à Home</h1>
-
-          {isPremium ? (
-            <div>
-              <p>🎉 Você é Premium! Acesso total liberado.</p>
-              {/* Mostrar botões e funções exclusivas */}
-            </div>
-          ) : (
-            <div>
-              <p>🚀 Faça upgrade para desbloquear todos os recursos!</p>
-              <button onClick={() => setStep("pagamento")}>
-                Assinar Premium
-              </button>
-            </div>
-          )}
-        </div>
-      )}
     </main>
   );
 }
