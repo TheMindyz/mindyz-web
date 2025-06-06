@@ -1,10 +1,8 @@
-// src/app/api/pagamento/route.ts
-
 import { NextRequest, NextResponse } from "next/server";
 import mercadopago from "mercadopago";
 
-// Configuração com token direto
-mercadopago.configure({
+// Configurar a autenticação
+(mercadopago as any).configure({
   access_token: process.env.MERCADO_PAGO_ACCESS_TOKEN!,
 });
 
@@ -28,8 +26,7 @@ export async function POST(req: NextRequest) {
       auto_return: "approved",
     };
 
-    // Aqui está o método correto, sem erro de tipo
-    const response = await mercadopago.preferences.create(preference);
+    const response = await (mercadopago as any).preferences.create(preference);
 
     return NextResponse.json({ init_point: response.body.init_point });
   } catch (error) {
