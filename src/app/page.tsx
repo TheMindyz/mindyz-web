@@ -920,7 +920,7 @@ export default function Home() {
         </section>
       )}
       {step === "trilhas" && (
-        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center animate-fade-in">
+        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center animate-fade-in border border-green-600">
           <BotaoVoltar voltarPara="home" />
           <h2 className="text-3xl font-bold text-green-400">
             Trilhas de Autodesenvolvimento
