@@ -1173,7 +1173,7 @@ export default function Home() {
         </section>
       )}
       {step === "chatdesabafo" && (
-        <section className="w-full max-w-3xl bg-zinc-900 p-6 rounded-xl shadow-xl space-y-4 flex flex-col">
+        <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl overflow-y-auto max-h-screen border border-green-600">
           {/* Botão de voltar */}
           <button
             onClick={() => setStep("home")}
