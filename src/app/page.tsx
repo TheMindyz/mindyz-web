@@ -1176,26 +1176,16 @@ export default function Home() {
         </section>
       )}
       {step === "chatdesabafo" && (
-        <section
-          className="
-      w-full max-w-lg
-      bg-zinc-900 p-4
-      rounded-xl shadow-xl
-      overflow-hidden
-      border border-green-600
-      max-h-[90vh]
-      mx-auto
-    "
-        >
+        <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl overflow-y-auto max-h-screen border border-green-600">
           {/* Botão de voltar */}
           <button
             onClick={() => setStep("home")}
-            className="text-sm text-white hover:underline self-start mb-2"
+            className="text-sm text-white hover:underline self-start"
           >
             ← Voltar
           </button>
 
-          <h2 className="text-2xl font-bold text-purple-400 text-center mb-4">
+          <h2 className="text-2xl font-bold text-purple-400 text-center">
             🕊️ Chat Anônimo
           </h2>
 
@@ -1207,6 +1197,7 @@ export default function Home() {
         space-y-2
         max-h-[50vh]
         scrollbar-thin scrollbar-thumb-green-600 scrollbar-track-zinc-900
+        mt-6
       "
           >
             {mensagens.map((mensagem, index) => (
@@ -1237,7 +1228,7 @@ export default function Home() {
             />
             <button
               onClick={enviarMensagem}
-              className="bg-purple-500 hover:bg-purple-600 text-black font-bold px-4 py-2 rounded-lg"
+              className="bg-purple-500 hover:bg-purple-600 text-black font-bold px-3 py-1.5 rounded-lg text-sm"
             >
               Enviar
             </button>
