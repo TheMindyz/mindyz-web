@@ -1189,6 +1189,9 @@ export default function Home() {
             🕊️ Chat Anônimo
           </h2>
 
+          {/* Espaço maior antes da caixa de mensagens */}
+          <div className="mt-8" />
+
           {/* Caixa de mensagens */}
           <div
             className="
@@ -1197,7 +1200,6 @@ export default function Home() {
         space-y-2
         max-h-[50vh]
         scrollbar-thin scrollbar-thumb-green-600 scrollbar-track-zinc-900
-        mt-6
       "
           >
             {mensagens.map((mensagem, index) => (
@@ -1214,8 +1216,8 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Input e botão */}
-          <div className="flex gap-2 mt-4">
+          {/* Input e botão centralizados verticalmente */}
+          <div className="flex gap-2 mt-6 items-center justify-center">
             <input
               type="text"
               placeholder="Digite sua mensagem..."
