@@ -942,6 +942,9 @@ export default function Home() {
           </h2>
           <p className="text-zinc-300">
             Explore conteúdos e dicas personalizados para seu perfil.
+            <h2 className="text-2xl sm:text-3xl font-bold text-green-400">
+              Trilhas de Autodesenvolvimento
+            </h2>
           </p>
           <button
             onClick={() => setStep("trilhaDetalhes")}
