@@ -814,7 +814,7 @@ export default function Home() {
         </section>
       )}
       {step === "home" && (
-        <section className="w-full max-w-6xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 mx-auto">
+        <section className="w-full max-w-6xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 mx-auto border border-green-600">
           <BotaoVoltar voltarPara="boasVindas" />
 
           <div className="text-center mb-10">
@@ -1217,25 +1217,50 @@ export default function Home() {
         </section>
       )}
       {step === "mensagens" && (
-        <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-6">
+        <section
+          className="
+      bg-zinc-900
+      p-8
+      rounded-2xl
+      shadow-[0_0_25px_4px_rgba(34,197,94,0.7)]
+      border-4
+      border-green-500
+      w-full max-w-2xl
+      text-center
+      space-y-6
+      transition-shadow duration-300
+      hover:shadow-[0_0_30px_6px_rgba(34,197,94,0.9)]
+    "
+        >
           <BotaoVoltar voltarPara="home" />
           <h2 className="text-3xl font-bold text-green-400">
             Mensagens Motivacionais
           </h2>
-          <div className="space-y-4 text-left">
+          <div className="space-y-6 text-left text-zinc-300">
             <Dica
-              titulo="Acredite em você"
-              conteudo="Você é mais capaz do que imagina. Cada passo, por menor que seja, é um avanço na direção certa."
+              titulo="Acredite no seu potencial"
+              conteudo="Dentro de você existe uma força que nem sempre vê, mas que nunca abandona. Confie nela e dê o próximo passo com coragem."
             />
             <Dica
-              titulo="Seja constante"
-              conteudo="A motivação começa com uma escolha: continuar, mesmo quando for difícil."
+              titulo="Pequenas vitórias importam"
+              conteudo="Cada desafio superado é um tijolo na construção da sua melhor versão. Valorize cada conquista, por menor que pareça."
             />
             <Dica
-              titulo="Você importa"
-              conteudo="Seu valor não está no que você faz, mas em quem você é. O mundo precisa do seu brilho."
+              titulo="Você é essencial"
+              conteudo="Seu valor não depende do que faz, mas do que é. O mundo precisa da sua presença única e do seu brilho genuíno."
+            />
+            <Dica
+              titulo="Persistência é transformação"
+              conteudo="A jornada pode ser difícil, mas a consistência transforma sonhos em realidade. Continue firme, mesmo quando parecer lento."
             />
           </div>
+          <p className="mt-8 text-sm text-green-300 font-semibold italic">
+            💎 Quer ir além? No Mindyz Premium, você desbloqueia atendimentos
+            guiados, conteúdos aprofundados, trilhas especiais e acesso direto
+            ao Clube de Apoio.
+            <br />
+            Transforme seu cuidado emocional em prioridade. 💖
+          </p>
         </section>
       )}
       {step === "checkin" && (
