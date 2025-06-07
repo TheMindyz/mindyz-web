@@ -1430,6 +1430,10 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-green-400">
             Bloco de Desabafo
           </h2>
+          <p className="text-xs text-zinc-400 italic">
+            🛡️ Nada que você escrever aqui será registrado ou salvo. Este espaço
+            é totalmente privado.
+          </p>
           <textarea
             placeholder="Escreva aqui o que está sentindo..."
             rows={10}
@@ -1717,6 +1721,11 @@ export default function Home() {
           <p className="text-zinc-300 text-center">
             Um espaço para refletir, se expressar e acompanhar sua jornada
             emocional ao longo do tempo.
+          </p>
+
+          <p className="text-xs text-zinc-400 italic text-center">
+            📝 As mensagens escritas aqui serão registradas para seu
+            acompanhamento.
           </p>
 
           <div className="space-y-4">
