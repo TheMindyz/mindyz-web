@@ -937,7 +937,7 @@ export default function Home() {
     "
         >
           <BotaoVoltar voltarPara="home" />
-          <h2 className="text-3xl font-bold text-green-400">
+          <h2 className="text-xl sm:text-3xl font-bold text-green-400">
             Trilhas de Autodesenvolvimento
           </h2>
           <p className="text-zinc-300">
