@@ -937,7 +937,7 @@ export default function Home() {
         </section>
       )}
       {step === "trilhaDetalhes" && perfil && (
-        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 animate-fade-in">
+        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 animate-fade-in border border-green-600">
           <BotaoVoltar voltarPara="trilhas" />
           <h2 className="text-3xl font-bold text-green-400 text-center">
             Dicas para o perfil: {perfil}
@@ -1043,7 +1043,7 @@ export default function Home() {
         </section>
       )}
       {step === "cvv" && (
-        <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-xl shadow-xl text-center space-y-6">
+        <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-xl shadow-xl text-center space-y-6 border border-green-600">
           <BotaoVoltar voltarPara="home" />
           <h2 className="text-3xl font-bold text-green-400">
             Precisa conversar?
@@ -1071,7 +1071,7 @@ export default function Home() {
         </section>
       )}
       {step === "sos" && (
-        <section className="bg-zinc-900 p-6 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-6">
+        <section className="bg-zinc-900 p-6 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-6 border border-green-600">
           <BotaoVoltar voltarPara="home" />
 
           <h2 className="text-2xl font-bold text-rose-400">🚑 SOS Emocional</h2>
@@ -1155,16 +1155,6 @@ export default function Home() {
             Se precisar de apoio imediato, fale com o <b>CVV — 188</b> ou com um
             profissional de saúde mental.
           </p>
-
-          <div className="mt-6 bg-rose-800/20 p-4 rounded-xl text-rose-300 text-sm">
-            💎 Quer ir além? No{" "}
-            <span className="font-semibold text-rose-200">Mindyz Premium</span>,
-            você desbloqueia <b>atendimentos guiados</b>,{" "}
-            <b>conteúdos aprofundados</b>, <b>trilhas especiais</b> e{" "}
-            <b>acesso direto ao Clube de Apoio</b>.
-            <br />
-            Transforme seu cuidado emocional em prioridade. 💖
-          </div>
         </section>
       )}
       {step === "chatdesabafo" && (
