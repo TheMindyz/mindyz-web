@@ -998,23 +998,34 @@ export default function Home() {
         </section>
       )}
       {step === "psicologo" && (
-        <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-xl shadow-xl text-center space-y-6">
+        <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-2xl shadow-2xl text-center space-y-6 mx-auto animate-fade-in">
           <BotaoVoltar voltarPara="home" />
-          <h2 className="text-3xl font-bold text-green-400">
-            Sessões com Psicólogos
+
+          <h2 className="text-3xl font-bold text-green-400 flex items-center justify-center gap-2">
+            🧠 Sessões com Psicólogos
           </h2>
-          <p className="text-zinc-300">
+
+          <p className="text-zinc-300 text-base">
             Estamos montando uma rede de psicólogos parceiros da Mindyz.
           </p>
-          <p className="text-zinc-300">
+
+          <p className="text-zinc-300 text-base">
             Se você é psicólogo(a) e tem interesse em fazer parte, envie um
-            e-mail para:
+            e-mail:
           </p>
+
           <a
             href="mailto:equipemindyz@gmail.com"
-            className="text-green-400 underline"
+            className="text-green-400 font-medium hover:underline transition-all duration-200 inline-flex items-center justify-center gap-1"
           >
-            equipemindyz@gmail.com
+            📧 equipemindyz@gmail.com
+          </a>
+
+          <a
+            href="mailto:equipemindyz@gmail.com?subject=Interesse%20em%20ser%20psicólogo%20parceiro"
+            className="inline-block mt-4 bg-green-500 text-black font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition-all duration-200"
+          >
+            Quero ser parceiro(a)
           </a>
         </section>
       )}
