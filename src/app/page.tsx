@@ -1279,7 +1279,22 @@ export default function Home() {
         </section>
       )}
       {step === "checkin" && (
-        <section className="w-full max-w-md bg-zinc-900 p-6 rounded-xl shadow-xl space-y-6 text-center">
+        <section
+          className="
+      w-full max-w-md
+      bg-zinc-900
+      p-6
+      rounded-2xl
+      shadow-[0_0_25px_4px_rgba(34,197,94,0.7)]
+      border-4
+      border-green-500
+      space-y-6
+      text-center
+      animate-fade-in
+      transition-shadow duration-300
+      hover:shadow-[0_0_30px_6px_rgba(34,197,94,0.9)]
+    "
+        >
           <BotaoVoltar voltarPara="home" />
           <h2 className="text-3xl font-bold text-green-400">
             Como você está se sentindo hoje?
@@ -1309,7 +1324,7 @@ export default function Home() {
         </section>
       )}
       {step === "sobre a Mindyz" && (
-        <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl overflow-y-auto max-h-screen">
+        <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl overflow-y-auto max-h-screen border border-green-600">
           <BotaoVoltar voltarPara="home" />
           <h2 className="text-3xl font-bold text-green-400 text-center">
             Como surgiu a Mindzy
