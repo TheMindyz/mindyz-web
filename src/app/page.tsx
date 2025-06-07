@@ -1228,14 +1228,20 @@ export default function Home() {
             />
             <button
               onClick={enviarMensagem}
-              className="bg-purple-500 hover:bg-purple-600 text-black font-bold px-3 py-1.5 rounded-lg text-sm"
+              className="bg-purple-500 hover:bg-purple-600 text-black font-bold px-2.5 py-1 rounded-lg text-xs"
             >
               Enviar
             </button>
           </div>
 
+          {/* Mensagem sobre registro */}
+          <p className="text-xs text-zinc-400 text-center mt-2 italic">
+            🛡️ Nada que você digitar aqui será registrado ou salvo. Este é um
+            espaço seguro para seu desabafo.
+          </p>
+
           {/* Aviso discreto */}
-          <p className="text-xs text-zinc-400 text-center mt-2">
+          <p className="text-xs text-zinc-400 text-center mt-1">
             🧠 Este chat é assistido por uma inteligência artificial treinada
             para oferecer apoio emocional. Ele não substitui a ajuda de
             profissionais humanos. Para suporte psicológico urgente,
