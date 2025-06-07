@@ -1005,17 +1005,11 @@ export default function Home() {
             <h2 className="text-3xl font-extrabold text-green-400 flex justify-center items-center gap-3">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                fill="currentColor"
                 viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
                 className="w-8 h-8 text-green-400"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 4.5c-1.5 0-3.6.9-5.1 2.4C4.3 9.5 3.6 12 4.5 14.1c1.8 4.2 7.5 5.1 7.5 5.1s5.7-.9 7.5-5.1c.9-2.1.2-4.6-2.4-7.2C15.6 5.4 13.5 4.5 12 4.5z"
-                />
+                <path d="M12 2C9.24 2 6 3.5 6 8c0 2.49 2.5 5.53 6 8.54 3.5-3.01 6-6.05 6-8.54 0-4.5-3.24-6-6-6z" />
               </svg>
               Sessões com Psicólogos
             </h2>
@@ -1033,13 +1027,6 @@ export default function Home() {
           </div>
 
           <div className="space-y-4">
-            <a
-              href="mailto:equipemindyz@gmail.com"
-              className="text-green-400 underline hover:text-green-300 transition duration-200"
-            >
-              equipemindyz@gmail.com
-            </a>
-
             <button
               onClick={() =>
                 (window.location.href = "mailto:equipemindyz@gmail.com")
@@ -1048,6 +1035,10 @@ export default function Home() {
             >
               Quero ser parceiro(a)
             </button>
+
+            <p className="text-green-400 underline hover:text-green-300 transition duration-200 text-sm">
+              equipemindyz@gmail.com
+            </p>
           </div>
         </section>
       )}
