@@ -998,38 +998,57 @@ export default function Home() {
         </section>
       )}
       {step === "psicologo" && (
-        <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-2xl shadow-2xl text-center space-y-6 border border-green-600">
+        <section className="w-full max-w-xl mx-auto bg-zinc-900 p-10 rounded-2xl shadow-2xl text-center border border-green-600 space-y-6">
           <BotaoVoltar voltarPara="home" />
 
-          <h2 className="text-3xl font-bold text-green-400 flex items-center justify-center gap-2">
-            <span>🧠</span> Sessões com Psicólogos
-          </h2>
+          <div className="space-y-2">
+            <h2 className="text-3xl font-extrabold text-green-400 flex justify-center items-center gap-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-8 h-8 text-green-400"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 4.5c-1.5 0-3.6.9-5.1 2.4C4.3 9.5 3.6 12 4.5 14.1c1.8 4.2 7.5 5.1 7.5 5.1s5.7-.9 7.5-5.1c.9-2.1.2-4.6-2.4-7.2C15.6 5.4 13.5 4.5 12 4.5z"
+                />
+              </svg>
+              Sessões com Psicólogos
+            </h2>
 
-          <p className="text-zinc-300 text-base">
-            Estamos montando uma rede de <strong>psicólogos parceiros</strong>{" "}
-            da Mindyz para oferecer apoio a quem precisa.
-          </p>
+            <p className="text-zinc-300 text-base leading-relaxed">
+              A Mindyz está criando uma{" "}
+              <strong>rede de psicólogos parceiros</strong> para atender nossa
+              comunidade com apoio emocional de qualidade.
+            </p>
 
-          <p className="text-zinc-300 text-base">
-            Se você é psicólogo(a) e quer fazer parte dessa iniciativa, envie um
-            e-mail para:
-          </p>
+            <p className="text-zinc-300">
+              Se você é psicólogo(a), <strong>quer impactar vidas</strong> e
+              crescer conosco, envie seu interesse:
+            </p>
+          </div>
 
-          <a
-            href="mailto:equipemindyz@gmail.com"
-            className="inline-flex items-center gap-2 text-green-400 hover:underline transition duration-200"
-          >
-            📧 equipemindyz@gmail.com
-          </a>
+          <div className="space-y-4">
+            <a
+              href="mailto:equipemindyz@gmail.com"
+              className="text-green-400 underline hover:text-green-300 transition duration-200"
+            >
+              equipemindyz@gmail.com
+            </a>
 
-          <button
-            onClick={() =>
-              (window.location.href = "mailto:equipemindyz@gmail.com")
-            }
-            className="bg-green-500 hover:bg-green-600 text-black font-semibold px-6 py-2 rounded-full transition duration-200 shadow-md"
-          >
-            Quero ser parceiro(a)
-          </button>
+            <button
+              onClick={() =>
+                (window.location.href = "mailto:equipemindyz@gmail.com")
+              }
+              className="bg-green-500 hover:bg-green-600 text-black font-bold text-sm px-6 py-3 rounded-full transition duration-200 shadow-lg"
+            >
+              Quero ser parceiro(a)
+            </button>
+          </div>
         </section>
       )}
       {step === "cvv" && (
