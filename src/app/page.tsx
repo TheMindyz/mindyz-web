@@ -1176,25 +1176,43 @@ export default function Home() {
         </section>
       )}
       {step === "chatdesabafo" && (
-        <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl overflow-y-auto max-h-screen border border-green-600">
+        <section
+          className="
+      w-full max-w-lg
+      bg-zinc-900 p-4
+      rounded-xl shadow-xl
+      overflow-hidden
+      border border-green-600
+      max-h-[90vh]
+      mx-auto
+    "
+        >
           {/* Botão de voltar */}
           <button
             onClick={() => setStep("home")}
-            className="text-sm text-white hover:underline self-start"
+            className="text-sm text-white hover:underline self-start mb-2"
           >
             ← Voltar
           </button>
 
-          <h2 className="text-2xl font-bold text-purple-400 text-center">
+          <h2 className="text-2xl font-bold text-purple-400 text-center mb-4">
             🕊️ Chat Anônimo
           </h2>
 
           {/* Caixa de mensagens */}
-          <div className="bg-zinc-800 rounded-lg p-4 overflow-y-auto space-y-2 max-h-[300px] sm:max-h-72">
+          <div
+            className="
+        bg-zinc-800 rounded-lg p-3
+        overflow-y-auto
+        space-y-2
+        max-h-[50vh]
+        scrollbar-thin scrollbar-thumb-green-600 scrollbar-track-zinc-900
+      "
+          >
             {mensagens.map((mensagem, index) => (
               <div
                 key={index}
-                className={`p-2 rounded-lg w-fit max-w-full ${
+                className={`p-2 rounded-lg max-w-full w-fit ${
                   mensagem.tipo === "bot"
                     ? "bg-purple-500 text-black self-start"
                     : "bg-zinc-700 text-white self-end"
@@ -1206,7 +1224,7 @@ export default function Home() {
           </div>
 
           {/* Input e botão */}
-          <div className="flex gap-2">
+          <div className="flex gap-2 mt-4">
             <input
               type="text"
               placeholder="Digite sua mensagem..."
