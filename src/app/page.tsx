@@ -998,35 +998,38 @@ export default function Home() {
         </section>
       )}
       {step === "psicologo" && (
-        <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-2xl shadow-2xl text-center space-y-6 mx-auto animate-fade-in">
+        <section className="w-full max-w-2xl bg-zinc-900 p-8 rounded-2xl shadow-2xl text-center space-y-6 border border-green-600">
           <BotaoVoltar voltarPara="home" />
 
           <h2 className="text-3xl font-bold text-green-400 flex items-center justify-center gap-2">
-            🧠 Sessões com Psicólogos
+            <span>🧠</span> Sessões com Psicólogos
           </h2>
 
           <p className="text-zinc-300 text-base">
-            Estamos montando uma rede de psicólogos parceiros da Mindyz.
+            Estamos montando uma rede de <strong>psicólogos parceiros</strong>{" "}
+            da Mindyz para oferecer apoio a quem precisa.
           </p>
 
           <p className="text-zinc-300 text-base">
-            Se você é psicólogo(a) e tem interesse em fazer parte, envie um
-            e-mail:
+            Se você é psicólogo(a) e quer fazer parte dessa iniciativa, envie um
+            e-mail para:
           </p>
 
           <a
             href="mailto:equipemindyz@gmail.com"
-            className="text-green-400 font-medium hover:underline transition-all duration-200 inline-flex items-center justify-center gap-1"
+            className="inline-flex items-center gap-2 text-green-400 hover:underline transition duration-200"
           >
             📧 equipemindyz@gmail.com
           </a>
 
-          <a
-            href="mailto:equipemindyz@gmail.com?subject=Interesse%20em%20ser%20psicólogo%20parceiro"
-            className="inline-block mt-4 bg-green-500 text-black font-semibold py-2 px-4 rounded-lg hover:bg-green-600 transition-all duration-200"
+          <button
+            onClick={() =>
+              (window.location.href = "mailto:equipemindyz@gmail.com")
+            }
+            className="bg-green-500 hover:bg-green-600 text-black font-semibold px-6 py-2 rounded-full transition duration-200 shadow-md"
           >
             Quero ser parceiro(a)
-          </a>
+          </button>
         </section>
       )}
       {step === "cvv" && (
