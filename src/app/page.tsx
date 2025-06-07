@@ -1190,11 +1190,11 @@ export default function Home() {
           </h2>
 
           {/* Caixa de mensagens */}
-          <div className="flex-1 bg-zinc-800 rounded-lg p-4 overflow-y-auto space-y-2 max-h-96">
+          <div className="bg-zinc-800 rounded-lg p-4 overflow-y-auto space-y-2 max-h-[300px] sm:max-h-72">
             {mensagens.map((mensagem, index) => (
               <div
                 key={index}
-                className={`p-2 rounded-lg w-fit ${
+                className={`p-2 rounded-lg w-fit max-w-full ${
                   mensagem.tipo === "bot"
                     ? "bg-purple-500 text-black self-start"
                     : "bg-zinc-700 text-white self-end"
