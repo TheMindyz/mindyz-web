@@ -438,7 +438,7 @@ export default function Home() {
         </section>
       )}
       {step === "login" && (
-        <section className="max-w-md p-6 bg-zinc-900 rounded-lg shadow-lg space-y-4">
+        <section className="max-w-md p-6 bg-zinc-900 rounded-lg shadow-lg space-y-4 border border-green-600">
           <BotaoVoltar voltarPara="inicio" />
           <h2 className="text-2xl font-bold text-green-400 text-center">
             Login
@@ -477,7 +477,7 @@ export default function Home() {
         </section>
       )}
       {step === "termos" && (
-        <section className="w-full max-w-xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl text-sm text-zinc-300">
+        <section className="w-full max-w-xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl text-sm text-zinc-300 border border-green-600">
           <button
             onClick={() => setStep("login")}
             className="text-white text-sm px-4 py-2 bg-zinc-800 hover:bg-zinc-700 rounded mb-2"
@@ -698,7 +698,7 @@ export default function Home() {
         </section>
       )}
       {step === "autoconhecimento" && (
-        <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl">
+        <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl border border-green-600">
           <BotaoVoltar voltarPara="termos" />
           <h2 className="text-2xl font-bold text-green-400 text-center">
             Perguntas de Autoconhecimento
@@ -727,7 +727,7 @@ export default function Home() {
         </section>
       )}
       {step === "resultado" && perfil && (
-        <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-4">
+        <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-4 border border-green-600">
           <BotaoVoltar voltarPara="autoconhecimento" />
           <h2 className="text-3xl font-bold text-green-400">Olá, {nome}!</h2>
           <p className="text-xl text-white">
@@ -780,7 +780,7 @@ export default function Home() {
         </section>
       )}
       {step === "boasVindas" && perfil && (
-        <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6">
+        <section className="bg-zinc-900 p-8 rounded-xl shadow-xl w-full max-w-md text-center space-y-6 border border-green-600">
           <BotaoVoltar voltarPara="parabenizacao" />
 
           <div className="space-y-4 text-left text-zinc-300">
