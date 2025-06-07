@@ -262,7 +262,7 @@ export default function Home() {
         </section>
       )}
       {step === "cadastro" && (
-        <section className="w-full max-w-md bg-zinc-900 p-6 rounded-xl shadow-xl space-y-6">
+        <section className="w-full max-w-md bg-zinc-900 p-6 rounded-xl shadow-xl space-y-6 border border-green-600">
           <BotaoVoltar voltarPara="inicio" />
 
           <h2 className="text-2xl font-bold text-green-400 text-center">
