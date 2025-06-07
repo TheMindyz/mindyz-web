@@ -1722,7 +1722,19 @@ export default function Home() {
         </section>
       )}
       {step === "espiritualidade" && (
-        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center">
+        <section
+          className="
+      w-full max-w-2xl space-y-6
+      bg-zinc-900 p-6
+      rounded-xl shadow-xl
+      overflow-y-auto max-h-screen
+      border border-green-600
+      shadow-[0_0_10px_2px_rgba(34,197,94,0.4)]
+      transition-shadow duration-300
+      hover:shadow-[0_0_15px_4px_rgba(34,197,94,0.6)]
+      text-center
+    "
+        >
           <BotaoVoltar voltarPara="home" />
           <h2 className="text-3xl font-bold text-green-400">
             Espiritualidade e Saúde Mental
