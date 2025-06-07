@@ -1405,7 +1405,7 @@ export default function Home() {
         </section>
       )}
       {step === "desabafo" && (
-        <section className="bg-zinc-900 p-6 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-4">
+        <section className="bg-zinc-900 p-6 rounded-xl shadow-xl w-full max-w-2xl text-center space-y-4 border border-green-600">
           <BotaoVoltar voltarPara="home" />
           <h2 className="text-2xl font-bold text-green-400">
             Bloco de Desabafo
@@ -1421,7 +1421,7 @@ export default function Home() {
         </section>
       )}
       {step === "mindyz news" && (
-        <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl overflow-y-auto max-h-screen">
+        <section className="w-full max-w-2xl space-y-6 bg-zinc-900 p-6 rounded-xl shadow-xl overflow-y-auto max-h-screen border border-green-600">
           <BotaoVoltar voltarPara="home" />
           <h2 className="text-3xl font-bold text-green-400 text-center">
             📰 Mindyz News
@@ -1632,7 +1632,19 @@ export default function Home() {
         </section>
       )}
       {step === "desafiosmotivacionais" && (
-        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 text-center">
+        <section
+          className="
+      w-full max-w-2xl space-y-6
+      bg-zinc-900 p-6
+      rounded-xl shadow-xl
+      overflow-y-auto max-h-screen
+      border border-green-600
+      shadow-[0_0_10px_2px_rgba(34,197,94,0.4)]
+      transition-shadow duration-300
+      hover:shadow-[0_0_15px_4px_rgba(34,197,94,0.6)]
+      text-center
+    "
+        >
           <BotaoVoltar voltarPara="home" />
           <h2 className="text-3xl font-bold text-green-400">
             Desafios Motivacionais
@@ -1676,7 +1688,7 @@ export default function Home() {
         </section>
       )}
       {step === "seudiario" && (
-        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
+        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6 border border-green-600">
           <BotaoVoltar voltarPara="home" />
 
           <h2 className="text-3xl font-bold text-green-400 text-center">
