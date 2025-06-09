@@ -4,7 +4,12 @@ import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { p } from "framer-motion/client";
 
-// Tipo reutilizável para mensagens
+// Importações Firebase Firestore
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebase/firebase";
+import { collection, addDoc } from "firebase/firestore";
+import db from "../firebase/firestore";
+
 type Mensagem = { texto: string; tipo: "usuario" | "bot" };
 
 export default function Home() {
@@ -66,6 +71,28 @@ export default function Home() {
     mensagensEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [mensagens]);
 
+  // ======= ADICIONADO PARA FIRESTORE =======
+  // Estado para guardar usuários do Firestore
+  const [usuarios, setUsuarios] = useState<any[]>([]);
+
+  useEffect(() => {
+    async function buscarUsuarios() {
+      try {
+        const usuariosSnapshot = await getDocs(collection(db, "usuarios"));
+        const listaUsuarios = usuariosSnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setUsuarios(listaUsuarios);
+      } catch (error) {
+        console.error("Erro ao buscar usuários no Firestore:", error);
+      }
+    }
+
+    buscarUsuarios();
+  }, []);
+  // ==========================================
+
   // Outros estados...
   const [mostrarInfoPremium, setMostrarInfoPremium] = useState(false);
   const [mostrarPlanos, setMostrarPlanos] = useState(false);
@@ -116,6 +143,39 @@ export default function Home() {
   const [senha, setSenha] = useState("");
   const [respostas, setRespostas] = useState<number[]>(Array(8).fill(0));
   const [perfil, setPerfil] = useState<string | null>(null);
+
+  const salvarCadastro = async () => {
+    if (
+      nome.trim() === "" ||
+      email.trim() === "" ||
+      descricaoPessoal.trim() === "" ||
+      cidade.trim() === "" ||
+      estado.trim() === "" ||
+      acompanhamento === ""
+    ) {
+      alert("Preencha todos os campos obrigatórios.");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "usuarios"), {
+        nome,
+        cpf,
+        email,
+        dataNascimento,
+        cidade,
+        estado,
+        descricaoPessoal,
+        acompanhamento,
+        criadoEm: new Date(),
+      });
+
+      setStep("aguardandoaprovacao");
+    } catch (e) {
+      console.error("Erro ao salvar no Firestore:", e);
+      alert("Erro ao salvar dados. Tente novamente.");
+    }
+  };
 
   const [termoAceito, setTermoAceito] = useState(false);
 
@@ -355,16 +415,9 @@ export default function Home() {
             </select>
           </div>
 
+          {/* Botão avançar com Firestore */}
           <button
-            onClick={() =>
-              nome.trim() !== "" &&
-              email.trim() !== "" &&
-              descricaoPessoal.trim() !== "" &&
-              cidade.trim() !== "" &&
-              estado.trim() !== "" &&
-              acompanhamento !== "" &&
-              setStep("aguardandoaprovacao")
-            }
+            onClick={salvarCadastro}
             className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded"
           >
             Avançar
