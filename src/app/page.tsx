@@ -5,10 +5,8 @@ import { useRouter } from "next/navigation";
 import { p } from "framer-motion/client";
 
 // Importações Firebase Firestore
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, addDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase";
-import { collection, addDoc } from "firebase/firestore";
-import db from "../firebase/firestore";
 
 type Mensagem = { texto: string; tipo: "usuario" | "bot" };
 
