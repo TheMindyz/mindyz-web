@@ -126,6 +126,36 @@ export default function Home() {
   const handleCheckIn = (label: string) => {
     setSelectedEmotion(label);
     localStorage.setItem("checkin-emocao", label);
+
+    const mensagem = getMensagemMotivacional(label);
+    localStorage.setItem("checkin-mensagem", mensagem);
+
+    setStep("home");
+  };
+
+  const getMensagemMotivacional = (emocao: string) => {
+    switch (emocao.toLowerCase()) {
+      case "feliz":
+        return "Continue espalhando essa alegria! 😊";
+      case "triste":
+        return "Tudo bem não estar bem. Você não está sozinho.";
+      case "irritado":
+        return "Respire fundo. Você está no controle.";
+      case "ansioso":
+        return "Você é mais forte do que pensa. Um passo de cada vez.";
+      case "confiante":
+        return "Use essa confiança para alcançar grandes coisas!";
+      case "cansado":
+        return "Você merece descanso. Cuide de si com carinho.";
+      case "sobrecarregado":
+        return "Você está dando o seu melhor. Não precisa carregar tudo sozinho.";
+      case "grato":
+        return "A gratidão ilumina a alma. Que bonito isso em você!";
+      case "pensativo":
+        return "Refletir é crescer. Confie nas suas ideias.";
+      default:
+        return "Obrigado por compartilhar como está se sentindo.";
+    }
   };
 
   const [termoAceito, setTermoAceito] = useState(false);
