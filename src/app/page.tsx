@@ -116,6 +116,17 @@ export default function Home() {
   const [senha, setSenha] = useState("");
   const [respostas, setRespostas] = useState<number[]>(Array(8).fill(0));
   const [perfil, setPerfil] = useState<string | null>(null);
+  const [selectedEmotion, setSelectedEmotion] = useState<string | null>(null);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("checkin-emocao");
+    if (stored) setSelectedEmotion(stored);
+  }, []);
+
+  const handleCheckIn = (label: string) => {
+    setSelectedEmotion(label);
+    localStorage.setItem("checkin-emocao", label);
+  };
 
   const [termoAceito, setTermoAceito] = useState(false);
 
@@ -1306,10 +1317,8 @@ export default function Home() {
       p-6
       rounded-2xl
       shadow-[0_0_25px_4px_rgba(34,197,94,0.7)]
-      border-4
-      border-green-500
-      space-y-6
-      text-center
+      border-4 border-green-500
+      space-y-6 text-center
       animate-fade-in
       transition-shadow duration-300
       hover:shadow-[0_0_30px_6px_rgba(34,197,94,0.9)]
@@ -1319,28 +1328,36 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-green-400">
             Como você está se sentindo hoje?
           </h2>
-          <div className="grid grid-cols-3 gap-4 text-3xl">
-            {[
-              { emoji: "😊", label: "Feliz" },
-              { emoji: "😔", label: "Triste" },
-              { emoji: "😡", label: "Irritado" },
-              { emoji: "😰", label: "Ansioso" },
-              { emoji: "😎", label: "Confiante" },
-              { emoji: "😴", label: "Cansado" },
-              { emoji: "😭", label: "Sobrecarregado" },
-              { emoji: "❤", label: "Grato" },
-              { emoji: "🤔", label: "Pensativo" },
-            ].map(({ emoji, label }) => (
-              <button
-                key={label}
-                onClick={() => alert(`Check-in registrado: ${label}`)}
-                className="flex flex-col items-center bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
-              >
-                <span>{emoji}</span>
-                <span className="text-sm text-zinc-300 mt-1">{label}</span>
-              </button>
-            ))}
-          </div>
+
+          {selectedEmotion ? (
+            <p className="text-green-300 text-lg font-medium">
+              Obrigado por compartilhar! Você registrou:{" "}
+              <span className="font-bold">{selectedEmotion}</span>.
+            </p>
+          ) : (
+            <div className="grid grid-cols-3 gap-4 text-3xl">
+              {[
+                { emoji: "😊", label: "Feliz" },
+                { emoji: "😔", label: "Triste" },
+                { emoji: "😡", label: "Irritado" },
+                { emoji: "😰", label: "Ansioso" },
+                { emoji: "😎", label: "Confiante" },
+                { emoji: "😴", label: "Cansado" },
+                { emoji: "😭", label: "Sobrecarregado" },
+                { emoji: "❤", label: "Grato" },
+                { emoji: "🤔", label: "Pensativo" },
+              ].map(({ emoji, label }) => (
+                <button
+                  key={label}
+                  onClick={() => handleCheckIn(label)}
+                  className="flex flex-col items-center bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 active:scale-95 transition-transform"
+                >
+                  <span>{emoji}</span>
+                  <span className="text-sm text-zinc-300 mt-1">{label}</span>
+                </button>
+              ))}
+            </div>
+          )}
         </section>
       )}
       {step === "sobre a Mindyz" && (
