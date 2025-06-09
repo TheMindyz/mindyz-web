@@ -1803,34 +1803,47 @@ export default function Home() {
                   "Artigo — A Ciência da Espiritualidade na Saúde (Scielo)",
                 link: "https://www.scielo.br/j/ram/a/9JdZdq8n4zTYdD7rQvHtspP/?lang=pt",
               },
-            ].map((item, index) => (
-              <li key={index}>
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
-                >
-                  <span className="text-green-400 font-medium">
-                    {item.texto}
-                  </span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-green-400"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
+            ].map((item, index) => {
+              const match = item.texto.match(/^(.*)\s+\((.*)\)$/);
+              const titulo = match ? match[1] : item.texto;
+              const fonte = match ? match[2] : "";
+
+              return (
+                <li key={index}>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-between bg-zinc-800 p-4 rounded-xl hover:bg-zinc-700 transition"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </a>
-              </li>
-            ))}
+                    <div className="flex flex-col">
+                      <span className="text-green-400 font-medium">
+                        {titulo}
+                      </span>
+                      {fonte && (
+                        <span className="text-zinc-400 text-sm">
+                          Fonte: {fonte}
+                        </span>
+                      )}
+                    </div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5 text-green-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </section>
       )}
