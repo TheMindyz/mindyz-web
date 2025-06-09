@@ -126,11 +126,6 @@ export default function Home() {
   const handleCheckIn = (label: string) => {
     setSelectedEmotion(label);
     localStorage.setItem("checkin-emocao", label);
-
-    const mensagem = getMensagemMotivacional(label);
-    localStorage.setItem("checkin-mensagem", mensagem);
-
-    setStep("home");
   };
 
   const getMensagemMotivacional = (emocao: string) => {
