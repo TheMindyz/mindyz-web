@@ -842,7 +842,7 @@ export default function Home() {
               <li>Acessar trilhas de autodesenvolvimento</li>
               <li>Receber mensagens motivacionais diárias</li>
               <li>Cvv</li>
-              <li>S.O.S emocional</li>
+              <li>S.O.S Emocional</li>
               <li>Chat anônimo de desabafo</li>
               <li>Mensagens motivacionais</li>
               <li>Fazer check-in emocional</li>
