@@ -843,7 +843,7 @@ export default function Home() {
               <li>Receber mensagens motivacionais diárias</li>
               <li>Cvv</li>
               <li>S.O.S Emocional</li>
-              <li>Chat anônimo de desabafo</li>
+              <li>Chat Anônimo de desabafo</li>
               <li>Mensagens motivacionais</li>
               <li>Fazer check-in emocional</li>
               <li>Conhecer sobre a Mindyz</li>
