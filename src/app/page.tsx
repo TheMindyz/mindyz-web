@@ -4,10 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { p } from "framer-motion/client";
 
-// Importações Firebase Firestore
-import { collection, getDocs, addDoc } from "firebase/firestore";
-import { db } from "../firebase/firebase";
-
+// Tipo reutilizável para mensagens
 type Mensagem = { texto: string; tipo: "usuario" | "bot" };
 
 export default function Home() {
@@ -69,28 +66,6 @@ export default function Home() {
     mensagensEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [mensagens]);
 
-  // ======= ADICIONADO PARA FIRESTORE =======
-  // Estado para guardar usuários do Firestore
-  const [usuarios, setUsuarios] = useState<any[]>([]);
-
-  useEffect(() => {
-    async function buscarUsuarios() {
-      try {
-        const usuariosSnapshot = await getDocs(collection(db, "usuarios"));
-        const listaUsuarios = usuariosSnapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data(),
-        }));
-        setUsuarios(listaUsuarios);
-      } catch (error) {
-        console.error("Erro ao buscar usuários no Firestore:", error);
-      }
-    }
-
-    buscarUsuarios();
-  }, []);
-  // ==========================================
-
   // Outros estados...
   const [mostrarInfoPremium, setMostrarInfoPremium] = useState(false);
   const [mostrarPlanos, setMostrarPlanos] = useState(false);
@@ -141,39 +116,6 @@ export default function Home() {
   const [senha, setSenha] = useState("");
   const [respostas, setRespostas] = useState<number[]>(Array(8).fill(0));
   const [perfil, setPerfil] = useState<string | null>(null);
-
-  const salvarCadastro = async () => {
-    if (
-      nome.trim() === "" ||
-      email.trim() === "" ||
-      descricaoPessoal.trim() === "" ||
-      cidade.trim() === "" ||
-      estado.trim() === "" ||
-      acompanhamento === ""
-    ) {
-      alert("Preencha todos os campos obrigatórios.");
-      return;
-    }
-
-    try {
-      await addDoc(collection(db, "usuarios"), {
-        nome,
-        cpf,
-        email,
-        dataNascimento,
-        cidade,
-        estado,
-        descricaoPessoal,
-        acompanhamento,
-        criadoEm: new Date(),
-      });
-
-      setStep("aguardandoaprovacao");
-    } catch (e) {
-      console.error("Erro ao salvar no Firestore:", e);
-      alert("Erro ao salvar dados. Tente novamente.");
-    }
-  };
 
   const [termoAceito, setTermoAceito] = useState(false);
 
@@ -413,9 +355,16 @@ export default function Home() {
             </select>
           </div>
 
-          {/* Botão avançar com Firestore */}
           <button
-            onClick={salvarCadastro}
+            onClick={() =>
+              nome.trim() !== "" &&
+              email.trim() !== "" &&
+              descricaoPessoal.trim() !== "" &&
+              cidade.trim() !== "" &&
+              estado.trim() !== "" &&
+              acompanhamento !== "" &&
+              setStep("aguardandoaprovacao")
+            }
             className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded"
           >
             Avançar
@@ -839,15 +788,15 @@ export default function Home() {
               Funções Disponíveis:
             </h3>
             <ul className="space-y-2 list-disc list-inside">
-              <li>Acessar Trilhas de Autodesenvolvimento</li>
-              <li>Receber Mensagens Motivacionais Diárias</li>
+              <li>Acessar trilhas de autodesenvolvimento</li>
+              <li>Receber mensagens motivacionais diárias</li>
               <li>Cvv</li>
-              <li>S.O.S Emocional</li>
-              <li>Chat Anônimo de desabafo</li>
+              <li>S.O.S emocional</li>
+              <li>Chat anônimo de desabafo</li>
               <li>Mensagens motivacionais</li>
-              <li>Fazer check-in Emocional</li>
+              <li>Fazer check-in emocional</li>
               <li>Conhecer sobre a Mindyz</li>
-              <li>Desabafar Consigo Mesmo</li>
+              <li>Desabafar consigo mesmo</li>
               <li>Mindyz News</li>
               <li>Seu Diário</li>
               <li>Desafios Motivacionais</li>
