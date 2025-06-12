@@ -839,15 +839,15 @@ export default function Home() {
               Funções Disponíveis:
             </h3>
             <ul className="space-y-2 list-disc list-inside">
-              <li>Acessar trilhas de autodesenvolvimento</li>
-              <li>Receber mensagens motivacionais diárias</li>
+              <li>Acessar Trilhas de Autodesenvolvimento</li>
+              <li>Receber Mensagens Motivacionais Diárias</li>
               <li>Cvv</li>
               <li>S.O.S Emocional</li>
               <li>Chat Anônimo de desabafo</li>
               <li>Mensagens motivacionais</li>
-              <li>Fazer check-in emocional</li>
+              <li>Fazer check-in Emocional</li>
               <li>Conhecer sobre a Mindyz</li>
-              <li>Desabafar consigo mesmo</li>
+              <li>Desabafar Consigo Mesmo</li>
               <li>Mindyz News</li>
               <li>Seu Diário</li>
               <li>Desafios Motivacionais</li>
