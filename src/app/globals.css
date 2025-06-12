@@ -1,3 +1,5 @@
+/* eslint-disable */
+/* postcss */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -150,7 +152,6 @@ body {
   }
 }
 
-/* ✨ Brilho pulsante */
 @keyframes pulseGlow {
   0%,
   100% {
