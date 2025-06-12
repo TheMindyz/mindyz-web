@@ -785,7 +785,7 @@ export default function Home() {
 
           <div className="space-y-4 text-left text-zinc-300">
             <h3 className="text-green-400 font-semibold text-2xl text-center">
-              Funções Disponíveis:
+              Funções Disponíveis Gratuitas:
             </h3>
             <ul className="space-y-2 list-disc list-inside">
               <li>Acessar trilhas de autodesenvolvimento</li>
