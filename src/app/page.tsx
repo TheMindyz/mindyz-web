@@ -218,7 +218,7 @@ export default function Home() {
             <img
               src="/logo.png"
               alt="Logo Mindyz"
-              className="w-18 h-18 mx-auto mb-4" // tamanho pequeno e centralizado
+              className="w-25 h-25 mx-auto mb-4" // tamanho pequeno e centralizado
             />
 
             {/* TÍTULO */}
