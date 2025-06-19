@@ -1,26 +1,37 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import PremiumGate from "@/components/PremiumGate";
+import React, { useEffect, useState } from "react";
 
-export default function PaginaPremium() {
-  const [email, setEmail] = useState("");
+// Tipagem correta com children
+interface PremiumGateProps {
+  email: string;
+  children: React.ReactNode;
+}
+
+export default function PremiumGate({ email, children }: PremiumGateProps) {
+  const [isPremium, setIsPremium] = useState(false);
+  const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
-    const emailSalvo = localStorage.getItem("user_email");
-    if (emailSalvo) {
-      setEmail(emailSalvo);
-    }
-  }, []);
+    const verificarStatus = async () => {
+      try {
+        const res = await fetch(`/api/premium-status?email=${email}`);
+        const data = await res.json();
+        setIsPremium(data?.isPremium);
+      } catch (err) {
+        console.error("Erro ao verificar status premium:", err);
+      } finally {
+        setCarregando(false);
+      }
+    };
 
-  if (!email) return <p>Carregando...</p>; // enquanto o email não está disponível
+    verificarStatus();
+  }, [email]);
 
-  return (
-    <PremiumGate email={email}>
-      <div style={{ padding: "2rem" }}>
-        <h1>✨ Conteúdo Premium Liberado!</h1>
-        <p>Você tem acesso total ao conteúdo especial.</p>
-      </div>
-    </PremiumGate>
-  );
+  if (carregando) return <p>Verificando acesso...</p>;
+
+  if (!isPremium)
+    return <p>🚫 Acesso negado: esta área é exclusiva para membros premium.</p>;
+
+  return <>{children}</>;
 }
