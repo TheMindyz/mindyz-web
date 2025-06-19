@@ -11,3 +11,4 @@ export async function GET(req: Request) {
   const ativo = await verificarPremium(email);
   return NextResponse.json({ premium: ativo });
 }
+export const dynamic = "force-dynamic";
