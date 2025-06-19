@@ -10,8 +10,17 @@ type Mensagem = { texto: string; tipo: "usuario" | "bot" };
 export default function Home() {
   const router = useRouter();
   const [isPremium, setIsPremium] = useState(false);
+
   const handlePagamentoSucesso = () => {
+    const emailDoPagamento = "teste@teste.com";
+
+    // Salvar no localStorage
+    localStorage.setItem("user_email", emailDoPagamento);
+
+    // Marcar como premium
     setIsPremium(true);
+
+    // Avança para a área premium
     setStep("premiumSucesso");
   };
 
@@ -107,6 +116,7 @@ export default function Home() {
     | "termospolitica"
     | "pagamento"
     | "premiumSucesso"
+    | "areaPremium"
   >("inicio");
 
   const [nome, setNome] = useState("");
@@ -2248,7 +2258,20 @@ export default function Home() {
           </button>
         </div>
       )}
-       
+
+      {step === "areaPremium" && (
+        <div className="w-full min-h-screen bg-gradient-to-br from-zinc-900 to-black flex items-center justify-center">
+          <section className="max-w-4xl p-10 rounded-3xl bg-zinc-800/80 text-white shadow-lg">
+            <h2 className="text-4xl font-bold text-green-400 mb-4">
+              💎 Bem-vindo(a) à Área Premium
+            </h2>
+            <p className="text-zinc-300 text-lg">
+              Agora você tem acesso completo às funcionalidades exclusivas!
+              Explore conteúdos, desafios e muito mais.
+            </p>
+          </section>
+        </div>
+      )}
     </main>
   );
 }
