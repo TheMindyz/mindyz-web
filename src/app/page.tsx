@@ -2267,7 +2267,7 @@ export default function Home() {
             </h2>
             <p className="text-zinc-300 text-lg">
               Agora você tem acesso completo às funcionalidades exclusivas!
-              Explore conteúdos, desafios e muito mais.
+              Explore Conteúdos, desafios e muito mais.
             </p>
           </section>
         </div>
