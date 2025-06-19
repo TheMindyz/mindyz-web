@@ -2,6 +2,14 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
 export async function POST(req: Request) {
+  // Evita execução do webhook durante o build na Vercel
+  if (
+    process.env.NEXT_RUNTIME === "edge" ||
+    process.env.VERCEL_ENV === "preview"
+  ) {
+    return new Response("Skip webhook during build", { status: 200 });
+  }
+
   try {
     const body = await req.json();
     const paymentId = body.data?.id;
@@ -73,4 +81,5 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Erro interno" }, { status: 500 });
   }
 }
+
 export const dynamic = "force-dynamic";
