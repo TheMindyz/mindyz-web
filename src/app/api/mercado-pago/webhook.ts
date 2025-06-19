@@ -1,17 +1,16 @@
-import { NextResponse } from "next/server";
+import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "@/lib/prisma";
 
-export async function POST(req: Request) {
-  // Evita execução do webhook durante o build na Vercel
-  if (
-    process.env.NEXT_RUNTIME === "edge" ||
-    process.env.VERCEL_ENV === "preview"
-  ) {
-    return new Response("Skip webhook during build", { status: 200 });
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Método não permitido" });
   }
 
   try {
-    const body = await req.json();
+    const body = req.body;
     const paymentId = body.data?.id;
     const type = body.type;
 
@@ -21,7 +20,7 @@ export async function POST(req: Request) {
       const token = process.env.MERCADO_PAGO_ACCESS_TOKEN;
       if (!token) {
         console.error("Token do Mercado Pago não configurado.");
-        return NextResponse.json({ error: "Token ausente" }, { status: 500 });
+        return res.status(500).json({ error: "Token ausente" });
       }
 
       const response = await fetch(
@@ -35,25 +34,17 @@ export async function POST(req: Request) {
 
       if (!response.ok) {
         console.error("Erro ao consultar pagamento:", await response.text());
-        return NextResponse.json(
-          { error: "Erro ao consultar pagamento" },
-          { status: 500 }
-        );
+        return res.status(500).json({ error: "Erro ao consultar pagamento" });
       }
 
       const paymentData = await response.json();
       const email = paymentData.payer?.email;
 
       if (!email) {
-        console.warn("E-mail do pagador não encontrado.");
-        return NextResponse.json(
-          { error: "E-mail não encontrado" },
-          { status: 400 }
-        );
+        return res.status(400).json({ error: "E-mail não encontrado" });
       }
 
       if (paymentData.status === "approved") {
-        // Atualiza no banco como "ativo"
         await prisma.pagamento.upsert({
           where: { email },
           update: {
@@ -68,18 +59,12 @@ export async function POST(req: Request) {
         });
 
         console.log(`✅ Status premium ativado para: ${email}`);
-      } else {
-        console.log(
-          `⚠️ Pagamento não aprovado: status = ${paymentData.status}`
-        );
       }
     }
 
-    return NextResponse.json({ received: true });
+    return res.status(200).json({ received: true });
   } catch (error) {
     console.error("Erro no webhook:", error);
-    return NextResponse.json({ error: "Erro interno" }, { status: 500 });
+    return res.status(500).json({ error: "Erro interno" });
   }
 }
-
-export const dynamic = "force-dynamic";
