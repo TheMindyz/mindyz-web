@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "../../../lib/prisma"; // ✅ correto: importação nomeada
+import { prisma } from "../../../lib/prisma";
 
 export async function POST(request: Request) {
   try {
@@ -11,11 +11,11 @@ export async function POST(request: Request) {
     });
 
     const status = pagamento?.status || "inativo";
-    console.log(`📨 Status de ${email}: ${status}`);
+    console.log(`→ Status de ${email}: ${status}`);
 
-    return NextResponse.json({ status }, { status: 200 });
+    return NextResponse.json({ status });
   } catch (error) {
-    console.error("❌ Erro ao verificar status premium:", error);
+    console.error("X Erro ao verificar status premium:", error);
     return NextResponse.json(
       { error: "Erro ao verificar status" },
       { status: 500 }
