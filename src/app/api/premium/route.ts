@@ -1,19 +1,17 @@
 import { NextResponse } from "next/server";
-import { prisma } from "../../../lib/prisma";
+import { prisma } from "../../../lib/prisma"; // ✅ correto: importação nomeada
 
 export async function POST(request: Request) {
   try {
     const data = await request.json();
     const email = data.email;
 
-    // Busca o status do pagamento no banco
     const pagamento = await prisma.pagamento.findUnique({
       where: { email },
     });
 
     const status = pagamento?.status || "inativo";
-
-    console.log(`🔎 Status de ${email}: ${status}`);
+    console.log(`📨 Status de ${email}: ${status}`);
 
     return NextResponse.json({ status }, { status: 200 });
   } catch (error) {
@@ -24,4 +22,5 @@ export async function POST(request: Request) {
     );
   }
 }
+
 export const dynamic = "force-dynamic";
