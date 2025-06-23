@@ -12,16 +12,14 @@ export default function Home() {
   const [isPremium, setIsPremium] = useState(false);
 
   const handlePagamentoSucesso = () => {
-    const emailDoPagamento = "teste@teste.com";
+    const jaViu = localStorage.getItem("jaViuBoasVindasPremium");
 
-    // Salvar no localStorage
-    localStorage.setItem("user_email", emailDoPagamento);
-
-    // Marcar como premium
-    setIsPremium(true);
-
-    // Avança para a área premium
-    setStep("premiumSucesso");
+    if (!jaViu) {
+      localStorage.setItem("jaViuBoasVindasPremium", "true");
+      setStep("boasVindasPremium");
+    } else {
+      setStep("areaPremium");
+    }
   };
 
   // Estado do chat
@@ -117,6 +115,7 @@ export default function Home() {
     | "pagamento"
     | "premiumSucesso"
     | "areaPremium"
+    | "boasVindasPremium"
   >("inicio");
 
   const [nome, setNome] = useState("");
@@ -2270,6 +2269,29 @@ export default function Home() {
               Explore Conteúdos, desafios e muito mais.
             </p>
           </section>
+        </div>
+      )}
+
+      {step === "boasVindasPremium" && (
+        <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-purple-900 to-black text-center text-green-300 p-6">
+          <h1 className="text-5xl font-extrabold text-purple-400 animate-bounce mb-4">
+            ✨ Bem-vindo(a) ao Portal Premium Mindyz
+          </h1>
+          <p className="text-xl max-w-xl mb-6 text-zinc-100">
+            Você acaba de desbloquear um espaço mágico, feito para seu
+            autoconhecimento profundo.
+          </p>
+          <p className="text-md max-w-lg italic text-zinc-400">
+            Prepare-se para viver experiências exclusivas, conteúdos raros e
+            ferramentas que só os iniciados recebem.
+          </p>
+
+          <button
+            onClick={() => setStep("areaPremium")}
+            className="mt-10 px-6 py-3 bg-green-500 text-black font-bold rounded-full hover:bg-green-600 transition"
+          >
+            🌟 Entrar no Portal
+          </button>
         </div>
       )}
     </main>
