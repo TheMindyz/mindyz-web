@@ -250,6 +250,18 @@ export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white border-4 border-green-400 shadow-[0_0_20px_4px_rgba(34,197,94,0.7)]">
       <div className="absolute inset-0 bg-purple-950 z-[-3]" />
+
+      {/* Botão temporário para simular usuário Premium */}
+      <button
+        onClick={() => {
+          localStorage.setItem("user_email", "equipemindyz@gmail.com");
+          window.location.reload();
+        }}
+        className="absolute top-4 right-4 text-xs bg-zinc-700 text-white px-2 py-1 rounded z-50"
+      >
+        Simular Premium
+      </button>
+
       {step === "inicio" && (
         <section className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden">
           {/* Conteúdo */}
