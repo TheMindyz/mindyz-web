@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import BoasVindasPremium from "../components/BoasVindas";
-import FuncoesPremium from "../components/FuncoesPremium";
+import BoasVindasPremium from "./api/components/BoasVindas";
+import FuncoesPremium from "./api/components/FuncoesPremium";
 
 export default function PremiumPage() {
   const [mostrarBoasVindas, setMostrarBoasVindas] = useState(false);
