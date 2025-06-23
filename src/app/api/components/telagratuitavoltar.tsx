@@ -1,4 +1,3 @@
-// src/app/api/components/telagratuítavoltar.tsx
 "use client";
 
 import { useRouter } from "next/navigation";
