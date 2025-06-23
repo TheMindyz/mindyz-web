@@ -251,27 +251,15 @@ export default function Home() {
     <main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white border-4 border-green-400 shadow-[0_0_20px_4px_rgba(34,197,94,0.7)]">
       <div className="absolute inset-0 bg-purple-950 z-[-3]" />
 
-      {/* Mostrar o botão Simular Premium só quando step === 'premium' */}
-      {step === "premium" && (
-        <>
-          <button
-            onClick={() => {
-              localStorage.setItem("user_email", "equipemindyz@gmail.com");
-              window.location.reload();
-            }}
-            className="absolute top-4 right-4 text-xs bg-zinc-700 text-white px-2 py-1 rounded z-50"
-          >
-            Simular Premium
-          </button>
-
-          {/* Botão Voltar */}
-          <button
-            onClick={() => setStep("inicio")}
-            className="absolute top-4 left-4 text-xs bg-red-700 text-white px-2 py-1 rounded z-50"
-          >
-            Voltar
-          </button>
-        </>
+      {/* Botão discreto para testar tela premium */}
+      {step === "inicio" && (
+        <button
+          onClick={() => setStep("boasVindasPremium")}
+          className="fixed top-2 right-2 text-[10px] bg-zinc-700 bg-opacity-30 text-white px-2 py-0.5 rounded z-50 hover:bg-opacity-60 transition-opacity"
+          title="Testar Tela Premium (clique discreto)"
+        >
+          Premium
+        </button>
       )}
 
       {step === "inicio" && (
