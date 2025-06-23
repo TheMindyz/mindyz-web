@@ -3,8 +3,8 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { p } from "framer-motion/client";
+import BoasVindasPremium from "../components/BoasVindasPremium";
 
-// Tipo reutilizável para mensagens
 type Mensagem = { texto: string; tipo: "usuario" | "bot" };
 
 export default function Home() {
@@ -12,22 +12,44 @@ export default function Home() {
   const [isPremium, setIsPremium] = useState(false);
 
   useEffect(() => {
-    const email = localStorage.getItem("user_email");
-    if (email) {
-      setIsPremium(true);
-    }
+    const emailSalvo = localStorage.getItem("user_email");
+    if (!emailSalvo) return;
+
+    const verificarStatus = async () => {
+      try {
+        const res = await fetch(`/api/premium-status?email=${emailSalvo}`);
+        const data = await res.json();
+        if (data.isPremium) {
+          setIsPremium(true);
+          setStep("boasVindasPremium"); // redireciona para conteúdo premium
+        }
+      } catch (err) {
+        console.error("Erro ao verificar status premium:", err);
+      }
+    };
+
+    verificarStatus();
   }, []);
 
-  const handlePagamentoSucesso = () => {
-    const emailDoPagamento = "teste@teste.com";
+  const handlePagamentoSucesso = async () => {
+    const emailDoPagamento = localStorage.getItem("user_email");
 
-    // Salvar no localStorage
-    localStorage.setItem("user_email", emailDoPagamento);
+    if (!emailDoPagamento) {
+      alert("Email não encontrado. Faça login novamente.");
+      return;
+    }
 
-    // Marcar como premium
+    // Atualiza o status no banco de dados
+    await fetch("/api/confirmar-pagamento", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: emailDoPagamento }),
+    });
+
+    // Marca como premium e avança
     setIsPremium(true);
-
-    // Avança para a área premium
     setStep("premiumSucesso");
   };
 
@@ -123,6 +145,7 @@ export default function Home() {
     | "termospolitica"
     | "pagamento"
     | "premiumSucesso"
+    | "boasVindasPremium"
     | "areaPremium"
   >("inicio");
 
@@ -384,15 +407,24 @@ export default function Home() {
           </div>
 
           <button
-            onClick={() =>
-              nome.trim() !== "" &&
-              email.trim() !== "" &&
-              descricaoPessoal.trim() !== "" &&
-              cidade.trim() !== "" &&
-              estado.trim() !== "" &&
-              acompanhamento !== "" &&
-              setStep("aguardandoaprovacao")
-            }
+            onClick={() => {
+              if (
+                nome.trim() !== "" &&
+                email.trim() !== "" &&
+                descricaoPessoal.trim() !== "" &&
+                cidade.trim() !== "" &&
+                estado.trim() !== "" &&
+                acompanhamento !== ""
+              ) {
+                // PASSO 1: Salva o e-mail no localStorage
+                localStorage.setItem("user_email", email);
+
+                // Avança para o próximo passo
+                setStep("aguardandoaprovacao");
+              } else {
+                alert("Por favor, preencha todos os campos obrigatórios.");
+              }
+            }}
             className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded"
           >
             Avançar
@@ -2266,19 +2298,10 @@ export default function Home() {
         </div>
       )}
 
-      {step === "areaPremium" && (
-        <div className="w-full min-h-screen bg-gradient-to-br from-zinc-900 to-black flex items-center justify-center">
-          <section className="max-w-4xl p-10 rounded-3xl bg-zinc-800/80 text-white shadow-lg">
-            <h2 className="text-4xl font-bold text-green-400 mb-4">
-              💎 Bem-vindo(a) à Área Premium
-            </h2>
-            <p className="text-zinc-300 text-lg">
-              Agora você tem acesso completo às funcionalidades exclusivas!
-              Explore Conteúdos, desafios e muito mais.
-            </p>
-          </section>
-        </div>
+      {step === "boasVindasPremium" && (
+        <BoasVindasPremium aoContinuar={() => setStep("areaPremium")} />
       )}
+
       {step === "premiumSucesso" && isPremium && (
         <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
           <h2 className="text-3xl font-bold text-green-400 text-center">
@@ -2296,6 +2319,20 @@ export default function Home() {
             Voltar para Home
           </button>
         </section>
+      )}
+
+      {step === "areaPremium" && (
+        <div className="w-full min-h-screen bg-gradient-to-br from-zinc-900 to-black flex items-center justify-center">
+          <section className="max-w-4xl p-10 rounded-3xl bg-zinc-800/80 text-white shadow-lg">
+            <h2 className="text-4xl font-bold text-green-400 mb-4">
+              💎 Bem-vindo(a) à Área Premium
+            </h2>
+            <p className="text-zinc-300 text-lg">
+              Agora você tem acesso completo às funcionalidades exclusivas!
+              Explore Conteúdos, desafios e muito mais.
+            </p>
+          </section>
+        </div>
       )}
     </main>
   );
