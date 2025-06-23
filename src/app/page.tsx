@@ -11,6 +11,13 @@ export default function Home() {
   const router = useRouter();
   const [isPremium, setIsPremium] = useState(false);
 
+  useEffect(() => {
+    const email = localStorage.getItem("user_email");
+    if (email) {
+      setIsPremium(true);
+    }
+  }, []);
+
   const handlePagamentoSucesso = () => {
     const emailDoPagamento = "teste@teste.com";
 
@@ -2271,6 +2278,24 @@ export default function Home() {
             </p>
           </section>
         </div>
+      )}
+      {step === "premiumSucesso" && isPremium && (
+        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
+          <h2 className="text-3xl font-bold text-green-400 text-center">
+            Área Premium
+          </h2>
+          <p className="text-white text-center">
+            Bem-vindo(a) à sua experiência premium da Mindzy! Aqui você terá
+            acesso exclusivo a conteúdos terapêuticos, trilhas especiais e muito
+            mais.
+          </p>
+          <button
+            className="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-xl transition"
+            onClick={() => setStep("home")}
+          >
+            Voltar para Home
+          </button>
+        </section>
       )}
     </main>
   );
