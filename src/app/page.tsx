@@ -251,19 +251,17 @@ export default function Home() {
     <main className="relative flex min-h-screen flex-col items-center justify-center bg-black p-6 text-white border-4 border-green-400 shadow-[0_0_20px_4px_rgba(34,197,94,0.7)]">
       <div className="absolute inset-0 bg-purple-950 z-[-3]" />
 
-      {/* Botão discreto para testar tela premium */}
-      {step === "inicio" && (
-        <button
-          onClick={() => setStep("boasVindasPremium")}
-          className="fixed top-2 right-2 text-[10px] bg-zinc-700 bg-opacity-30 text-white px-2 py-0.5 rounded z-50 hover:bg-opacity-60 transition-opacity"
-          title="Testar Tela Premium (clique discreto)"
-        >
-          Premium
-        </button>
-      )}
-
       {step === "inicio" && (
         <section className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden">
+          {/* Botão discreto no topo direito */}
+          <button
+            onClick={() => setStep("boasVindasPremium")}
+            className="absolute top-2 right-2 text-[10px] bg-transparent text-zinc-600 hover:text-green-400 z-50"
+            title="Área Premium"
+          >
+            💎
+          </button>
+
           {/* Conteúdo */}
           <div className="z-20 text-center space-y-6">
             {/* LOGO */}
