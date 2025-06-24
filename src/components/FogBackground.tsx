@@ -1,4 +1,9 @@
-// src/app/components/FogBackground.tsx
+// src/components/FogBackground.tsx
 export default function FogBackground() {
-  return <div className="fumaca" />;
+  return (
+    <div
+      className="fixed inset-0 z-0 fumaca opacity-60"
+      style={{ backgroundImage: "url('/fog.png')" }}
+    />
+  );
 }
