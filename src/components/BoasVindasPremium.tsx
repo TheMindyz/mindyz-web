@@ -9,10 +9,12 @@ export default function BoasVindasPremium({
 }) {
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white overflow-hidden px-4">
-      {/* Neblina roxa cobrindo toda a tela */}
-      <div className="neblina-bg" />
+      {/* Neblina roxa animada */}
+      <div className="neblina roxo1" />
+      <div className="neblina roxo2" />
+      <div className="neblina roxo3" />
 
-      {/* Conteúdo principal */}
+      {/* Conteúdo da tela */}
       <div className="relative z-10 text-center transition-all duration-1000 opacity-100 scale-100">
         <h1 className="text-3xl md:text-3xl font-extrabold text-green-400 mb-6">
           Bem-vindo(a) ao Portal Premium
@@ -39,43 +41,54 @@ export default function BoasVindasPremium({
         </button>
       </div>
 
-      {/* Estilo da neblina roxa em toda a tela */}
+      {/* Estilos da neblina roxa em movimento */}
       <style jsx>{`
-        .neblina-bg {
+        .neblina {
           position: absolute;
-          inset: 0;
-          background: radial-gradient(
-              circle at center,
-              rgba(168, 85, 247, 0.2),
-              transparent 70%
-            ),
-            radial-gradient(
-              circle at 30% 40%,
-              rgba(168, 85, 247, 0.15),
-              transparent 60%
-            ),
-            radial-gradient(
-              circle at 70% 60%,
-              rgba(168, 85, 247, 0.15),
-              transparent 60%
-            );
-          filter: blur(120px);
-          animation: moverNeblina 25s ease-in-out infinite alternate;
+          width: 200%;
+          height: 200%;
+          background: radial-gradient(circle, #a855f7 10%, transparent 60%);
+          opacity: 0.2;
+          filter: blur(90px);
           z-index: 0;
         }
 
-        @keyframes moverNeblina {
+        .roxo1 {
+          animation: mover1 20s ease-in-out infinite alternate;
+        }
+
+        .roxo2 {
+          animation: mover2 25s ease-in-out infinite alternate;
+        }
+
+        .roxo3 {
+          animation: mover3 30s ease-in-out infinite alternate;
+        }
+
+        @keyframes mover1 {
           0% {
-            transform: scale(1) translateY(0);
-            opacity: 0.6;
-          }
-          50% {
-            transform: scale(1.05) translateY(-15px);
-            opacity: 0.8;
+            transform: translate(-20%, -20%) scale(1);
           }
           100% {
-            transform: scale(1) translateY(15px);
-            opacity: 0.6;
+            transform: translate(10%, 10%) scale(1.1);
+          }
+        }
+
+        @keyframes mover2 {
+          0% {
+            transform: translate(30%, -10%) scale(1);
+          }
+          100% {
+            transform: translate(-10%, 20%) scale(1.05);
+          }
+        }
+
+        @keyframes mover3 {
+          0% {
+            transform: translate(0%, 30%) scale(1);
+          }
+          100% {
+            transform: translate(-20%, -30%) scale(1.1);
           }
         }
       `}</style>
