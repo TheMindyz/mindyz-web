@@ -38,13 +38,13 @@ export default function BoasVindasPremium({
 
         {/* Logo */}
         <div className="flex justify-center mb-6">
-          <img src="/logo.png" alt="Logo Mindyz" className="h-20 md:h-20" />
+          <img src="/logo.png" alt="Logo Mindyz" className="h-30 md:h-30" />
         </div>
 
         {/* Botão elegante */}
         <button
           onClick={aoContinuar}
-          className="mt-4 bg-gradient-to-r from-green-400 to-lime-500 text-black font-bold px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+          className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold px-6 py-3 rounded-full shadow-md animate-pulse-button hover:scale-105 transition-transform duration-300"
         >
           Entrar no Portal
         </button>
