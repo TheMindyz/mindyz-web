@@ -8,30 +8,80 @@ export default function BoasVindasPremium({
   aoContinuar: () => void;
 }) {
   return (
-    <div className="relative z-10 text-center transition-all duration-1000 opacity-100 scale-100">
-      <h1 className="text-3xl md:text-3xl font-extrabold text-green-400 mb-6">
-        Bem-vindo(a) ao Portal Premium
-        <br />
-        <div className="flex justify-center mt-4">
-          <img src="/logo.png" alt="Logo Mindyz" className="h-19 md:h-19" />
-        </div>
-      </h1>
+    <div className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white overflow-hidden px-4">
+      {/* Neblina roxa nas laterais */}
+      <div className="neblina-esquerda" />
+      <div className="neblina-direita" />
 
-      <p className="text-lg text-zinc-300 max-w-md mx-auto mb-4">
-        Você acaba de desbloquear uma jornada de autoconhecimento única.
-      </p>
+      {/* Conteúdo principal */}
+      <div className="relative z-10 text-center transition-all duration-1000 opacity-100 scale-100">
+        <h1 className="text-3xl md:text-3xl font-extrabold text-green-400 mb-6">
+          Bem-vindo(a) ao Portal Premium
+          <br />
+          <div className="flex justify-center mt-4">
+            <img src="/logo.png" alt="Logo Mindyz" className="h-19 md:h-19" />
+          </div>
+        </h1>
 
-      <p className="text-sm text-zinc-500 italic max-w-sm mx-auto">
-        Prepare-se para experiências secretas, ferramentas raras e insights só
-        para assinantes.
-      </p>
+        <p className="text-lg text-zinc-300 max-w-md mx-auto mb-4">
+          Você acaba de desbloquear uma jornada de autoconhecimento única.
+        </p>
 
-      <button
-        onClick={aoContinuar}
-        className="mt-8 bg-green-500 text-black font-semibold px-6 py-3 rounded-full animate-pulse-button"
-      >
-        Entrar no Portal
-      </button>
+        <p className="text-sm text-zinc-500 italic max-w-sm mx-auto">
+          Prepare-se para experiências secretas, ferramentas raras e insights só
+          para assinantes.
+        </p>
+
+        <button
+          onClick={aoContinuar}
+          className="mt-8 bg-green-500 text-black font-semibold px-6 py-3 rounded-full animate-pulse-button"
+        >
+          Entrar no Portal
+        </button>
+      </div>
+
+      {/* Estilos da neblina lateral */}
+      <style jsx>{`
+        .neblina-esquerda,
+        .neblina-direita {
+          position: absolute;
+          top: 0;
+          width: 300px;
+          height: 100%;
+          background: radial-gradient(
+            circle,
+            rgba(168, 85, 247, 0.3),
+            transparent 70%
+          );
+          filter: blur(120px);
+          animation: moverNeblinaLateral 20s ease-in-out infinite alternate;
+          z-index: 0;
+        }
+
+        .neblina-esquerda {
+          left: -150px;
+        }
+
+        .neblina-direita {
+          right: -150px;
+          animation-delay: 10s;
+        }
+
+        @keyframes moverNeblinaLateral {
+          0% {
+            transform: translateY(0);
+            opacity: 0.5;
+          }
+          50% {
+            transform: translateY(-30px);
+            opacity: 0.7;
+          }
+          100% {
+            transform: translateY(30px);
+            opacity: 0.5;
+          }
+        }
+      `}</style>
     </div>
   );
 }
