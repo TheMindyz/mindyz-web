@@ -1,77 +1,37 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
+import React from "react";
 
 export default function BoasVindasPremium({
   aoContinuar,
 }: {
   aoContinuar: () => void;
 }) {
-  const [portalAberto, setPortalAberto] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setPortalAberto(true);
-    }, 300);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const particlesInit = async (main: any) => {
-    await loadFull(main);
-  };
-
   return (
-    <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Partículas */}
-      <Particles
-        id="tsparticles"
-        init={particlesInit}
-        options={{
-          fullScreen: { enable: false },
-          particles: {
-            number: { value: 80 },
-            color: { value: "#00FF99" },
-            size: { value: 2 },
-            move: { enable: true, speed: 0.5 },
-            opacity: { value: 0.5 },
-          },
-        }}
-        className="absolute inset-0"
-      />
+    <div className="relative z-10 text-center transition-all duration-1000 opacity-100 scale-100">
+      <h1 className="text-4xl md:text-6xl font-extrabold text-green-400 mb-6">
+        Bem-vindo(a) ao Portal Premium
+        <br />
+        <div className="flex justify-center mt-4">
+          <img src="/logo.png" alt="Logo Mindyz" className="h-12 md:h-16" />
+        </div>
+      </h1>
 
-      {/* Contorno Neon */}
-      <div className="absolute inset-0 border-2 border-green-500 animate-pulse rounded-lg pointer-events-none" />
+      <p className="text-lg text-zinc-300 max-w-md mx-auto mb-4">
+        Você acaba de desbloquear uma jornada de autoconhecimento única.
+      </p>
 
-      {/* Conteúdo */}
-      <div
-        className={`relative z-10 text-center transition-all duration-1000 ${
-          portalAberto ? "opacity-100 scale-100" : "opacity-0 scale-90"
-        }`}
+      <p className="text-sm text-zinc-500 italic max-w-sm mx-auto">
+        Prepare-se para experiências secretas, ferramentas raras e insights só
+        para iniciados.
+      </p>
+
+      <button
+        onClick={aoContinuar}
+        className="mt-8 bg-green-500 text-black font-semibold px-6 py-3 rounded-full animate-pulse-button"
       >
-        <h1 className="text-4xl md:text-6xl font-extrabold text-green-400 mb-6">
-          Bem-vindo(a) ao Portal Premium
-          <br />
-          Mindyz
-        </h1>
-
-        <p className="text-lg text-zinc-300 max-w-md mx-auto mb-4">
-          Você acaba de desbloquear uma jornada de autoconhecimento única.
-        </p>
-
-        <p className="text-sm text-zinc-500 italic max-w-sm mx-auto">
-          Prepare-se para experiências secretas, ferramentas raras e insights só
-          para iniciados.
-        </p>
-
-        <button
-          onClick={aoContinuar}
-          className="animate-pulse-button mt-8 px-8 py-3 bg-green-500 text-black rounded-full font-bold hover:bg-green-600 transition"
-        >
-          Entrar no Portal
-        </button>
-      </div>
+        Entrar no Portal
+      </button>
     </div>
   );
 }
