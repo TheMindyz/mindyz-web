@@ -9,9 +9,8 @@ export default function BoasVindasPremium({
 }) {
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white overflow-hidden px-4">
-      {/* Neblina roxa nas laterais */}
-      <div className="neblina-esquerda" />
-      <div className="neblina-direita" />
+      {/* Neblina roxa cobrindo toda a tela */}
+      <div className="neblina-bg" />
 
       {/* Conteúdo principal */}
       <div className="relative z-10 text-center transition-all duration-1000 opacity-100 scale-100">
@@ -40,45 +39,43 @@ export default function BoasVindasPremium({
         </button>
       </div>
 
-      {/* Estilos da neblina lateral */}
+      {/* Estilo da neblina roxa em toda a tela */}
       <style jsx>{`
-        .neblina-esquerda,
-        .neblina-direita {
+        .neblina-bg {
           position: absolute;
-          top: 0;
-          width: 300px;
-          height: 100%;
+          inset: 0;
           background: radial-gradient(
-            circle,
-            rgba(168, 85, 247, 0.3),
-            transparent 70%
-          );
+              circle at center,
+              rgba(168, 85, 247, 0.2),
+              transparent 70%
+            ),
+            radial-gradient(
+              circle at 30% 40%,
+              rgba(168, 85, 247, 0.15),
+              transparent 60%
+            ),
+            radial-gradient(
+              circle at 70% 60%,
+              rgba(168, 85, 247, 0.15),
+              transparent 60%
+            );
           filter: blur(120px);
-          animation: moverNeblinaLateral 20s ease-in-out infinite alternate;
+          animation: moverNeblina 25s ease-in-out infinite alternate;
           z-index: 0;
         }
 
-        .neblina-esquerda {
-          left: -150px;
-        }
-
-        .neblina-direita {
-          right: -150px;
-          animation-delay: 10s;
-        }
-
-        @keyframes moverNeblinaLateral {
+        @keyframes moverNeblina {
           0% {
-            transform: translateY(0);
-            opacity: 0.5;
+            transform: scale(1) translateY(0);
+            opacity: 0.6;
           }
           50% {
-            transform: translateY(-30px);
-            opacity: 0.7;
+            transform: scale(1.05) translateY(-15px);
+            opacity: 0.8;
           }
           100% {
-            transform: translateY(30px);
-            opacity: 0.5;
+            transform: scale(1) translateY(15px);
+            opacity: 0.6;
           }
         }
       `}</style>
