@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
@@ -41,7 +42,7 @@ export default function BoasVindasPremium({
       />
 
       {/* Contorno Neon */}
-      <div className="absolute inset-0 border-2 border-green-500 animate-pulse rounded-lg pointer-events-none"></div>
+      <div className="absolute inset-0 border-2 border-green-500 animate-pulse rounded-lg pointer-events-none" />
 
       {/* Conteúdo */}
       <div
@@ -49,8 +50,10 @@ export default function BoasVindasPremium({
           portalAberto ? "opacity-100 scale-100" : "opacity-0 scale-90"
         }`}
       >
-        <h1 className="animate-pulse-title text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-lime-300 to-green-500 mb-6">
-          Bem-vindo(a) ao Portal Premium Mindyz
+        <h1 className="animate-pulse-title text-4xl md:text-6xl font-extrabold text-green-400 drop-shadow-md mb-6">
+          Bem-vindo(a) ao Portal Premium
+          <br />
+          Mindyz
         </h1>
 
         <p className="text-lg text-zinc-300 max-w-md mx-auto mb-4">
