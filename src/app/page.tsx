@@ -253,15 +253,6 @@ export default function Home() {
 
       {step === "inicio" && (
         <section className="relative w-full h-screen flex items-center justify-center bg-black overflow-hidden">
-          {/* Botão discreto no topo direito */}
-          <button
-            onClick={() => setStep("boasVindasPremium")}
-            className="absolute top-2 right-2 text-[10px] bg-transparent text-zinc-600 hover:text-green-400 z-50"
-            title="Área Premium"
-          >
-            💎
-          </button>
-
           {/* Conteúdo */}
           <div className="z-20 text-center space-y-6">
             {/* LOGO */}
