@@ -174,3 +174,28 @@ body {
 .animate-pulse-button {
   animation: pulseButton 2.4s ease-in-out infinite;
 }
+.fumaca {
+  position: fixed;
+  width: 150vw;
+  height: 150vh;
+  top: -25%;
+  left: -25%;
+  background: radial-gradient(
+    circle,
+    rgba(168, 85, 247, 0.15) 20%,
+    transparent 70%
+  );
+  filter: blur(120px);
+  animation: moverFumaca 20s ease-in-out infinite alternate;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes moverFumaca {
+  0% {
+    transform: translate(0%, 0%) scale(1);
+  }
+  100% {
+    transform: translate(10%, 10%) scale(1.1);
+  }
+}
