@@ -49,7 +49,7 @@ export default function BoasVindasPremium({
           portalAberto ? "opacity-100 scale-100" : "opacity-0 scale-90"
         }`}
       >
-        <h1 className="text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-lime-300 to-green-500 drop-shadow-[0_0_10px_#00FF99] mb-6">
+        <h1 className="animate-pulse-title text-4xl md:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-lime-300 to-green-500 mb-6">
           Bem-vindo(a) ao Portal Premium Mindyz
         </h1>
 
