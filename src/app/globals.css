@@ -162,15 +162,15 @@ body {
 @keyframes pulseTitle {
   0%,
   100% {
-    text-shadow: 0 0 6px #00ff99, 0 0 10px #00ff99;
+    text-shadow: 0 0 4px #00ff99, 0 0 6px #00ff99;
     transform: scale(1);
   }
   50% {
-    text-shadow: 0 0 12px #00ff99, 0 0 18px #00ff99;
-    transform: scale(1.02);
+    text-shadow: 0 0 6px #00ff99, 0 0 10px #00ff99;
+    transform: scale(1.01);
   }
 }
 
 .animate-pulse-title {
-  animation: pulseTitle 3s ease-in-out infinite;
+  animation: pulseTitle 2.8s ease-in-out infinite;
 }
