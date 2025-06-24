@@ -17,7 +17,7 @@ export default function BoasVindasPremium({
 
       {/* Conteúdo acima da neblina */}
       <div className="relative z-10 text-center transition-all duration-1000 opacity-100 scale-100">
-        <h1 className="text-3xl md:text-3xl font-extrabold text-green-400 mb-6">
+        <h1 className="text-2xl md:text-3xl font-bold text-green-300 mb-4">
           Bem-vindo(a) ao Portal Premium
           <br />
           <div className="flex justify-center mt-4">
