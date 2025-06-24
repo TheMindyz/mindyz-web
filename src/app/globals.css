@@ -182,8 +182,8 @@ body {
   left: -25%;
   background: radial-gradient(
     circle,
-    rgba(168, 85, 247, 0.15) 20%,
-    transparent 70%
+    rgba(61, 4, 116, 0.15) 20%,
+    transparent 90%
   );
   filter: blur(120px);
   animation: moverFumaca 20s ease-in-out infinite alternate;
