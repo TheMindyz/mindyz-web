@@ -44,7 +44,7 @@ export default function BoasVindasPremium({
         {/* Botão elegante */}
         <button
           onClick={aoContinuar}
-          className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold px-6 py-3 rounded-full shadow-md animate-pulse-button hover:scale-105 transition-transform duration-300"
+          className="bg-gradient-to-r  text-green-400  text-green-400 text-white font-bold px-6 py-3 rounded-full shadow-md animate-pulse-button hover:scale-105 transition-transform duration-300"
         >
           Entrar no Portal
         </button>
