@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+<div className="fumaca"></div>
+
 /* Variáveis base */
 :root {
   --background: #ffffff;
@@ -159,35 +161,21 @@ body {
   }
 }
 
-@keyframes pulseButton {
-  0%,
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 8px #00ff99, 0 0 14px #00ff99;
-  }
-  50% {
-    transform: scale(1.04);
-    box-shadow: 0 0 12px #00ff99, 0 0 18px #00ff99;
-  }
-}
-
-.animate-pulse-button {
-  animation: pulseButton 2.4s ease-in-out infinite;
-}
 .fumaca {
   position: fixed;
-  width: 150vw;
-  height: 150vh;
-  top: -25%;
-  left: -25%;
+  width: 200vw;
+  height: 200vh;
+  top: -50%;
+  left: -50%;
   background: radial-gradient(
-    circle,
-    rgba(61, 4, 116, 0.15) 20%,
-    transparent 90%
-  );
+      circle,
+      rgba(140, 0, 255, 0.12) 20%,
+      transparent 80%
+    ),
+    radial-gradient(circle, rgba(230, 0, 255, 0.08) 20%, transparent 80%);
   filter: blur(120px);
-  animation: moverFumaca 20s ease-in-out infinite alternate;
-  z-index: 0;
+  animation: moverFumaca 40s ease-in-out infinite alternate;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -195,7 +183,10 @@ body {
   0% {
     transform: translate(0%, 0%) scale(1);
   }
+  50% {
+    transform: translate(10%, -5%) scale(1.05);
+  }
   100% {
-    transform: translate(10%, 10%) scale(1.1);
+    transform: translate(-10%, 10%) scale(1.1);
   }
 }

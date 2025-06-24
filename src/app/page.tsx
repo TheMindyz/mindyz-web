@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { p } from "framer-motion/client";
 import BoasVindasPremium from "../components/BoasVindasPremium";
+import FogBackground from "../components/FogBackground";
 
 type Mensagem = { texto: string; tipo: "usuario" | "bot" };
 
@@ -2303,22 +2304,25 @@ export default function Home() {
       )}
 
       {step === "premiumSucesso" && isPremium && (
-        <section className="w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
-          <h2 className="text-3xl font-bold text-green-400 text-center">
-            Área Premium
-          </h2>
-          <p className="text-white text-center">
-            Bem-vindo(a) à sua experiência premium da Mindzy! Aqui você terá
-            acesso exclusivo a conteúdos terapêuticos, trilhas especiais e muito
-            mais.
-          </p>
-          <button
-            className="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-xl transition"
-            onClick={() => setStep("home")}
-          >
-            Voltar para Home
-          </button>
-        </section>
+        <div className="relative overflow-hidden min-h-screen flex items-center justify-center px-4">
+          <FogBackground /> {/* Névoa roxa ao fundo */}
+          <section className="relative z-10 w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
+            <h2 className="text-3xl font-bold text-green-400 text-center">
+              Área Premium
+            </h2>
+            <p className="text-white text-center">
+              Bem-vindo(a) à sua experiência premium da Mindzy! Aqui você terá
+              acesso exclusivo a conteúdos terapêuticos, trilhas especiais e
+              muito mais.
+            </p>
+            <button
+              className="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-xl transition"
+              onClick={() => setStep("home")}
+            >
+              Voltar para Home
+            </button>
+          </section>
+        </div>
       )}
 
       {step === "areaPremium" && (
