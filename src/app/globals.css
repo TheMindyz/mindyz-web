@@ -159,18 +159,18 @@ body {
   }
 }
 
-@keyframes pulseTitle {
+@keyframes pulseButton {
   0%,
   100% {
-    text-shadow: 0 0 4px #00ff99, 0 0 6px #00ff99;
     transform: scale(1);
+    box-shadow: 0 0 8px #00ff99, 0 0 14px #00ff99;
   }
   50% {
-    text-shadow: 0 0 6px #00ff99, 0 0 10px #00ff99;
-    transform: scale(1.01);
+    transform: scale(1.04);
+    box-shadow: 0 0 12px #00ff99, 0 0 18px #00ff99;
   }
 }
 
-.animate-pulse-title {
-  animation: pulseTitle 2.8s ease-in-out infinite;
+.animate-pulse-button {
+  animation: pulseButton 2.4s ease-in-out infinite;
 }
