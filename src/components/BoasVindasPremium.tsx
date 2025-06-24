@@ -38,7 +38,7 @@ export default function BoasVindasPremium({
 
         {/* Logo */}
         <div className="flex justify-center mb-6">
-          <img src="/logo.png" alt="Logo Mindyz" className="h-14 md:h-16" />
+          <img src="/logo.png" alt="Logo Mindyz" className="h-20 md:h-20" />
         </div>
 
         {/* Botão elegante */}
