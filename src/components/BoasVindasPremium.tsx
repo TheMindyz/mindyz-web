@@ -9,56 +9,52 @@ export default function BoasVindasPremium({
   const [portalAberto, setPortalAberto] = useState(false);
 
   useEffect(() => {
-    // Dispara animação de abertura após o carregamento
     const timer = setTimeout(() => {
       setPortalAberto(true);
-    }, 100);
+    }, 200);
     return () => clearTimeout(timer);
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-black text-center p-6 overflow-hidden relative">
-      {/* Anel de Glow / Portal */}
+    <div className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Fundo com gradiente radial */}
       <div
-        className={`absolute inset-0 rounded-full border-4 border-green-400 opacity-30 blur-xl animate-pulse ${
-          portalAberto
-            ? "scale-150 opacity-50 transition-all duration-1000"
-            : "scale-0 opacity-0"
+        className={`absolute inset-0 bg-gradient-radial from-green-500/20 via-transparent to-black transition-all duration-1000 ${
+          portalAberto ? "scale-150 opacity-60" : "scale-50 opacity-0"
         }`}
       ></div>
 
-      {/* Camada central brilhante */}
+      {/* Anel de Glow (efeito de energia do portal) */}
       <div
-        className={`absolute inset-0 rounded-full bg-green-500 opacity-10 blur-2xl transition-all duration-1000 ${
-          portalAberto ? "scale-150 opacity-20" : "scale-0 opacity-0"
+        className={`absolute w-96 h-96 rounded-full border-4 border-green-400 opacity-30 blur-2xl transition-all duration-1000 ${
+          portalAberto ? "scale-150 opacity-50" : "scale-0 opacity-0"
         }`}
       ></div>
 
-      {/* Conteúdo principal com Fade + Scale */}
+      {/* Conteúdo */}
       <div
-        className={`relative z-10 transition-all duration-1000 ${
+        className={`relative z-10 text-center text-white transition-all duration-1000 ${
           portalAberto ? "opacity-100 scale-100" : "opacity-0 scale-75"
         }`}
       >
-        <h1 className="text-4xl md:text-5xl font-extrabold text-green-400 drop-shadow-2xl mb-4 animate-pulse">
-          ✨ Bem-vindo(a) ao Portal Premium Mindyz
+        <h1 className="text-3xl md:text-5xl font-bold text-green-400 mb-4 leading-tight">
+          ✨ Bem-vindo(a) ao <br /> Portal Premium Mindyz
         </h1>
 
-        <p className="text-lg md:text-xl max-w-2xl text-zinc-300 mb-4">
-          Você acaba de desbloquear um espaço exclusivo para o seu
-          autoconhecimento profundo.
+        <p className="text-base md:text-lg text-zinc-300 max-w-sm mx-auto mb-4">
+          Você acaba de desbloquear uma jornada de autoconhecimento única.
         </p>
 
-        <p className="text-base md:text-lg max-w-xl text-zinc-500 italic">
-          Prepare-se para experiências raras, conteúdos secretos e ferramentas
-          só para iniciados.
+        <p className="text-sm md:text-base text-zinc-500 italic max-w-xs mx-auto">
+          Prepare-se para experiências secretas, ferramentas raras e insights só
+          para iniciados.
         </p>
 
         <button
           onClick={aoContinuar}
-          className="mt-8 px-8 py-3 bg-gradient-to-r from-green-400 to-green-600 text-black font-bold rounded-full shadow-xl hover:from-green-500 hover:to-green-700 transition duration-300"
+          className="mt-8 px-6 py-3 bg-green-500 text-black rounded-full font-bold shadow-lg hover:bg-green-600 transition"
         >
-          🌟 Entrar no Portal
+          🚪 Entrar no Portal
         </button>
       </div>
     </div>
