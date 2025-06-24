@@ -17,26 +17,34 @@ export default function BoasVindasPremium({
 
       {/* Conteúdo acima da neblina */}
       <div className="relative z-10 text-center transition-all duration-1000 opacity-100 scale-100">
-        <h1 className="text-2xl md:text-3xl font-bold text-green-300 mb-4">
-          Bem-vindo(a) ao Portal Premium
-          <br />
-          <div className="flex justify-center mt-4">
-            <img src="/logo.png" alt="Logo Mindyz" className="h-19 md:h-19" />
-          </div>
+        {/* Título elegante */}
+        <h1 className="text-2xl md:text-3xl font-semibold text-green-300 mb-2 tracking-wide">
+          Acesso Exclusivo Liberado
         </h1>
 
-        <p className="text-lg text-zinc-300 max-w-md mx-auto mb-4">
-          Você acaba de desbloquear uma jornada de autoconhecimento única.
+        {/* Subtítulo com destaque à marca */}
+        <p className="text-lg text-white font-light max-w-md mx-auto mb-2">
+          Bem-vindo(a) ao{" "}
+          <span className="font-semibold text-green-400">Portal Premium</span>{" "}
+          da Mindyz.
         </p>
 
-        <p className="text-sm text-zinc-500 italic max-w-sm mx-auto">
-          Prepare-se para experiências secretas, ferramentas raras e insights só
-          para assinantes.
+        {/* Frase inspiradora */}
+        <p className="text-sm text-zinc-400 italic max-w-sm mx-auto mb-6">
+          Prepare-se para explorar ferramentas raras, experiências imersivas
+          <br className="hidden md:block" />e conteúdos desbloqueados apenas por
+          quem escolheu ir além.
         </p>
 
+        {/* Logo */}
+        <div className="flex justify-center mb-6">
+          <img src="/logo.png" alt="Logo Mindyz" className="h-14 md:h-16" />
+        </div>
+
+        {/* Botão elegante */}
         <button
           onClick={aoContinuar}
-          className="mt-8 bg-green-500 text-black font-semibold px-6 py-3 rounded-full animate-pulse-button"
+          className="mt-4 bg-gradient-to-r from-green-400 to-lime-500 text-black font-bold px-6 py-3 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
         >
           Entrar no Portal
         </button>
