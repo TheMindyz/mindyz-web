@@ -10,9 +10,12 @@ export default function BoasVindasPremium({
   return (
     <div className="relative w-full min-h-screen flex items-center justify-center text-white px-4 bg-black overflow-hidden">
       {/* Neblina animada */}
-      <div className="fumaca" />
+      <div
+        className="fixed inset-0 z-0 fumaca opacity-40"
+        style={{ backgroundImage: "url('/fog.png')" }}
+      />
 
-      {/* Conteúdo */}
+      {/* Conteúdo acima da neblina */}
       <div className="relative z-10 text-center transition-all duration-1000 opacity-100 scale-100">
         <h1 className="text-3xl md:text-3xl font-extrabold text-green-400 mb-6">
           Bem-vindo(a) ao Portal Premium
