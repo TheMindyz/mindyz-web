@@ -2327,17 +2327,6 @@ export default function Home() {
       )}
 
       {step === "areaPremium" && <PagePremium />}
-      <div className="w-full min-h-screen bg-gradient-to-br from-zinc-900 to-black flex items-center justify-center">
-        <section className="max-w-4xl p-10 rounded-3xl bg-zinc-800/80 text-white shadow-lg">
-          <h2 className="text-4xl font-bold text-green-400 mb-4">
-            💎 Bem-vindo(a) à Área Premium
-          </h2>
-          <p className="text-zinc-300 text-lg">
-            Agora você tem acesso completo às funcionalidades exclusivas!
-            Explore Conteúdos, desafios e muito mais.
-          </p>
-        </section>
-      </div>
     </main>
   );
 }
