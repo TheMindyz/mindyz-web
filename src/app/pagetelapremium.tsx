@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { Home, MessageCircle, Star, Settings, Users } from "lucide-react";
 import InicioPage from "../components/InicioPage"; // mantenha o caminho correto
 
-// Recursos premium
 const premiumFeatures = [
   {
     icon: "📓",
@@ -42,7 +41,7 @@ const premiumFeatures = [
 ];
 
 export default function PagePremium() {
-  const [step, setStep] = useState("premium"); // controlando qual tela mostrar
+  const [step, setStep] = useState("premium");
 
   return (
     <>
@@ -70,7 +69,11 @@ export default function PagePremium() {
           {/* Sidebar esquerda */}
           <aside className="hidden md:flex flex-col items-center w-20 bg-zinc-900 border-r border-zinc-700 py-6 space-y-6 fixed h-full">
             <img src="/logo.png" alt="Logo" className="h-10 w-10" />
-            <IconButton icon={<Home />} label="Início" />
+            <IconButton
+              icon={<Home />}
+              label="Início"
+              onClick={() => setStep("inicio")}
+            />
             <IconButton icon={<MessageCircle />} label="Chat" />
             <IconButton icon={<Star />} label="Trilhas" />
             <IconButton icon={<Users />} label="Comunidade" />
@@ -177,9 +180,20 @@ export default function PagePremium() {
   );
 }
 
-function IconButton({ icon, label }: { icon: React.ReactNode; label: string }) {
+function IconButton({
+  icon,
+  label,
+  onClick,
+}: {
+  icon: React.ReactNode;
+  label: string;
+  onClick?: () => void;
+}) {
   return (
-    <div className="group flex flex-col items-center text-zinc-400 hover:text-green-400 transition cursor-pointer">
+    <div
+      onClick={onClick}
+      className="group flex flex-col items-center text-zinc-400 hover:text-green-400 transition cursor-pointer"
+    >
       <div className="w-10 h-10 flex items-center justify-center">{icon}</div>
       <span className="text-xs hidden lg:block group-hover:opacity-100 opacity-0 transition">
         {label}
