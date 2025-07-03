@@ -3,6 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Home, MessageCircle, Star, Settings, Users } from "lucide-react";
+import InicioPage from "../components/InicioPage";
 
 // Recursos premium
 const premiumFeatures = [
