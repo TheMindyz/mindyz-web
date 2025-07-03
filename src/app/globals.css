@@ -203,3 +203,65 @@ body {
 .fumaca-pulsante {
   animation: pulse-fundo 8s ease-in-out infinite;
 }
+.fumaca {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 0, 0.03) 0%,
+    transparent 70%
+  );
+  animation: moverFumaca 20s linear infinite;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes moverFumaca {
+  0% {
+    transform: translate(-20%, -20%) rotate(0deg);
+  }
+  100% {
+    transform: translate(20%, 20%) rotate(360deg);
+  }
+}
+
+.animate-pulse-button {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px 10px rgba(34, 197, 94, 0.2);
+  }
+}
+.fumaca {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 255, 0, 0.03) 0%,
+    transparent 70%
+  );
+  animation: moverFumaca 20s linear infinite;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  z-index: 0;
+}
+
+@keyframes moverFumaca {
+  0% {
+    transform: translate(-20%, -20%) rotate(0deg);
+  }
+  100% {
+    transform: translate(20%, 20%) rotate(360deg);
+  }
+}
