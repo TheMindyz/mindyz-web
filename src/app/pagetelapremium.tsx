@@ -46,28 +46,6 @@ export default function PagePremium() {
 
   return (
     <>
-      {/* Botões de navegação */}
-      <div className="flex justify-center gap-4 bg-zinc-900 p-4 border-b border-zinc-800">
-        <button
-          onClick={() => setStep("premium")}
-          className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition"
-        >
-          Ver Premium
-        </button>
-        <button
-          onClick={() => setStep("inicio")}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition"
-        >
-          Ir para Início
-        </button>
-        <button
-          onClick={() => setStep("chat")}
-          className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition"
-        >
-          Ir para Chat
-        </button>
-      </div>
-
       {/* Alternando entre telas */}
       {step === "inicio" && <InicioPage />}
       {step === "chat" && <ChatPage />}
