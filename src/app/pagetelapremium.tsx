@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Home, MessageCircle, Star, Settings, Users } from "lucide-react";
-import InicioPage from "../components/InicioPage"; // mantenha o caminho correto
+import InicioPage from "../components/InicioPage";
+import ChatPage from "../components/ChatPage"; // ✅ Importa o ChatPage corretamente
 
 const premiumFeatures = [
   {
@@ -59,10 +60,17 @@ export default function PagePremium() {
         >
           Ir para Início
         </button>
+        <button
+          onClick={() => setStep("chat")}
+          className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-xl text-sm font-semibold transition"
+        >
+          Ir para Chat
+        </button>
       </div>
 
       {/* Alternando entre telas */}
       {step === "inicio" && <InicioPage />}
+      {step === "chat" && <ChatPage />}
 
       {step === "premium" && (
         <div className="w-full min-h-screen bg-gradient-to-br from-zinc-900 via-black to-zinc-950 text-white flex">
@@ -74,7 +82,11 @@ export default function PagePremium() {
               label="Início"
               onClick={() => setStep("inicio")}
             />
-            <IconButton icon={<MessageCircle />} label="Chat" />
+            <IconButton
+              icon={<MessageCircle />}
+              label="Chat"
+              onClick={() => setStep("chat")}
+            />
             <IconButton icon={<Star />} label="Trilhas" />
             <IconButton icon={<Users />} label="Comunidade" />
             <IconButton icon={<Settings />} label="Ajustes" />
@@ -82,7 +94,6 @@ export default function PagePremium() {
 
           {/* Conteúdo principal */}
           <main className="flex-1 ml-0 md:ml-20 max-w-6xl mx-auto px-4 py-6 space-y-10">
-            {/* Boas-vindas */}
             <div className="flex items-center justify-between">
               <div>
                 <h1 className="text-3xl font-bold text-green-400 mb-2">
@@ -92,8 +103,6 @@ export default function PagePremium() {
                   “Você é mais forte do que imagina. Continue avançando.”
                 </p>
               </div>
-
-              {/* Avatar emocional */}
               <div className="flex items-center gap-3 bg-zinc-800 px-4 py-2 rounded-xl shadow border border-zinc-700">
                 <img
                   src="/avatar-mistico.svg"
@@ -136,7 +145,7 @@ export default function PagePremium() {
               ))}
             </motion.div>
 
-            {/* Chat global premium */}
+            {/* Chat Global Premium simulado */}
             <motion.section
               className="bg-zinc-800 rounded-xl p-6 shadow-lg max-h-[60vh] overflow-y-auto space-y-4"
               initial={{ opacity: 0, y: 10 }}
