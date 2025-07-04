@@ -1,22 +1,19 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 
-export default function InicioPage() {
-  const router = useRouter();
+interface Props {
+  setStep: (step: string) => void;
+}
 
-  const handleBack = () => {
-    router.push("/pagetelapremium"); // caminho da tela anterior
-  };
-
+export default function InicioPage({ setStep }: Props) {
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-zinc-900 via-black to-zinc-950 text-white px-6 py-10 space-y-10">
       {/* Botão Voltar */}
       <div>
         <button
-          onClick={handleBack}
+          onClick={() => setStep("premium")}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800 text-sm text-zinc-300 hover:bg-zinc-700 hover:text-white hover:shadow-lg transition-all duration-200"
         >
           <span className="text-lg">←</span>

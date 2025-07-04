@@ -47,7 +47,7 @@ export default function PagePremium() {
   return (
     <>
       {/* Alternando entre telas */}
-      {step === "inicio" && <InicioPage />}
+      {step === "inicio" && <InicioPage setStep={setStep} />}
       {step === "chat" && <ChatPage />}
 
       {step === "premium" && (
