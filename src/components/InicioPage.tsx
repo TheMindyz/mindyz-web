@@ -1,11 +1,22 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 
 export default function InicioPage() {
+  const router = useRouter();
+
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-zinc-900 via-black to-zinc-950 text-white px-6 py-10 space-y-10">
+      {/* Botão Voltar */}
+      <button
+        onClick={() => router.back()}
+        className="text-sm text-zinc-400 hover:text-white transition mb-4 underline"
+      >
+        ← Voltar
+      </button>
+
       {/* Boas-vindas */}
       <section>
         <h1 className="text-3xl font-bold text-green-400 mb-2">
