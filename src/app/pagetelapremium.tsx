@@ -48,7 +48,7 @@ export default function PagePremium() {
     <>
       {/* Alternando entre telas */}
       {step === "inicio" && <InicioPage setStep={setStep} />}
-      {step === "chat" && <ChatPage />}
+      {step === "chat" && <ChatPage setStep={setStep} />}
 
       {step === "premium" && (
         <div className="w-full min-h-screen bg-gradient-to-br from-zinc-900 via-black to-zinc-950 text-white flex">

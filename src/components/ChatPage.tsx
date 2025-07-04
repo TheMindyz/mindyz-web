@@ -3,7 +3,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function ChatPage() {
+interface Props {
+  setStep: (step: string) => void;
+}
+
+export default function ChatPage({ setStep }: Props) {
   const mensagens = [
     {
       usuario: "Explorador1",
@@ -33,7 +37,6 @@ export default function ChatPage() {
     },
   ];
 
-  // Cores simuladas por perfil
   const perfilCores: Record<string, string> = {
     Pioneiro: "bg-green-500",
     Guardião: "bg-red-500",
@@ -42,8 +45,19 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-zinc-900 via-black to-zinc-950 text-white p-6">
-      <h2 className="text-2xl font-bold text-green-400 mb-6 flex items-center gap-2">
+    <div className="w-full min-h-screen bg-gradient-to-br from-zinc-900 via-black to-zinc-950 text-white p-6 space-y-6">
+      {/* Botão Voltar */}
+      <div>
+        <button
+          onClick={() => setStep("premium")}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800 text-sm text-zinc-300 hover:bg-zinc-700 hover:text-white hover:shadow-lg transition-all duration-200"
+        >
+          <span className="text-lg">←</span>
+          Voltar
+        </button>
+      </div>
+
+      <h2 className="text-2xl font-bold text-green-400 flex items-center gap-2">
         💬 Chat da Comunidade
       </h2>
 
