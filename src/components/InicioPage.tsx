@@ -10,12 +10,15 @@ export default function InicioPage() {
   return (
     <div className="w-full min-h-screen bg-gradient-to-br from-zinc-900 via-black to-zinc-950 text-white px-6 py-10 space-y-10">
       {/* Botão Voltar */}
-      <button
-        onClick={() => router.back()}
-        className="text-sm text-zinc-400 hover:text-white transition mb-4 underline"
-      >
-        ← Voltar
-      </button>
+      <div>
+        <button
+          onClick={() => router.back()}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-800 text-sm text-zinc-300 hover:bg-zinc-700 hover:text-white hover:shadow-lg transition-all duration-200"
+        >
+          <span className="text-lg">←</span>
+          Voltar
+        </button>
+      </div>
 
       {/* Boas-vindas */}
       <section>
