@@ -2,36 +2,38 @@
 
 import React, { useEffect, useState } from "react";
 
-// Tipagem correta com children
-interface PremiumGateProps {
+type PremiumGateProps = {
   email: string;
-  children: React.ReactNode;
-}
+  children?: React.ReactNode;
+};
 
 export default function PremiumGate({ email, children }: PremiumGateProps) {
-  const [isPremium, setIsPremium] = useState(false);
-  const [carregando, setCarregando] = useState(true);
+  const [temAcesso, setTemAcesso] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const verificarStatus = async () => {
-      try {
-        const res = await fetch(`/api/premium-status?email=${email}`);
-        const data = await res.json();
-        setIsPremium(data?.isPremium);
-      } catch (err) {
-        console.error("Erro ao verificar status premium:", err);
-      } finally {
-        setCarregando(false);
-      }
-    };
+    const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
 
-    verificarStatus();
+    // Verifica se o email bate e se é premium
+    if (usuario?.email === email && usuario?.isPremium === true) {
+      setTemAcesso(true);
+    } else {
+      setTemAcesso(false);
+    }
   }, [email]);
 
-  if (carregando) return <p>Verificando acesso...</p>;
+  if (temAcesso === null) {
+    return (
+      <p className="text-white text-center mt-10">Verificando acesso...</p>
+    );
+  }
 
-  if (!isPremium)
-    return <p>🚫 Acesso negado: esta área é exclusiva para membros premium.</p>;
+  if (!temAcesso) {
+    return (
+      <div className="text-white text-center mt-10">
+        <p>Você ainda não tem acesso premium.</p>
+      </div>
+    );
+  }
 
   return <>{children}</>;
 }
