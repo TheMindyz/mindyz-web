@@ -6,6 +6,7 @@ import { p } from "framer-motion/client";
 import BoasVindasPremium from "../components/BoasVindasPremium";
 import FogBackground from "../components/FogBackground";
 import PagePremium from "./pagetelapremium";
+import PremiumGate from "../components/PremiumGate";
 
 type Mensagem = { texto: string; tipo: "usuario" | "bot" };
 
@@ -42,7 +43,7 @@ export default function Home() {
     }
 
     // Atualiza o status no banco de dados
-    await fetch("/api/confirmar-pagamento", {
+    const res = await fetch("/api/confirmar-pagamento", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -50,9 +51,25 @@ export default function Home() {
       body: JSON.stringify({ email: emailDoPagamento }),
     });
 
-    // Marca como premium e avança
-    setIsPremium(true);
-    setStep("premiumSucesso");
+    const data = await res.json();
+
+    if (data.ok) {
+      // Atualiza o localStorage com isPremium = true
+      const usuarioAtual = JSON.parse(localStorage.getItem("usuario") || "{}");
+
+      const usuarioAtualizado = {
+        ...usuarioAtual,
+        isPremium: true,
+      };
+
+      localStorage.setItem("usuario", JSON.stringify(usuarioAtualizado));
+
+      // Atualiza o estado e step
+      setIsPremium(true);
+      setStep("premiumSucesso");
+    } else {
+      alert("Não foi possível confirmar o pagamento.");
+    }
   };
 
   // Estado do chat
@@ -419,7 +436,13 @@ export default function Home() {
                 acompanhamento !== ""
               ) {
                 // PASSO 1: Salva o e-mail no localStorage
-                localStorage.setItem("user_email", email);
+                const usuario = {
+                  email: email,
+                  isPremium: false,
+                };
+
+                localStorage.setItem("usuario", JSON.stringify(usuario));
+                localStorage.setItem("user_email", email); // opcional, se quiser manter também
 
                 // Avança para o próximo passo
                 setStep("aguardandoaprovacao");
@@ -522,6 +545,14 @@ export default function Home() {
           <button
             onClick={() => {
               if (email.trim() && senha.trim()) setStep("termos");
+
+              const usuario = {
+                email: email,
+                isPremium: false, // por padrão
+              };
+
+              localStorage.setItem("usuario", JSON.stringify(usuario));
+              localStorage.setItem("user_email", email); // manter compatibilidade
             }}
             className="bg-green-600 hover:bg-green-700 text-black font-bold py-2 w-full rounded"
           >
@@ -2305,25 +2336,9 @@ export default function Home() {
       )}
 
       {step === "premiumSucesso" && isPremium && (
-        <div className="relative overflow-hidden min-h-screen flex items-center justify-center px-4">
-          <FogBackground /> {/* Névoa roxa ao fundo */}
-          <section className="relative z-10 w-full max-w-3xl bg-zinc-900 p-8 rounded-xl shadow-xl space-y-6">
-            <h2 className="text-3xl font-bold text-green-400 text-center">
-              Área Premium
-            </h2>
-            <p className="text-white text-center">
-              Bem-vindo(a) à sua experiência premium da Mindzy! Aqui você terá
-              acesso exclusivo a conteúdos terapêuticos, trilhas especiais e
-              muito mais.
-            </p>
-            <button
-              className="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-xl transition"
-              onClick={() => setStep("home")}
-            >
-              Voltar para Home
-            </button>
-          </section>
-        </div>
+        <PremiumGate>
+          <BoasVindasPremium aoContinuar={() => setStep("areaPremium")} />
+        </PremiumGate>
       )}
 
       {step === "areaPremium" && <PagePremium />}

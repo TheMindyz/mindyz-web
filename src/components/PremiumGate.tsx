@@ -3,18 +3,22 @@
 import React, { useEffect, useState } from "react";
 
 type PremiumGateProps = {
-  email: string;
+  email?: string; // agora opcional
   children?: React.ReactNode;
 };
 
 export default function PremiumGate({ email, children }: PremiumGateProps) {
   const [temAcesso, setTemAcesso] = useState<boolean | null>(null);
+  const [emailVerificado, setEmailVerificado] = useState<string>("");
 
   useEffect(() => {
+    // Se não veio email pela prop, tenta pegar do localStorage
+    const emailFinal = email || localStorage.getItem("user_email") || "";
+    setEmailVerificado(emailFinal);
+
     const usuario = JSON.parse(localStorage.getItem("usuario") || "{}");
 
-    // Verifica se o email bate e se é premium
-    if (usuario?.email === email && usuario?.isPremium === true) {
+    if (usuario?.email === emailFinal && usuario?.isPremium === true) {
       setTemAcesso(true);
     } else {
       setTemAcesso(false);
@@ -31,6 +35,9 @@ export default function PremiumGate({ email, children }: PremiumGateProps) {
     return (
       <div className="text-white text-center mt-10">
         <p>Você ainda não tem acesso premium.</p>
+        <p className="text-sm text-zinc-400 mt-2">
+          Email: {emailVerificado || "desconhecido"}
+        </p>
       </div>
     );
   }
