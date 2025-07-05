@@ -38,7 +38,7 @@ export default async function handler(
       }
 
       const paymentData = await response.json();
-      const email = paymentData.payer?.email;
+      const email = paymentData.external_reference;
 
       if (!email) {
         return res.status(400).json({ error: "E-mail não encontrado" });
