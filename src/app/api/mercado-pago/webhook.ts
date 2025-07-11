@@ -45,20 +45,30 @@ export default async function handler(
       }
 
       if (paymentData.status === "approved") {
-        await prisma.pagamento.upsert({
+        const user = await prisma.user.findUnique({
           where: { email },
-          update: {
-            status: "ativo",
-            criadoEm: new Date(),
-          },
-          create: {
-            email,
-            status: "ativo",
-            criadoEm: new Date(),
+        });
+
+        if (!user) {
+          return res.status(404).json({ error: "Usuário não encontrado" });
+        }
+
+        // Cria o pagamento vinculado ao usuário
+        await prisma.payment.create({
+          data: {
+            amount: paymentData.transaction_amount,
+            status: "approved",
+            userId: user.id,
           },
         });
 
-        console.log(`✅ Status premium ativado para: ${email}`);
+        // Atualiza o usuário para premium
+        await prisma.user.update({
+          where: { id: user.id },
+          data: { isPremium: true },
+        });
+
+        console.log(`✅ Premium ativado para: ${email}`);
       }
     }
 

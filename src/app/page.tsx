@@ -7,6 +7,7 @@ import BoasVindasPremium from "../components/BoasVindasPremium";
 import FogBackground from "../components/FogBackground";
 import PagePremium from "./pagetelapremium";
 import PremiumGate from "../components/PremiumGate";
+import FormularioPagamento from "@/app/api/components/formulariopagamento";
 
 type Mensagem = { texto: string; tipo: "usuario" | "bot" };
 
@@ -71,6 +72,75 @@ export default function Home() {
       alert("Não foi possível confirmar o pagamento.");
     }
   };
+
+  const iniciarPagamento = async (plano: string) => {
+    const email = localStorage.getItem("user_email");
+    if (!email) {
+      alert("Você precisa informar seu e-mail antes!");
+      return;
+    }
+
+    const res = await fetch("/api/criar-pagamento", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, plano }),
+    });
+
+    const data = await res.json();
+    if (data?.url) {
+      window.location.href = data.url;
+    } else {
+      alert("Erro ao iniciar pagamento.");
+    }
+  };
+
+  async function verificarPremium(email: string): Promise<boolean> {
+    const response = await fetch("/api/usuarios", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
+    const data = await response.json();
+    return data.isPremium === true;
+  }
+
+  useEffect(() => {
+    const email = localStorage.getItem("email"); // ou pegue de um contexto
+    if (!email) return;
+
+    verificarPremium(email).then((ehPremium) => {
+      if (ehPremium) {
+        setStep("boasVindasPremium"); // ou direto para areaPremium se preferir
+      } else {
+        setStep("home"); // usuário gratuito
+      }
+    });
+  }, []);
+
+  useEffect(() => {
+    const handlePremium = () => {
+      setStep("boasVindasPremium");
+    };
+
+    window.addEventListener("premiumLiberado", handlePremium);
+
+    return () => {
+      window.removeEventListener("premiumLiberado", handlePremium);
+    };
+  }, []);
+
+  useEffect(() => {
+    const listener = () => {
+      setStep("boasVindasPremium");
+    };
+
+    window.addEventListener("premiumLiberado", listener);
+
+    return () => {
+      window.removeEventListener("premiumLiberado", listener);
+    };
+  }, []);
 
   // Estado do chat
   const [mensagens, setMensagens] = useState<Mensagem[]>([
@@ -159,6 +229,9 @@ export default function Home() {
     | "seudiario"
     | "espiritualidade"
     | "premium"
+    | "checkoutMensal"
+    | "checkoutTrimestral"
+    | "checkoutAnual"
     | "planos"
     | "sobrePremium"
     | "termospolitica"
@@ -426,7 +499,7 @@ export default function Home() {
           </div>
 
           <button
-            onClick={() => {
+            onClick={async () => {
               if (
                 nome.trim() !== "" &&
                 email.trim() !== "" &&
@@ -435,16 +508,27 @@ export default function Home() {
                 estado.trim() !== "" &&
                 acompanhamento !== ""
               ) {
-                // PASSO 1: Salva o e-mail no localStorage
                 const usuario = {
                   email: email,
                   isPremium: false,
                 };
 
+                // Salva no localStorage
                 localStorage.setItem("usuario", JSON.stringify(usuario));
-                localStorage.setItem("user_email", email); // opcional, se quiser manter também
+                localStorage.setItem("user_email", email);
 
-                // Avança para o próximo passo
+                // Envia para o banco
+                try {
+                  await fetch("/api/usuarios", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email }),
+                  });
+                } catch (err) {
+                  console.error("Erro ao cadastrar usuário:", err);
+                }
+
+                // Avança para próxima etapa
                 setStep("aguardandoaprovacao");
               } else {
                 alert("Por favor, preencha todos os campos obrigatórios.");
@@ -466,6 +550,7 @@ export default function Home() {
           </p>
         </section>
       )}
+
       {step === "aguardandoaprovacao" && (
         <section className="w-full max-w-md space-y-6 p-6 rounded-xl border-4 border-green-500 shadow-[0_0_20px_4px_rgba(34,197,94,0.5)] bg-zinc-900 text-center">
           <h2 className="text-2xl font-bold text-green-400">
@@ -1940,6 +2025,7 @@ export default function Home() {
           </ul>
         </section>
       )}
+
       {step === "premium" && (
         <div className="relative w-full min-h-screen bg-black flex items-center justify-center overflow-hidden">
           {/* Portas e partículas */}
@@ -1947,182 +2033,97 @@ export default function Home() {
           <div className="portal-door right-door"></div>
           <div className="particles"></div>
 
-          {/* Seção principal */}
-          {!mostrarPlanos ? (
-            <section className="relative z-10 w-[90%] max-w-4xl min-h-[600px] bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_40px_#22c55eaa] backdrop-blur-md flex flex-col items-center justify-center p-10 space-y-6 text-center">
-              <BotaoVoltar voltarPara="home" />
+          {/* Seção principal do portal */}
+          <section className="relative z-10 w-[90%] max-w-4xl min-h-[600px] bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_40px_#22c55eaa] backdrop-blur-md flex flex-col items-center justify-center p-10 space-y-6 text-center">
+            <BotaoVoltar voltarPara="home" />
 
-              <h2 className="text-5xl font-extrabold text-green-400 animate-pulse">
-                🚀 Portal Premium Mindyz
-              </h2>
+            <h2 className="text-5xl font-extrabold text-green-400 animate-pulse">
+              🚀 Portal Premium Mindyz
+            </h2>
 
-              <p className="text-zinc-300 text-lg max-w-xl">
-                Bem-vindo(a) a um espaço exclusivo. Desbloqueie ferramentas que
-                aceleram seu desenvolvimento e autoconhecimento.
-              </p>
+            <p className="text-zinc-300 text-lg max-w-xl">
+              Bem-vindo(a) a um espaço exclusivo. Desbloqueie ferramentas que
+              aceleram seu desenvolvimento e autoconhecimento.
+            </p>
 
-              <ul className="space-y-4 text-left max-w-xl">
-                {[
-                  "🔓 Acesso antecipado a recursos exclusivos",
-                  "🧠 Conteúdos avançados de autoconhecimento",
-                  "📔 Insights do Diário Emocional",
-                  "🎯 Desafios de desenvolvimento pessoal",
-                  "🎥 Workshops e aulas com especialistas",
-                  "🤝 Comunidade premium para evolução",
-                ].map((item, idx) => (
-                  <li
-                    key={idx}
-                    className="relative group bg-zinc-800/80 px-6 py-3 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm overflow-hidden"
-                  >
-                    <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-200 via-emerald-400 to-teal-300 rounded-xl blur-lg opacity-30 group-hover:opacity-40 animate-pulse z-0"></span>
-
-                    <span className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
-                      <span className="bg-black/80 px-4 py-1 rounded-full text-sm text-white flex items-center gap-2 shadow-lg">
-                        🔒 Assinar
-                      </span>
+            <ul className="space-y-4 text-left max-w-xl">
+              {[
+                "🔓 Acesso antecipado a recursos exclusivos",
+                "🧠 Conteúdos avançados de autoconhecimento",
+                "📔 Insights do Diário Emocional",
+                "🎯 Desafios de desenvolvimento pessoal",
+                "🎥 Workshops e aulas com especialistas",
+                "🤝 Comunidade premium para evolução",
+              ].map((item, idx) => (
+                <li
+                  key={idx}
+                  className="relative group bg-zinc-800/80 px-6 py-3 rounded-xl text-green-400 shadow-md hover:bg-zinc-700 transition-all backdrop-blur-sm overflow-hidden"
+                >
+                  <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-200 via-emerald-400 to-teal-300 rounded-xl blur-lg opacity-30 group-hover:opacity-40 animate-pulse z-0"></span>
+                  <span className="absolute inset-0 flex items-center justify-center z-10 pointer-events-none">
+                    <span className="bg-black/80 px-4 py-1 rounded-full text-sm text-white flex items-center gap-2 shadow-lg">
+                      🔒 Assinar
                     </span>
+                  </span>
+                  <span className="relative z-20 opacity-30 group-hover:opacity-40">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
 
-                    <span className="relative z-20 opacity-30 group-hover:opacity-40">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+            <p className="text-green-300 text-lg italic mt-4">
+              ...e muito mais!
+            </p>
 
-              <p className="text-green-300 text-lg italic mt-4">
-                ...e muito mais!
-              </p>
+            <p
+              className="text-sm text-green-300 underline cursor-pointer hover:text-green-200 transition"
+              onClick={() => setStep("sobrePremium")}
+            >
+              Saiba mais sobre o Premium
+            </p>
 
-              <p
-                className="text-sm text-green-300 underline cursor-pointer hover:text-green-200 transition"
-                onClick={() => setStep("sobrePremium")}
-              >
-                Saiba mais sobre o Premium
-              </p>
-
-              <button
-                className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group mt-6"
-                onClick={() => setMostrarPlanos(true)}
-              >
-                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-70 group-hover:opacity-90 animate-pulse"></span>
-                <span className="relative z-10">🚀 Quero ser Premium</span>
-              </button>
-            </section>
-          ) : (
-            <section className="relative z-20 w-[90%] max-w-4xl bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_40px_#22c55eaa] backdrop-blur-md p-10 text-center space-y-6">
-              <h2 className="text-4xl md:text-5xl font-extrabold text-green-400 animate-pulse">
-                💎 Torne-se Premium Mindyz
-              </h2>
-
-              <p className="text-zinc-300 text-lg max-w-2xl mx-auto">
-                A assinatura Premium desbloqueia recursos avançados,
-                experiências exclusivas e suporte completo para o seu
-                autodesenvolvimento emocional.
-              </p>
-
-              <div className="grid md:grid-cols-3 gap-6 mt-8 text-left">
-                {/* Plano Mensal */}
-                <div className="bg-zinc-800 rounded-2xl p-6 border border-green-500 shadow-lg min-h-[300px] flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold text-green-400">
-                      Plano Mensal
-                    </h3>
-                    <p className="text-zinc-200 mt-2">
-                      Ideal para quem está começando.
-                    </p>
-                    <p className="text-3xl font-extrabold text-white mt-4">
-                      R$ 7,90
-                    </p>
-                    <p className="text-sm text-zinc-400">/ mês até dez/2025</p>
-                    <ul className="mt-4 space-y-2 text-green-300 text-sm">
-                      <li>✔️ Acesso completo a recursos Premium</li>
-                      <li>✔️ SOS Emocional completo</li>
-                      <li>✔️ Conteúdos semanais exclusivos</li>
-                    </ul>
-                  </div>
-                  <a
-                    href="https://mpago.la/2xq1BTu"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 block bg-green-500 text-black font-bold text-center py-3 rounded-xl shadow hover:bg-green-600 transition"
-                  >
-                    🚀 Assinar Agora
-                  </a>
-                </div>
-
-                {/* Plano Trimestral */}
-                <div className="bg-zinc-800 rounded-2xl p-6 border border-emerald-500 shadow-lg min-h-[300px] flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold text-emerald-400">
-                      Plano Trimestral
-                    </h3>
-                    <p className="text-zinc-200 mt-2">
-                      Mais economia com benefícios extras.
-                    </p>
-                    <p className="text-3xl font-extrabold text-white mt-4">
-                      R$ 19,90
-                    </p>
-                    <p className="text-sm text-zinc-400">/ a cada 3 meses</p>
-                    <ul className="mt-4 space-y-2 text-green-300 text-sm">
-                      <li>✔️ Tudo do plano mensal</li>
-                      <li>✔️ Acesso a eventos ao vivo</li>
-                      <li>✔️ Prioridade no suporte</li>
-                    </ul>
-                  </div>
-                  <a
-                    href="https://mpago.la/25NZAwC"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 block bg-emerald-500 text-black font-bold text-center py-3 rounded-xl shadow hover:bg-emerald-600 transition"
-                  >
-                    🚀 Assinar Agora
-                  </a>
-                </div>
-
-                {/* Plano Anual */}
-                <div className="bg-zinc-800 rounded-2xl p-6 border border-teal-500 shadow-lg min-h-[300px] flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-xl font-bold text-teal-400">
-                      Plano Anual
-                    </h3>
-                    <p className="text-zinc-200 mt-2">
-                      Compromisso total com sua jornada.
-                    </p>
-                    <p className="text-3xl font-extrabold text-white mt-4">
-                      R$ 69,90
-                    </p>
-                    <p className="text-sm text-zinc-400">/ ano</p>
-                    <ul className="mt-4 space-y-2 text-green-300 text-sm">
-                      <li>✔️ Tudo dos outros planos</li>
-                      <li>✔️ Acesso antecipado a novas funcionalidades</li>
-                      <li>✔️ Reconhecimento na comunidade Mindyz</li>
-                    </ul>
-                  </div>
-                  <a
-                    href="https://mpago.la/1DgcoSA"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-6 block bg-teal-500 text-black font-bold text-center py-3 rounded-xl shadow hover:bg-teal-600 transition"
-                  >
-                    🚀 Assinar Agora
-                  </a>
-                </div>
-              </div>
-
-              <p className="mt-6 text-green-300 italic">
-                *Você pode cancelar a qualquer momento.
-              </p>
-
-              <button
-                onClick={() => setMostrarPlanos(false)}
-                className="mt-4 underline text-sm text-zinc-400 hover:text-green-400"
-              >
-                ← Voltar para o portal
-              </button>
-            </section>
-          )}
+            <button
+              className="relative inline-flex items-center justify-center px-8 py-3 overflow-hidden font-bold text-white rounded-full shadow-lg group mt-6"
+              onClick={() => setStep("pagamento")}
+            >
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 rounded-full blur-lg opacity-70 group-hover:opacity-90 animate-pulse"></span>
+              <span className="relative z-10">🚀 Quero ser Premium</span>
+            </button>
+          </section>
         </div>
       )}
+      {step === "pagamento" && (
+        <FormularioPagamento
+          voltar={() => setStep("premium")}
+          onPagamentoAprovado={() => setStep("boasVindasPremium")}
+        />
+      )}
+
+      {step === "checkoutMensal" && (
+        <FormularioPagamento
+          plano="mensal"
+          voltar={() => setStep("premium")}
+          onPagamentoAprovado={() => setStep("boasVindasPremium")}
+        />
+      )}
+
+      {step === "checkoutTrimestral" && (
+        <FormularioPagamento
+          plano="trimestral"
+          voltar={() => setStep("premium")}
+          onPagamentoAprovado={() => setStep("boasVindasPremium")}
+        />
+      )}
+
+      {step === "checkoutAnual" && (
+        <FormularioPagamento
+          plano="anual"
+          voltar={() => setStep("premium")}
+          onPagamentoAprovado={() => setStep("boasVindasPremium")}
+        />
+      )}
+
       {step === "sobrePremium" && (
         <div className="relative w-full min-h-screen bg-black flex items-center justify-center px-4">
           <section className="relative z-10 w-full max-w-4xl bg-zinc-900/90 border-[5px] border-green-400 rounded-3xl shadow-[0_0_30px_#22c55eaa] backdrop-blur-md p-10 space-y-6 text-center">
@@ -2315,19 +2316,6 @@ export default function Home() {
               </section>
             </div>
           </section>
-        </div>
-      )}
-      {step === "pagamento" && (
-        <div className="flex flex-col items-center gap-4">
-          <p className="text-white text-lg">
-            Pronto! Agora é só confirmar sua assinatura:
-          </p>
-          <button
-            onClick={handlePagamentoSucesso}
-            className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition"
-          >
-            Assinar com Mercado Pago
-          </button>
         </div>
       )}
 
