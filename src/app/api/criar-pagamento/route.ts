@@ -17,6 +17,9 @@ type Preference = {
   external_reference?: string;
 };
 
+// 👇 OBRIGATÓRIO para Vercel rodar API com código dinâmico
+export const dynamic = "force-dynamic";
+
 mercadopago.configure({
   access_token: process.env.MERCADO_PAGO_TOKEN!,
 });
