@@ -21,11 +21,24 @@ export default function PremiumGate({ email, children }: PremiumGateProps) {
 
     setEmailVerificado(emailFinal);
 
+    // Se o usuário já é premium no localStorage, pula verificação
+    const localPremium = localStorage.getItem("user_premium");
+    if (localPremium === "true") {
+      setTemAcesso(true);
+      return;
+    }
+
     const verificarStatus = async () => {
       try {
         const res = await fetch(`/api/premium-status?email=${emailFinal}`);
         const data = await res.json();
-        setTemAcesso(data?.isPremium);
+
+        if (data?.isPremium) {
+          localStorage.setItem("user_premium", "true");
+          setTemAcesso(true);
+        } else {
+          setTemAcesso(false);
+        }
       } catch (err) {
         console.error("Erro ao verificar status premium:", err);
         setTemAcesso(false);

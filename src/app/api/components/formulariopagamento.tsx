@@ -81,7 +81,7 @@ export default function FormularioPagamento({
                 alert("✅ Pagamento aprovado!");
 
                 // Salva o e-mail no navegador (para saber que esse usuário é premium)
-                localStorage.setItem("email", data.email);
+                localStorage.setItem("user_email", data.email);
 
                 // Leva ele para a tela de boas-vindas
                 if (typeof window !== "undefined") {

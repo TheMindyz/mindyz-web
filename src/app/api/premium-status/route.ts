@@ -1,12 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { verificarPremium } from "@/lib/verificarPremium";
 
+function validarEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
   const email = searchParams.get("email");
 
-  if (!email) {
-    return NextResponse.json({ error: "Email não fornecido" }, { status: 400 });
+  if (!email || !validarEmail(email)) {
+    return NextResponse.json(
+      { error: "Email inválido ou não fornecido", isPremium: false },
+      { status: 400 }
+    );
   }
 
   try {
@@ -15,7 +22,7 @@ export async function GET(req: NextRequest) {
   } catch (error) {
     console.error("Erro ao verificar status premium:", error);
     return NextResponse.json(
-      { error: "Erro interno no servidor" },
+      { error: "Erro interno no servidor", isPremium: false },
       { status: 500 }
     );
   }

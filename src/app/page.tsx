@@ -142,6 +142,22 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const verificarStatusPremium = async () => {
+      const email = localStorage.getItem("user_email");
+      if (!email) return;
+
+      const res = await fetch(`/api/premium-status?email=${email}`);
+      const data = await res.json();
+
+      if (data.isPremium) {
+        setStep("boasVindasPremium");
+      }
+    };
+
+    verificarStatusPremium();
+  }, []);
+
   // Estado do chat
   const [mensagens, setMensagens] = useState<Mensagem[]>([
     { texto: "Olá, tudo bem? Pode desabafar à vontade.", tipo: "bot" },
@@ -528,8 +544,38 @@ export default function Home() {
                   console.error("Erro ao cadastrar usuário:", err);
                 }
 
+                const calcularIdade = (data: string): number => {
+                  const hoje = new Date();
+                  const nascimento = new Date(data);
+                  let idade = hoje.getFullYear() - nascimento.getFullYear();
+                  const mes = hoje.getMonth() - nascimento.getMonth();
+                  if (
+                    mes < 0 ||
+                    (mes === 0 && hoje.getDate() < nascimento.getDate())
+                  )
+                    idade--;
+                  return idade;
+                };
+
+                const getFaseDaVida = (
+                  idade: number
+                ): "roxa" | "verde" | "laranja" => {
+                  if (idade >= 16 && idade <= 29) return "roxa";
+                  if (idade >= 30 && idade <= 49) return "verde";
+                  return "laranja";
+                };
+
                 // Avança para próxima etapa
-                setStep("aguardandoaprovacao");
+                const idade = calcularIdade(dataNascimento);
+                const fase = getFaseDaVida(idade);
+
+                localStorage.setItem("faseMindyz", fase); // Salva para uso futuro
+
+                if (fase === "laranja") {
+                  setStep("boasVindas"); // vai direto pro conteúdo
+                } else {
+                  setStep("aguardandoaprovacao");
+                }
               } else {
                 alert("Por favor, preencha todos os campos obrigatórios.");
               }
@@ -573,7 +619,49 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Mensagem acolhedora + Frase automática */}
+          {/* Mensagem personalizada por fase */}
+          <div className="bg-zinc-800 rounded-lg p-4 shadow space-y-2 text-sm text-zinc-300">
+            {(() => {
+              const fase = localStorage.getItem("faseMindyz");
+              if (fase === "roxa") {
+                return (
+                  <>
+                    <p className="text-purple-400 font-semibold">
+                      ✨ Juventude Transformadora
+                    </p>
+                    <p>
+                      Ansiedade, relações, propósito... aqui você encontra um
+                      espaço seguro para descobrir quem você é — com leveza.
+                    </p>
+                    <p>
+                      Estamos aqui para te acompanhar nessa jornada de
+                      autoconhecimento. 💜
+                    </p>
+                  </>
+                );
+              } else if (fase === "verde") {
+                return (
+                  <>
+                    <p className="text-green-400 font-semibold">
+                      🌿 Meia-idade em Renovação
+                    </p>
+                    <p>
+                      Sabemos que conciliar vida pessoal, profissional e
+                      emocional não é fácil. Mas você não está só.
+                    </p>
+                    <p>
+                      A Mindyz é seu espaço para respirar, se reorganizar e se
+                      reinventar. 🌱
+                    </p>
+                  </>
+                );
+              } else {
+                return null;
+              }
+            })()}
+          </div>
+
+          {/* Frase automática */}
           <div className="flex flex-col items-center space-y-2">
             <p className="text-green-400 text-sm flex items-center gap-1">
               <span className="animate-pulse">
@@ -607,6 +695,7 @@ export default function Home() {
           </button>
         </section>
       )}
+
       {step === "login" && (
         <section className="max-w-md p-6 bg-zinc-900 rounded-lg shadow-lg space-y-4 border border-green-600">
           <BotaoVoltar voltarPara="inicio" />

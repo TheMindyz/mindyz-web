@@ -17,10 +17,13 @@ model User {
 }
 
 model Payment {
-  id        String   @id @default(cuid())
-  amount    Float
-  status    String
-  userId    String
-  createdAt DateTime @default(now())
-  user      User     @relation("UserPayments", fields: [userId], references: [id])
+  id                String   @id @default(cuid())
+  email             String               
+  amount            Float
+  status            String
+  userId            String
+  createdAt         DateTime @default(now())
+  externalPaymentId String   @unique
+  user              User     @relation("UserPayments", fields: [userId], references: [id])
 }
+
