@@ -8,6 +8,7 @@ import FogBackground from "../components/FogBackground";
 import PagePremium from "./pagetelapremium";
 import PremiumGate from "../components/PremiumGate";
 import FormularioPagamento from "@/app/api/components/formulariopagamento";
+import { motion } from "framer-motion";
 
 type Mensagem = { texto: string; tipo: "usuario" | "bot" };
 
@@ -598,35 +599,37 @@ export default function Home() {
       )}
 
       {step === "aguardandoaprovacao" && (
-        <section className="w-full max-w-md space-y-6 p-6 rounded-xl border-4 border-green-500 shadow-[0_0_20px_4px_rgba(34,197,94,0.5)] bg-zinc-900 text-center">
-          <h2 className="text-2xl font-bold text-green-400">
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="w-full max-w-lg md:max-w-xl mx-auto p-8 rounded-3xl border border-green-400 bg-zinc-900 text-center shadow-[0_0_60px_2px_rgba(34,197,94,0.2)] backdrop-blur-md"
+        >
+          <h2 className="text-3xl font-bold text-green-400 mb-4">
             Aguardando Aprovação
           </h2>
 
-          <div className="text-white text-base space-y-3">
+          <div className="text-zinc-100 text-base space-y-4 leading-relaxed">
             <p>
               Obrigado por se cadastrar,{" "}
-              <strong className="text-green-300">{nome}</strong>! Seu cadastro
-              está em análise.
+              <span className="text-green-300 font-semibold">{nome}</span>! Seu
+              cadastro está em análise.
             </p>
+            <p>Você receberá um e-mail com sua senha assim que for aprovado.</p>
             <p>
-              Você receberá um e-mail com sua senha de acesso assim que for
-              aprovado.
-            </p>
-            <p>
-              Em até <strong className="text-green-300">24 horas</strong>, você
-              poderá fazer parte da nossa comunidade! 💚
+              Em até{" "}
+              <span className="text-green-300 font-semibold">24 horas</span>,
+              você poderá fazer parte da nossa comunidade! 💚
             </p>
           </div>
 
-          {/* Mensagem personalizada por fase */}
-          <div className="bg-zinc-800 rounded-lg p-4 shadow space-y-2 text-sm text-zinc-300">
+          <div className="mt-6 bg-zinc-800 rounded-xl px-6 py-4 text-sm text-zinc-300 shadow-inner border border-zinc-700 space-y-3">
             {(() => {
               const fase = localStorage.getItem("faseMindyz");
               if (fase === "roxa") {
                 return (
                   <>
-                    <p className="text-purple-400 font-semibold">
+                    <p className="text-purple-400 font-semibold text-base">
                       ✨ Juventude Transformadora
                     </p>
                     <p>
@@ -642,7 +645,7 @@ export default function Home() {
               } else if (fase === "verde") {
                 return (
                   <>
-                    <p className="text-green-400 font-semibold">
+                    <p className="text-green-400 font-semibold text-base">
                       🌿 Meia-idade em Renovação
                     </p>
                     <p>
@@ -661,8 +664,7 @@ export default function Home() {
             })()}
           </div>
 
-          {/* Frase automática */}
-          <div className="flex flex-col items-center space-y-2">
+          <div className="mt-6 flex flex-col items-center space-y-3">
             <p className="text-green-400 text-sm flex items-center gap-1">
               <span className="animate-pulse">
                 Estamos revisando seu cadastro
@@ -672,7 +674,7 @@ export default function Home() {
               <span className="animate-bounce delay-300">.</span>
             </p>
 
-            <p className="text-white text-sm italic">
+            <p className="text-zinc-300 text-sm italic">
               {(() => {
                 const frases = [
                   "Respire fundo... você está exatamente onde deveria estar.",
@@ -689,11 +691,11 @@ export default function Home() {
 
           <button
             onClick={() => setStep("inicio")}
-            className="mt-4 bg-green-600 hover:bg-green-700 text-black font-semibold py-2 px-4 rounded"
+            className="mt-8 px-5 py-2.5 rounded-full bg-gradient-to-r from-green-400 to-green-600 text-zinc-900 font-bold hover:brightness-110 transition-all duration-300 shadow-md hover:shadow-xl"
           >
             Voltar ao início
           </button>
-        </section>
+        </motion.section>
       )}
 
       {step === "login" && (
